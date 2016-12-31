@@ -1,0 +1,342 @@
+<script>
+  var initComponents = function() {
+      console.log('you are here.');
+  }
+</script>
+<style>
+    .widget {
+        height: 100%;
+        width: 920px;
+        background-color: white;
+    }
+    .dialog-container {
+        padding-top: 2px;
+        padding-left: 2px;
+        padding-right: 2px;
+        color: #333; */
+        background-color: #fff; 
+    }
+/*
+   .ngdialog-content {
+        max-width: 920px;
+        height: 518px;
+       
+    }
+*/
+/*    height: 730px;*/
+/*
+    .ngdialog {
+        top: 10%;
+        left: 30%;
+        max-width: 720px;
+        height: 730px;
+    }
+*/
+    .bgSelector {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 920px;
+        height: 520px;
+/*        z-index: 1;*/
+/*        height: 480px;*/
+        
+    }
+    #headerRegion {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 508px;
+        height: 200px;
+/*        height: 480px;*/
+        
+    }
+    #chimage {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 250px;
+        height: 100%;
+/*        height: 480px;*/
+        
+    }
+    #chinfo {
+        position: absolute;
+        top: 20%;
+        left: 254px;
+        width: 250px;
+        height: 100%;
+/*        height: 480px;*/
+        
+    }
+    #companyLogo {
+        position: absolute;
+        top: 320px;
+        left: 5px;
+        width: 154px;
+        height: 32px;
+        background-color : #e0e0e0;
+    }
+    #companyTitle {
+        position: absolute;
+        margin-top: 2px;
+        font-size:small;
+        top: 350px;
+        left: 5px;
+        width: 154px;
+        height: 40px;
+        background-color : #e0e0e0;
+        
+    }
+    #companyAddr {
+        position: absolute;
+        margin-top: 2px;
+        font-size:small;
+        top: 392px;
+        left: 5px;
+        width: 154px;
+        height: 40px;
+        background-color : #e0e0e0;
+        
+    }
+    #companyPhone {
+        position: absolute;
+        margin-top: 2px;
+        font-size:small;
+        top: 434px;
+        left: 5px;
+        width: 154px;
+        height: 20px;
+        background-color : #e0e0e0;
+        
+    }
+    #companyEmail {
+        position: absolute;
+        margin-top: 2px;
+        font-size:small;
+        top: 456px;
+        left: 5px;
+        width: 154px;
+        height: 20px;
+        background-color : #e0e0e0;
+        
+    }
+/*
+    #companyWeb {
+        position: absolute;
+        margin-top: 2px;
+        font-size:small;
+        top: 396px;
+        left: 20px;
+        width: 154px;
+        height: 20px;
+        background-color : #e0e0e0;
+        
+    }
+*/
+    #companyImage {
+        position: absolute;
+        margin-top: 2px;
+        top: 478px;
+        left: 10px;
+        width: 154px;
+        height: 154px;
+        background-color : #e0e0e0;
+        
+    }
+
+    #mainTitle {
+        position: absolute;
+        margin-top: 2px;
+        top: 94px;
+        left: 520px;
+        width: 320px;
+        height: 80px;
+        background-color : #e0e0e0;
+        
+    }
+    #mainInfo {
+        position: absolute;
+        margin-top: 2px;
+        top: 240px;
+        left: 194px;
+        width: 380px;
+        height: 200px;
+        background-color : #e0e0e0;
+        
+    }
+    #mainInfoTextArea {
+        width: 100% !important;
+        height: 200px;
+        margin: 1px;
+        padding: 0px;
+        background-color : #e0e0e0;
+        
+    }
+    #addressTextArea {
+        width: 100% !important;
+        height: 80px;
+        margin: 1px;
+        padding: 0px;
+        background-color : #e0e0e0;
+    }
+    input::-webkit-input-placeholder {
+        color: red !important;
+    }
+    input:-moz-placeholder { /* Firefox 18- */
+        color: red !important;
+    }
+    input::-moz-placeholder { /* Firefox 19+ */
+        color: red !important;
+    }
+    input:-ms-input-placeholder {
+        color: red !important;
+    }
+
+    textarea::-webkit-input-placeholder {
+        color: red !important;
+    }
+
+    textarea:-moz-placeholder { /* Firefox 18- */
+        color: red !important;
+    }
+
+    textarea::-moz-placeholder {  /* Firefox 19+ */
+        color: red !important;
+    }
+
+    textarea:-ms-input-placeholder {  
+        color: red !important;
+    }
+
+    .is-placeholder {  
+        color: red !important;
+    }
+    .footer {
+        margin-top: 20px;
+        margin-left: 10px;
+        margin-bottom : 10px;
+        border: 1px;
+    }
+    .widget-title {
+        margin-top: 20px;
+        margin-bottom: 5px;
+        font-size: medium;
+        padding: 10px;
+        color: green !important;
+    }
+    #logo {
+        
+        width: 154px;
+        height: 32px;
+    }
+    
+    #cimage {
+        
+        width: 154px;
+        height: 154px;
+    }
+    #mimage {
+        position: absolute;
+        margin-top: 2px;
+        top: 240px;
+        left: 580px;
+        width: 300px;
+        height: 200px;
+        background-color : #e0e0e0;
+        
+    }
+
+</style>
+<div class="content">
+<div class="col-sm-12">
+<!--        <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>-->
+<div class="widget">
+<div class="widget-title">Create Announcement</div>
+<div class="widget-body" ng-controller="DSNController" ng-init="initAnnouncement();">
+    <div class="XiboGrid" id="5672f9d61b19d">
+    <form id="DisplayEditForm" class="XiboForm form-horizontal" editable-form="editable-form" method="post" action="" novalidate="novalidate" >
+       <div class="row">
+	   <div class="col-md-12">
+		
+        <div id="layout" zoom="1" tip_scale="1" designer_scale="0.41666666666667" version="2" class="layout" layoutid="139" data-background-color="#000000" style="position:relative; width:920px; height:520px; background:url('{{$root.currentAnnouncment.bgimage.src}}') top center no-repeat; background-color:#000000;">
+            <div id="hiddenButton" class="bgSelector" ng-click="showLibrary('bgimage')"></div>
+<!--
+        <div id="region_572235899d737" regionenabled="1" regionid="572235899d737" layoutid="139" tip_scale="1" designer_scale="0.41666666666667" width="1919.9999999999845" height="1079.9999999999914" href="" ondblclick="">
+          <div class="regionTransparency " style="width:100%; height:100%;"></div><div class="btn-group regionInfo pull-right" style="display: none;">    <button class="btn dropdown-toggle" data-toggle="dropdown"><span class="region-tip">1920 x 1080 (0,0)</span>        <span class="caret"></span>    </button>    <ul class="dropdown-menu">        <li><a class="XiboFormButton" href="" title="Timeline">Edit Timeline</a></li>        <li><a class="RegionOptionsMenuItem" href="#" title="Options">Options</a></li>        <li><a class="XiboFormButton" href="" title="Delete">Delete</a></li>        <li><a class="XiboFormButton" href="" title="Permissions">Permissions</a></li>    </ul></div>    <div class="preview">        <div class="previewContent"></div>        <div class="previewNav label label-info" style="display: none;"><div class="prevSeq glyphicon glyphicon-arrow-left"></div><div class="nextSeq glyphicon glyphicon-arrow-right"></div><div class="preview-media-information">Empty Region</div></div>    </div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div>
+        </div>
+-->
+        <div id="headerRegion">
+            <div id='headerImage' ng-click="showLibrary('chimage');  $event.stopPropagation();">
+                <img id='chimage' src="{{$root.currentAnnouncment.chimage.src}}"/>
+            </div>
+            <div id='chinfo'>
+                <textarea id='headerInfoTextArea' on-change="validateTextNothing(value)" placeholder="Enter your Announcement Title here."
+                  ng-model="$root.currentAnnouncment.info"
+                  [name="Classification Information"]
+                  [required="string"]
+                  [ng-required="string"]
+                  [ng-trim="false"]>
+                </textarea>
+            </div>
+        </div>
+            
+        <div id="companyInfoRegion" class="companyHeader" regionenabled="1" regionid="90843930057223592e84c7" layoutid="139" tip_scale="1" designer_scale="0.41666666666667" width="320px" height="640px" href="" ondblclick="">
+                <div id='companyLogo' width='100%' ng-click="showLibrary('logo');  $event.stopPropagation();">
+                    <img id='logo' src='{{$root.companyInfo.logo.src}}'/>
+                </div>
+                <div id='companyTitle'>
+                    <p editable-text="$root.companyInfo.ctitle" on-change="validateNothing(value)" placeholder="Company Title"></p>
+                </div>
+                <div id='companyAddr'>
+                    <textarea id='addressTextArea' width='100%' height='100%' placeholder="Company Address"  on-change="validateTextNothing(value)" 
+                      ng-model="$root.companyInfo.address"
+                      [name="Company Address"]
+                      [required="string"]
+                      [ng-required="string"]
+                      [ng-trim="false"]>
+                    </textarea>
+                </div>
+                <div id='companyPhone'>
+                    <p editable-text="$root.companyInfo.phone"  on-change="validateNothing(value);" placeholder="Company Phone"></p>
+                </div>
+                <div id='companyEmail'>
+                    <p editable-text="$root.companyInfo.email"  on-change="validateNothing(value);" placeholder="Company Email"></p>
+                </div>
+<!--
+                <div id='companyWeb'>
+                    <p editable-text="$root.companyInfo.web" on-change="validateNothing(value)" placeholder="Company Web"></p>
+                </div>
+-->
+                <div id='mainTitle'>
+                    <p editable-text="$root.companyInfo.mtitle" on-change="validateNothing(value)" placeholder="Main Subject"></p>
+                </div>
+                <div id='mainInfo'>
+                    <textarea id='mainInfoTextArea' on-change="validateTextNothing(value)" placeholder="Enter your Company Information here."
+                      ng-model="$root.companyInfo.info"
+                      [name="Company Information"]
+                      [required="string"]
+                      [ng-required="string"]
+                      [ng-trim="false"]>
+                    </textarea>
+                </div>
+                <div id='mainImage' ng-click="showLibrary('mimage');  $event.stopPropagation();">
+                    <img id='mimage' src="{{$root.companyInfo.mimage.src}}"/>
+                </div>
+                
+        </div>
+    </div>	
+    </div>
+    </div>
+    </form>
+    </div>
+</div>
+</div>
+    <div class="footer">
+        <button class="btn btn-default" ng-click='help()'>Help</button>
+        <button class="btn btn-default" ng-click="showList()">Reset</button>
+        <button class="btn btn-primary" ng-click="saveAnnouncement()">Save</button>
+    </div>
+
+</div>
+</div>

@@ -1,0 +1,123 @@
+<style>
+    .ngdialog-content {
+        width: 540px;
+        height: 560px;
+    }
+    .ngdialog {
+        top: 10%;
+        left: 30%;
+        width: 540px;
+        height: 560px;
+    }
+    #wpDialog {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 6px;
+        margin-bottom: 6px;
+        width: 500px;
+        height: 540px;
+    }
+    #wpContent {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 480px;
+        height: 520px;
+    }
+
+    #wpGrid {
+        height: 620px;
+    }
+
+    #wpBody {
+        width: 480px;
+        height: 500px;
+    }
+    .modal-body {
+        height: 500px;
+    }
+
+    #bboxBody {
+        width: 480px;
+        height: 480px;
+    }
+
+    #wpData {
+        height: 620px;
+    }
+
+    #wpFooter {
+        margin-bottom: 2px;
+        bottom: 10px;
+    }
+    #addWebpageForm {
+        margin: 20px;
+        width: 420px;
+        height: 420px;
+    }
+    #wpColumn {
+        width: 400px;
+        height: 420px;
+    }
+    #wpRow {
+        width: 400px;
+        height: 440px;
+    }
+    .modal-footer {
+        bottom: 2%;
+    }
+</style>
+<div class="modal-dialog" id="wpDialog">
+    <div class="modal-content" id="wpContent">
+    <div class="modal-header">
+    <h4 class="modal-title">Add WebPage</h4></div>
+    <div class="modal-body" id="wpBody">
+    <div class="bootbox-body" id="bboxBody">
+    <div class="row" id="wpRow">
+        <div class="col-md-12" id="wpColumn">
+            <form id="addWebpageForm" class="XiboForm form-horizontal" method="post" action="" novalidate="novalidate">
+                <div class="tab-content">                        
+                    <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="webpage" accesskey="n">Name</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" name="webpage" type="text" accesskey="n" id="webpage" required="" aria-required="true" ng-model="$root.currentMedia.name">
+                                <span class="help-block">A name for this WebPage</span>
+                            </div>
+                    </div>
+                    <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="url" accesskey="d">Web Url</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" name="url" type="text" id="url" accesskey="u" ng-model="$root.currentMedia.path" required="" maxlength="250">
+                                <span class="help-block">The url for this webpage</span>
+                            </div>
+                    </div>
+                    <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="parameters" accesskey="d">Parameters</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" name="parameters" type="text" id="parameters" ng-model="$root.currentMedia.parameters"  maxlength="250">
+                                <span class="help-block">Comma separated parameters read locally from Signage Player</span>
+                            </div>
+                    </div>
+                    <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="description" accesskey="d" >Description</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" name="description" type="text" id="description" ng-model="$root.currentMedia.description" maxlength="250">
+                                <span class="help-block">Optional description</span>
+                            </div>
+                    </div>
+                </div>                        
+            </form>
+        </div>
+
+    </div>
+
+    </div>
+    </div>
+        <div class="modal-footer" id="wpFooter">
+            <button class="btn btn-default">Help</button>
+            <button class="btn btn-default">Cancel</button>
+            <button class="btn btn-primary save-button" ng-click="saveWebPage()">Add</button>
+        </div>
+    </div>
+</div>

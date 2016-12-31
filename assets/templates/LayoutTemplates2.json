@@ -1,0 +1,27 @@
+[
+        
+        { "name" : "Full" , "width":"1920", "height":"1080", "regions" : [
+            {"name":"full", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"video/*"}
+        ]},
+        { "name" : "Tri","width":"1920", "height":"1080", "regions" : [
+            {"name":"one", "width":"720", "height":"1080", "top":"0", "left":"0", "accept":"image/*"},
+            {"name":"two", "width":"480", "height":"1080", "top":"0", "left":"720", "accept":"text/*"},
+            {"name":"three", "width":"720", "height":"1080", "top":"0", "left":"1200", "accept":"video/*"}
+        ]},
+        { "name" : "Split", "width":"1920", "height":"1080", "regions" : [
+            {"name":"one", "width":"640", "height":"1080", "top":"0", "left":"0", "accept":"asset/*"},
+            {"name":"two", "width":"1280", "height":"1080", "top":"0", "left":"640", "accept":"asset/*"}
+        ]},
+        { "name" : "CompanyInfo" , "width":"1920", "height":"1080", "regions" : [
+            {"name":"company", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"company/*"}
+        ]},
+        { "name" : "Product", "width":"1920", "height":"1080", "regions" : [
+            {"name":"product", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"product/*"}
+        ]},
+        { "name" : "Announcement", "width":"1920", "height":"1080", "regions" : [
+            {"name":"announcement", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"announcement/*"}
+        ]},
+        { "name" : "Company", "width":"1920", "height":"1080", "regions" : [
+            {"name":"company", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"company/*"}
+        ]}
+]

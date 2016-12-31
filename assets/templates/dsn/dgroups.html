@@ -1,0 +1,108 @@
+<script>
+  var initComponents = function() {
+      console.log('you are here.');
+  }
+</script>
+<style>
+    .widget-title {
+        margin-top: 6px;
+    }
+    a {
+        color: #337ab7;
+    }
+</style>
+
+<div class="content">
+    <div class="col-sm-12">
+    <ul class="nav nav-pills pull-right">
+        <li class="">
+        <a title="Add a new Display Group" class="XiboFormButton" ng-click="openAddDisplayGroupDialog()">Add Display Group</a>
+        </li>
+    </ul>
+    <div class="widget">
+    <div class="widget-title">Display Groups </div>
+    <div class="widget-body">
+        <div class="XiboGrid" id="5654fe23ec8bc">
+            <div class="XiboFilter">
+                <div class="FilterDiv" id="Filter">
+                    <form id="" class="form-inline" method="post" action="">
+                    <input type="hidden" name="p" value="displaygroup"><input type="hidden" name="q" value="Grid">
+                        <input type="hidden" name="token" value="1ea90a9052f7966fb3a2e71c26c68b3d">
+                        <div class="tab-content"></div>
+                    </form>
+                </div>
+            </div>
+    <div class="XiboData">
+        <table class="table tablesorter tablesorter-bootstrap table-bordered" role="grid" ng-init="getDisplayGroups()">
+            <colgroup></colgroup>
+            <thead>
+                <tr role="row" class="tablesorter-headerRow">
+                <th class="group-false tablesorter-header tablesorter-headerAsc bootstrap-header" data-column="0" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="ascending" aria-label="Name : Ascending sort applied, activate to apply a descending sort" style="-webkit-user-select: none;">
+                <div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%">
+                    <div class="tablesorter-header-inner">Name <i class="tablesorter-icon glyphicon glyphicon-chevron-up"></i></div>
+                </div>
+                </th>
+                <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="1" tabindex="1" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Description : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;">
+                <div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%">
+                    <div class="tablesorter-header-inner">Description <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div>
+                </div>
+                </th>
+                <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="2" tabindex="2" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Description : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;">
+                <div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%">
+                    <div class="tablesorter-header-inner">Default Layout<i class="tablesorter-icon bootstrap-icon-unsorted"></i></div>
+                </div>
+                </th>
+                <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="2" tabindex="2" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Description : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;">
+                <div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%">
+                    <div class="tablesorter-header-inner">Display Count <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div>
+                </div>
+                </th>
+                <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="3" tabindex="3" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Description : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;">
+                <div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%">
+                    <div class="tablesorter-header-inner"><i class="tablesorter-icon bootstrap-icon-unsorted"></i></div>
+                </div>
+                </th>
+            </tr>
+    </thead>
+    <tbody aria-live="polite" aria-relevant="all">
+        <tr dir-paginate="displaygroup in displaygroups | itemsPerPage: 10" pagination-id="dpaginate" class="warning odd" role="row">
+<!--        <tr class="warning odd" role="row" ng-repeat="displaygroup in displaygroups">-->
+            <td>{{displaygroup.name}}</td>
+            <td>{{displaygroup.description}}</td>
+            <td>{{getDefaultLayoutInfo(displaygroup)}}</td>
+            <td>{{getDisplayCount(displaygroup)}}</td>
+            <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                    <li class="XiboFormButton displaygroup_button_group_members" ng-click="openAssignDisplayGroupDialog(displaygroup)">
+                        <a tabindex="-1" href="#">Group Members</a></li>
+                    <li class="XiboFormButton displaygroup_button_edit" ng-click="openAddDisplayGroupDialog(displaygroup)">
+                        <a tabindex="-1" href="#">Edit</a></li>
+                    <li class="XiboFormButton displaygroup_button_fileassociations" ng-click="assignContentToGroup(displaygroup)">
+                        <a tabindex="-1" href="#">Assign Content</a></li>
+                    <li class="XiboFormButton displaygroup_button_delete" ng-click="deleteDisplayGroup(displaygroup)">
+                        <a tabindex="-1" href="#">Delete</a></li>
+                    <li class="XiboFormButton displaygroup_button_permissions" ng-click="">
+                        <a tabindex="-1" href="#">Permissions</a></li>
+                    <li class="XiboFormButton display_button_version_instructions" ng-click="">
+                        <a tabindex="-1" href="#">Version Information</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+    <div id="dpagination">
+            <dir-pagination-controls pagination-id="dpaginate" boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="templates/dirPagination.tpl.html"></dir-pagination-controls>
+    </div>
+</div>
+</div>
+</div>
+    </div>
+</div>
+
+

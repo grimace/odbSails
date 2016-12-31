@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<layout width="1920" height="1080" resolutionid="9" bgcolor="#000000" schemaVersion="2"><region id="55a4317317ff1" userId="1" width="1920" height="1080" top="0" left="0" name="l2"><media id="285" type="image" render="native" duration="12" lkid="390" userId="1" schemaVersion="1">
+                            <options><uri>285.png</uri></options>
+                            <raw/>
+                    </media><options><transOut/><transOutDuration>0</transOutDuration><transOutDirection>N</transOutDirection><loop>0</loop></options></region></layout>

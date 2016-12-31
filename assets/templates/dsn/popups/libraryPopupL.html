@@ -1,0 +1,380 @@
+<style>
+/*
+    .ngdialog {
+        height: 700px;
+    }
+    .ngdialog-content {
+        height: 100%;
+    }
+*/
+    #asnDialog {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 6px;
+        margin-bottom: 6px;
+        width: 640px;
+        height: 640px;
+    }
+    #asnContent {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+/*
+        width: 640px;
+        height: 640px;
+*/
+    }
+
+    #asnGrid {
+        height: 380px;
+    }
+
+    #asnBody {
+        width: 580px;
+        height: 520px;
+    }
+    
+    #asnData {
+        height: 300x;
+    }
+
+    #asnFooter {
+        margin-bottom: 2px;
+        bottom: 20px;
+    }
+    .modal-footer {
+        bottom: 2%;
+    }
+    .modal-content {
+        height: 700px;
+    }
+    .pagination ul>.active>a, .pagination ul>.active>span {
+/*        color: #0088cc;*/
+        cursor: default;
+        text-decoration: bold;
+    }
+
+    .pagebtn:hover, .pagebtn:focus, .pagebtn:active, .pagebtn.active, .pagebtn.disabled, .pagebtn[disabled] {
+     background-color: #b2b0b0; 
+     color: #777; 
+    }
+    .pagebtn:hover, .pagebtn:focus, .pagebtn.focus {
+         color: #3f7b74; 
+         text-decoration: none; 
+    }
+    .pagebtn:hover, .pagebtn:focus {
+         color: #333; 
+         text-decoration: none; 
+    }
+    .pagebtn {
+        /* outline: none !important; */
+        /* color: #777; */
+        /* text-shadow: 0 0px 0 rgba(0, 0, 0, 0.25); */
+        background-color: #efefef;
+        background-image: none;
+        box-shadow: none;
+        background-repeat: repeat-x;
+        border-color: none;
+        border-width: 0px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        margin-bottom: 5px;
+    }
+    .pagebtn {
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: normal;
+        text-align: center;
+        vertical-align: middle;
+        touch-action: manipulation;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        border-radius: 4px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .pagebtn {
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+
+    .selected tr {
+      background-color: green !important;
+    }
+/*
+    .selected {
+      background-color: green !important;
+    }
+    
+    .tbody tr selected {
+      background-color: green !important;
+    }
+*/
+    .stupid {
+        background-color: green !important;
+        border:1px solid;
+    }
+    #logo-pop {
+        
+        width: 154px;
+        height: 32px;
+/*        object-fit: contain;*/
+    }
+    #cimage-pop {
+        
+        width: 154px;
+        height: 154px;
+/*        object-fit: contain;*/
+    }
+    #mimage-pop {
+        position: inherit;
+        width: 205px;
+        height: 154px;
+/*        object-fit: contain;*/
+        overflow: hidden;
+    }
+    #bgimage-pop {
+        position: inherit;
+        width: 205px;
+        height: 154px;
+/*        object-fit: contain;*/
+        overflow: hidden;
+    }
+    .nwell {
+        background-color: #F7F7F7;
+/*        height: 200px;*/
+        margin-top: 4px;
+        margin-bottom: 4px;
+/*
+        padding-left: 4px;
+        padding-top: 4px;
+        padding-bottom: 2px;
+        padding-top: 2px;
+*/
+        max-height: 200px !important;
+        border: 1px solid #EEEEEE;
+        -webkit-box-shadow: 1px 1px 0px #ffffff;
+        -moz-box-shadow: 1px 1px 0px #ffffff;
+        box-shadow: 1px 1px 0px #ffffff;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        border-radius: 0px;
+        -moz-background-clip: padding;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+    }
+    #companyLogo {
+        display:none;
+    }
+    #companyImage {
+        display:none;
+    }
+    #mainImage {
+        display:none;
+    }
+        
+    #layout {
+        display:none;
+    }
+    .ngdialog.ngdialog-theme-plain.custom-height .ngdialog-content {
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        width: 800px;
+        height: 600px;
+    }
+
+    .ngdialog.ngdialog-theme-default.custom-height-600 .ngdialog-content {
+        top: 20%;
+        left: 20%;
+        width: 800px;
+        height: 600px;
+    }
+</style>
+<!--really product library popup-->
+<div class="modal-content" id="asnDialog" ng-controller="DSNController" ng-init="getMediaD( $root.fixedWidth, $root.fixedHeight, $root.fixedMin )">
+    <div class="modal-header">
+        <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Select Image for {{$root.imageName}} from Library</h4>
+    </div>
+
+    <div id="asnBody" class="modal-body">
+    <div class="input-append">
+        <input type="text" ng-model="query" ng-change="searchMedia()" class="input-large search-query ng-valid ng-dirty ng-valid-parse ng-touched" placeholder="Search">
+        <span class="add-on"><i class="icon-search"></i></span>
+    </div>
+    <ul class="nav nav-pills pull-right">
+        <li class="">
+          <button class="btn dropdown-toggle" data-toggle="dropdown" ng-click="openLocateProduct();" id="locButton">
+          <span>Select Location</span></button>
+        </li>
+        <li class="">
+          <button class="btn dropdown-toggle" data-toggle="dropdown" ng-click="openAddMediaDialog();" id="uploadButton">
+          <span>Upload Image</span></button>
+        </li>
+    </ul>
+        <div class="bootbox-body">
+    
+<!--
+        Region: <span if-show="numRegions <= 1">{{selectedRegion.name}}</span>
+        <select if-show="numRegions > 1" ng-model="selectedRegion" ng-change="updateMediaList()" ng-options="region as region.name for region in $root.currentLayout.regions"></select>
+-->
+
+<!--
+    <div id="FileAssociationsAssign" class="well">
+        <div>
+            <ul id="FileAssociationsSortable" class="ui-sortable">
+                <li>
+                    <img id="{{imageName}}" src='{{selectedImage}}'> 
+                </li>
+            </ul>
+        </div>
+    </div>
+-->
+    <div class="nwell">
+<!--        <div>-->
+<!--
+            <ul>
+                <li>
+-->
+                    <img id="{{$root.imageName}}-pop" src='{{$root.selectedImage}}'> 
+<!--
+                </li>
+            </ul>
+-->
+<!--        </div>-->
+    </div>
+
+    <div class="XiboGrid" id="asnGrid">
+	<div class="XiboFilter">
+		<div class="FilterDiv" id="Filter">
+			<form>
+			</form>
+		</div>
+	</div>
+	<div class="XiboData" id="asnData">
+        <table id="FileAssociationsTable" class="table table-bordered tablesorter tablesorter-bootstrap" role="grid" aria-describedby="FileAssociationsTable_pager_info">
+        <colgroup>
+            <col style="width: 82.4%;">
+            <col style="width: 9.4%;">
+            <col style="width: 3.4%;">
+        </colgroup>
+        <thead>
+            <tr role="row" class="tablesorter-headerRow">
+                <th data-column="0" class="tablesorter-header tablesorter-headerAsc bootstrap-header" tabindex="0" scope="col" role="columnheader" aria-disabled="false" aria-controls="FileAssociationsTable" unselectable="on" aria-sort="ascending" aria-label="Name : Ascending sort applied, activate to apply a descending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Name <i class="tablesorter-icon glyphicon glyphicon-chevron-up"></i></div></div></th>
+                <th data-column="1" class="tablesorter-header tablesorter-headerUnSorted bootstrap-header" tabindex="0" scope="col" role="columnheader" aria-disabled="false" aria-controls="FileAssociationsTable" unselectable="on" aria-sort="none" aria-label="Type : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Type <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                <th data-column="2" class="tablesorter-header tablesorter-headerUnSorted bootstrap-header" tabindex="0" scope="col" role="columnheader" aria-disabled="false" aria-controls="FileAssociationsTable" unselectable="on" aria-sort="none" aria-label=" : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner"> <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+            </tr>
+        </thead>
+<!--
+	   <tbody aria-live="polite" aria-relevant="all"> 
+            <tr rowid="{{asset.id}}" litext="{{asset.name}}" role="row" class="even"  ng-repeat="asset in pagedMedia[currentMediaPage] track by $index | orderBy:sortingOrder:reverse" >
+                <td>{{asset.name}}</td>
+                <td>{{asset.mimetype}}</td>
+                <td><span class="library_assign_list_select glyphicon glyphicon-plus-sign" ng-click="addMediaEntry(asset)"></span></td>
+           <tr>
+               <img src='getSelectedImage()'> 
+            </tr>
+       </tbody>
+-->
+<!--            ng-init="getMedia()"-->
+       <tbody aria-live="polite" aria-relevant="all" ng-model="pages" >
+
+<!--           <tr ng-repeat="asset in pages[currentPage] track by $index | orderBy:sortingOrder:reverse" ng-click="setSelected(asset)" class="{{selected}}">-->
+           <tr ng-repeat="asset in pages" ng-click="setSelected(asset)" class="{{selected}}">
+               
+<!--            <td>{{asset.id}}</td>-->
+            <td>{{asset.name}}</td>
+            <td>{{asset.mimetype}}</td>
+<!--            <td>{{asset.duration}}</td>-->
+            <td>{{asset.size}}</td>
+            <td><span class="glyphicon glyphicon-remove"></span></td>
+            <td>{{asset.filename}}</td>
+<!--
+            <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="XiboFormButton content_button_edit">
+                            <a tabindex="-1" ng-click="openEditMediaDialog(asset)">Edit</a>
+                        </li>
+                        <li class="XiboFormButton content_button_edit">
+                            <a tabindex="-1" ng-click="findLayoutForMedia(asset.id)">Search Layouts</a>
+                        </li>
+                        <li class="XiboFormButton content_button_delete">
+                            <a tabindex="-1"ng-click="removeMedia(asset.id)">Delete</a>
+                        </li>
+                    </ul>
+                </div>
+            </td>
+-->
+
+   </tr>
+   </tbody>
+
+   </table>
+       
+<!--
+        <div class="pagination pull-left form-inline tablesorter-pager">
+            <button type="button" ng-click="prevPage()" class="btn prev" ng-class="{disabled: currentMediaPage == 0}" aria-disabled="true" tabindex="0">
+                <i class="icon-arrow-left glyphicon glyphicon-backward"></i>
+            </button>
+            <div class="pagebtn" ng-repeat="n in range(pagedMedia.length)" ng-class="{active: n == currentMediaPage}" ng-click="setPage()">
+                <span ng-bind="n + 1">1</span>
+            </div>
+
+            <button type="button" ng-click="nextPage()" class="btn next" ng-class="{disabled: currentMediaPage == pagedMedia.length - 1}" aria-disabled="true" tabindex="0">
+                <i class="icon-arrow-right glyphicon glyphicon-forward"></i>
+            </button>
+        </div>
+-->
+
+       <pagination boundary-links="true" 
+            max-size="3" 
+            items-per-page="itemsPerPage"
+            total-items="getMediaLength()" 
+            ng-model="pages" 
+            ng-change="pageChanged(page)"
+            on-select-page="pageChanged(page)">
+       </pagination>
+
+    </div>
+
+    <div id="asnFooter" class="modal-footer">
+        <button id='helpButton' class='btn btn-default' ng-click='help()'>Help</button>
+        <button id='saveButton' class='btn btn-default' ng-click="assignImage();">Assign</button>
+        <button id='cancelButton' class='btn btn-default' ng-click="resetImage($root.imageName);">Cancel</button>
+    </div>
+
+
+</div>
+</div>
+</div>
+<!--    <div id="asnFooter" class="modal-footer">-->
+</div>

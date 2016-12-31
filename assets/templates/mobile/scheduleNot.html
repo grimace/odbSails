@@ -1,0 +1,310 @@
+<script>
+  var initComponents = function() {
+      console.log('dsn.schedule : you are here.');
+      $('#datetimepicker').datetimepicker();
+  }
+</script>
+<!--<link href="signage/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
+<link href="signage/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+<link href="signage/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="signage/bootstrap-select/css/bootstrap-select.css" rel="stylesheet">
+<link href="signage/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+<link href="signage/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+<link href="signage/bootstrap-ekko-lightbox/ekko-lightbox.min.css" rel="stylesheet">
+<link href="signage/calendar/css/calendar.css" rel="stylesheet">
+<link href="signage/morrisjs/morris.css" rel="stylesheet">
+<link href="signage/jquery-tablesorter/css/theme.bootstrap.css" rel="stylesheet">
+<link href="signage/jquery/jquery-ui/css/ui-lightness/jquery-ui-1.10.2.custom.min.css" rel="stylesheet">
+<link href="signage/jquery-file-upload/css/jquery.fileupload-ui.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/calendar.css" />
+<style>
+    .content {
+        overflow: hidden;
+        padding: 20px;
+    }
+</style>
+<div class="content">
+   <div class="row">
+    <div class="col-sm-12">
+        <div class="btn-group pull-right xibo-calendar-controls">
+            <button type="button" class="btn btn-warning" data-calendar-view="year">Year</button>
+            <button type="button" class="btn btn-warning active" data-calendar-view="month">Month</button>
+            <button type="button" class="btn btn-warning" data-calendar-view="week">Week</button>
+            <button type="button" class="btn btn-warning" data-calendar-view="day">Day</button>
+        </div>
+        <div class="btn-group pull-right xibo-calendar-controls">
+            <button type="button" class="btn btn-primary" data-calendar-nav="prev"><span class="glyphicon glyphicon-backward"></span> Prev</button>
+            <button type="button" class="btn btn-default" data-calendar-nav="today">Today</button>
+            <button type="button" class="btn btn-primary" data-calendar-nav="next">Next <span class="glyphicon glyphicon-forward"></span></button>
+        </div>
+        <div class="btn-group pull-right xibo-calendar-controls">
+            <button class="btn btn-success XiboFormButton" href="index.php?p=schedule&amp;q=AddEventForm">Add Event</button>
+        </div>
+        <div class="xibo-calendar-controls dropdown pull-right">
+            <select id="DisplayList" type="form-control" name="DisplayGroupIDs[]" data-live-search="true" data-selected-text-format="count > 4" title="Nothing Selected" multiple="" style="display: none;">
+                <option value="-1">All</option>
+                <optgroup label="Groups">
+                                        <option value="53">Tradeshow_Group</option>
+                                    </optgroup>
+                <optgroup label="Displays">
+                                        <option value="11">Android</option>
+                                        <option value="15">AndroidPlayer25</option>
+                                        <option value="16">AndroidPlayer93</option>
+                                        <option value="34">AndroidPlayer93</option>
+                                        <option value="56">Bretts Desk Minix</option>
+                                        <option value="14">GregsMacPython</option>
+                                        <option value="50">Kombi Kiosk Minix</option>
+                                        <option value="12">KOMBI-IT</option>
+                                        <option value="55">NEO_X7_mini</option>
+                                        <option value="54">NEO_X7_mini</option>
+                                        <option value="58">NEO_X7_mini</option>
+                                        <option value="60">NEO_X7_mini</option>
+                                        <option value="52">NEO_X7_mini</option>
+                                        <option value="59">NEO_X7_mini</option>
+                                        <option value="57">NEO_X7_mini</option>
+                                        <option value="39">NEO_X7_mini-Gregm</option>
+                                        <option value="13">PyTest</option>
+                                        <option value="35">SM-T330NU</option>
+                                        <option value="40">SM_T330NU</option>
+                                        <option value="10">Xibo-Minix</option>
+                      
+                </optgroup>
+            </select>
+            <div class="btn-group bootstrap-select show-tick"><button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" data-id="DisplayList" title="Nothing Selected"><span class="filter-option pull-left">Nothing Selected</span>&nbsp;<span class="caret"></span></button><div class="dropdown-menu open"><div class="bootstrap-select-searchbox"><input type="text" class="input-block-level form-control" autocomplete="off"></div><ul class="dropdown-menu inner selectpicker" role="menu"><li rel="0"><a tabindex="0" class="" style=""><span class="text">All</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="1"><div class="div-contain"><div class="divider"></div></div><dt><span class="text">Groups</span></dt><a tabindex="0" class="opt " style="" data-optgroup="1"><span class="text">Tradeshow_Group</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="2"><div class="div-contain"><div class="divider"></div></div><dt><span class="text">Displays</span></dt><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">Android</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="3"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">AndroidPlayer25</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="4"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">AndroidPlayer93</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="5"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">AndroidPlayer93</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="6"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">Bretts Desk Minix</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="7"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">GregsMacPython</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="8"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">Kombi Kiosk Minix</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="9"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">KOMBI-IT</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="10"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">NEO_X7_mini</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="11"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">NEO_X7_mini</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="12"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">NEO_X7_mini</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="13"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">NEO_X7_mini</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="14"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">NEO_X7_mini</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="15"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">NEO_X7_mini</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="16"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">NEO_X7_mini</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="17"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">NEO_X7_mini-Gregm</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="18"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">PyTest</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="19"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">SM-T330NU</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="20"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">SM_T330NU</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="21"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">Xibo-Minix</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li></ul></div></div>
+        </div>
+        <h1 class="page-header">November 2015</h1>
+    </div>
+</div>
+<div class="row">
+    <div id="CalendarContainer" data-calendar-type="Gregorian" class="col-sm-12">
+        <div id="Calendar" class="cal-context" style="width: 100%;"><div class="cal-row-fluid cal-row-head">
+	
+		<div class="cal-cell1">Sunday</div>
+	
+		<div class="cal-cell1">Monday</div>
+	
+		<div class="cal-cell1">Tuesday</div>
+	
+		<div class="cal-cell1">Wednesday</div>
+	
+		<div class="cal-cell1">Thursday</div>
+	
+		<div class="cal-cell1">Friday</div>
+	
+		<div class="cal-cell1">Saturday</div>
+	
+</div>
+<div class="cal-month-box">
+	<div class="cal-row-fluid cal-before-eventlist">
+	<div class="cal-cell1 cal-cell" data-cal-row="-day1">
+        <div class="cal-month-day cal-day-inmonth cal-day-weekend">
+           <span class="pull-right" data-cal-date="2015-11-01" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">1</span>
+
+        </div>
+    </div>
+    <div class="cal-cell1 cal-cell" data-cal-row="-day2"><div class="cal-month-day cal-day-inmonth">
+        <span class="pull-right" data-cal-date="2015-11-02" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">2</span>
+
+    </div>
+    </div>
+    <div class="cal-cell1 cal-cell" data-cal-row="-day3"><div class="cal-month-day cal-day-inmonth">
+        <span class="pull-right" data-cal-date="2015-11-03" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">3</span>
+
+    </div>
+    </div>
+    <div class="cal-cell1 cal-cell" data-cal-row="-day4"><div class="cal-month-day cal-day-inmonth">
+        <span class="pull-right" data-cal-date="2015-11-04" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">4</span>
+
+    </div>
+    </div>
+    <div class="cal-cell1 cal-cell" data-cal-row="-day5"><div class="cal-month-day cal-day-inmonth">
+        <span class="pull-right" data-cal-date="2015-11-05" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">5</span>
+
+    </div>
+    </div>
+    <div class="cal-cell1 cal-cell" data-cal-row="-day6"><div class="cal-month-day cal-day-inmonth">
+        <span class="pull-right" data-cal-date="2015-11-06" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">6</span>
+
+    </div>
+    </div>
+    <div class="cal-cell1 cal-cell" data-cal-row="-day7"><div class="cal-month-day cal-day-inmonth cal-day-weekend">
+        <span class="pull-right" data-cal-date="2015-11-07" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">7</span>
+
+    </div>
+    </div>
+        </div>
+	
+		
+		<div class="cal-row-fluid cal-before-eventlist">
+			<div class="cal-cell1 cal-cell" data-cal-row="-day1"><div class="cal-month-day cal-day-inmonth cal-day-weekend">
+	<span class="pull-right" data-cal-date="2015-11-08" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">8</span>
+	
+</div>
+</div>
+			<div class="cal-cell1 cal-cell" data-cal-row="-day2"><div class="cal-month-day cal-day-inmonth">
+	<span class="pull-right" data-cal-date="2015-11-09" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">9</span>
+	
+</div>
+</div>
+			<div class="cal-cell1 cal-cell" data-cal-row="-day3"><div class="cal-month-day cal-day-inmonth">
+	<span class="pull-right" data-cal-date="2015-11-10" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">10</span>
+	
+</div>
+</div>
+			<div class="cal-cell1 cal-cell" data-cal-row="-day4"><div class="cal-month-day cal-day-inmonth cal-day-holiday">
+	<span class="pull-right" data-cal-date="2015-11-11" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="Veterans Day">11</span>
+	
+</div>
+</div>
+			<div class="cal-cell1 cal-cell" data-cal-row="-day5"><div class="cal-month-day cal-day-inmonth">
+	<span class="pull-right" data-cal-date="2015-11-12" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">12</span>
+	
+</div>
+</div>
+			<div class="cal-cell1 cal-cell" data-cal-row="-day6"><div class="cal-month-day cal-day-inmonth">
+	<span class="pull-right" data-cal-date="2015-11-13" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">13</span>
+	
+</div>
+</div>
+			<div class="cal-cell1 cal-cell" data-cal-row="-day7"><div class="cal-month-day cal-day-inmonth cal-day-weekend">
+	<span class="pull-right" data-cal-date="2015-11-14" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">14</span>
+	
+</div>
+</div>
+		</div>
+	
+		
+		<div class="cal-row-fluid cal-before-eventlist">
+			<div class="cal-cell1 cal-cell" data-cal-row="-day1"><div class="cal-month-day cal-day-inmonth cal-day-weekend">
+	<span class="pull-right" data-cal-date="2015-11-15" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">15</span>
+	
+</div>
+</div>
+			<div class="cal-cell1 cal-cell" data-cal-row="-day2"><div class="cal-month-day cal-day-inmonth">
+	<span class="pull-right" data-cal-date="2015-11-16" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">16</span>
+	
+</div>
+</div>
+			<div class="cal-cell1 cal-cell" data-cal-row="-day3"><div class="cal-month-day cal-day-inmonth">
+	<span class="pull-right" data-cal-date="2015-11-17" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">17</span>
+	
+</div>
+</div>
+			<div class="cal-cell1 cal-cell" data-cal-row="-day4"><div class="cal-month-day cal-day-inmonth">
+	<span class="pull-right" data-cal-date="2015-11-18" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">18</span>
+	
+</div>
+</div>
+			<div class="cal-cell1 cal-cell" data-cal-row="-day5"><div class="cal-month-day cal-day-inmonth">
+	<span class="pull-right" data-cal-date="2015-11-19" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">19</span>
+	
+</div>
+</div>
+			<div class="cal-cell1 cal-cell" data-cal-row="-day6"><div class="cal-month-day cal-day-inmonth">
+	<span class="pull-right" data-cal-date="2015-11-20" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">20</span>
+	
+</div>
+</div>
+			<div class="cal-cell1 cal-cell" data-cal-row="-day7"><div class="cal-month-day cal-day-inmonth cal-day-weekend">
+	<span class="pull-right" data-cal-date="2015-11-21" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">21</span>
+	
+</div>
+</div>
+		</div>
+	
+		
+		<div class="cal-row-fluid cal-before-eventlist">
+		<div class="cal-cell1 cal-cell" data-cal-row="-day1">
+            <div class="cal-month-day cal-day-inmonth cal-day-weekend">
+	           <span class="pull-right" data-cal-date="2015-11-22" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">22</span>
+	
+            </div>
+        </div>
+<div class="cal-cell1 cal-cell" data-cal-row="-day2">
+    <div class="cal-month-day cal-day-inmonth cal-day-today">
+	   <span class="pull-right" data-cal-date="2015-11-23" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">23</span>
+    </div>
+</div>
+			<div class="cal-cell1 cal-cell" data-cal-row="-day3"><div class="cal-month-day cal-day-inmonth">
+	<span class="pull-right" data-cal-date="2015-11-24" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">24</span>
+	
+</div>
+</div>
+			<div class="cal-cell1 cal-cell" data-cal-row="-day4"><div class="cal-month-day cal-day-inmonth">
+	<span class="pull-right" data-cal-date="2015-11-25" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">25</span>
+	
+</div>
+</div>
+			<div class="cal-cell1 cal-cell" data-cal-row="-day5"><div class="cal-month-day cal-day-inmonth cal-day-holiday">
+	<span class="pull-right" data-cal-date="2015-11-26" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="Thanksgiving Day">26</span>
+	
+</div>
+</div>
+			<div class="cal-cell1 cal-cell" data-cal-row="-day6"><div class="cal-month-day cal-day-inmonth">
+	<span class="pull-right" data-cal-date="2015-11-27" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">27</span>
+	
+</div>
+</div>
+			<div class="cal-cell1 cal-cell" data-cal-row="-day7"><div class="cal-month-day cal-day-inmonth cal-day-weekend">
+	<span class="pull-right" data-cal-date="2015-11-28" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">28</span>
+	
+</div>
+</div>
+		</div>
+	
+		
+		<div class="cal-row-fluid cal-before-eventlist">
+			<div class="cal-cell1 cal-cell" data-cal-row="-day1"><div class="cal-month-day cal-day-inmonth cal-day-weekend">
+	<span class="pull-right" data-cal-date="2015-11-29" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">29</span>
+	
+<div id="cal-week-box" data-cal-week="2015-11-29" style="display: none;">Week 49</div></div>
+</div>
+			<div class="cal-cell1 cal-cell" data-cal-row="-day2"><div class="cal-month-day cal-day-inmonth">
+	<span class="pull-right" data-cal-date="2015-11-30" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">30</span>
+	
+</div>
+</div>
+			<div class="cal-cell1 cal-cell" data-cal-row="-day3"><div class="cal-month-day cal-day-outmonth">
+	<span class="pull-right" data-cal-date="2015-12-01" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">1</span>
+	
+</div>
+</div>
+			<div class="cal-cell1 cal-cell" data-cal-row="-day4"><div class="cal-month-day cal-day-outmonth">
+	<span class="pull-right" data-cal-date="2015-12-02" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">2</span>
+	
+</div>
+</div>
+			<div class="cal-cell1 cal-cell" data-cal-row="-day5"><div class="cal-month-day cal-day-outmonth">
+	<span class="pull-right" data-cal-date="2015-12-03" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">3</span>
+	
+</div>
+</div>
+			<div class="cal-cell1 cal-cell" data-cal-row="-day6"><div class="cal-month-day cal-day-outmonth">
+	<span class="pull-right" data-cal-date="2015-12-04" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">4</span>
+	
+</div>
+</div>
+			<div class="cal-cell1 cal-cell" data-cal-row="-day7"><div class="cal-month-day cal-day-outmonth cal-day-weekend">
+	<span class="pull-right" data-cal-date="2015-12-05" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">5</span>
+	
+</div>
+</div>
+		</div>
+	
+		
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="cal-legend">
+            <ul>
+                <li class="event-info"><span class="fa fa-desktop"></span> Coupon</li>
+                <li class="event-success"><span class="fa fa-desktop"></span> Voucher</li>
+                <li class="event-important"><span class="fa fa-bullseye"></span> Rule</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>

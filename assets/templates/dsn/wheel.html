@@ -1,0 +1,125 @@
+<script>
+  var initComponents = function() {
+      console.log('you are here.');
+  }
+</script>
+<style>
+    .content {
+        overflow: hidden;
+        padding: 20px;
+    }
+    .widget-title {
+        margin-top: 6px;
+    }
+    a {
+         color: #337ab7; 
+    }
+
+</style>
+<!--
+<link href="/signage/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+<script src="/signage/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+-->
+<div class="content">
+    <div class="col-sm-12">
+    <ul class="nav nav-pills pull-right">
+    <li class=""><a title="Add Wheel" class="XiboFormButton" ng-click="openAddWheelDialog()">Add Wheel</a></li></ul>
+    <div class="widget">
+    <div class="widget-title">Media Wheels </div>
+    <div class="widget-body">
+    <div class="XiboGrid" id="56534b14ef19e">
+    <div class="XiboFilter">
+        <div class="FilterDiv" id="Filter">
+        <form id="" class="form-inline" method="post" action="">
+        <input type="hidden" name="p" value="dataset">
+            <input type="hidden" name="q" value="DataSetGrid"><input type="hidden" name="token" value="3d529e04ff6b058744f19ff9e2b01318">
+            <div class="tab-content"></div>
+        </form>
+        </div>
+    </div>
+
+    <div class="XiboGrid" id="565e1052c8441">
+            <div class="XiboFilter">
+            <div class="FilterDiv" id="Filter">
+                <form id="" class="form-inline" method="post" action="">
+                    <input type="hidden" name="p" value="campaign">
+                    <input type="hidden" name="q" value="Grid">
+                    <input type="hidden" name="token" value="219a77b5e6e27e0c8f7ef015ddf33c26">
+                    <div class="tab-content"></div>
+                </form>
+            </div>
+            </div>
+            <div class="XiboData">
+            <table class="table tablesorter tablesorter-bootstrap table-bordered" role="grid" ng-init="getWheels()">
+            <colgroup><col style="width: 46.7%;"><col style="width: 33.3%;"><col style="width: 15.3%;"></colgroup>
+            <thead>
+                <tr role="row" class="tablesorter-headerRow">
+                    <th class="group-false tablesorter-header tablesorter-headerAsc bootstrap-header" data-column="0" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="ascending" aria-label="Name : Ascending sort applied, activate to apply a descending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Name <i class="tablesorter-icon glyphicon glyphicon-chevron-up"></i></div></div></th>
+                    <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="1" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="# Layouts : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner"># Layouts <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                    <th data-sorter="false" data-column="2" class="tablesorter-header sorter-false tablesorter-headerUnSorted bootstrap-header" tabindex="0" scope="col" role="columnheader" aria-disabled="true" unselectable="on" aria-sort="none" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner"> <i class="tablesorter-icon"></i></div></div></th>
+                    </tr>
+    </thead>
+    <tbody aria-live="polite" aria-relevant="all">
+        <tr dir-paginate="wheel in wheels | itemsPerPage: 10" pagination-id="wpaginate" class="warning odd" role="row">
+<!--        <tr role="row" class="odd" ng-repeat="wheel in wheels">-->
+            
+                <td>{{wheel.name}}</td>
+                <td>{{getLayoutCount(wheel)}}</td>
+                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                    <li class="XiboFormButton campaign_button_schedulenow" ng-click="openScheduleDialogForWheel(wheel)">
+                        <a tabindex="-1" href="#">Schedule Now</a></li>
+                    <li class="XiboFormButton campaign_button_layouts" ng-click="openEditWheelDialog(wheel)">
+                        <a tabindex="-1" href="#">Layouts</a></li>
+                    <li class="XiboFormButton campaign_button_edit" ng-click="openEditWheelDialog(wheel)">
+                        <a tabindex="-1" href="#">Edit</a></li>
+                    <li class="XiboFormButton campaign_button_edit" ng-click="duplicateWheel(wheel)">
+                        <a tabindex="-1" href="#">Duplicate</a></li>
+                    <li class="XiboFormButton campaign_button_delete" href="index.php?p=campaign&amp;q=DeleteForm&amp;CampaignID=100">
+                        <a tabindex="-1" ng-click="removeWheel(wheel.id)">Delete</a></li>
+                    <li class="XiboFormButton campaign_button_delete" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=100"><a tabindex="-1" href="#">Permissions</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+    <div id="dpagination">
+            <dir-pagination-controls pagination-id="wpaginate" boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="templates/dirPagination.tpl.html"></dir-pagination-controls>
+    </div>
+
+<!--
+<div class="pagination form-inline tablesorter-pager" id="XiboPager_565e1052c8441">
+    <button type="button" class="btn first disabled" aria-disabled="true" tabindex="0">
+        <i class="icon-step-backward glyphicon glyphicon-step-backward"></i></button>
+    <button type="button" class="btn prev disabled" aria-disabled="true" tabindex="0">
+        <i class="icon-arrow-left glyphicon glyphicon-backward"></i></button>
+    <span class="pagedisplay">1 - 10 / 10 (10)</span>  this can be any element, including an input 
+    <button type="button" class="btn next disabled" aria-disabled="true" tabindex="0">
+        <i class="icon-arrow-right glyphicon glyphicon-forward"></i></button>
+    <button type="button" class="btn last disabled" aria-disabled="true" tabindex="0">
+        <i class="icon-step-forward glyphicon glyphicon-step-forward"></i></button>
+    <select class="pagesize input-mini form-control" title="Select page size" aria-disabled="false">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+    </select>
+    <select class="pagenum input-mini form-control" title="Select page number" aria-disabled="false"><option>1</option></select>
+    <button type="button" class="btn remove"><i class="fa fa-ban"></i></button>
+</div>
+-->
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

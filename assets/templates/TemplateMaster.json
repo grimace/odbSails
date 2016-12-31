@@ -1,0 +1,83 @@
+
+    [
+        [ 
+        [{"name": "dash.html", "url": "/templates/network/dash.html"}],
+        [{"name": "company.html", "url": "/templates/network/company.html"}],
+        [{"name": "analytics.html", "url": "/templates/network/analytics.html"}],
+        [{"name": "operations.html", "url": "/templates/network/operations.html"}],
+        [{"name": "displays.html", "url": "/templates/network/displays.html"}],
+        [{"name": "displaygroups.html", "url": "/templates/network/displaygroups.html"}],
+        [{"name": "displaygroups.html", "url": "/templates/network/displaygroups.html"}],
+        [{"name": "displaygroups.html", "url": "/templates/network/displaygroups.html"}]
+        ]
+    ,
+        [ 
+        [{"name": "coupons.html", "url": "/templates/mobile/coupons.html"}],
+        [{"name": "addform.html", "url": "/templates/mobile/addform.html"}],
+        [{"name": "campaigns.html", "url": "/templates/mobile/campaigns.html"}],
+        [{"name": "distributions.html", "url": "/templates/mobile/distributions.html"}],
+        [{"name": "events.html", "url": "/templates/mobile/events.html"}],
+        [{"name": "hosted.html", "url": "/templates/mobile/hosted.html"}],
+        [{"name": "media.html", "url": "/templates/mobile/media.html"}],
+        [{"name": "offers.html", "url": "/templates/mobile/offers.html"}],
+        [{"name": "redemptions.html", "url": "/templates/mobile/redemptions.html"}],
+        [{"name": "rules.html", "url": "/templates/mobile/rules.html"}],
+        [{"name": "schedule.html", "url": "/templates/mobile/schedule.html"}]
+        ]
+    ,
+        [ 
+            [{"name": "management.html",  "url": "/templates/sensors/management.html"}],
+             [{"name": "rules.html",  "url": "/templates/sensors/rules.html"}],
+             [{"name": "counts.html",  "url": "/templates/sensors/counts.html"}],
+             [{"name": "demographics.html",  "url": "/templates/sensors/demographics.html"}],
+             [{"name": "security.html",  "url": "/templates/sensors/security.html"}]
+        ]
+
+    ,
+
+       [ 
+        [{"name": "schedule.html", "url": "/templates/dsn/schedule.html"}],
+        [{"name": "wheel.html", "url": "/templates/dsn/wheel.html"}],
+        [{"name": "layouts.html", "url": "/templates/dsn/layouts.html"}],
+        [{"name": "templates.html", "url": "/templates/dsn/templates.html"}],
+        [{"name": "resolutions.html", "url": "/templates/dsn/resolutions.html"}],
+        [{"name": "media.html", "url": "/templates/dsn/media.html"}],
+        [{"name": "groups.html", "url": "/templates/dsn/groups.html"}],
+
+        [ {"name": "products.html", "url": "/templates/dsn/products.html"},
+          {"name": "product.html", "url": "/templates/dsn/product.html"},
+          {"name": "product.html", "url": "/templates/dsn/product.html"},
+          {"name": "plocate2.html", "url": "/templates/dsn/plocate2.html"}],
+
+        [ {"name": "announcements.html", "url": "/templates/dsn/announcements.html"},
+            {"name": "announcement.html", "url": "/templates/dsn/announcement.html"},
+            {"name": "announcement.html", "url": "/templates/dsn/announcement.html"}],
+           
+        [ {"name": "companies.html", "url": "/templates/dsn/companies.html"},
+          {"name": "company.html", "url": "/templates/dsn/company.html"},
+          {"name": "product.html", "url": "/templates/dsn/company.html"}],
+           
+        [{"name": "feeds.html", "url": "/templates/dsn/feeds.html"}],
+           
+        [ {"name": "productgroup.html", "url": "/templates/dsn/productgroup.html"},
+          {"name": "productgroup.html", "url": "/templates/dsn/productgroup.html"},
+          {"name": "productgroup.html", "url": "/templates/dsn/productgroup.html"},
+          {"name": "plocate2.html", "url": "/templates/dsn/plocate2.html"}],
+
+        [ {"name": "announcementgroup.html", "url": "/templates/dsn/announcementgroup.html"},
+            {"name": "announcementgroup.html", "url": "/templates/dsn/announcementgroup.html"},
+            {"name": "announcementgroup.html", "url": "/templates/dsn/announcementgroup.html"}],
+           
+        [{"name": "feedgroup.html", "url": "/templates/dsn/feedgroup.html"}],
+        [{"name": "rules.html", "url": "/templates/dsn/rules.html"}],
+        [{"name": "displays.html", "url": "/templates/dsn/displays.html"}],
+        [{"name": "dgroups.html", "url": "/templates/dsn/dgroups.html"}],
+        [{"name": "statistics.html", "url": "/templates/dsn/statistics.html"}],
+        [{"name": "settings.html", "url": "/templates/dsn/settings.html"}],
+        [{"name": "rules.html", "url": "/templates/dsn/rules.html"}]
+        ]
+    ,
+        []
+    ,
+        []
+    ]

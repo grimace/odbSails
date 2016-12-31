@@ -1,0 +1,42 @@
+[
+        
+        { "name" : "Travel Alert" , "width":"1920", "height":"1080", 
+          "regions" : [
+            {"name":"video", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"video/*"}
+        ]},
+    
+        { "name" : "FYI", "width":"1920", "height":"1080","regions" : [
+            {"name":"image", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"image/*"}
+            
+        ]},
+
+        { "name" : "Adventure", "width":"1920", "height":"1080", "regions" : [
+            {"name":"web", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"text/*"}
+            
+        ]},
+
+        { "name" : "Cruises","width":"1920", "height":"1080", "regions" : [
+            {"name":"image", "width":"720", "height":"1080", "top":"0", "left":"0", "accept":"image/*"},
+            {"name":"web", "width":"480", "height":"1080", "top":"0", "left":"720", "accept":"text/*"},
+            {"name":"video", "width":"720", "height":"1080", "top":"0", "left":"1200", "accept":"video/*"}
+        ]},
+
+    
+        { "name" : "Luxury","width":"1920", "height":"1080", "regions" : [
+            {"name":"image", "width":"1440", "height":"1080", "top":"0", "left":"0", "accept":"image/*"},
+            {"name":"web", "width":"480", "height":"1080", "top":"0", "left":"1440", "accept":"text/*"}
+            
+        ]},
+
+        { "name" : "Event","width":"1920", "height":"1080", "regions" : [
+            {"name":"web", "width":"480", "height":"1080", "top":"0", "left":"0", "accept":"text/*"},
+            {"name":"image", "width":"1440", "height":"1080", "top":"0", "left":"480", "accept":"image/*"}
+        ]},
+
+        { "name" : "Tours","width":"1920", "height":"1080", "regions" : [
+            {"name":"video", "width":"960", "height":"1080", "top":"0", "left":"0", "accept":"video/*"},
+            {"name":"image", "width":"960", "height":"1080", "top":"0", "left":"960", "accept":"image/*"}
+        ]},
+
+
+]

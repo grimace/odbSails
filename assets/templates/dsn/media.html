@@ -1,0 +1,658 @@
+<!--
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="/font-awesome/css/font-awesome.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css">
+<script>window.jQuery || document.write('<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" href="/lib/bootstrap/css/bootstrap-responsive.min.css">')</script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/1.6.0/fullcalendar.min.css">
+<script>window.jQuery || document.write('<link rel="stylesheet" href="/lib/fullcalendar/fullcalendar.min.css">')</script>
+<link rel="stylesheet" href="/styles/app.css">
+-->
+
+<link href="signage/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="signage/bootstrap-select/css/bootstrap-select.css" rel="stylesheet">
+<link href="signage/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+<link href="signage/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+<link href="signage/bootstrap-ekko-lightbox/ekko-lightbox.min.css" rel="stylesheet">
+<link href="signage/calendar/css/calendar.css" rel="stylesheet">
+<link href="signage/morrisjs/morris.css" rel="stylesheet">
+<link href="signage/jquery-tablesorter/css/theme.bootstrap.css" rel="stylesheet">
+<link href="signage/jquery/jquery-ui/css/ui-lightness/jquery-ui-1.10.2.custom.min.css" rel="stylesheet">
+<link href="signage/jquery-file-upload/css/jquery.fileupload-ui.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/calendar.css" />
+<!--<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">-->
+<style>
+
+    .pagination ul>.active>a, .pagination ul>.active>span {
+/*        color: #0088cc;*/
+        cursor: default;
+        text-decoration: bold;
+    }
+
+    .pagebtn:hover, .pagebtn:focus, .pagebtn:active, .pagebtn.active, .pagebtn.disabled, .pagebtn[disabled] {
+     background-color: #b2b0b0; 
+     color: #777; 
+    }
+    .pagebtn:hover, .pagebtn:focus, .pagebtn.focus {
+         color: #3f7b74; 
+         text-decoration: none; 
+    }
+    .pagebtn:hover, .pagebtn:focus {
+         color: #333; 
+         text-decoration: none; 
+    }
+    .pagebtn {
+        /* outline: none !important; */
+        /* color: #777; */
+        /* text-shadow: 0 0px 0 rgba(0, 0, 0, 0.25); */
+        background-color: #efefef;
+        background-image: none;
+        box-shadow: none;
+        background-repeat: repeat-x;
+        border-color: none;
+        border-width: 0px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        margin-bottom: 5px;
+    }
+    .pagebtn {
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: normal;
+        text-align: center;
+        vertical-align: middle;
+        touch-action: manipulation;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        border-radius: 4px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .pagebtn {
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+    .taImage {
+        object-fit: contain;
+        overflow: hidden;
+    }
+    
+    .taImage img {
+        max-height: 100px;
+        max-width: 100px;
+    } 
+    #tpc {
+        display: inline-block;
+        margin-bottom: 64px;
+        font-weight: normal;
+        text-align: left;
+        vertical-align: middle;
+        text-decoration-color: black;
+        white-space: nowrap;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        border-radius: 4px;
+        height: 100%;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+</style>
+<script>
+  var initComponents = function() {
+      console.log('you are here.');
+  };
+  var setScopeFiles = function(t) {
+    console.log('setScopeFiles, this : '+JSON.stringify(t));
+//    console.log('setScopeFiles, this : '+t.files);
+    var myEl = angular.element(document.querySelector('#fileupload'));
+    var scope = angular.element(myEl).scope();
+    //var input = document.getElementById('#fileupload');
+    //console.log('setting files for scope : '+myEl);
+    scope.setFiles(t);
+  };
+
+  var setScopeForm = function() {
+    var form = angular.element(document.querySelector('#fileupload'));
+    var scope = angular.element(form).scope();
+    //var input = document.getElementById('#fileupload');
+    //console.log('setting files for scope : '+myEl);
+    scope.setFormData();
+  };
+
+  var getScope = function() {
+    var myEl = angular.element(document.querySelector('#fileupload'));
+    var scope = angular.element(myEl).scope();
+    console.log('setting files for scope : '+files);
+    return scope;
+  };
+
+  var uploadFiles = function() {
+    alert('uploadFiles');
+    console.log('uploadFiles ...');
+//    var myEl = angular.element(document.querySelector('#fileupload'));
+//    var scope = angular.element(myEl).scope();
+//    var input = document.getElementById('#finput');
+//    console.log('uploading files for scope : '+myEl);
+//    scope.uploadFile(myEl);
+  };
+
+</script>
+<style>
+    #buttonDrop {
+       margin-right: 86px;
+    }
+/*
+    .dropdown-menu {
+        position: relative;
+        padding-right: 200px;
+        margin-right: 200px;
+    }
+*/
+    .container {
+        padding-left: 1px;
+        margin-left: 0px;
+    }
+    .content {
+        overflow: hidden;
+        padding: 20px;
+    }
+    .widget {
+        width: 800px;
+    }
+    .widget-body {
+        width: 800px;
+    }
+    .widget-title {
+        margin-top: 6px;
+    }
+    td {
+        max-width: 240px;
+    }
+    .dialog-container {
+        padding-top: 2px;
+        padding-left: 2px;
+        padding-right: 10px;
+        color: #333; */
+        background-color: #fff; 
+    }
+/*
+    .modal-content {
+        padding-left: 10px;
+        padding-right: 10px;
+        max-width: 600px;
+        height: 320px;
+
+        color: #333; 
+        background-color: #fff; 
+
+    }
+*/
+    .upload-row {
+        padding: 10px;
+        margin: 1px;
+        margin-top: 8px;
+        height: 76px;
+        border: 1px solid #DDD;
+        border-radius: 4px;
+    }
+    .ngdialog-content {
+        max-width: 600px;
+        height: 520px;
+    }
+    .ngdialog {
+        top: 10%;
+        left: 30%;
+        max-width: 600px;
+        height: 520px;
+    }
+    /*
+    .alertBox {
+        text-align: center;
+        padding: 40px;
+        margin: 20px;
+    }
+    .alertTitle {
+        text-align: center;
+        padding: 40px;
+        margin: 20px;
+    }
+*/
+    input[type="file"] {
+        line-height: 18px;
+    } 
+    .uploadInputLine {
+    } 
+    }
+    #ocancel {
+        color: red;
+    }
+    #save {
+        color: blue;
+    }
+    
+    #selectLabel {
+        font-weight: bold;
+    }
+    #fileToUpload {
+        text-align: center;
+        line-height: 18px;
+        height: 18px;
+    }
+    table { border-collapse: collapse; }
+    .percent {
+        position: absolute; width: 300px; height: 14px; z-index: 1; text-align: center; font-size: 0.8em; color: white;
+    }
+    .progress-bar {
+        width: 300px; height: 14px;
+        border-radius: 10px;
+        border: 1px solid #CCC;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#6666cc), to(#4b4b95));
+        border-image: initial;
+    }
+    .uploaded {
+        padding: 0;
+        height: 14px;
+        border-radius: 10px;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#66cc00), to(#4b9500));
+        border-image: initial;
+    }
+
+    .dropbox {
+        width: 100%;
+        height: 70%;
+        margin: 1px;
+        margin-bottom: 4px;
+        border: 2px solid #DDD;
+        border-radius: 8px;
+        background-color: #FEFFEC;
+        text-align: center;
+        color: #BBB;
+        font-size: 2em;
+        font-family: Arial, sans-serif;
+    }
+    .dropbox span {
+        margin-top: 0.9em;
+        display: block;
+    }
+    .dropbox.not-available {
+        background-color: #F88;
+    }
+    .dropbox.over {
+        background-color: #bfb;
+    }
+    .template-binding {
+        padding-top: 0;
+        margin-top: 0;
+        padding-bottom: 26px;
+        overflow: hidden;
+        float: right;
+        font-weight: bold;
+    }
+    .template-label {
+        font-weight: bold;
+    }
+    .regionicons {
+        float: left;
+        padding: 10px;
+    }
+    body.dragOver #dropbox{display:block;} /* During drag */
+    body #dropbox{z-index:1000;position:fixed;top:0;left:0;width:100%;height:100%;display:none;}  /* No drag */
+    input[type="file" i] {
+        align-items: baseline;
+        color: inherit;
+        text-align: start;
+    }
+    user agent stylesheetinput[type="hidden" i], input[type="image" i], input[type="file" i] {
+        -webkit-appearance: initial;
+        background-color: initial;
+        padding: initial;
+        border: initial;
+    }
+    user agent stylesheetinput {
+        -webkit-appearance: textfield;
+        background-color: white;
+        border-image-source: initial;
+        border-image-slice: initial;
+        border-image-width: initial;
+        border-image-outset: initial;
+        border-image-repeat: initial;
+        -webkit-rtl-ordering: logical;
+        -webkit-user-select: text;
+        cursor: auto;
+        padding: 1px;
+        border: 2px inset;
+    }
+    user agent stylesheetinput, textarea, keygen, select, button {
+        text-rendering: auto;
+        color: initial;
+        letter-spacing: normal;
+        word-spacing: normal;
+        text-transform: none;
+        text-indent: 0px;
+        text-shadow: none;
+        display: inline-block;
+        text-align: start;
+        margin: 0em 0em 0em 0em;
+        font: 11px BlinkMacSystemFont;
+    }
+    user agent stylesheetinput, textarea, keygen, select, button, meter, progress {
+        -webkit-writing-mode: horizontal-tb;
+    }
+    .fileinput-button {
+        height: 44px;
+        width: 200px;
+        float: left;
+    }
+    .start {
+        overflow: hidden;
+    }
+    .cancel {
+        overflow: hidden;
+    }
+    #test {
+        height: 44px;
+    }
+    #ddMenu {
+        right: 20px;
+        margin-right: 100px;
+        padding-right: 100px;
+    }
+    #ddMenu {
+        right: 60px;
+        padding-right: 60px;
+    }
+    #content {
+         padding: 10px 10px 10px 30px; 
+    }
+    #buttonbuttonDrop .btn .dropdown-toggle {
+        padding-right: 40px;
+    }
+    div#sidbarNav-sidebar.nav.affix {
+            background-image: linear-gradient(to bottom,  #3f7b74 0%,#b1d8d5 100%); 
+            background-image: -webkit-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+            background-image: -moz-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+            background-image: -ms-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+            background-image: -o-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+            background-color: #b1d8d5;
+            background: #b1d8d5;
+    }
+
+</style>
+
+<script type="text/javascript" src="/js/async.js"></script>
+<script src="/lib/jquery-1.11.3.js"></script>
+
+<div ng-controller="DSNController">
+<div class="content" id="content">
+  <ul class="nav nav-pills pull-right">
+  <li class="">
+    <a title="Open the filter form" href="#" class="" onclick="ToggleFilterView('Filter')">Filter</a>
+  </li>
+  <li class="">
+      <button class="btn dropdown-toggle" data-toggle="dropdown" id="buttonDrop">
+          <span>Add Media</span>
+      </button>
+      <ul class="dropdown-menu" id="ddMenu">
+            <li class="layout_button_design">
+                <a tabindex="-1" target="_self" ng-click="openAddMediaDialog()">Upload Content</a></li>
+            <li class="layout_button_preview">
+                <a tabindex="-1" target="_blank" ng-click="openAddWebPageDialog()">New Web Asset</a></li>
+            <li class="layout_button_crop">
+                <a tabindex="-1" target="_blank" ng-click="openCropperDialog()">Crop Image Upload</a></li>
+            <li class="layout_button_crop">
+                <a tabindex="-1" target="_blank" ng-click="openFilteredUpload()">Filtered Upload</a></li>
+            <li class="layout_button_schedulenow" ng-click="">
+                <a tabindex="-1" href="#">Schedule Now</a></li>
+      </ul>
+      <div id="addMediaDialog"></div>
+      
+  </li>
+  </ul>
+  <div class="widget">
+  <div class="widget-title">DSN Library </div>
+  <div class="widget-body">
+            <div class="XiboGrid" id="564f9d8fa84ea">
+            <div class="XiboFilter">
+                <div class="FilterDiv" id="Filter" style="display: none;">
+                <form id="" class="form-inline" method="post" action="">
+                <input type="hidden" name="p" value="content">
+                    <input type="hidden" name="q" value="LibraryGrid">
+                    <input type="hidden" name="token" value="9dcd914b4022da3d3f580a5cb22a6f55">
+                    <div class="tab-content">
+                        <div class="form-group ">
+                            <label class="control-label" for="filter_name" accesskey="n">Name</label>
+                            <div>
+                                <input class="form-control" name="filter_name" type="text" id="filter_name" value="">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="control-label" for="filterId" accesskey="i">ID</label>
+                            <div>
+                                <input class="form-control" name="filterId" type="text" id="filterId" value="">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="control-label" for="filter_owner" title="" accesskey="o">Owner</label>
+                            <div>
+                                <select class="form-control" name="filter_owner" id="filter_owner">
+                                    <option value="" selected="">All</option>
+                                    <option value="2">johne</option>
+                                    <option value="1">xibo-admin</option>
+                                </select>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="control-label" for="filter_type" title="" accesskey="y">Type</label>
+                            <div>
+                            <select class="form-control" name="filter_type" id="filter_type">
+                            <option value="" selected="">All</option>
+<!--
+                                <option value="Flash">Flash</option>
+                                <option value="font">Font</option>
+-->
+                                <option value="Web">Web</option>
+                                <option value="Image">Image</option>
+<!--                                <option value="PowerPoint">PowerPoint</option>-->
+                                <option value="Video">Video</option>
+                            </select>
+                            <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="control-label" for="filter_retired" title="" accesskey="r">Retired</label>
+                            <div>
+                                <select class="form-control" name="filter_retired" id="filter_retired">
+                                    <option value="1">Yes</option>
+                                        <option value="0" selected="">No</option>
+                                </select>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div>
+                                <div class="checkbox">
+                                    <label for="filter_duration_in_seconds" title="" accesskey="s">
+                                        <input type="checkbox" id="filter_duration_in_seconds" name="filter_duration_in_seconds">
+                                        Duration in Seconds                                                
+                                    </label>
+                                </div>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div>
+                                <div class="checkbox">
+                                    <label for="showTags" title="" accesskey="t">
+                                        <input type="checkbox" id="showTags" name="showTags">
+                                        Show Tags                                                </label>
+                                </div>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div>
+                                <div class="checkbox">
+                                    <label for="filter_showThumbnail" title="" accesskey="t">
+                                        <input type="checkbox" id="filter_showThumbnail" name="filter_showThumbnail">
+                                        Show Thumbnails
+                                    </label>
+                                </div>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                        <div>
+                            <div class="checkbox">
+                                <label for="XiboFilterPinned" title="" accesskey="k">
+                                    <input type="checkbox" id="XiboFilterPinned" name="XiboFilterPinned">
+                                    Keep Open                                                </label>
+                            </div>
+                            <span class="help-block"></span>
+                        </div>
+                        </div>
+                        </div>                    
+                    </form>
+                </div>
+            </div>
+            <div class="XiboData">
+            <div class="input-append">
+                <input type="text" ng-model="query" ng-change="searchMedia()" class="input-large search-query" placeholder="Search">
+            <span class="add-on"><i class="icon-search"></i></span>
+            </div>
+
+            <table class="table tablesorter tablesorter-bootstrap table-bordered" role="grid">
+                <colgroup>
+                    <col style="width: 15%;">
+                    <col style="width: 4.9%;">
+                    <col style="width: 4.9%;">
+                    <col style="width: 4.9%;">
+                    <col style="width: 10.0%;">
+                    <col style="width: 15.0%;">
+<!--                    <col style="width: 10.0%;">-->
+                    <col style="width: 3.2%;">
+                </colgroup>
+    <thead>
+        <tr role="row" class="tablesorter-headerRow">
+
+        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="0" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Type : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Name <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+       
+        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="1" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Type : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Type <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+        
+        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="2" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Duration : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Duration <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+        
+        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-sorter="filesize" data-column="3" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Size : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;">
+            <div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%">
+                <div class="tablesorter-header-inner">Size <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div>
+            </div>
+        </th>
+        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="4" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Duration : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;">
+            <div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%">
+                <div class="tablesorter-header-inner">Thumb <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div>
+            </div></th>
+        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="5" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="File Name : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;">
+            <div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%">
+                <div class="tablesorter-header-inner">Path <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div>
+            </div>
+        </th>
+        <th data-sorter="false" data-column="6" class="tablesorter-header sorter-false tablesorter-headerUnSorted bootstrap-header" tabindex="0" scope="col" role="columnheader" aria-disabled="true" unselectable="on" aria-sort="none" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner"> <i class="tablesorter-icon"></i></div></div></th>
+        </tr>
+    </thead>
+
+    <tbody aria-live="polite" aria-relevant="all" ng-model="media" ng-init="getMedia()">
+<!--         <tr ng-repeat="asset in pages track by $index | orderBy:sortingOrder:reverse" class="{{selected}}">-->
+         <tr dir-paginate="asset in pages | itemsPerPage: 8" pagination-id="apaginate" class="warning odd" role="row" >
+        
+<!--            <td>{{asset.id}}</td>-->
+            <td>{{asset.name}}</td>
+            <td>{{asset.mimetype}}</td>
+            <td>{{asset.duration}}</td>
+<!--            <td>{{asset.mimetype}}</td>-->
+            <td>{{asset.size}}</td>
+            <td><div class="taImage"><img src="{{getMimeImage(asset);}}"></div></td>
+            <td>{{cleanPath(asset)}}</td>
+            <td>
+            <div class="btn-group pull-right">
+                <button class="btn dropdown-toggle" data-toggle="dropdown">
+                    <span class="fa fa-caret-down"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li class="XiboFormButton content_button_edit">
+                        <a tabindex="-1" ng-click="openEditMediaDialog(asset)">Edit</a>
+                    </li>
+                    <li class="XiboFormButton content_button_edit">
+                        <a tabindex="-1" ng-click="findLayoutForMedia(asset)">Search Layouts</a>
+                    </li>
+                    <li class="XiboFormButton content_button_delete">
+                        <a tabindex="-1"ng-click="removeMedia(asset)">Delete</a>
+                    </li>
+                </ul>
+            </div>
+        </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+       
+<div id="paginationRegion">
+   <div id="tpc">Total Pages: {{getMediaPageCount()}}</div>
+   <pagination pagination-id="apaginate" boundary-links="true" 
+        max-size="3" 
+        items-per-page="itemsPerPage"
+        total-items="getMediaLength()" 
+        ng-model="pages" 
+        ng-change="pageChanged(page)"
+        on-select-page="pageChanged(page)">
+   </pagination>
+            
+</div>
+                
+<!--
+    <div class="pagination pull-left form-inline tablesorter-pager">
+        <button type="button" ng-click="prevPage()" class="btn prev" ng-class="{disabled: currentPage == 0}" aria-disabled="true" tabindex="0">
+            <i class="icon-arrow-left glyphicon glyphicon-backward"></i></button>
+        <div class="pagebtn" ng-repeat="n in range(pagedMedia.length)" ng-class="{active: n == currentPage}" ng-click="setPage()">
+            <span ng-bind="n + 1">1</span>
+        </div>
+
+        <button type="button" ng-click="nextPage()" class="btn next" ng-class="{disabled: currentPage == pagedMedia.length - 1}" aria-disabled="true" tabindex="0">
+        <i class="icon-arrow-right glyphicon glyphicon-forward"></i></button>
+
+    </div>
+-->
+                
+      </div>
+    </div>
+
+</div>
+</div>
+</div>
+

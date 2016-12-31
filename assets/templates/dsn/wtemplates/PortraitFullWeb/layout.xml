@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<layout width="1080" height="1920" resolutionid="11" bgcolor="#000000" schemaVersion="2">
+  <region id="54d01a3b5034c" userId="1" width="1080" height="1920" top="0" left="0" name="p3.3">
+    <options>
+      <transOut/>
+      <transOutDuration>0</transOutDuration>
+      <transOutDirection>N</transOutDirection>
+      <loop>0</loop>
+    </options>
+    <media id="837ad34230cd6606b4c59c8470e940b6" type="webpage" render="native" duration="10" lkid="" userId="1" schemaVersion="1">
+                            <options><xmds>1</xmds><uri>http%3A%2F%2Fwww.google.com</uri><scaling>100</scaling><transparency>0</transparency><offsetLeft>0</offsetLeft><offsetTop>0</offsetTop><pageWidth>0</pageWidth><pageHeight>0</pageHeight><modeid>1</modeid><name>fullWebView</name></options>
+                            <raw/>
+                    </media>
+  </region>
+  <tags><tag>template</tag></tags>
+</layout>

@@ -1,0 +1,200 @@
+@charset "UTF-8";
+body {
+	background: none; 
+	background-color: transparent; 
+}
+/**********************
+  Type 8 Alert Styles  
+***********************/
+#nav {
+	position: absolute;
+	padding-top:0px;
+}
+#alertBox div {
+    border: 5px solid #0a557d;
+    padding: 20px;
+    margin: 20px;
+    width: 240px;
+    height: 408px;
+    background: #eee;
+    text-align: center;
+    -webkit-box-shadow: 0px 1px 2px #666;
+	-webkit-border-radius:6px;
+} 
+#alertTitle {
+    border: 10px;
+    padding: 10px;
+	border-width: 10px;
+    width: 254px;
+    margin-bottom: 10px;
+    background: none;
+    text-align: center;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-appearance:none;
+} 
+.alertText {
+	width:270px;
+	height:60px;
+	-webkit-border-radius:5px;
+	border: 2px solid #0a557d;
+	padding-top:4px;
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-bottom: 8px;
+	margin-bottom: 3px;
+	margin-top: 3px;
+	margin-left: 0px;
+	margin-right: 0px;
+    font-size: 10px;
+	-webkit-user-select: ignore;
+	word-wrap:normal;
+	overflow-y:auto;
+	resize:none;
+    text-align: center;
+	-webkit-border-radius:5px;
+}
+.alertTextAlt {
+	margin-top: 0px;
+	width:100%;
+	color:#FFF;
+	text-align: left;
+    font-size: 14px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+    text-align: center;
+	-webkit-user-select: ignore;
+}
+.alertAd {
+/*	Only uncomment if using page (behind button bar) style alerts
+  	border:solid;
+	border-width:thick;
+	border-color:#61b946; */
+	-webkit-border-radius:5px;
+	width:270px;
+	height:170px;
+	padding: 0px;
+	margin-bottom:4px;
+	overflow: hidden;
+	-webkit-user-select: ignore;
+}
+.couponCode {
+	-webkit-border-radius:5px;
+	width:270px;
+	height:136px;
+	padding: 0px;
+	margin-bottom:4px;
+	overflow: hidden;
+	-webkit-user-select: ignore;
+}
+#smsStyle {
+	height:100px;
+	width:266px;
+	padding-top:10px;
+}
+#smsHead{
+	height:73px;
+	width:110px;
+	padding-bottom:10px;
+}
+.highlight {
+	color:#fba103;
+	font-weight:600;
+}
+#opener {
+    width: 100%;
+    font-family: Helvetica, Arial, sans-serif;
+	position:static;
+	top: 50px;
+} 
+#openerSm {
+    width: 48%;
+    font-family: Helvetica, Arial, sans-serif;
+	padding-bottom: 20px;
+} 
+#closer {
+    width: 15px;
+    height: 15px;
+    padding: 0px;
+    margin: 0px;
+} 
+a {
+    border: none;
+}
+/* button, input[type=button], input[type=reset], input[type=submit] { */
+button, input[type=button] {
+	top: 0px!important;
+	background: none;
+	border: none;
+	color: #61b946;
+	font-weight: bold;
+	font-size: 16px;
+	-webkit-appearance: none;
+}
+/* Type 8 Nav */
+nav{
+	text-align:center;
+	font-family:"GraublauWeb",Helvetica, Arial, Verdana, sans-serif;
+	width:270px;
+	float:left;
+	margin-top:4px;
+}
+nav span a{
+	list-style-type:none;
+	color:#fff;
+	font-size:1em;
+	font-weight:bold;
+	padding:8px;
+	display:block;
+	text-decoration:none;
+	background:#34ad4a;
+	
+	text-shadow:1px 1px 1px #1c5e28;
+	background:-webkit-gradient(linear, left top, left bottom, from(#1d5f88), to(#0a557d));
+	-webkit-transition: -webkit-transform 0.1s ease-in; /* Tells webkit to make a transition of a transform */
+}
+nav span:first-of-type a{
+	-webkit-border-top-left-radius:10px;
+	-webkit-border-top-right-radius:10px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+}
+nav span:last-of-type a{
+	-webkit-border-bottom-left-radius:10px;
+	-webkit-border-bottom-right-radius:10px;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+}
+nav span a:hover{
+	background:#0079ac;
+
+	text-shadow:1px 1px 1px #0d4f6b;
+	background:-webkit-gradient(linear, left top, left bottom, from(#0ba7be), to(#0079ac));
+	-webkit-transform:scale(1.05);
+	-webkit-box-shadow:0 0 5px #666;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+}
+nav span a:active{
+	background:#0079ac;
+
+	text-shadow:1px 1px 1px #0d4f6b;
+	background:-webkit-gradient(linear, left top, left bottom, from(#0ba7be), to(#0079ac));
+	-webkit-transform:scale(1.05);
+	-webkit-box-shadow:0 0 5px #666;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+}
+nav span a:focus{
+	background:#0079ac;
+
+	text-shadow:1px 1px 1px #0d4f6b;
+	background:-webkit-gradient(linear, left top, left bottom, from(#0ba7be), to(#0079ac));
+	-webkit-transform:scale(1.05);
+	-webkit-box-shadow:0 0 5px #666;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+}

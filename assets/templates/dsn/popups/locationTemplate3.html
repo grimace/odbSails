@@ -1,0 +1,80 @@
+<style>
+    .ngdialog.ngdialog-theme-default .ngdialog-content {
+        padding: 0 !important;
+    }
+
+    .ngdialog-content {
+        padding: 1px;
+    }
+    .mapContainer {
+        padding: 2px;
+        width: 100%;
+        height: 530px;
+        overflow: hidden;
+    }
+
+    .angular-leaflet-map {
+        margin: 1px;
+        width: inherit;
+        height: inherit;
+    }
+    .modal-content {
+        height: 620px;
+    }
+/*
+
+    
+    .mapContainer { 
+        width: 640px; 
+        height: 480; 
+    }
+    #mapid {
+        width: 640px; 
+        height: 480; 
+    }
+    .angular-leaflet-map {
+        z-index: 1000;
+        margin: 1px;
+        width: 640px;
+        height: 480px;
+    }
+*/
+    #refreshButton {
+        z-index: 400;
+        margin-right: 4px;    
+    }
+    #closeButton {
+        z-index: 400;
+        margin-left: 4px;    
+    }
+    .pagebtn:hover, .pagebtn:focus, .pagebtn:active, .pagebtn.active, .pagebtn.disabled, .pagebtn[disabled] {
+         background-color: #b2b0b0; 
+         color: #777; 
+    }
+    .ngdialog-overlay {
+        left: initial;
+    }
+    
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+      display: none !important;
+    }
+</style>
+
+<div class="dialog-container" ng-controller="MapController">
+  <div class="modal-content">
+      <div class="modal-header">
+      <h4 class="modal-title">Select a Location</h4></div>
+
+      <div class="modal-body">
+        <div id="mapContainer" class="mapContainer" >
+            <leaflet id='map' lf-center="center" ng-show="showMap"></leaflet>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="modal-footer">
+        <button id='refreshButton' class='btn btn-default' ng-click="refreshMap()">Refresh</button>
+        <button id='closeButton' class='btn btn-default' ng-click="closeAndUpdateMedia()">Close</button>
+    </div>
+</div>

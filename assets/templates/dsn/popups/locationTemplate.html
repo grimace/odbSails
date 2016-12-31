@@ -1,0 +1,105 @@
+<style>
+    .ngdialog {
+/*        height: auto;*/
+        min-height: 300px; 
+    }
+    .ngdialog-content {
+/*        height: auto;*/
+        min-height: 300px; 
+    }
+    .modal-content {
+/*        height: auto;*/
+        min-height: 300px; 
+        max-height: 500px; 
+    }
+/*
+    .leaflet-container img {
+      max-height: none;
+      max-width: none;
+    }
+*/
+    .dialog-container {
+        padding-right: 0px;
+    }
+     .modal-content {
+        min-height: 240px;       
+    }
+
+    #uFile {
+        background-color: #64965E;
+        text-decoration-color: black;
+    }
+    #uFolder {
+        background-color: #64965E;
+        text-decoration-color: black;
+    }
+    .drop {
+        min-height: 120px; 
+    /*    background-color: #d6e3e3;*/
+    /*    border-radius: 1px;*/
+    }
+
+    .dropArea {
+        min-height: 110px; 
+        background-color: #d6e3e3;
+        padding-left: 6px;
+        border-radius: 1px;
+    }
+    .pagination {
+        display: none;
+    }
+    
+    .mapContainer { top:0px; left:0px; position: relative; height: 400px; width: 400px; }
+    .angular-leaflet-map {
+      position: relative; 
+      width: 400px;
+      height: 400px;
+    }
+
+    .leaflet-map-pane {
+        position: relative; 
+        height: 400px; 
+        width: 400px; 
+    }
+    .leaflet-layer {
+        position: relative; 
+        height: 400px; 
+        width: 400px; 
+    }
+    .leaflet-tile-container {
+        position: relative; 
+        height: 400px; 
+        width: 400px; 
+    }
+    #map {
+        position: relative; 
+        height: 400px; 
+        width: 400px; 
+    }
+
+</style>
+
+<!--      <script type="text/ng-template" id="addImageDialog">-->
+    <div class="dialog-container" ng-controller="LocationController" ng-init="mapTest();">
+      <div class="sidebar-avatar">
+          <img src="/images/logo.png" alt="avatar" class="thumbnail-avatar">
+      </div>
+
+      <div class="modal-content">
+          <div class="modal-header">
+<!--          <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>-->
+
+          <h4 class="modal-title">Select a Location</h4></div>
+          
+          <div class="modal-body">
+              <div class="bootbox-body">
+                <div class="mapContainer">
+                    <leaflet id="map" defaults="defaults" controls="controls" lf-center="center"></leaflet>
+                </div>
+              </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer"><button type="close" ng-click="closeAndUpdateMedia()">Close</button></div>
+</div>

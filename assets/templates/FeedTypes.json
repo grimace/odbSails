@@ -1,0 +1,47 @@
+[
+        
+        { "name" : "Weather" , "width":"1920", "height":"1080", 
+          "regions" : [
+            {"name":"video", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"video/*"}
+        ]},
+    
+        { "name" : "News", "width":"1920", "height":"1080","regions" : [
+            {"name":"image", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"image/*"}
+            
+        ]},
+
+        { "name" : "Events", "width":"1920", "height":"1080", "regions" : [
+            {"name":"web", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"text/*"}
+            
+        ]},
+
+        { "name" : "Educational","width":"1920", "height":"1080", "regions" : [
+            {"name":"image", "width":"720", "height":"1080", "top":"0", "left":"0", "accept":"image/*"},
+            {"name":"web", "width":"480", "height":"1080", "top":"0", "left":"720", "accept":"text/*"},
+            {"name":"video", "width":"720", "height":"1080", "top":"0", "left":"1200", "accept":"video/*"}
+        ]},
+
+    
+        { "name" : "Business","width":"1920", "height":"1080", "regions" : [
+            {"name":"image", "width":"1440", "height":"1080", "top":"0", "left":"0", "accept":"image/*"},
+            {"name":"web", "width":"480", "height":"1080", "top":"0", "left":"1440", "accept":"text/*"}
+            
+        ]},
+
+        { "name" : "Financial","width":"1920", "height":"1080", "regions" : [
+            {"name":"web", "width":"480", "height":"1080", "top":"0", "left":"0", "accept":"text/*"},
+            {"name":"image", "width":"1440", "height":"1080", "top":"0", "left":"480", "accept":"image/*"}
+        ]},
+
+        { "name" : "Science","width":"1920", "height":"1080", "regions" : [
+            {"name":"video", "width":"960", "height":"1080", "top":"0", "left":"0", "accept":"video/*"},
+            {"name":"image", "width":"960", "height":"1080", "top":"0", "left":"960", "accept":"image/*"}
+        ]},
+
+        { "name" : "Space", "width":"1920", "height":"1080", "regions" : [
+            {"name":"image", "width":"960", "height":"1080", "top":"0", "left":"0", "accept":"image/*"},
+            {"name":"video", "width":"960", "height":"1080", "top":"0", "left":"960", "accept":"video/*"}
+            
+        ]}
+
+]

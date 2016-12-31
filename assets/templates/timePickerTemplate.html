@@ -1,0 +1,15 @@
+<div class="timePicker">
+    <label ng-click="toggleTimePicker()">
+        <input type="text" ng-model="timeLabel" ng-bind="timeValue" disabled>
+    </label>
+    <div class="cal-wraper shadow"  ng-show="selecting">
+        <table>
+            <tr class="navigation">
+            <tr class="time">
+            <td class="mer"><div ng-click="selectMeridian(meridian)" ng-repeat="meridian in meridians" ng-bind="meridian"></div></td>
+            <td class="hours"><div ng-click="selectHour(hour)" ng-repeat="hour in hours" ng-bind="hour.label"></div></td>
+            <td class="minutes"><div ng-click="selectMinute(minute)" ng-repeat="minute in minutes" ng-bind="minute"></div></td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,107 @@
+<div class="content">
+<div class="wrapper-content">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="block span12 block-head-btn new">
+                <div class="row-fluid" id="updateuser">
+                    <form id="updateUser" class="form-signin" method="POST" action="/user/update/grimace">
+                        <p class="block-heading">
+                            Update Gregory Mace's Profile
+                        </p>
+                        <div class="block-body">
+                            User ID: <input type="text" class="form-control" placeholder="User ID" value="grimace" readonly data-parsley-length="[6, 10]" required >
+                        </div>
+                        <div class="block-body">
+                            Email Address: <input type="text" class="form-control" placeholder="Email Address" name="email" value="gregorymace@earthlink.net" data-parsley-type="email" data-parsley-trigger="change" required >
+                        </div>
+                        <div class="block-body">
+                            First Name: <input type="text" class="form-control" placeholder="First Name" name="firstName" value="Gregory" required>
+                        </div>
+                        <div class="block-body">
+                            Last Name: <input type="text" class="form-control" placeholder="Last Name" name="lastName" value="Mace" required>
+                        </div>
+                        <div class="block-body">
+                            Phone Number: <input type="text" class="form-control" placeholder="Phone Number" name="phoneNumber" value="2066610252" data-parsley-error-message="This needs to be a valid phone number"  data-parsley-pattern="^[()0-9\s\-]+">
+                        </div>
+                        <p class="block-heading">
+                            To update the password, enter the new password and confirmation below.
+                        </p>
+                        <div class="block-body">
+                            Password: <input type="password" id="password" class="form-control" placeholder="Password" name="password">
+                        </div>
+                        <div class="block-body">
+                            Confirm Password: <input type="password" class="form-control" placeholder="Confirm Password" name="confirmation"
+                                                         data-parsley-equalto="#password" data-parsley-equalto-message="Password must match confirmation">
+                        </div>
+                        <div class="block-body" id="needsmargin14">
+                            <p>Assigned roles:
+                                <ul id="roles">
+
+                                </ul>
+                            </p>
+                            <hr>
+
+                            <div class="row-fluid">
+                                <div class="span6">
+                                    <button type="submit" class="btn btn-large btn-primary btn-block" name="submit" value="true"><i class="icon-save"></i> Update Account</button>
+                                    <input type="hidden" name="_csrf" value="null" />
+                                </div>
+                                <div class="span6">
+                                    <button class="btn btn-large btn-block" type="button" onclick="window.location.href='/user/view'">Cancel</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- end container-fluid -->
+</div><!-- end wrapper-container -->
+
+</div>
+<!-- end content -->
+
+<script type="text/javascript">
+    var link = "/user/remove/grimace";
+    function validate() {
+        if (confirm("Are you sure you want to delete Gregory's Profile?")) {
+            window.location.href = link;
+        }
+    }
+    var updateUserReady = function() {
+//    $( document ).ready(function() {
+
+
+		$('#updateUser').parsley({
+			errorsWrapper: '<div></div>',
+			errorTemplate: '<span></span>',
+			priorityEnabled: false,
+			trigger:'change'
+		});
+
+        $.getJSON('/role/list', function(roles) {
+            $.each(roles, function(i, item) {
+                $('<li>').append(item)
+				         .append(' <input type="checkbox" class="form-control" value="'+item+'" '+ contains(item)+' name="role">')
+						 .append('</li>')
+                         .appendTo('#roles');
+            });
+        });
+	};
+
+    function contains(name) {
+        var userRoles = ['Admin', ];
+        if (userRoles.indexOf(name) > -1) {
+          return "checked";
+        }
+        return "";
+    }
+
+    var initComponents = function() {
+        console.log('calling updateUserReady');
+        updateUserReady();
+    };
+
+</script>

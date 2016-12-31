@@ -1,0 +1,1131 @@
+<style>
+    
+    .ngdialog.ngdialog-theme-default {
+      padding-bottom: 0px !important;
+      padding-top: 0px !important;
+    }
+
+    #ngdialog1 {
+        width: 720px;
+        height: 760px;
+    }
+    .ngdialog-overlay {
+        width: 680px;
+        height: 720px;
+    }
+    .div.ngdialog-overlay {
+        height: 720px;
+    }
+    .ngdialog {
+        top: 10%;
+        left: 20%;
+        width: 800px;
+        height: 720px;
+        font-size: 11px;
+    }
+    
+    .ngdialog-content {
+        width: 720px !important;
+        height: 700px;
+        z-index: 10001;
+        padding-left: 10px;
+        padding-top: 10px;
+    }
+    
+/*
+    .modal-dialog {
+        width: 660px !important;
+        height: 680px;
+    }
+*/
+ 
+    .modal-body {
+/*        position: relative;*/
+/*        height: 480px;*/
+/*        max-height: 480px;*/
+/*
+        max-height: 700px;
+        width: 700px !important;
+*/
+    }
+    div.bootbox-body {
+        height: auto;
+        border: 1px solid #cedcdc;
+    }
+    .div.row {
+        height: 480px;
+    }
+    .tab-pane {
+        position: relative;
+        height: 560px;
+    }
+    div.tab-content {
+        height: 700px;
+    }
+    #schDialog {
+        margin-left: 2px;
+        margin-right: 2px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        width: 680px !important;
+        height: 680px !important;
+    }
+    #schContent {
+        margin-left: 10px;
+        margin-right: 10px;
+/*        margin-top: 10px;*/
+        margin-bottom: 10px;
+        width: 640px;
+        height: 100%;
+    }
+
+    #schGrid {
+        width: 800px;
+        height: 700px;
+    }
+
+    #schBody {
+/*        position: relative;*/
+        width: 800px;
+/*        height: 532px;*/
+    }
+    div#schContent.modal-content {
+        width: 668px;
+        height: 100%;
+        background-color: #cedcdc;
+
+    }
+    div#schBody.modal-header {
+        width: 640px;
+/*        height: 280px;*/
+    }
+    div#schBody.modal-body {
+        width: 640px;
+/*        height: 280px;*/
+    }
+    
+    .modal-footer {
+        height: 80px;
+        width: 640px;
+/*
+        padding-top: 24px;
+*/
+        position: absolute;
+        bottom: 10px;
+        float: right;
+        margin-right: 30px;
+    }
+    
+    #schData {
+        overflow: hidden;
+        height: 700px;
+    }
+
+    #schFooter {
+        margin-bottom: 2px;
+        bottom: 10px;
+    }
+    #displaysIn {
+        background-color: #F3F3F3;
+    }
+    #displaysOut {
+        background-color: #F3F3F3;
+    }
+    input#DisplayOrder.form-control {
+        height: 34px;
+    }
+    #recDetail {
+        height: 34px;
+    }
+    #recRange {
+        height: 34px;
+    }
+    .row {
+        width: 680px;
+    }
+    .div.dropdown-menu.open {
+        max-height: 550px;
+        overflow: hidden;
+        min-height: 92px;
+    }
+    
+    .has-success .help-block, .has-success .control-label, .has-success .radio, .has-success .checkbox, .has-success .radio-inline, .has-success .checkbox-inline {
+        color: #3c763d;
+    }
+    #dOrder {
+        height: 34px;
+    }
+    .form-group {
+        padding-left: 0px;
+/*
+        margin-left: auto !important;
+        margin-right: auto !important;
+*/
+    }
+    
+    i.glyphicon.glyphicon-chevron-up {
+        display:none;
+/*        background-color: #329cf7;*/
+        z-index: -100;
+    }
+
+    a.pull-left.event.ng-scope.event- {
+        display:none;
+        z-index: -100;
+    }
+
+    div.btn-group.pull-right.xibo-calendar-controls {
+        display:none;
+    }
+    
+    .cal-day-tick {
+            display:none;
+    }
+ 
+    .nav>li>a .nav>li>a:hover .nav>li>a:focus {
+        /* text-decoration: none; */
+        background-color: #eee;
+    }
+    
+/*
+    #repeatsTab {
+        color: #555555;
+        background-color: #ffffff;
+        border: 1px solid #dddddd;
+        border-bottom-color: transparent;
+        cursor: default;
+    }
+*/
+    .nav-tab {
+/*        color: #555555;*/
+        background-color: #ffffff;
+        border: 1px solid #CECECE;
+/*        border-bottom-color: transparent;*/
+        cursor: default;
+        padding-bottom: 1px;
+    }
+
+/*
+    .nav-tab .active {
+        color: #3c763d;
+    }
+*/
+    
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+        color: #3c763d;
+        background-color: #ffffff;
+        border: 1px solid #CECECE;
+/*        border-bottom-color: transparent;*/
+        cursor: default;
+        
+    }
+    
+    .tab-link {
+       color: #337ab7; 
+    }
+    #titleForm {
+        padding-left: 10px;
+        padding-top: 4px;
+/*        margin-left: 10px;*/
+        margin-bottom: 0px;
+        height: 106px;
+        border-top: 1px solid #CECECE;
+        border-left: 1px solid #CECECE;
+        border-right: 1px solid #CECECE;
+    }
+    #periodForm {
+        border-left: 1px solid #CECECE;
+        border-right: 1px solid #CECECE;
+    }
+    
+    
+    
+    .datetimepicker {
+        border-left: 0px;
+        margin-left: 0px;
+        width: 250px;
+        height: 250px;
+        font-size: .8em;
+    }
+    #starts-form {
+        padding-left: 20px;
+    }
+    #ends-form {
+        padding-left: 20px;
+    }
+    #timePeriod {
+        width: 560px;
+        padding-bottom: 10px;
+    }
+    #leftCal {
+        float: left;
+        width: 50%;
+        padding: 4px;
+/*        margin-right: 20px;*/
+    }
+    #topCal {
+        /* float: right; */
+/*        width: 240px;*/
+        padding: 0px;
+        /* margin-right: 20px; */
+/*        overflow: hidden;*/
+    }
+    #rightCal {
+        width: 50%;
+/*        overflow: hidden;*/
+        padding: 0px;
+    }
+    #startCal {
+        width: 96% !important;
+    }
+    #endCal {
+        width: 96% !important;
+    }
+    .form-control {
+        width: auto !important;
+        font-size: 12px;
+        color: blue;
+    }
+    .col-sm-10 {
+        width: 83.33333333%;
+        margin-top: 0;
+    }
+/*
+    .dhx_form_repeat {
+        height: 126px;
+    }
+*/
+    .dhx_wrap_section {
+        height: 160px;
+        width: 620px;
+    }
+    
+    .dhx_repeat_center, .dhx_repeat_left, .dhx_repeat_right {
+        font-size: 12px;
+        width: 80px;
+        margin-top: 2px;
+        height: 155px;
+    }
+    .dhx_repeat_center, .dhx_repeat_left {
+        height: 155px;
+        padding: 10px 0 10px 10px;
+        float: left;
+    }
+    .dhx_repeat_center {
+        margin-top: 2px;
+        float: left;
+    }
+    .dhx_repeat_left {
+        height: 155px;
+        padding-top: 10px;
+        padding-bottom:  0px;
+        padding-left: 10px
+        padding-right: 10px;
+        float: left;
+    }
+    .dhx_repeat_right {
+        float: right;
+        height: 115px;
+/*        width: 160px;*/
+/*        padding: 10px 3px 10px 10px;*/
+        padding: 0px;
+        margin-top: 2px;
+    }
+    .repeat_divider {
+        width: 2px;
+        height: 115px;
+        border-left: 1px solid #CECECE;
+    }
+    .modal-body {
+        height: 600px;
+    }
+    .dhx_cal_lsection {
+        height: 46px;
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
+    #flexForm {
+        width: 100%;
+        height: 320;
+    }
+    .flex-container1 {
+        display: -webkit-flex;
+        display: flex;
+        align-content: flex-start;
+        width: 100%;
+        height: 240px;
+        background-color:  #cedcdc;
+        margin-left: 4px;
+        border: 1px solid #CECECE;
+    }
+
+    .flex-container2 {
+        display: -webkit-flex;
+        display: flex;
+        align-content: flex-start;
+        width: 100%;
+        height: 120px;
+        background-color:  #cedcdc;
+        margin-left: 4px;
+        border: 1px solid #CECECE;
+    }
+
+    .flex-container3 {
+        display: -webkit-flex;
+        display: flex;
+        align-content: flex-start;
+        width: 100%;
+        height: 130px;
+        background-color:  #cedcdc;
+        margin-left: 4px;
+        margin-right: 10px;
+        border: 1px solid #CECECE;
+    }
+    .flex-container4 {
+        display: -webkit-flex;
+        display: flex;
+        align-content: flex-start;
+        width: 100%;
+        height: 120px;
+        background-color:  #cedcdc;
+        margin-left: 4px;
+        margin-right: 10px;
+        border: 1px solid #CECECE;
+    }
+
+    .flex-item1 {
+        background-color:  #cedcdc;
+        width: 50%;
+        height: 120px;
+        font-size: 11px;
+    }
+    .flex-item2 {
+        background-color:  #cedcdc;
+        width: 80px;
+        height: 120px;
+        margin-left: 4px;
+        margin-right: 4px;
+        font-size: 11px;
+    }
+    .flex-item3 {
+        background-color:  #cedcdc;
+        width: 330px;
+        height: 120px;
+        margin-left: 4px;
+        margin-right: 4px;
+        font-size: 11px;
+        border-left: 1px solid #CECECE;
+        border-right: 1px solid #CECECE;
+    }
+    .flex-item4 {
+        padding-top: 10px;
+        background-color: #cedcdc;
+        width: auto;
+        height: 120px;
+        margin-left: 4px;
+        margin-right: 4px;
+        font-size: 11px;
+    }
+    .dhx_cal_lsection {
+        background-color: #cedcdc;
+        padding: 6px;
+/*        width: 630px;*/
+        margin-left: 4px;
+        margin-bottom: 0px;
+    }
+    #periodBlock {
+        margin-left: 10px;
+    }
+    
+    #repeat {
+        margin-left: 10px;
+    }
+    #enableLabel {
+        margin-left: 10px;
+    }
+    #titleLabel {
+        margin-left: 0px;
+    }
+    #titleHeader {
+        width: 50%;
+    }
+    #dateHeader {
+        width: 50%;
+    }
+    #titleInput {
+        margin-left: 0px;
+        padding-left: 0px;
+/*        max-width: 300px;*/
+    }
+    #scheduleTitle {
+        width: 100% !important;
+    }
+    .dhx_text {
+        height: 26px;
+    }
+    .dhx_repeat_text {
+        max-width: 60px !important;
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+    .dhx_repeat_number {
+        max-width: 24px !important;
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+    .form-group {
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+        width: 605px;
+    }
+    #scheduleNowForm {
+        margin-left: 10px !important;
+        margin-right: 32px !important;
+    }
+    #startDateInput {
+        width: 240px !important;
+        font-size: 16px;
+        margin: 0;
+    }
+    #startDate {
+        width: 98% !important;
+        margin: 0;
+    }
+
+    #startsAtInput {
+        padding-left: 0px;
+        font-size: 14px;
+        margin: 0;
+    }
+    #startsAt {
+/*        width: 98% !important;*/
+        float: left;
+        margin: 0;
+        margin-right: 4px;
+    }
+    #startsAtClock {
+        overflow: hidden;
+        width: 32px !important;
+        margin: 0;
+    }
+
+    #endsAtInput {
+        padding-left: 10px;
+        font-size: 16px;
+        margin: 0;
+    }
+
+    #endsAt {
+        float: left;
+/*        width: 98% !important;*/
+        margin: 0;
+        margin-right: 4px;
+    }
+    #endsAtClock {
+        overflow: hidden;
+        width: 32px !important;
+        margin: 0;
+    }
+    #endDateInput {
+        width: 200px !important;
+        font-size: 16px;
+        margin: 0;
+    }
+    
+    #uibStartTime {
+        height: 60px;
+    }
+    #uibEndTime {
+        height: 60px;
+    }
+    .datetimepicker-wrapper {
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    .datetimepicker-wrapper > input {
+      margin-bottom: 0 !important;
+      width: 130px;
+    }
+
+    .datetimepicker-wrapper [ng-model=hours], 
+    .datetimepicker-wrapper [ng-model=minutes] {
+      width: 46px !important;
+    }
+    .timepop {
+        max-width: 200px;
+        height: 100px;
+    }
+    .timepicker.dropdown-menu {
+      padding: 0 4px;
+    }
+    .timepicker.dropdown-menu button {
+      outline: none;
+      border: 0px;
+    }
+    .timepicker.dropdown-menu tbody button {
+      padding: 6px;
+    }
+    .timePopup {
+        max-width: 200px !important;
+    }
+    #flexForm {
+        width: 100%;
+        height: 220px;
+    }
+    div#schBody.modal-body {
+        width: 640px;
+        height: auto;
+    }
+    .dp {
+/*        display: block;*/
+        max-width: 220px;
+        max-height: 214px;
+    }
+    #calendar {
+        display: none;
+    }
+</style>
+<link href="/signage/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+<link href="/signage/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="/signage/bootstrap-select/css/bootstrap-select.css" rel="stylesheet">
+<!--<link href="/signage/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">-->
+<link href="/signage/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+<link href="/signage/bootstrap-ekko-lightbox/ekko-lightbox.min.css" rel="stylesheet">
+<link href="/signage/calendar/css/calendar.css" rel="stylesheet">
+<link href="/signage/morrisjs/morris.css" rel="stylesheet">
+<link href="/signage/jquery-tablesorter/css/theme.bootstrap.css" rel="stylesheet">
+<link href="/signage/jquery/jquery-ui/css/ui-lightness/jquery-ui-1.10.2.custom.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/calendar.css" />
+
+<div class="modal-dialog" ng-style="modalDialog" id="schDialog" ng-controller="ScheduleDialogController"  ng-init="initialize()">
+    <div class="modal-content" id="schContent">
+        
+        <div class="modal-header">
+        <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">Schedule Content</h4>
+        </div>
+        <div class="modal-body" id="schBody">
+            <div class="bootbox-body">
+            <div class="row">
+            <!-- div class="col-md-12" -->
+            <form id="scheduleNowForm" class="XiboForm form-horizontal" method="post" novalidate="novalidate">
+                    <div id="titleForm" class="form-group flex-container1">
+                        <div class="flex-item1">
+                        <div id="titleLabel">
+                            <h3 id="titleHeader">Title:</h3>
+                        </div>
+                        <div id="titleInput" class="col-sm-10">
+                            <input id="scheduleTitle" class="form-control" name="schedule" type="text" id="schedule" value="" required aria-required="true" ng-model="title" >
+                        </div>
+                        </div>
+                        
+                        
+                        <div class="flex-item1">
+                            <h3 id="dateHeader">Start Date:</h3>
+
+                            <div id="topCal" class="dropdown">
+                            
+<!--
+                             <form>
+                                 <datetimepicker 
+                                      hour-step="hourStep" 
+                                      minute-step="minuteStep"
+                                      ng-model="startDate" 
+                                      show-meridian="showMeridian" 
+                                      date-format="{{dateFormat}}"  
+                                      date-options="dateOptions"
+                                      date-disabled="disabled(date, mode)" 
+                                      datepicker-append-to-body="false"
+                                      readonly-date="false"
+                                      readonly-time="false"
+                                      disabled-date="false"
+                                      hidden-time="true"
+                                      hidden-date="false" 
+                                      name="datetimepicker"
+                                      show-spinners="true"
+                                      date-opened="{{startDateOpened}}"
+                                      show-button-bar="false"
+                                      >
+                                       Use date-ng-click="open($event, opened)" to override date ng-click 
+                                      </datetimepicker>
+
+                                        <span class="input-group-addon" ng-click="toggleStartDate($event)"><i class="glyphicon glyphicon-calendar"></i></span>
+                                </form>
+-->
+                           
+                            <a class="dropdown-toggle" id="ddstartdate" role="button" data-toggle="dropdown" data-target="#" ng-click="toggleStartDate($event)">
+                                <div id="startDateInput" class="input-group">
+                                    <span id="startDate" >{{startDate | date:'EEE MMM dd yyyy'}}</span>
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                </div>
+                            </a>
+                            <ul  class="dropdown-menu dp" role="menu" aria-labelledby="dLabel">
+                                <datetimepicker data-ng-model="startDate" data-datetimepicker-config="{ dropdownSelector: 'ddstartdate', minView: 'day' }"/>
+                           
+                            </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="periodForm" class="form-group flex-container2">
+
+<!--                        <div id="periodBlock" class="row">-->
+<!--
+                                <div id="timeHeader" class="col-sm-10">
+                                    <h3>Time period</h3>
+                                </div>
+-->
+<!--                                <div id="timePeriod" class="col-sm-10">-->
+<!--                                   <div class="form-horizontal">-->
+<!--
+                                     <div id="leftCal" class="dropdown">
+                                        <a class="dropdown-toggle" id="ddstartsat" role="button" data-toggle="dropdown" data-target="#">
+                                            <div class="input-group">
+                                                
+                                                <span id="startCal" >{{startsAt | date:'h m'}}</span>
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-clock"></i></span>
+                                                
+                                                
+                                            </div>
+                                        </a>
+                                        <ul  class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                             <div uib-timepicker ng-model="startsAt" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></div>
+                                        </ul>
+                                      </div>
+-->
+                         <div id="leftCal" class="col-md-6 flex-item2">
+<!--
+                            <a class="dropdown-toggle" id="ddstartsat" role="button" data-toggle="dropdown" data-target="#">
+                                <div id="startsAtInput" class="input-group">
+                                    <h3>Start Time: </h3><span id="startsAt" >{{startsAt | date:'h:mm a'}}</span>
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                                </div>
+                            </a>
+                            <ul  class="dropdown-menu" role="menu" aria-labelledby="dLabel"></ul>
+-->
+<!--                            <timepicker-pop input-time="startsAt" class="input-group" show-meridian='showMeridian'> </timepicker-pop>-->
+<!--                            <timepicker ng-model='startsAt' show-meridian='showMeridian'></timepicker>-->
+<!--                            <span class="input-group-btn">-->
+                                <div id="titleLabel">
+                                    <h3 id="titleHeader">Start time:</h3>
+                                </div>
+                               <div id="startsAt" >
+                                 <input type="time"
+                                       ng-model="startsAt"
+                                       name="startsAt" 
+                                       max="endsAt" />
+<!--
+                                       [min="string"]
+                                       [max="string"]
+                                       [ng-min=""]
+                                       [ng-max=""]
+                                       [required="string"]
+                                       [ng-required="string"]
+                                       [ng-change="string"]
+                                       >
+-->
+<!--                                  <input sy-timepicker-popup="h:mm a" class="form-control timePopup" ng-model="startsAt" show-meridian="true" is-open="startsAtOpened">-->
+                               </div>
+<!--                               <div id="startsAtClock" class="input-group-addon" ng-click="toggleStartDate($event)"><i class="glyphicon glyphicon-time"></i></div>-->
+
+                        </div>
+
+                         <div id="rightCal" class="col-md-6 flex-item2" >
+<!--                            <timepicker-pop input-time="endsAt" class="input-group" show-meridian='showMeridian'> </timepicker-pop>-->
+
+<!--                            <timepicker ng-model='endsAt' show-meridian='showMeridian'></timepicker>-->
+                            <div id="endsAtLabel">
+                                <h3 id="endsAtHeader">End time:</h3>
+                            </div>
+                            <div id="endsAt" >
+                                 <input type="time"
+                                       ng-model="endsAt"
+                                       name="endsAt"
+                                       min="startsAt" />
+<!--
+                                       [min="string"]
+                                       [max="string"]
+                                       [ng-min=""]
+                                       [ng-max=""]
+                                       [required="string"]
+                                       [ng-required="string"]
+                                       [ng-change="string"]
+                                       >
+-->
+<!--                                  <input sy-timepicker-popup="h:mm a" class="form-control timePopup" ng-model="startsAt" show-meridian="true" is-open="startsAtOpened">-->
+                               </div>
+
+<!--
+                            <div id="endsAt" >
+                              <input sy-timepicker-popup="h:mm a" class="form-control timePopup" ng-model="endsAt" show-meridian="true" is-open="endsAtOpened">
+                            </div>
+                            <div id="endsAtClock" class="input-group-addon" ng-click="toggleEndsAt($event)"><i class="glyphicon glyphicon-time"></i></div>
+-->
+
+                         
+<!--
+                          <span class="input-group-btn">
+                              <input sy-timepicker-popup="h:mm:ss" class="form-control" ng-model="endsAt" show-meridian="true" is-open="endsAtOpened">
+                              <button class="btn btn-default" ng-click="open($event)">
+                                <i class="glyphicon glyphicon-time"></i>
+                              </button>
+                              
+                          </span>
+-->
+                        </div>
+                        
+                        
+<!--                </div>-->
+                </div>
+                <div id="flexForm">
+                    <div id="repeat" class="dhx_cal_lsection">
+                        <label id="enableLabel">Enable Repeats&nbsp;<input type="checkbox" ng-model="recurrence.enabled"></label>
+                    </div>
+<!--                    <div ng-class="{'item-text-wrap':viewMore}" ng-click="viewMore= !viewMore"></span>-->
+<!--                    {{repeatsEnabled}}-->
+                        <div ng-show="recurrence.enabled" class="dhx_form_repeat flex-container3"> 
+
+                        <div class="dhx_repeat_left flex-item2"> 
+                            <div>
+                                <input class="dhx_repeat_radio" type="radio" name="repeat" ng-change="recurrenceCheck()" ng-model="recurrence.type" value="daily">
+                                <label>Daily</label>
+                            </div>
+<!--                            <br> -->
+                            <div>
+                                <input class="dhx_repeat_radio" type="radio" name="repeat" ng-model="recurrence.type" value="weekly">
+                                <label>Weekly</label>
+                            </div>
+<!--                            <br>-->
+                            <div>
+                                <input class="dhx_repeat_radio" type="radio" name="repeat" ng-model="recurrence.type" value="monthly">
+                                <label>Monthly</label>
+                            </div>
+<!--                            <br>-->
+                            <div>
+                                <input class="dhx_repeat_radio" type="radio" name="repeat" ng-model="recurrence.type" value="yearly">
+                                <label>Yearly</label>
+                            </div>
+                        </div>
+                        <!--        <div class="repeat_divider"></div>-->
+                        <div class="dhx_repeat_center flex-item3" ng-switch="recurrence.type"> 
+                                    
+                                    <div id="dhx_repeat_day" ng-switch-when="daily">                                    
+<!--                                    <div style="display:none;" id="dhx_repeat_day"> -->
+                                        <div>
+                                            <input class="dhx_repeat_radio" type="radio" name="dayType" ng-model="recurrence.dayType" value="day">
+                                            <label>Every</label>
+                                            <input class="dhx_repeat_text" type="text" ng-model="recurrence.dayCount">
+                                            <ng-pluralize count="recurrence.dayCount"
+                                                    when="{'0': ' days.',
+                                                           'one': ' day.',
+                                                           'other': ' days.'}">
+                                            </ng-pluralize>
+                                        </div>
+<!--                                        <br>-->
+                                        <div>
+                                            <input class="dhx_repeat_radio" type="radio" name="dayType" ng-model="recurrence.dayType" value="weekday">
+                                            <label>Every weekday</label>
+                                        </div>
+                                        <div>
+                                            <input class="dhx_repeat_radio" type="radio" name="dayType" ng-model="recurrence.dayType" value="weekend">
+                                            <label>On weekends</label>
+                                        </div>
+                                    </div> 
+                                    <div id="dhx_repeat_week" ng-switch-when="weekly">                                    
+<!--                                    <div style="display: block;" id="dhx_repeat_week"> -->
+                                        Repeat every
+                                        <input class="dhx_repeat_number" type="text" ng-model="recurrence.weekCount" value="1">
+                                            <ng-pluralize count="recurrence.weekCount"
+                                                    when="{'0': ' weeks.',
+                                                           'one': ' week.',
+                                                           'other': ' weeks.'}">
+                                            </ng-pluralize>
+                                        <br> 
+                                        <table class="dhx_repeat_days"> <tbody>
+                                            <tr> 
+                                            <td> 
+                                                <div>
+                                                    <input class="dhx_repeat_checkbox" type="checkbox" ng-model="recurrence.week.sunday">
+                                                    <label>Sunday</label>
+                                                </div>
+                                            </td> 
+                                            <td> 
+                                                <div>
+                                                    <input class="dhx_repeat_checkbox" type="checkbox" ng-model="recurrence.week.monday">
+                                                    <label>Monday</label>
+                                                    &nbsp;
+                                                </div>
+                                            </td> 
+                                            <td> 
+                                                <div>
+                                                    <input class="dhx_repeat_checkbox" type="checkbox" ng-model="recurrence.week.tuesday">
+                                                    <label>Tuesday</label>
+                                                </div>
+                                            </td> 
+                                            <td> 
+                                                <div>
+                                                    <input class="dhx_repeat_checkbox" type="checkbox" ng-model="recurrence.week.wednesday">
+                                                    <label>Wednesday</label>
+                                                </div>
+                                            </td> 
+<!--                                            <br>-->
+                                            </tr>
+                                            <tr> 
+                                            <td> 
+                                                <div>
+                                                    <input class="dhx_repeat_checkbox" type="checkbox" ng-model="recurrence.week.thursday">
+                                                    <label>Thursday</label>
+                                                    &nbsp;
+                                                </div>
+                                            </td> 
+                                            <td> 
+                                                <div>
+                                                    <input class="dhx_repeat_checkbox" type="checkbox" ng-model="recurrence.week.friday">
+                                                    <label>Friday</label>
+                                                </div>
+                                            </td> 
+                                            <td> 
+                                                <div>
+                                                    <input class="dhx_repeat_checkbox" type="checkbox" ng-model="recurrence.week.saturday">
+                                                    <label>Saturday</label>
+                                                </div>
+                                            </td> 
+                                        </tr> 
+                                        </tbody>
+                                    </table> 
+                                    </div>
+                                    <div id="dhx_repeat_month" ng-switch-when="monthly">                                    
+<!--                                    <div id="dhx_repeat_month" style="display: none;"> -->
+
+                                        <label><input class="dhx_repeat_radio" type="radio" ng-model="recurrence.monthType" value="day">Day</label>
+                                        <span ng-readonly="'day' != recurrence.monthType"> 
+<!--                                        <span ng-show="month_type == 'day'">-->
+                                            <input class="dhx_repeat_number" type="text" ng-model="recurrence.monthDate" value="1">&nbsp;of every
+                                            <input class="dhx_repeat_number" type="text" ng-model="recurrence.monthCount" value="1">&nbsp;month
+<!--                                        </span>                                                                                -->
+                                        </span>
+                                        <br> 
+                                        <label><input class="dhx_repeat_radio" type="radio" ng-model="recurrence.monthType" checked="" value="ordinal">The</label>
+                                        <span ng-readonly="'ordinal' != recurrence.monthType">
+<!--                                            <input class="dhx_repeat_number" type="text" name="month_week2" value="1">-->
+                                            <select ng-model="recurrence.monthDayOrdinal">
+                                            <option value="1" selected="">first</option>
+                                            <option value="2">second</option>
+                                            <option value="3">third</option>
+                                            <option value="4">forth</option>
+                                            <option value="5">last</option>
+                                            </select>
+                                            <select ng-model="recurrence.monthDayType">
+                                            <option value="1" selected="">Monday</option>
+                                            <option value="2">Tuesday</option>
+                                            <option value="3">Wednesday</option>
+                                            <option value="4">Thursday</option>
+                                            <option value="5">Friday</option>
+                                            <option value="6">Saturday</option>
+                                            <option value="0">Sunday</option>
+                                            <option value="7">workday</option>
+                                            <option value="8">non-workday</option>
+                                            </select>&nbsp;of every
+                                            <input class="dhx_repeat_number" type="text" ng-model="recurrence.monthCount" value="1">
+                                            <ng-pluralize count="recurrence.monthCount"
+                                                    when="{'0': ' months.',
+                                                           'one': ' month.',
+                                                           'other': ' months.'}">
+                                            </ng-pluralize>
+                                            <br> 
+                                        </span>                                                                                
+                                    </div> 
+                                    <div id="dhx_repeat_year" ng-switch-when="yearly">                                    
+<!--                                    <div style="display:none;" id="dhx_repeat_year"> -->
+                                       Recur every
+                                        <input class="dhx_repeat_number" type="text" ng-model="recurrence.yearRecurCount">
+                                            <ng-pluralize count="yearRecurCount"
+                                                    when="{'0': ' years.',
+                                                           'one': ' year.',
+                                                           'other': ' years.'}">
+                                            </ng-pluralize>
+                                        <br> 
+
+                                        <label><input class="dhx_repeat_radio" type="radio" ng-model="recurrence.yearType" value="day">On:&nbsp;</label>
+<!--                                        <input class="dhx_repeat_text" type="text" name="yearDay" value="1">day-->
+                                        <select ng-model="recurrence.yearMonth">
+                                        <option value="0" selected="">January</option>
+                                        <option value="1">February</option>
+                                        <option value="2">March</option>
+                                        <option value="3">April</option>
+                                        <option value="4">May</option>
+                                        <option value="5">June</option>
+                                        <option value="6">July</option>
+                                        <option value="7">August</option>
+                                        <option value="8">September</option>
+                                        <option value="9">October</option>
+                                        <option value="10">November</option>
+                                        <option value="11">December</option>
+                                        </select>
+                                        <input class="dhx_repeat_number" type="text" ng-model="recurrence.yearDay">
+                                        <br>
+                                           
+                                        <label><input class="dhx_repeat_radio" type="radio" ng-model="recurrence.yearType" checked="" value="week">On the:&nbsp;</label>
+<!--                                        <input class="dhx_repeat_text" type="text" ng-model="yearWeek2" value="1">-->
+
+                                        <select ng-model="recurrence.yearOrdinal">
+                                            <option value="1" selected="">first</option>
+                                            <option value="2">second</option>
+                                            <option value="3">third</option>
+                                            <option value="4">forth</option>
+                                            <option value="5">last</option>
+                                        </select>
+                                        <select ng-model="recurrence.yearWeekday">
+                                            <option value="1" selected="">Monday</option>
+                                            <option value="2">Tuesday</option>
+                                            <option value="3">Wednesday</option>
+                                            <option value="4">Thursday</option>
+                                            <option value="5">Friday</option>
+                                            <option value="6">Saturday</option>
+                                            <option value="0">Sunday</option>
+                                            <option value="7">workday</option>
+                                            <option value="8">non-workday</option>
+                                        </select>&nbsp;of 
+                                        <select ng-model="recurrence.yearMonth">
+                                            <option value="0" selected="">January</option>
+                                            <option value="1">February</option>
+                                            <option value="2">March</option>
+                                            <option value="3">April</option>
+                                            <option value="4">May</option>
+                                            <option value="5">June</option>
+                                            <option value="6">July</option>
+                                            <option value="7">August</option>
+                                            <option value="8">September</option>
+                                            <option value="9">October</option>
+                                            <option value="10">November</option>
+                                            <option value="11">December</option>
+                                        </select><br> 
+                                    </div> 
+                                </div> 
+                        <!--        <div class="repeat_divider"></div> -->
+                                <div class="dhx_repeat_right flex-item4"> 
+                                    <label><input class="dhx_repeat_radio" type="radio" ng-model="recurrence.repeatEnd" checked="" value="none">No end date</label><br> 
+                                    <label><input class="dhx_repeat_radio" type="radio" ng-model="recurrence.repeatEnd" value="after">After</label>
+                                        <span  ng-show="repeatEnabled('after');" >
+                                            <input class="dhx_repeat_number" type="text" ng-model="recurrence.repeatCount" value="1">occurrences
+                                        </span>
+                                        <br>
+                                    <label><input class="dhx_repeat_radio" type="radio" ng-model="recurrence.repeatEnd" value="by">End by</label>
+<!--                                    <input class="dhx_repeat_date" type="text" name="date_of_end" value="undefined"><br> -->
+                                    <div ng-show="repeatEnabled('by')" class="dropdown">
+                                        <a class="dropdown-toggle" id="ddenddate" role="button" data-toggle="dropdown" data-target="#" ng-click="toggleEndDate()">
+                                            <div id="endDateInput" class="input-group">
+                                                <span id="endDate" >{{recurrence.endDate | date:'EEE MMM dd yyyy'}}</span>
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                            </div>
+                                        </a>
+                                        <ul  class="dropdown-menu dp" role="menu" aria-labelledby="dLabel">
+                                            <datetimepicker data-ng-model="recurrence.endDate" data-datetimepicker-config="{ dropdownSelector: 'ddenddate', minView: 'day' }"/>
+                                        </ul>
+                                    </div>
+                                    </div> 
+
+
+                    </div> 
+                    <div class="dhx_form_repeat flex-container4" > 
+                                    <div class="form-group flex-item4"> 
+                        <!--        <div class="form-group ">-->
+                                    <label class="col-sm-2 control-label" for="CampaignID" title="Please select a Layout or Media Wheel for scheduling" accesskey="l">Layout</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" name="CampaignID" id="CampaignID" style="display: none;">
+
+                                        <optgroup label="Wheels">
+                                            <option ng-repeat='wheel in wheels'>{{wheel.name}}</option>
+                                        </optgroup>
+                                        <optgroup label="Layouts">
+                                            <option ng-repeat='layout in layouts'>{{layout.name}}</option>
+                                        </optgroup>
+                                        </select>
+                                        <div class="btn-group bootstrap-select form-control">
+                                            <button type="button" ng-model="$root.layoutElement" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" data-id="CampaignID" title="{{$root.layoutElement.name}}">
+                                                <span class="filter-option pull-left">{{$root.layoutElement.name}}</span>&nbsp;
+                                                <span class="caret"></span>
+                                            </button>
+                                            <div class="dropdown-menu open">
+                                                <ul class="dropdown-menu inner selectpicker" role="menu">
+                                                <dt><span class="text">Media Wheels</span></dt>
+                                                <li ng-repeat="wheel in wheels">
+                                <!--                                        <dt><span class="text">Campaigns</span></dt>-->
+                                                    <a tabindex="0" class="opt " style="" data-optgroup="1" ng-click="selectWheelElement(wheel)">
+                                                    <span class="text">{{wheel.name}}</span><i class="glyphicon glyphicon-ok icon-ok"></i></a>
+                                                </li>
+                                                <dt><span class="text">Layouts</span></dt>
+                                                <li ng-repeat="layout in layouts">
+                                <!--                                        <dt><span class="text">Campaigns</span></dt>-->
+                                                    <a tabindex="0" class="opt " style="" data-optgroup="1" ng-click="selectLayoutElement(layout)">
+                                                    <span class="text">{{layout.name}}</span><i class="glyphicon glyphicon-ok icon-ok"></i></a>
+                                                </li>
+                                                </ul>
+                                        </div>
+                                    </div>
+                                    <span class="help-block">Please select a Layout or Media Wheel for this Schedule</span>
+                                    </div>
+                        <!--        </div>-->
+                                    </div>
+                                    <div class="form-group flex-item4">
+                                    <label class="col-sm-2 control-label" for="DisplayGroupIDs[]" title="Please select one or more displays / groups for this event to be shown on." accesskey="d">Display</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" multiple="" name="DisplayGroupIDs[]" id="DisplayGroupIDs[]" data-live-search="true" data-selected-text-format="count > 4" style="display: none;">
+
+                                        <optgroup label="Groups">
+                                            <option ng-repeat='group in displaygroups'>{{group.name}}</option>
+                                        </optgroup>
+                                        <optgroup label="Displays">
+                                            <option ng-repeat='display in displays'>{{display.name}}</option>
+                                        </optgroup>                                
+                                        </select>
+                                        <div class="btn-group bootstrap-select show-tick form-control">
+                                            <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" data-id="DisplayGroupIDs[]" title="Nothing selected">
+                                                <span class="filter-option pull-left">{{selectedDisplayElements()}}</span>&nbsp;
+                                                <span class="caret"></span>
+                                            </button>
+                                            <div class="dropdown-menu open">
+                                                <div class="bootstrap-select-searchbox">
+                                                    <input type="text" class="input-block-level form-control" autocomplete="off" required>
+                                                </div>
+                                                <ul class="dropdown-menu inner selectpicker" role="menu">
+                                                    <dt><span class="text">Display Groups</span></dt>
+                                                    <li ng-repeat="group in displaygroups">
+                                                        <a tabindex="0" class="opt " style="" data-optgroup="1" ng-click="toggleDisplayElement(group)">
+                                                        <span class="text">{{group.name}}</span>
+                        <!--                                                TODO : if-show for checkmark-->
+                                                        <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
+                                                    </li>
+                                                    <dt><span class="text">Displays</span></dt>
+                                                    <li ng-repeat="display in displays">
+                                                        <a tabindex="0" class="opt " style="" data-optgroup="1" ng-click="toggleDisplayElement(display)">
+                                                        <span class="text">{{display.name}}</span>
+                        <!--                                                TODO : if-show for checkmark-->
+                                                        <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <span class="help-block">Please select one or more displays / groups for this event to be shown on.</span>
+                                    </div>
+                                </div>
+
+                        <!--            <div style="clear:both"> </div>-->
+                                </div>                    
+                        </div>
+<!--                    </div>-->
+            </form>
+            <!-- /div -->
+            </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+                <button class="btn btn-default">Help</button>
+                <button class="btn btn-default" ng-click="closeThisDialog()">Cancel</button>
+                <button class="btn btn-primary save-button" ng-click="saveSchedule()">Save</button>
+        </div>
+        </div>
+</div>

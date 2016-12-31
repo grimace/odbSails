@@ -1,0 +1,96 @@
+<script>
+  var initComponents = function() {
+      console.log('you are here.');
+  }
+</script>
+<style>
+    .content {
+        overflow: hidden;
+        padding: 20px;
+    }
+</style>
+
+<div>
+    <div class="content">
+    <div class="row">
+        <div class="col-sm-12">
+            <ul class="nav nav-pills pull-right">
+            <li class=""><a title="Add a new DataSet" href="index.php?p=dataset&amp;q=AddDataSetForm" class="XiboFormButton" onclick="">Add DataSet</a></li></ul>
+            <div class="widget">
+                <div class="widget-title">DataSets </div>
+                <div class="widget-body">
+                <div class="XiboGrid" id="56534b14ef19e">
+                <div class="XiboFilter">
+                    <div class="FilterDiv" id="Filter">
+                    <form id="" class="form-inline" method="post" action="">
+                    <input type="hidden" name="p" value="dataset">
+                        <input type="hidden" name="q" value="DataSetGrid"><input type="hidden" name="token" value="3d529e04ff6b058744f19ff9e2b01318">
+                        <div class="tab-content"></div>
+                    </form>
+                    </div>
+                </div>
+            <div class="XiboData">
+                <table class="table tablesorter tablesorter-bootstrap table-bordered" role="grid">
+                    <colgroup><col style="width: 16.5%;">
+                    <col style="width: 29.1%;">
+                    <col style="width: 15.6%;">
+                    <col style="width: 23.1%;">
+                    <col style="width: 8.7%;"></colgroup>
+                    <thead>
+        <tr role="row" class="tablesorter-headerRow">
+                                    <th class="group-false tablesorter-header tablesorter-headerAsc bootstrap-header" data-column="0" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="ascending" aria-label="Name : Ascending sort applied, activate to apply a descending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Name <i class="tablesorter-icon glyphicon glyphicon-chevron-up"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="1" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Description : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Description <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="2" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Owner : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Owner <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="3" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Permissions : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Permissions <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                                    <th data-sorter="false" data-column="4" class="tablesorter-header sorter-false tablesorter-headerUnSorted bootstrap-header" tabindex="0" scope="col" role="columnheader" aria-disabled="true" unselectable="on" aria-sort="none" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner"> <i class="tablesorter-icon"></i></div></div></th>
+                    </tr>
+    </thead>
+    <tbody aria-live="polite" aria-relevant="all">
+                
+            <tr role="row" class="odd">
+                                                <td>TestDataSet</td>
+                                                <td>Seeing what this does.</td>
+                                                <td>xibo-admin</td>
+                                                <td></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="XiboRedirectButton dataset_button_viewdata" href="index.php?p=dataset&amp;sp=DataEntry&amp;datasetid=1&amp;dataset=TestDataSet"><a tabindex="-1" href="#">View Data</a></li>
+                                                                                    <li class="XiboFormButton dataset_button_viewcolumns" href="index.php?p=dataset&amp;q=DataSetColumnsForm&amp;datasetid=1&amp;dataset=TestDataSet"><a tabindex="-1" href="#">View Columns</a></li>
+                                                                                    <li class="XiboFormButton dataset_button_edit" href="index.php?p=dataset&amp;q=EditDataSetForm&amp;datasetid=1&amp;dataset=TestDataSet"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton dataset_button_import" href="index.php?p=dataset&amp;q=ImportCsvForm&amp;datasetid=1&amp;dataset=TestDataSet"><a tabindex="-1" href="#">Import CSV</a></li>
+                                                                                    <li class="XiboFormButton dataset_button_delete" href="index.php?p=dataset&amp;q=DeleteDataSetForm&amp;datasetid=1&amp;dataset=TestDataSet"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="XiboFormButton dataset_button_delete" href="index.php?p=dataset&amp;q=PermissionsForm&amp;datasetid=1&amp;dataset=TestDataSet"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr></tbody>
+</table>
+</div>
+            <div class="pagination form-inline tablesorter-pager" id="XiboPager_56534b14ef19e">
+    <button type="button" class="btn first disabled" aria-disabled="true" tabindex="0"><i class="icon-step-backward glyphicon glyphicon-step-backward"></i></button>
+    <button type="button" class="btn prev disabled" aria-disabled="true" tabindex="0"><i class="icon-arrow-left glyphicon glyphicon-backward"></i></button>
+    <span class="pagedisplay">1 - 1 / 1 (1)</span> <!-- this can be any element, including an input -->
+    <button type="button" class="btn next disabled" aria-disabled="true" tabindex="0"><i class="icon-arrow-right glyphicon glyphicon-forward"></i></button>
+    <button type="button" class="btn last disabled" aria-disabled="true" tabindex="0"><i class="icon-step-forward glyphicon glyphicon-step-forward"></i></button>
+    <select class="pagesize input-mini form-control" title="Select page size" aria-disabled="false">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+    </select>
+    <select class="pagenum input-mini form-control" title="Select page number" aria-disabled="false"><option>1</option></select>
+    <button type="button" class="btn remove"><i class="fa fa-ban"></i></button>
+</div>        </div>
+            </div>
+</div>
+</div>
+</div>
+</div>
+</div>

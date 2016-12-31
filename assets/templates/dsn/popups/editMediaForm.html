@@ -1,0 +1,307 @@
+<style>
+    .ngdialog-overlay {
+        height: 720px;
+    }
+    .div.ngdialog-overlay {
+        height: 720px;
+    }
+    .ngdialog {
+        top: 10%;
+        left: 20%;
+        width: 600px;
+        height: 720px;
+    }
+    .ngdialog-content {
+        width: 600px;
+        height: 640px;
+    }
+    .modal-body {
+        position: relative;
+        height: 480px;
+        max-height: 480px;
+    }
+    div.bootbox-body {
+        height: 480px;
+    }
+    .div.row {
+        height: 480px;
+    }
+    .tab-pane {
+        position: relative;
+        height: 560px;
+    }
+    .tab-content {
+        padding-left:  20px;
+    }
+    #upl {
+        padding-left:  28px;
+    }
+    #emDialog {
+        margin-left: 2px;
+        margin-right: 2px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        width: 600;
+        height: 620px;
+    }
+    #emContent {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 540px;
+        height: 600px;
+    }
+
+    #emGrid {
+        height: 600px;
+    }
+
+    #emBody {
+/*        position: relative;*/
+        width: 540px;
+        height: 480px;
+    }
+    div#emBody.modal-body {
+        width: 500px;
+        height: 480px;
+    }
+    div#emContent.modal-content {
+        width: 560px;
+        height: 600px;
+    }
+    #emData {
+        overflow: hidden;
+        height: 600px;
+    }
+
+    #emFooter {
+        margin-bottom: 2px;
+        bottom: 10px;
+    }
+    #displaysIn {
+        background-color: #F3F3F3;
+    }
+    #displaysOut {
+        background-color: #F3F3F3;
+    }
+    input#DisplayOrder.form-control {
+        height: 34px;
+    }
+    #recDetail {
+        height: 34px;
+    }
+    #recRange {
+        height: 34px;
+    }
+    div.modal-footer {
+        max-height: 70px;
+    }
+/*
+    .modal-footer {
+        margin-top: 200px;
+    }
+*/
+    .div.dropdown-menu.open {
+        max-height: 550px;
+        overflow: hidden;
+        min-height: 92px;
+    }
+    .has-success .help-block, .has-success .control-label, .has-success .radio, .has-success .checkbox, .has-success .radio-inline, .has-success .checkbox-inline {
+        color: #3c763d;
+    }
+    #dOrder {
+        height: 34px;
+    }
+    .form {
+        padding-left: 10px;
+    }
+    .form-group {
+        padding-left: 10px;
+        margin-left: 10px;
+    }
+    input#name.form-control {
+        height: 34px;
+    }
+    input#media_file.form-control {
+        height: 34px;
+    }
+    input#duration.form-control {
+        height: 34px;
+    }
+    input#tags.form-control {
+        height: 34px;
+    }
+    #input {
+        height: 34px;
+    }
+
+</style>
+
+<div class="modal-dialog" id="emDialog" ng-controller="MediaDialogController" ng-init="initialize()">
+    <div class="modal-content" id="emContent">
+        <div class="modal-header">
+            <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true" ng-click="closeThisDialog()">×</button>
+            <h4 class="modal-title">Edit Media</h4>
+        </div>
+        <div class="modal-body" id="emBody">
+        <div class="bootbox-body">
+        <div class="row">
+        <div class="col-md-12">
+        <form class="form-horizontal" id="file_upload" method="post" enctype="multipart/form-data" target="/dsn/media">
+	<fieldset>
+<!--
+        <input type="hidden" id="PHPSESSID" value="6hpfajcunpg9vc2g7029l0ja83"><input type="hidden" id="SecurityToken" value="0ce6cbec66614cc0b42dd8e26921b86d">
+        <input type="hidden" name="MAX_FILE_SIZE" value="134217728">
+-->
+        <div id="upl" flow-init="{target: '/dsn/upload'}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1,mp4:1,m4a:1,'3gp':1}[$file.getExtension()]" flow-files-submitted="$flow.upload()" class="ng-scope" ng-controller="DSNController">
+
+        
+<!--        <div id="upl" flow-init="{target: '/dsn/upload'}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1,mp4:1,m4a:1,'3gp':1}[$file.getExtension()]" flow-files-submitted="cUpload()" class="ng-scope" ng-controller="DSNController">-->
+          <div class="drop" flow-drop="" ng-class="dropClass">
+            <span class="btn btn-default" flow-btn flow-attrs="{accept:'image/*,video/*'}">Upload File<input type="file" style="visibility: hidden; position: absolute;"></span>
+<!--            <span class="btn btn-default" flow-btn flow-attrs="{accept:'image/*,video/*'}" flow-directory="" ng-show="$flow.supportDirectory">Upload Folder<input type="file" multiple="multiple" webkitdirectory="webkitdirectory" style="visibility: hidden; position: absolute;"></span>-->
+            <b>OR</b>
+            Drag And Drop your file here
+          </div>
+
+          <br>
+
+            <div ng-repeat="file in $flow.files" class="transfer-box">
+              {{file.relativePath}} ({{file.size}}bytes)
+              <div class="progress progress-striped" ng-class="{active: file.isUploading()}">
+                <div class="progress-bar" role="progressbar"
+                     aria-valuenow="{{file.progress() * 100}}"
+                     aria-valuemin="0"
+                     aria-valuemax="100"
+                     ng-style="{width: (file.progress() * 100) + '%'}">
+                  <span class="sr-only">{{file.progress()}}% Complete</span>
+                </div>
+              </div>
+              <div class="btn-group">
+                <a class="btn btn-xs btn-warning" ng-click="file.pause()" ng-show="!file.paused && file.isUploading()">
+                  Pause
+                </a>
+                <a class="btn btn-xs btn-warning" ng-click="file.resume()" ng-show="file.paused">
+                  Resume
+                </a>
+                <a class="btn btn-xs btn-danger" ng-click="file.cancel()">
+                  Cancel
+                </a>
+                <a class="btn btn-xs btn-info" ng-click="file.retry()" ng-show="file.error">
+                  Retry
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+<!--
+        <div class="form-group">
+            
+            
+        <span class="btn btn-default" flow-btn flow-attrs="{accept:'image/*,video/*'}">File<input type="file"></span>
+        <div flow-init="{target: '/dsn/upload'}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1,mp4:1,m4a:1,'3gp':1}[$file.getExtension()]" flow-files-submitted="$flow.upload()" class="ng-scope" ng-controller="MediaDialogController">
+           <div ng-repeat="file in $flow.files" class="transfer-box">
+              {{file.relativePath}} ({{file.size}}bytes)
+              <div class="progress progress-striped" ng-class="{active: file.isUploading()}">
+                <div class="progress-bar" role="progressbar"
+                     aria-valuenow="{{file.progress() * 100}}"
+                     aria-valuemin="0"
+                     aria-valuemax="100"
+                     ng-style="{width: (file.progress() * 100) + '%'}">
+                  <span class="sr-only">{{file.progress()}}% Complete</span>
+                </div>
+              </div>
+              <div class="btn-group">
+                <a class="btn btn-xs btn-warning" ng-click="file.pause()" ng-show="!file.paused && file.isUploading()">
+                  Pause
+                </a>
+                <a class="btn btn-xs btn-warning" ng-click="file.resume()" ng-show="file.paused">
+                  Resume
+                </a>
+                <a class="btn btn-xs btn-danger" ng-click="file.cancel()">
+                  Cancel
+                </a>
+                <a class="btn btn-xs btn-info" ng-click="file.retry()" ng-show="file.error">
+                  Retry
+                </a>
+              </div>
+            </div>
+
+        </div>
+		</div>
+-->
+
+	</fieldset>	
+</form>
+<!--
+<div id="uploadProgress" class="well" style="display:none">
+    <span>You may fill in the form while your file is uploading.</span>
+</div>
+-->
+<!--
+<div style="display:none">
+	<iframe name="fileupload" width="1px" height="1px"></iframe>
+</div>
+-->
+                <form id="EditLibraryBasedMedia" class="XiboForm form-horizontal" method="post" action="/dsn/saveMedia" novalidate="novalidate">
+                    <div class="tab-content">
+                        <div class="rowInner">
+                            <div class="col-sm-12 ">
+                                <p>This form accepts: mpg, mpeg, mp4, jpg, png, jpeg files</p>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="name" accesskey="n">Name</label>
+                            <div class="col-sm-10">
+                                <input class="form-control valid" name="name" type="text" id="name" ng-model="$root.currentMedia.name" aria-invalid="false">
+                                <span class="help-block">The Name of this item - Leave blank to use the file name</span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="duration" accesskey="d">Duration</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" name="duration" type="number" id="duration" ng-model="$root.currentMedia.duration" required="" aria-required="true">
+                                <span class="help-block">The duration in seconds this item should be displayed</span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="tags" accesskey="n">Tags</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" name="tags" type="text" id="tags" ng-model="$root.currentMedia.tags">
+                                <span class="help-block">Tag this media. Comma Separated.</span>
+                            </div>
+                        </div>
+                                            <div class="form-group ">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label for="replaceInLayouts" title="Note: It will only be replaced in layouts you have permission to edit." accesskey="r">
+                                        <input type="checkbox" id="replaceInLayouts" name="replaceInLayouts" checked="">
+                                        Update this media in all layouts it is assigned to?                                    </label>
+                                </div>
+                                <span class="help-block">Note: It will only be replaced in layouts you have permission to edit.</span>
+                            </div>
+                        </div>
+                                            <div class="form-group ">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label for="deleteOldVersion" title="Completely remove the old version of this media item if a new file is being uploaded." accesskey="c">
+                                        <input type="checkbox" id="deleteOldVersion" name="deleteOldVersion">
+                                        Delete the old version?                                    </label>
+                                </div>
+                                <span class="help-block">Completely remove the old version of this media item if a new file is being uploaded.</span>
+                            </div>
+                        </div>
+                    </div>                        </form></div>
+        
+            </div>
+
+</div>
+    </div>
+        <div class="modal-footer">
+            <button class="btn btn-default" ng-click="closeThisDialog()">Cancel</button>
+            <button class="btn btn-primary save-button" ng-click="saveMedia()">Save</button>
+        </div>
+    </div>
+</div>

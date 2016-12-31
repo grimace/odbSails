@@ -1,0 +1,196 @@
+  
+<link rel="stylesheet" href="/lib/jasny/bootstrap-fileupload.css">
+<link rel="stylesheet" href="/styles/masonry.css">
+<link rel="stylesheet" href="/styles/wizard.css">
+<link rel="stylesheet" href="/styles/jquery.spellchecker.css">
+<link rel="stylesheet" href="/styles/style.css">
+<link rel="stylesheet" href="/styles/parsley.css">
+<link rel="stylesheet" href="/styles/c3.css">
+<link rel="stylesheet" href="/styles/tablesorter.default.css">
+
+<style>
+    .navbar .brand {
+        background: #066728;
+    }
+
+</style>
+<div class="login" ng-view ng-controller="LoginController" ng-init="getUser()">
+    <div class="wrapper">
+    
+        <div id="loginForm" class="block-dark sign-block">
+
+          <h3 id="h3Inset">Login to your account</h3>
+          <hr class="hr-dark">
+          <!-- data-validate="parsley"  -->
+          <form ng-click="alert('/loginUser');" id="sign-form" class="form-light" method="POST">
+            
+            <% if (res.locals.errorMsg) { %>
+                <div>
+                  <p><%=res.locals.errorMsg%></p>
+                </div>
+            <% } %>
+            
+            <div class="input-login">      
+              <!-- <span class="add-dark"><i class="icon-user"></i></span> -->
+              <input type="text" name="username" data-required="true" placeholder="Username">
+            </div> 
+
+            <div class="input-login">      
+              <!-- <span class="add-dark"><i class="icon-lock"></i></span> -->
+              <input type="password" name="password" data-required="true" placeholder="Password">
+            </div>                                
+  
+            <div>
+                <span id="sign-form-valid" onclick="javascript:validateSign();">
+                  <input type="submit" class="btn btn-inverse" id="loginSubmit" value="Sign In">
+                </span>        
+            </div>
+
+          </form> 
+
+          <div class="clearfix"></div>
+          <hr class="hr-dark hr-nobottom">            
+
+          <div id="forgotLinkDiv">
+              <a href="#" id="forgotlink">Reset your password?</a>     
+          </div>
+
+          <div id="registerLinkDiv">
+              <a href="#" id="registerlink">New Account...</a>     
+          </div>
+       
+        </div>
+        <!--
+         | Forgot Password Div
+         +-->
+        <div id="forgotPassword" class="block-dark sign-block" style="display:none">
+          <h3 id="h3Inset">Request new Password</h3>
+          <hr class="hr-dark">
+
+          <form data-validate="parsley" id="reset-form" class="form-light" method="POST">
+            <div class="input-login">      
+              <!-- <span class="add-dark"><i class="icon-user"></i></span> -->
+              <input type="text" id="resetEmail" name="email" data-required="true" placeholder="User Email">
+            </div> 
+
+            <div>
+                <span id="sign-form-valid" onclick="javascript:validateReset();">
+                  <input type="submit" class="btn btn-inverse" id="loginSubmit" value="Request Password">
+                </span>        
+            </div>
+          </form> 
+          <div class="clearfix"></div>
+          <hr class="hr-dark">            
+        </div>
+      
+    </div>
+</div>
+
+  <div id="notificationModal" style="display:none">
+        <div class="modal-header modal-default">
+            <h3 id="myModalLabel1">Reset Password</h3>
+        </div>
+        <div id="confirmationMessage" class="modal-body nomarginBottom noverflow">
+        </div>
+        <div class="modal-body noverflow">
+            [ <a href="" onclick="$.modal.close(); return false;">Close</a>]
+        </div>
+
+  </div>
+
+  <div id="registerModal" style="display:none">
+        <div class="modal-header modal-default">
+            <h3 id="myModalLabel2">Register</h3>
+        </div>
+        <div id="confirmationMessage" class="modal-body nomarginBottom noverflow">
+        </div>
+        <div class="modal-body noverflow">
+            [ <a href="" onclick="$.modal.close(); return false;">Close</a>]
+        </div>
+
+  </div>
+
+
+<script type="application/javascript" src="/js/parsley.js"></script>
+<script>
+    var validateReset = function() {
+        //alert('validating reset-form');
+        $('#reset-form').parsley('validate');
+    }
+    var validateSign = function() {
+        //alert('validating sign-form');
+        $('#sign-form').parsley('validate');
+    }
+    var loginReady = function() {
+        // like, jQuery $ does not work...? 
+        //alert('jquery $ : '+$);
+        $( "#forgotlink" ).click(function() {
+            $("#forgotPassword").show();
+            $("#loginForm").hide();
+            return false;
+        });
+
+        $( "#registerlink" ).click(function() {
+            $("#register").show();
+            $("#registerForm").hide();
+            return false;
+        });
+
+        $("#reset-form").submit(function() {
+            var email = $("#resetEmail").val();
+            var url = "/reset/" + email; // the script where you handle the form input.
+            showNotificationModal();
+            $('#confirmationMessage').prepend('<img id="theImage" src="/images/ajax-loader.gif" style="display: block; text-align: center; vertical-align: middle; margin: auto; margin-top: 80px;" />');
+            $.ajax({
+                type: "POST",
+                url: url,
+                success: function(data)
+                {
+                    $("#confirmationMessage").empty();
+                    if(data.error) {
+                        $("#confirmationMessage").text(data.error.message);
+                    } else {
+                      $("#confirmationMessage").prepend(
+                          "<div>We have sent an email to the account you requested containing a temporary link " + 
+                          "that will allow you to reset your password for the next 24 hours. <p/>" +
+                          "Please check your spam folder if the email doesn't appear within a few minutes.<div>");
+                    }
+                    //alert(JSON.stringify(data));
+                    //showNotificationModal();
+                    $("#forgotPassword").hide();
+                    $("#loginForm").show();
+                },
+                error: function(data)
+                {
+                    alert(data);
+                }
+
+            });
+            return false; // avoid to execute the actual submit of the form.
+        });
+    };
+
+    document.addEventListener('DOMContentLoaded', function () {
+        loginReady();
+    });
+    
+    function showNotificationModal() {
+        $("#notificationModal").modal(
+                {
+                    closeHTML:"",
+                    opacity:80,
+                    overlayCss: {backgroundColor:"#000"},
+                    containerCss:{
+                        color:"#bbb", backgroundColor:"#fff",
+                        width:"320px", height:"330px",
+                        border:"none", padding:"0px"
+                    },
+                    overlayClose:true,
+                    persist:false
+                });
+        return false;
+    }
+    
+//    $(document).ready(function(){
+//    });
+</script>

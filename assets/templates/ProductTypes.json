@@ -1,0 +1,50 @@
+[
+        {"name":"Retail (Hard/Softgoods)",
+          "types" : [
+            {"name":"Harware"},
+            {"name":"Clothing"},
+            {"name":"Candy"}
+        ]},
+        {"name":"Retail (Services)",
+          "types" : [
+            {"name":"Insurance"},
+            {"name":"Travel"},
+            {"name":"special"}
+        ]},
+        { "name" : "Hospitality",
+         "types" : [
+            {"name":"image", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"image/*"}
+            
+        ]},
+        {"name":"Non-Profit",
+          "types" : [
+            {"name":"menu"},
+            {"name":"feature"},
+            {"name":"special"}
+        ]},
+        {"name":"Venue",
+          "types" : [
+            {"name":"menu"},
+            {"name":"feature"},
+            {"name":"special"}
+        ]},
+        {"name":"Association",
+          "types" : [
+            {"name":"menu"},
+            {"name":"feature"},
+            {"name":"special"}
+        ]},
+        { "name" : "Dining" ,
+          "types" : [
+            {"name":"menu"},
+            {"name":"feature"},
+            {"name":"special"}
+        ]},
+    
+        { "name" : "Travel", 
+         "types" : [
+            {"name":"tour"},
+            {"name":"feature"}
+            
+        ]}
+]

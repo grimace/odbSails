@@ -1,0 +1,130 @@
+<style>
+    .ngdialog {
+        height: 380px;
+    }
+
+</style>
+<div class="modal-content" ng-controller="MediaController" ng-init="initialize();">
+    <div class="modal-header">
+        <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Assign Image</h4></div>
+        <div class="modal-body">
+        <div class="bootbox-body">
+        <form id="fileupload" action="index.php?p=content&amp;q=JqueryFileUpload&amp;type=image" method="POST" enctype="multipart/form-data" data-max-file-size="134217728" data-accept-file-types="/(\.|\/)jpg|jpeg|png|bmp|gif$/i">
+        <input type="hidden" id="PHPSESSID" value="rkhqfjudm471dq6gfm8gmab1h3">
+            <input type="hidden" id="SecurityToken" value="885bc427ec9af918adb9c47edb5f8cc7">
+            <input type="hidden" name="type" value="image">
+            <input type="hidden" name="layoutid" value="140">
+            <input type="hidden" name="regionid" value="12014505728df0834b36">
+            <input type="hidden" name="token" value="abba202a70bd643f6f1848af50e2ea06">	
+            <div class="row fileupload-buttonbar">
+	        <div class="col-md-7">
+                <div class="well">
+                    This form accepts: jpg, jpeg, png, bmp, gif files up to a maximum size of 128M			
+                </div>
+                <!-- The fileinput-button span is used to style the file input field as button -->
+                <span class="btn btn-success fileinput-button">
+                    <i class="glyphicon glyphicon-plus glyphicon glyphicon-white"></i>
+                    <span>Add files</span>
+                    <input type="file" name="files[]" multiple="">
+                </span>
+                <button type="submit" class="btn btn-primary start">
+                    <i class="glyphicon glyphicon-upload glyphicon glyphicon-white"></i>
+                    <span>Start upload</span>
+                </button>
+                <button type="reset" class="btn btn-warning cancel">
+                    <i class="glyphicon glyphicon-ban-circle glyphicon glyphicon-white"></i>
+                    <span>Cancel upload</span>
+                </button>
+                <!-- The loading indicator is shown during file processing -->
+                <span class="fileupload-loading"></span>
+	       </div>
+           <!-- The global progress information -->
+           <div class="col-md-4 fileupload-progress fade">
+                <!-- The global progress bar -->
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:0%;">
+                        <div class="sr-only"></div>
+                    </div>
+                </div>
+                <!-- The extended global progress information -->
+                <div class="progress-extended">&nbsp;</div>
+           </div>
+	       </div>
+           <!-- The table listing the files available for upload/download -->
+           <table role="presentation" class="table table-striped">
+               <tbody class="files"></tbody>
+           </table>
+           </form>
+<!-- The template to display files available for upload -->
+<script id="template-upload" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-upload fade">
+        <td>
+            <span class="fileupload-preview"></span>
+        </td>
+        <td class="title">
+            <label for="name[]" title="The Name of this item - Leave blank to use the file name">Name: <input name="name[]" type="text" id="name" /></label>
+            {% if (file.error) { %}
+                <div><span class="label label-important">Error</span> {%=file.error%}</div>
+            {% } %}
+        </td>
+        <td class="title">
+			<label for="duration[]" title="The duration in seconds this image should be displayed (may be overridden on each layout)">Duration: <input name="duration[]" type="text" id="duration" value="10" required /></label>
+        </td>
+        <td>
+            <p class="size">{%=o.formatFileSize(file.size)%}</p>
+            {% if (!o.files.error) { %}
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:0%;">
+                        <div class="sr-only"></div>
+                    </div>
+                </div>
+            </div>
+            {% } %}
+        </td>
+        <td>
+            {% if (!o.files.error && !i && !o.options.autoUpload) { %}
+                <button class="btn btn-primary start">
+                    <i class="glyphicon glyphicon-upload glyphicon glyphicon-white"></i>
+                    <span>Start</span>
+                </button>
+            {% } %}
+            {% if (!i) { %}
+                <button class="btn btn-warning cancel">
+                    <i class="glyphicon glyphicon-ban-circle glyphicon glyphicon-white"></i>
+                    <span>Cancel</span>
+                </button>
+            {% } %}
+        </td>
+    </tr>
+{% } %}
+</script>
+<!-- The template to display files available for download -->
+<script id="template-download" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-download fade">
+       <td>
+            <p class="name" id="{%=file.storedas%}" status="{% if (file.error) { %}error{% } %}">
+                {%=file.name%}
+            </p>
+            {% if (file.error) { %}
+                <div><span class="label label-important">Error</span> {%=file.error%}</div>
+            {% } %}
+        </td>
+        <td>
+            <span class="size">{%=o.formatFileSize(file.size)%}</span>
+        </td>
+        <td>
+			        </td>
+    </tr>
+{% } %}
+</script>
+</div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default" ng-click='help()'>Help</button>
+    <button class="btn btn-default" ng-click='showLibrary()'>View Library</button>
+    <button class="btn btn-default" ng-click='closeDialog()'>Close</button>
+    </div>
+</div>

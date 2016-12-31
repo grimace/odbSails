@@ -1,0 +1,197 @@
+<div class="content">
+	<div class="header">
+	    <h1 class="page-title">App Metrics</h1>
+	</div><!-- header -->
+
+	<div class="wrapper-content">
+		<div class="container-fluid">
+
+        	<div class="row-fluid">
+	            <div class="block span12 block-head-btn new">
+	             	<p class="block-heading">
+	                	Date Select<span id="range"></span>
+	            	</p>
+					<div class="block-body" id="dater">
+						<form id="dateForm" action="#" method="POST">
+							<div class="block-body">
+								Select Start/End Date to Filter Information:
+								<fieldset>
+									<div class="control-group">
+										<div class="input-prepend">
+											<span class="add-on" onclick="$('#dateRange').focus();"><i class="icon-calendar"></i></span>
+											<input type="text" name="dateRange" id="dateRange" placeholder="DD/MM/YY - DD/MM/YYYY"
+												   data-parsley-pattern="<%-validation.util.date%>" data-parsley-required >
+										</div>
+									</div>
+								</fieldset>
+								<input id="dateButton" type="submit" class="btn btn-large btn-primary btn-block" value="Select Date Range" />
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<div class="row-fluid">
+				<div class="block span12 block-head-btn new">
+					<p class="block-heading">
+						<span>App Totals</span>
+					</p>
+					<fieldset>
+						<table id="totalsTable">
+							<tr>
+								<td>
+									<div id="created"> </div>
+									<p class="totalHeadings">Accounts Created</p>
+								</td>
+								<td>
+									<div id="deleted"> </div>
+									<p class="totalHeadings">Accounts Deleted</p>
+								</td>
+								<td>
+									<div id="checkins" ></div>
+									<p class="totalHeadings">Check-ins</p>
+								</td>
+								<td>
+									<div id="checkouts" ></div>
+									<p class="totalHeadings">Checkouts</p>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div id="redeemed" ></div>
+									<p class="totalHeadings">Redeemed Coupons</p>
+								</td>
+								<td>
+									<div id="addCoupons" ></div>
+									<p class="totalHeadings">Added Coupons</p>
+								</td>
+								<td>
+									<div id="activateCoupons" ></div>
+									<p class="totalHeadings">Activated Coupons</p>
+								</td>
+								<td>
+									<div id="activateRegistrations" ></div>
+									<p class="totalHeadings">Active Users</p>
+								</td>
+							</tr>
+						</table>
+					</fieldset>
+				</div>
+			</div>
+
+			<div class="row-fluid">
+				<div class="block span6">
+					<p class="block-heading">
+	                    <span>Kiosk Average Duration ( <span id="avgDurationCount"></span> )</span>
+					</p>
+					<div class="block-body">
+						<div id="duration" >
+							<div id="chartAvgDuration"></div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="block span6">
+					<p class="block-heading">Kiosk Visits by Gender ( <span id="visitGenderCount"></span> )</p>
+					<div class="block-body">
+						<div id="gender" >
+							<div id="chart"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row-fluid">
+				<div class="block span6">
+					<p class="block-heading">
+	                    <span>Active Users <span class="nobr">( <span id="totalUser"></span> )</span></span>
+					</p>
+					<div class="block-body">
+						<div id="registration">
+							<div id="chartDevices"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="block span6">
+					<p class="block-heading">Kombi Network Visits <span class="nobr">( <span id="visitCount"></span> )</span></p>
+					<div class="block-body">
+						<div id="visits">
+							<div id="chartVisitPerDay"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div><!-- container-fluid -->
+	</div><!-- wrapper-content -->
+
+</div><!-- content -->
+
+<style>
+	html { height: 100% }
+	body { height: 100%; margin: 0; padding: 0;}
+</style>
+
+
+<script type="text/javascript" src="chartData/visitmetrics.js"></script>
+
+<script type="text/javascript">
+	var initCharts = function() {
+		var count = 0;
+		function done() {
+			count++;
+			if (count == 5) {
+				hideLoader();
+				count = 0;
+			}
+		}
+		$('#dateForm').parsley({
+			errorsWrapper: '<div></div>',
+			errorTemplate: '<span></span>',
+			priorityEnabled: false,
+			trigger:'change'
+		});
+
+		$('#range').text(' - ( Last 7 Days )');
+		$('#dateRange').daterangepicker({
+               startDate: moment().subtract("days", 7).toDate(),
+               endDate: moment().toDate()
+			});
+// dates are set in the parent container        
+        var dates = { dateRange : "<%= dateutil.moment().subtract("days", 7).format("MM/DD/YYYY")%> - <%= dateutil.moment().format("MM/DD/YYYY")%>" };
+        $('#dateRange').val( dates.dateRange );
+
+		$("#dateForm").submit(function(event) {
+			// show the laoding modal
+			showLoader();
+			event.preventDefault();
+			// we dont want to submit the form
+			$('#range').text('');
+			var d = $("#dateForm").serialize();
+			callRegistration( d, done );
+			appMetricCounts( d, done );
+			visitAvgDuration( d, done );
+			visitByNetwork( d, done );
+			visitPerDay( d, done );
+			return false;
+		});
+		showLoader();
+		// These default to 7 days.
+		callRegistration( dates, done );
+		appMetricCounts( dates, done );
+
+		visitAvgDuration( dates, done );
+		visitByNetwork( dates, done );
+		visitPerDay( dates, done );
+
+	};
+    
+    var initComponents = function() {
+        console.log('calling initCharts');
+        initCharts();
+    };
+
+</script>

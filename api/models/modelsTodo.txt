@@ -1,0 +1,22 @@
+	"Command",
+	"CommandSet",
+	"Watch",
+	"Image",
+	"WatchList",
+	"Video",
+	"Note",
+	"ButtonImage",
+	"AssetCollection",
+	"MediaEntry",
+	"Schedule",
+	"PlaylistEntry",
+	"Folder",
+	"Playlist",
+	"Text",
+	"Layout"
+
+  "ActiveCoupon",
+  "Coupon",
+  "Redemption",
+  "CartItem"
+

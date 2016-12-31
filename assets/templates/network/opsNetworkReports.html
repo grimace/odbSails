@@ -1,0 +1,91 @@
+<style>
+    .content {
+/*        overflow: hidden;*/
+        min-height: 750px;
+/*        line-height: 100%;*/
+    }
+
+/*
+    #sidebar-wrapper {
+        float: left;
+        height: 100%;
+    }
+    .sidebar {
+        width: 242px;
+        float: left;
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    .sidebar-nav {
+        width: 250px;
+        position: fixed;
+        float: left;
+        border-top: none;
+        border-left: none;
+        margin: 6px 0 0;
+        background: #222222;
+    }
+*/
+</style>
+<link rel="stylesheet"  href="css/style.css" />
+
+<div id="network" ng-cloak class="ng-cloak page-stub">
+
+    <!-- START SIDEBAR -->
+    <div data-offset-top="360" data-spy="affix" class="sidebar-nav affix">
+
+      <div class="sidebar-avatar">
+          <img src="/images/logo.png" alt="avatar" class="thumbnail-avatar">
+      </div>
+
+      <a data-toggle="collapse" data-target=".nav-collapse" class="btn-sidebar">
+          <span class="notify navigation span12"><i class="icon-reorder"></i> Navigation <span class="pull-right label sidebar-label label-danger"><i class="icon-angle-down"></i> </span></span>
+      </a>
+
+      <div class="nav-collapse subnav-collapse collapse ">
+          <a href="/#/network" class="nav-header active" ><i class="icon-dashboard"></i>Dashboard</a>
+          
+          <a href="#analytics" class="nav-header" data-toggle="collapse"><i class="icon-signal"></i>Analytics<span class="label sidebar-label label-info"><i class="icon-angle-down"></i> </span></a>
+          <ul id="analytics" class="nav nav-list collapse">
+              <li ><a href="/#/network"><i class="icon-bar-chart"></i> App Metrics</a></li>
+              <li ><a href="/#/network"><i class="icon-file-alt"></i> Proof Of Play</a></li>
+          </ul>
+          
+          <a href="#users" class="nav-header" data-toggle="collapse"><i class="icon-road"></i>Users<span class="label sidebar-label label-info"><i class="icon-angle-down"></i> </span></a>
+          <ul id="users" class="nav nav-list collapse">
+            
+            <li ><a href="/#/network" class="nav-header" ><i class="icon-user"></i>User Management</a></li>
+            
+            <li ><a href="/#/network" class="nav-header" ><i class="icon-user"></i>User Profile</a></li>
+          </ul>
+          
+          <a href="#rules" class="nav-header" data-toggle="collapse"><i class="icon-beaker"></i>Rule Management<span class="label sidebar-label label-info"><i class="icon-angle-down"></i> </span></a>
+          <ul id="rules" class="nav nav-list collapse">
+              <li ><a href="/#/network"><i class="icon-beaker"></i>    Rule Expressions</a></li>
+              <li ><a href="/#/network"><i class="icon-dashboard"></i>    Rule Targets</a></li>
+              <li ><a href="/#/network"><i class="icon-road"></i>    Outcome Actions </a></li>
+              <li ><a href="/#/network"><i class="icon-picture"></i>    Hosted Rule Points</a></li>
+          </ul>
+          
+          
+          <a href="#ops" class="nav-header" data-toggle="collapse"><i class="icon-money"></i>Operations<span class="label sidebar-label label-info"><i class="icon-angle-down"></i> </span></a>
+          <ul id="ops" class="nav nav-list collapse">
+            <li ><a href="/#/network"><i class="icon-money"></i>Operational Rollup</a></li>
+            <li ><a href="/#/network"><i class="icon-money"></i> Kombi Network</a></li>
+            <li ><a href="/#/network"><i class="icon-money"></i> Kombi Network Reports</a></li>
+            <li ><a href="/#/network"><i class="icon-money"></i> Kombi Platform</a></li>
+            <li ><a href="/#/network"><i class="icon-money"></i> Kombi Platform Reports</a></li>
+            <li ><a href="/#/network"><i class="icon-money"></i> Manage User Accounts</a></li>
+          </ul>
+          
+        </div>
+
+    </div>
+    <!-- END SIDEBAR -->
+
+<div class='content'>
+  Console Navigation panel.
+</div>
+
+</div>

@@ -1,0 +1,85 @@
+[
+        
+        { "name" : "Time", 
+          "classes" : [
+            {
+                "type":"Daypart", 
+                 "actions":["Play","Exclude","Notify","Custom"], 
+                 "range":["Morning", "MidMorning", "Noon", "Afternoon", "Evening", "Night"]},
+              
+            {
+                "type":"Before", 
+                 "actions":["Play","Exclude","Notify","Custom"], 
+                "range":[{ "before" : "time" }]},
+            {
+                "type":"After", 
+                 "actions":["Play","Exclude","Notify","Custom"], 
+                "range":[{ "after" : "time" }]},
+            {
+                "type":"Between", 
+                 "actions":["Play","Exclude","Notify","Custom"], 
+                "range":[{ "after" : "time" },{ "before" : "time" }]}
+        ]},
+        { "name" : "Trigger",
+          "classes" : [
+            {   "type":"Motion", 
+                 "actions":["Play","Exclude","Notify","Custom"], 
+                "range":["on,off"]
+            },
+            {   "type":"Detection", 
+                 "actions":["Play","Exclude","Notify","Custom"], 
+                "range":["Unknown", 
+                         "Male Child", "Female Child", 
+                         "Male Youth", "Female Youth", 
+                         "Adult Male", "Adult Female",
+                         "Senior Male", "Senior Female" ]
+            },
+            {   "type":"Temperature", 
+                 "actions":["Play","Exclude","Notify","Custom"], 
+                "range":["TBD"] 
+            },
+            {   "type":"Door", 
+                 "actions":["Play","Exclude","Notify","Custom"], 
+                "range":["TBD"] 
+            },
+            {   "type":"Scan", 
+                 "actions":["Play","Exclude","Notify","Custom"], 
+                "range":["code"]
+            },
+            {   "type":"Reader", 
+                 "actions":["Play","Exclude","Notify","Custom"], 
+                "range":["TBD"] 
+            }
+        ]},
+        { "name" : "Location",
+          "classes" : [
+            {
+                "type":"Range", 
+                 "actions":["Play","Exclude","Notify","Custom"], 
+                "range":["here","near","far","unknown"]},
+            {
+                "type":"Area", 
+                 "actions":["Play","Exclude","Notify","Custom"], 
+                "range":["in","out"]},
+            {
+                "type":"Map", 
+                 "actions":["Play","Exclude","Notify","Custom"], 
+                "range":["latlon"]}
+        ]},
+        { "name" : "Display",
+          "classes" : [
+            {
+                "type":"TBD", 
+                 "actions":["Play","Exclude","Notify","Custom"], 
+                "range":"TBD"},
+            {
+                "type":"TBD", 
+                 "actions":["Play","Exclude","Notify","Custom"], 
+                "range":"TBD"},
+            {
+                "type":"TBD", 
+                 "actions":["Play","Exclude","Notify","Custom"], 
+                "range":["TBD"]}
+        ]}
+
+]

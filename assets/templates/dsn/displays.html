@@ -1,0 +1,199 @@
+<script>
+  var initComponents = function() {
+      console.log('DSN.displays: you are here.');
+  }
+</script>
+<style>
+    .widget-title {
+        margin-top: 6px;
+    }
+    a {
+         color: #337ab7; 
+    }
+</style>
+<div class="content" ng-controller="DSNController" ng-init="init()">
+    <div class="col-sm-12">
+    <ul class="nav nav-pills pull-right">
+        <li class=""><a title="Open the filter form" href="#" class="" >Filter</a></li>
+        <li class=""><a title="Open the add Display" href="#" class="" ng-click="openAddDisplayDialog()">Add Display</a></li>
+    </ul>
+    <div class="widget">
+    <div class="widget-title">Displays </div>
+    <div class="widget-body">
+        <div class="XiboGrid" id="5654fe23ec8bc">
+        <div class="XiboFilter">
+                <div class="FilterDiv" id="Filter" style="display: none;">
+                    <form id="" class="form-inline" method="post" action="">
+                        <input type="hidden" name="p" value="display">
+                        <input type="hidden" name="q" value="DisplayGrid">
+                        <input type="hidden" name="token" value="ffd5cc6ff361f4f0ad53964fd98956ec">
+                        <div class="tab-content">
+                            <div class="form-group ">
+                                        <label class="control-label" for="filter_showView" title="" accesskey="t">View</label>
+                                        <div>
+                                            <select class="form-control" name="filter_showView" id="filter_showView">
+
+                                            <option value="0" selected="">Default</option>
+                                                <option value="4">Default with Description</option>
+                                                <option value="1">Screen shot thumbnails</option>
+                                                <option value="2">Screen shot thumbnails when Logged In</option>
+                                                <option value="3">Extended Display Status</option>
+                                            </select>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                                                    <div class="form-group ">
+                                        <label class="control-label" for="filter_display" accesskey="n">Name</label>
+                                        <div>
+                                            <input class="form-control" name="filter_display" type="text" id="filter_display" value="">
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                                                    <div class="form-group ">
+                                        <label class="control-label" for="filterMacAddress" accesskey="m">MAC Address</label>
+                                        <div>
+                                            <input class="form-control" name="filterMacAddress" type="text" id="filterMacAddress" value="">
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                                                    <div class="form-group ">
+                                        <label class="control-label" for="filter_displaygroup" title="" accesskey="d">Display Group</label>
+                                        <div>
+                                            <select class="form-control" name="filter_displaygroup" id="filter_displaygroup">
+                                                    <option value="0">All</option>
+                                                    <option value="53">Tradeshow_Group</option>
+                                            </select>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                                                    <div class="form-group ">
+                                        <label class="control-label" for="filterVersion" accesskey="v">Version</label>
+                                        <div>
+                                            <input class="form-control" name="filterVersion" type="text" id="filterVersion" value="">
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                                                    <div class="form-group ">
+                                        <label class="control-label" for="filter_autoRefresh" accesskey="r">Auto Refresh</label>
+                                        <div>
+                                            <input class="form-control" name="filter_autoRefresh" type="number" id="filter_autoRefresh" value="0">
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                                                    <div class="form-group ">
+                                        <div>
+                                            <div class="checkbox">
+                                                <label for="XiboFilterPinned" title="" accesskey="k">
+                                                    <input type="checkbox" id="XiboFilterPinned" name="XiboFilterPinned">
+                                                    Keep Open                                                </label>
+                                            </div>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                </div>                    </form>
+                </div>
+            </div>
+            <div class="XiboData">
+    <table class="table tablesorter tablesorter-bootstrap table-bordered" role="grid" ng-init="getDisplays()">
+                    <colgroup>
+                        <col style="width: 2.5%;"><col style="width: 2.6%;">
+                        <col style="width: 9%;">
+                        <col style="width: 4.7%;">
+                        <col style="width: 5.3%;">
+                        <col style="width: 13.8%;">
+                        <col style="width: 9.9%;">
+                        <col style="width: 6.8%;">
+                        <col style="width: 6.4%;">
+                        <col style="width: 8.6%;">
+                        <col style="width: 6.9%;">
+                        <col style="width: 8.2%;">
+                        <col style="width: 2.6%;">
+                    </colgroup>
+    <thead>
+        <tr role="row" class="tablesorter-headerRow">
+        <th data-sorter="false" class="group-false tablesorter-header sorter-false tablesorter-headerUnSorted bootstrap-header" data-column="0" tabindex="0" scope="col" role="columnheader" aria-disabled="true" unselectable="on" aria-sort="none" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner"><input class="selectAllCheckbox" type="checkbox"> <i class="tablesorter-icon"></i></div></div></th>                        
+<!--            <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="1" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="ID : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">ID <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>-->
+        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="2" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Display : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Display <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-sorter="tickcross" data-column="3" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Status : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Status <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-sorter="tickcross" data-column="4" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Licensed : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Licensed <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="5" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Default Layout : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Default Layout <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-sorter="tickcross" data-column="6" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Interleave Default : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Interleave Default <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-sorter="tickcross" data-column="7" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Email Alert : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Email Alert <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-sorter="tickcross" data-column="8" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Logged In : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Logged In <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="9" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Last Accessed : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Last Accessed <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="10" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="IP Address : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">IP Address <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="11" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="MAC Address : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">MAC Address <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+        <th data-sorter="false" data-column="12" class="tablesorter-header sorter-false tablesorter-headerUnSorted bootstrap-header" tabindex="0" scope="col" role="columnheader" aria-disabled="true" unselectable="on" aria-sort="none" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner"> <i class="tablesorter-icon"></i></div></div></th>
+        </tr>
+    </thead>
+    <tbody aria-live="polite" aria-relevant="all">
+        
+            <tr dir-paginate="display in displays | itemsPerPage: 10" pagination-id="dpaginate" class="warning odd" role="row">
+<!--            <tr class="warning odd" role="row" ng-repeat="display in displays">-->
+            <td><input type="checkbox"></td>
+<!--                <td>{{display.id}}</td>-->
+                                                
+                <td><a href="0" title="VNC to Xibo-Minix" target="_top">{{display.name}}</a></td>
+                <td><span class="glyphicon glyphicon-exclamation-sign"></span></td>
+                <td>{{display.licensed}}</td>
+<!--                <td><span class="glyphicon glyphicon-ok"></span></td>-->
+                <td>{{getDefaultLayoutInfo(display)}}</td>
+                <td><span class="glyphicon glyphicon-remove"></span></td>
+                <td><span class="glyphicon glyphicon-ok"></span></td>
+                <td><span class="glyphicon glyphicon-remove"></span></td>
+                <td>{{display.lastCheckin}}</td>
+                <td>{{display.ipAddress}}</td>
+                <td>{{display.macAddress}}</td>
+                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="XiboFormButton display_button_edit" ng-click="openEditDisplayDialog(display)">
+                            <a tabindex="-1" href="#">Edit</a></li>
+                        <li class="XiboFormButton display_button_delete" ng-click="removeDisplay(display)"><a tabindex="-1" href="#">Delete</a></li>
+                        <li class="divider"></li>
+                        <li class="XiboFormButton display_button_schedulenow" ng-click="scheduleDisplay(display)">
+                            <a tabindex="-1" href="#">Schedule Now</a></li>
+                        <li class="XiboFormButton display_button_defaultlayout" ng-click="assignContent(display);">
+                            <a tabindex="-1" href="#">Default Layout</a></li>
+                    <li class="XiboFormButton displaygroup_button_fileassociations" ng-click="assignContent(display);">
+                        <a tabindex="-1" href="#">Assign Files</a></li>
+                    <li data-multiselectlink="index.php?p=display&amp;q=RequestScreenShot" data-rowtitle="Xibo-Minix" data-displayid="1" class="XiboFormButton display_button_requestScreenShot" ng-click="requestScreenShot(display);"><a tabindex="-1" href="#">Request Screen Shot</a></li>
+                    <li class="divider"></li>
+                    <li class="XiboFormButton display_button_mediainventory" ng-click="requestMediaInventory(display);"><a tabindex="-1" href="#">Media Inventory</a></li>
+                    <li class="XiboFormButton displaygroup_button_logs" ng-click="recentLog(display);"><a tabindex="-1" href="#">Recent Log</a></li>
+                    <li class="divider"></li>
+                    <li class="XiboFormButton display_button_group_membership" ng-click="requestScreenShot(display);"><a tabindex="-1" href="#">Display Groups</a></li>
+                    <li class="XiboFormButton display_button_version_instructions" ng-click="requestVersionInformation(display);"><a tabindex="-1" href="#">Version Information</a></li>
+<!--
+                    <li class="divider"></li>
+                    <li class="XiboFormButton display_button_wol" ng-click="wakeOnLan(display);"><a tabindex="-1" href="#">Wake on LAN</a></li>
+-->
+                </ul>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!--    TODO : get multi-select checkboxes to work/do something
+    <div class="btn-group">
+        <button class="btn dropdown-toggle" data-toggle="dropdown">
+            <span class="fa fa-long-arrow-up"></span> 
+            With Selected        
+        </button>
+        <ul class="dropdown-menu">
+                <li class="XiboMultiSelectFormButton" data-button-id="display_button_requestScreenShot" data-grid-id="" data-grid-token="8fd35087a3a40bb35ff20120a1ffd1c0"><a tabindex="-1" href="#">Request Screen Shot</a></li>
+        </ul>
+    </div>
+-->
+    </div>
+    <div id="dpagination">
+            <dir-pagination-controls pagination-id="dpaginate" boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="templates/dirPagination.tpl.html"></dir-pagination-controls>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<layout width="1080" height="1920" resolutionid="11" bgcolor="#000000" schemaVersion="2">
+  <region id="54f7682f52a55" userId="1" width="1080" height="811" top="0" left="0" name="p4.1">
+    <options>
+      <transOut/>
+      <transOutDuration>0</transOutDuration>
+      <transOutDirection>N</transOutDirection>
+      <loop>0</loop>
+    </options>
+    
+  <media id="262" type="image" render="native" duration="10" lkid="367" userId="1" schemaVersion="1">
+                            <options><uri>262.png</uri></options>
+                            <raw/>
+                    </media></region>
+  <region id="141480554754f768beb1ec5" userId="1" width="1080" height="300" top="810" left="0" name="p4.2">
+    <options>
+      <transOut/>
+      <transOutDuration>0</transOutDuration>
+      <transOutDirection>N</transOutDirection>
+      <loop>0</loop>
+    </options>
+    <media id="c10b0b626b2a6936e6f6eba2c7f57074" type="webpage" render="native" duration="12" lkid="" userId="1" schemaVersion="1">
+                            <options><xmds>1</xmds><uri>http%3A%2F%2Falltm.kombicorp.net%2Fdist%2Faeris%2Faeris_zoom.html%3Fzip%3D20037</uri><scaling>100</scaling><transparency>0</transparency><offsetLeft>0</offsetLeft><offsetTop>0</offsetTop><pageWidth>0</pageWidth><pageHeight>0</pageHeight><modeid>1</modeid></options>
+                            <raw/>
+                    </media>
+  </region>
+  <region id="56628607754f768f84b56a" userId="1" width="1080" height="810" top="1110" left="0" name="p4.3">
+    <options>
+      <transOut/>
+      <transOutDuration>0</transOutDuration>
+      <transOutDirection>N</transOutDirection>
+      <loop>0</loop>
+    </options>
+    
+  <media id="263" type="video" render="native" duration="10" lkid="368" userId="1" schemaVersion="1">
+                            <options><uri>263.mp4</uri></options>
+                            <raw/>
+                    </media></region>
+  <tags><tag>template</tag></tags>
+</layout>

@@ -1,0 +1,133 @@
+<!--
+<h2>Messages</h2>
+<p>Open this page in two browsers and see how easy Sails.js makes realtime applications!</p>
+
+<p ng-show="!currentUser"><a href="/register">Register</a> to post a message!</p>
+
+<div class="row">
+	<div class="col-md-6">
+		<form role="form" ng-submit="createMessage(newMessage)">
+			<div class="form-group">
+			<label for="messageTitle">Your Message</label>
+				<input type="text" ng-model="newMessage.title" class="form-control" id="messageTitle" ng-disabled="!currentUser">
+			</div>
+			<button type="submit" class="btn btn-primary" ng-disabled="!currentUser || !newMessage.title">Submit</button>
+		</form>
+	</div>
+	<div class="col-md-6">
+		<h3>All Messages</h3>
+		<ul>
+			<li ng-repeat="message in messages">{{message.title}} <b>by</b> {{message.user.username}}, <span am-time-ago="message.updatedAt"></span> <button type="button" class="btn btn-danger btn-xs" ng-click="destroyMessage(message)" ng-show="currentUser.id === message.user.id"><i class="fa fa-trash-o"></i></button></li>
+		</ul>
+	</div>
+</div>-->
+
+<style>
+    
+    .sidebar-nav {
+        margin-top:0px;
+        
+    }
+    .container-fluid {
+    }
+    .content {
+        min-height: 750px;
+    }
+
+   .body {
+/*        background-color: #222222;*/
+    }
+
+    #sidebarNav {
+        margin-right: 2px;
+        max-width: 238px;
+        background-image: linear-gradient(to bottom,  #3f7b74 0%,  #b1d8d5 100%); 
+        background-image: -webkit-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+        background-image: -moz-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+        background-image: -ms-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+        background-image: -o-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+/*            background-image: linear-gradient(top, #b1d8d5 0%, #3f7b74 100%);*/
+    }
+    div#sidbarNav-sidebar.nav.affix {
+        background-image: linear-gradient(to bottom,  #3f7b74 0%,#b1d8d5 100%); 
+        background-image: -webkit-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+        background-image: -moz-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+        background-image: -ms-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+        background-image: -o-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+        background-color: #b1d8d5;
+        background: #b1d8d5;
+    }
+    .navbar-inverse {
+        background-image: linear-gradient(to bottom,  #3f7b74 0%,#b1d8d5 100%); 
+        background-image: -webkit-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+        background-image: -moz-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+        background-image: -ms-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+        background-image: -o-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+    }
+</style>
+
+<div id="mobility" ng-cloak data-ng-view class="page-stub" ng-controller="MobilityController" ng-init="init()">
+
+    <!-- START SIDEBAR -->
+    <div id="sidebarNav" data-offset-top="0" data-spy="affix" class="sidebar-nav affix">
+
+      <div class="sidebar-avatar">
+          <img src="/images/logo.png" alt="avatar" class="thumbnail-avatar">
+      </div>
+         <div>
+
+           <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle nav-header active" ng-init="collapseDisplays = true;" ng-class="{collapsed:!collapseDisplays}" ng-click="collapseDisplays=!collapseDisplays">
+              <i class="fa fa-desktop"></i>Offers<span class="label sidebar-label label-info"><i class="fa fa-chevron-down"></i></span>
+              </a>
+            </div>
+            <div class="accordion-body" ng-class="{collapse:collapseDisplays}">
+              <div class="accordion-inner">
+                  <ul id="displays" class="nav nav-list">
+                    <li ><a ng-click="view.getView(0)" class="nav-header"><i class="fa fa-desktop"></i>    Library</a></li>
+                    <li ><a ng-click="view.getView(1)" class="nav-header"><i class="fa fa-object-group"></i>    Assignment</a></li>
+                    <li ><a ng-click="view.getView(2)" class="nav-header"><i class="fa fa-bar-chart"></i>    Locations</a></li>
+                    <li ><a ng-click="view.getView(3)" class="nav-header"><i class="fa fa-cogs"></i>    Signage</a></li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle nav-header active" ng-init="collapseDisplays = true;" ng-class="{collapsed:!collapseDisplays}" ng-click="collapseDisplays=!collapseDisplays">
+              <i class="fa fa-desktop"></i>Devices<span class="label sidebar-label label-info"><i class="fa fa-chevron-down"></i></span>
+              </a>
+            </div>
+            <div class="accordion-body" ng-class="{collapse:collapseDisplays}">
+              <div class="accordion-inner">
+                  <ul id="displays" class="nav nav-list">
+                    <li ><a ng-click="view.getView(4)" class="nav-header"><i class="fa fa-desktop"></i>    Devices</a></li>
+                    <li ><a ng-click="view.getView(5)" class="nav-header"><i class="fa fa-object-group"></i>    Device Groups</a></li>
+                    <li ><a ng-click="view.getView(6)" class="nav-header"><i class="fa fa-cogs"></i>    Analytics</a></li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+
+             
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle nav-header active" ng-click="view.getView(7)"><i class="fa fa-map"></i>Rules</a>
+            </div>
+          </div>
+
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle nav-header active" ng-click="view.getView(8)"><i class="fa fa-"></i>Analytics</a>
+            </div>
+          </div>
+
+        </div>
+    </div>
+    <!-- END SIDEBAR -->
+    <script type="text/javascript" src="/js/async.js"></script>
+    <div class="info" id="networkRoot" ng-include src="view.setView()" onload="childOnLoad()"></div>
+
+</div>
+

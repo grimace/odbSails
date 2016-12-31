@@ -1,0 +1,189 @@
+<style>
+    .ngdialog {
+        top: 10%;
+        left: 20%;
+        width: 600px;
+        height: 744px;
+    }
+    .ngdialog-content {
+        width: 600px;
+        height: 744px;
+    }
+    #schDialog {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 6px;
+        margin-bottom: 6px;
+        width: 540px;
+        height: 730px;
+    }
+    #schContent {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 540px;
+        height: 730px;
+    }
+
+    #schGrid {
+        height: 540px;
+    }
+
+    #schBody {
+        width: 540px;
+        height: 730px;
+    }
+    
+    #schData {
+        height: 730px;
+    }
+
+    #schFooter {
+        margin-bottom: 2px;
+        bottom: 10px;
+    }
+    #displaysIn {
+        background-color: #F3F3F3;
+    }
+    #displaysOut {
+        background-color: #F3F3F3;
+    }
+    .modal-footer {
+        bottom: 2%;
+    }
+    .div.dropdown-menu.open {
+        max-height: 550px;
+        overflow: hidden;
+        min-height: 92px;
+    }
+</style>
+<div class="modal-dialog" id="schDialog" ng-controller="ScheduleDialogController"  ng-init="initialize()">
+<div class="modal-content" id="schContent">
+    <div class="modal-header">
+<!--        <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>-->
+        <h4 class="modal-title">Schedule Now</h4>
+    </div>
+    <div class="modal-body" id="schBody">
+    <div class="bootbox-body">
+    <div class="row">
+    <div class="col-md-12">
+        <form id="ScheduleNowForm" class="XiboForm form-horizontal" method="post" novalidate="novalidate">
+            <input type="hidden" name="token" value="6dbcf53739c74c7b8dc03b7438adbba5">
+            <div class="tab-content">
+                <div class="form-group ">
+                <label class="col-sm-2 control-label" for="CampaignID" title="Please select a Layout or Campaign for this Event to show" accesskey="l">Layout</label>
+                <div class="col-sm-10">
+                <select class="form-control" name="CampaignID" id="CampaignID" style="display: none;">
+                    <optgroup label="Media Wheels">
+                        <option ng-repeat='wheel in wheels'>{{wheel.name}}</option>
+                    </optgroup>
+                    <optgroup label="Layouts">
+                        <option ng-repeat='layout in layouts'>{{layout.name}}</option>
+                    </optgroup>
+                </select>
+                <div class="btn-group bootstrap-select form-control">
+                <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" data-id="CampaignID" title="altria">
+                    <span class="filter-option pull-left">altria</span>&nbsp;
+                    <span class="caret"></span>
+                </button>
+                <div class="dropdown-menu open" style="max-height: 586px; overflow: hidden; min-height: 92px;">
+                    <ul class="dropdown-menu inner selectpicker" role="menu" style="max-height: 574px; overflow-y: auto; min-height: 80px;">
+                    <li rel="0" class="selected"><dt><span class="text">Wheels</span></dt>
+                        <a tabindex="0" class="opt " style="" data-optgroup="1">
+                        <span class="text">altria</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                            <li rel="1"><a tabindex="0" class="opt " style="" data-optgroup="1">
+                            <span class="text">Default</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                            <li rel="2"><a tabindex="0" class="opt " style="" data-optgroup="1">
+                            <span class="text">DevPit</span>
+                            <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                            <li rel="3">
+                            <a tabindex="0" class="opt " style="" data-optgroup="1"><span class="text">FerryCombined</span>
+                                <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                            <li rel="4"><a tabindex="0" class="opt " style="" data-optgroup="1"><span class="text">FerryInbound</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                            <li rel="5"><a tabindex="0" class="opt " style="" data-optgroup="1"><span class="text">FerryOutbound</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="6"><a tabindex="0" class="opt " style="" data-optgroup="1"><span class="text">tradeshow-interleave</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="7"><a tabindex="0" class="opt " style="" data-optgroup="1"><span class="text">tradeshow-sequenced</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="8"><div class="div-contain"><div class="divider"></div></div><dt><span class="text">Layouts</span></dt><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">altriademo</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="9"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">DevPit</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="10"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">ferry-win01</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="11"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">ferry-win02</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="12"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">ferry-win03</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="13"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">ferry-win04</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="14"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">ferry-win05</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="15"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">ferry-win06</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="16"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">ferry-win07</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="17"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">ferry-win08</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="18"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">ferry-win09</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="19"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">ferry-win10</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="20"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">ferrysample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="21"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">KombiSignageDefault</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="22"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">KombiSignageDefaultLandscape</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="23"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">l1 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="24"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">l2 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="25"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">l3 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="26"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">l4 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="27"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">l5 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="28"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">l6 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="29"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">l7 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="30"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">l8 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="31"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">p1 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="32"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">p2 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="33"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">p3 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="34"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">p4 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="35"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">p5 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="36"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">p6 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="37"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">p7 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="38"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">p8 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="39"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">tradeshow-fs01</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="40"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">tradeshow-fs02</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="41"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">tradeshow-fs03</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="42"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">tradeshow-win01</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="43"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">tradeshow-win02</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="44"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">tradeshow-win03</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="45"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">tradeshow-win04</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="46"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">tradeshow-win05</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="47"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">tradeshow-windowed</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="48"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">WindowedOne</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="49"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">WindowedTwo</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="50"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">windowsplayer</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li></ul></div></div>
+                                <span class="help-block">Please select a Layout or Campaign for this Event to show</span>
+                </div>
+        </div>
+                        <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="hours" accesskey="h">Hours</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" name="hours" type="text" id="hours" value="">
+                                <span class="help-block">Hours this event should be scheduled for</span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="minutes" accesskey="h">Minutes</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" name="minutes" type="text" id="minutes" value="">
+                                <span class="help-block">Minutes this event should be scheduled for</span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="seconds" accesskey="h">Seconds</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" name="seconds" type="text" id="seconds" value="">
+                                <span class="help-block">Seconds this event should be scheduled for</span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="DisplayGroupIDs[]" title="Please select one or more displays / groups for this event to be shown on." accesskey="d">Display</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" multiple="" name="DisplayGroupIDs[]" id="DisplayGroupIDs[]" data-live-search="true" data-selected-text-format="count > 4" style="display: none;">
+
+                                <optgroup label="Groups">
+                                    <option ng-repeat='group in displaygroups'>{{group.name}}</option>
+                                </optgroup>
+                                <optgroup label="Displays">
+                                    <option ng-repeat='display in displays'>{{display.name}}</option>
+                                </optgroup>
+                                </select>
+                                <div class="btn-group bootstrap-select show-tick form-control">
+                                    <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" data-id="DisplayGroupIDs[]" title="Nothing selected">
+                                        <span class="filter-option pull-left">Nothing selected</span>&nbsp;
+                                        <span class="caret"></span>
+                                    </button>
+                <div class="dropdown-menu open">
+                    <div class="bootstrap-select-searchbox">
+                        <input type="text" class="input-block-level form-control" autocomplete="off"></div>
+                    <ul class="dropdown-menu inner selectpicker" role="menu">
+                        <li ng-repeat="group in displaygroups" rel="0"><dt><span class="text">Groups</span></dt><a tabindex="0" class="opt " style="" data-optgroup="1"><span class="text">{{group.name}}</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                        <li rel="2"><div class="div-contain"><div class="divider"></div></div><dt><span class="text">Displays</span></dt><a tabindex="0" class="opt " style="" data-optgroup="2">
+                            <span class="text">Android</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                        <li ng-repeat="display in displays" rel="3"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">{{display.name}}</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <span class="help-block">Please select one or more displays / groups for this event to be shown on.</span>
+        </div>
+    </div>
+    <div class="form-group ">
+        <label class="col-sm-2 control-label" for="DisplayOrder" accesskey="o">Display Order</label>
+        <div class="col-sm-10">
+            <input class="form-control" name="QOrder" type="number" id="QOrder" value="0">
+            <span class="help-block">Should this event have an order?</span>
+        </div>
+    </div>
+            <div class="form-group ">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label for="is_priority" title="Sets whether or not this event has priority. If set the event will be show in preference to other events." accesskey="p">
+                            <input type="checkbox" id="is_priority" name="is_priority">
+                            Priority?                                    
+                        </label>
+                    </div>
+                    <span class="help-block">Sets whether or not this event has priority. If set the event will be show in preference to other events.</span>
+                </div>
+            </div>
+    </div>                        
+</form>
+</div>
+</div>
+
+</div>
+    </div>
+    <div class="modal-footer"><button class="btn btn-default">Help</button><button class="btn btn-default">Cancel</button><button class="btn btn-primary save-button">Save</button>
+    </div>
+</div>
+</div>

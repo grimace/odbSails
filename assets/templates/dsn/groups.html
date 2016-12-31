@@ -1,0 +1,498 @@
+<style>
+
+    .pagination ul>.active>a, .pagination ul>.active>span {
+/*        color: #0088cc;*/
+        cursor: default;
+        text-decoration: bold;
+    }
+
+    .pagebtn:hover, .pagebtn:focus, .pagebtn:active, .pagebtn.active, .pagebtn.disabled, .pagebtn[disabled] {
+     background-color: #b2b0b0; 
+     color: #777; 
+    }
+    .pagebtn:hover, .pagebtn:focus, .pagebtn.focus {
+         color: #3f7b74; 
+         text-decoration: none; 
+    }
+    .pagebtn:hover, .pagebtn:focus {
+         color: #333; 
+         text-decoration: none; 
+    }
+    .pagebtn {
+        /* outline: none !important; */
+        /* color: #777; */
+        /* text-shadow: 0 0px 0 rgba(0, 0, 0, 0.25); */
+        background-color: #efefef;
+        background-image: none;
+        box-shadow: none;
+        background-repeat: repeat-x;
+        border-color: none;
+        border-width: 0px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        margin-bottom: 5px;
+    }
+    .pagebtn {
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: normal;
+        text-align: center;
+        vertical-align: middle;
+        touch-action: manipulation;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        border-radius: 4px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .pagebtn {
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+
+    #buttonDrop1 {
+        right: 60px;
+        padding-right: 60px;
+    }
+    #buttonDrop2 {
+        right: 60px;
+        padding-right: 10px;
+        font-size: 12px;
+        font-weight: 500;
+        border: 1px solid #4ea573;
+
+    }
+    #ddMenu {
+        right: 60px;
+        padding-right: 60px;
+    }
+
+    .clearfix:after {
+        clear:both;
+        content:".";
+        display:block;
+        font-size:0;
+        height:0;
+        visibility:hidden;
+    }
+    .clearfix { display:block; }
+    #editHdrImg {
+        padding-bottom: 8px;
+        float: right;
+        padding-right: 10px;
+    }
+    #csvInput {
+        width: 100px;
+        height:50px;
+    }
+    #csvFilesLbl {
+      font: bold 11px Arial;
+      text-decoration: none;
+      background-color: #EEEEEE;
+      color: #333333;
+      padding: 2px 8px 4px 4px;
+      border-top: 1px solid #CCCCCC;
+      border-right: 1px solid #333333;
+      border-bottom: 1px solid #333333;
+      border-left: 1px solid #CCCCCC;
+      margin-left: 14px;
+    }
+/*    .ng-scope { border: 1px solid red; }*/
+</style>
+
+<script>
+  var initComponents = function() {
+      console.log('you are here.');
+  }
+</script>
+<style>
+    .content {
+        overflow: hidden;
+        padding: 20px;
+    }
+    #groupSelector {
+        width: 118px;
+    }
+    #glist {
+        color: green;
+    }
+    #products {
+        position: relative;
+/*        float: left;*/
+    }
+    #productPaginationRegion {
+        position: relative;
+/*
+        float: left;
+        clear: left;
+*/
+    }
+    #ppagination {
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+    }
+    .row {
+        margin-bottom: 60px;
+    }
+    .pagination {
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+    .taImage {
+        object-fit: contain;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+    
+    .taImage img {
+        max-height: 100px;
+        max-width: 100px;
+    } 
+    #groupSelector {
+        margin-top: -20px;
+        padding-top: 2px;
+        margin-bottom: 5px;
+    }
+    
+    .controls label {
+        display: inline-block;
+        width: 118px;
+/*        height: 80px;*/
+        text-align: left;
+        vertical-align: top;
+        padding-top: 2px;
+        padding-right: 4px;
+        font-size: 0.8em;
+    }
+    .controls input {
+        display: block;
+/*        margin: 0 auto -60px;*/
+/*        margin-left: -60px;*/
+    }
+</style>
+
+<!--<div>-->
+<div class="content">
+    <div class="row">
+        <div class="col-sm-12">
+
+            
+            <ul class="nav nav-pills pull-right">
+            <li class="">
+
+<!--
+            <button class="btn dropdown-toggle" data-toggle="dropdown" id="buttonDrop1">
+              <span>Select Groups</span>
+            </button>
+-->
+<!--                  <ul class="dropdown-menu" id="groupSelector">-->
+              <ul class="" id="groupSelector" ng-init="changeSelectedGroup('product')">
+<!--                  ng-change="changeSelectedGroup('product')" -->
+                  <div class="controls">
+                        <label class="radio">
+<!--                    <li class="layout_button_group">-->
+                       <input type="radio" ng-model="groupView.name" value="product"> 
+<!--                    </li>-->
+                        Products
+                      </label>
+                        <label class="radio">
+<!--                    <li class="layout_button_group">-->
+                       <input type="radio" ng-model="groupView.name" value="announcement"> 
+<!--                    </li>-->
+                        Announcements
+                      </label>
+
+                      <label class="radio">
+<!--                    <li class="layout_button_group">-->
+                       <input type="radio" ng-model="groupView.name" value="feed"> 
+<!--                    </li>-->
+                        Feeds
+                      </label>
+
+<!--
+                    <li class="layout_button_group">
+                        <input type="radio" ng-model="groupView.name"  value="announcement"><label>Announcements</label>
+                    </li>
+                    <li class="layout_button_group">
+                        <input type="radio"  ng-model="groupView.name" value="feed"><label>Feeds</label>
+                    </li>
+-->
+                  </div>
+              </ul>
+            </li>
+
+                
+            <li class="">
+
+            <button class="btn dropdown-toggle" data-toggle="dropdown" id="buttonDrop2">
+              <span>Add Group</span></button>
+                  <ul class="dropdown-menu" id="ddMenu">
+                        <li class="layout_button_group">
+<!--                            <a tabindex="-1" target="_self" ng-click="openAddProductGroup()"> -->
+                                <span id="editHdrImg" class="fa fa-plus" ng-click="openAddProductGroup()">New Group</span>
+<!--                            </a>-->
+                        </li>
+<!--
+                        <li class="layout_button_group">
+                            <a tabindex="-1" target="_blank" ng-click="openAddAnnouncementGroup()">Announcement</a></li>
+                        <li class="layout_button_group">
+                            <a tabindex="-1" ng-click="openAddFeedGroup()">Feed</a></li>
+-->
+                        <li class="layout_button_group">
+                            <div ng-if="viewProducts();" >
+                                <div class='csvImport' ng-controller="CSVImportController"  ng-init="initialize()">
+                                  <ng-csv-import 
+                                      class="import"
+                                      content="csv.pgcontent"
+                                      header="csv.header" 
+                                      header-visible="csv.headerVisible" 
+                                      separator="csv.separator"
+                                      separator-visible="csv.separatorVisible"
+                                      result="csv.result"
+                                      encoding="csv.encoding"
+                                      encoding-visible="csv.encodingVisible"></ng-csv-import>
+<!--                                        <span>Import {{gat()}} CSV</span>-->
+                                </div>
+                            </div>
+                            <div ng-if="viewAnnouncements();" >
+                            <div class='csvImport' ng-controller="CSVImportController"  ng-init="initialize()">
+                              <ng-csv-import 
+                                  class="import"
+                                  content="csv.agcontent"
+                                  header="csv.header" 
+                                  header-visible="csv.headerVisible" 
+                                  separator="csv.separator"
+                                  separator-visible="csv.separatorVisible"
+                                  result="csv.result"
+                                  encoding="csv.encoding"
+                                  encoding-visible="csv.encodingVisible"></ng-csv-import>
+<!--                                        <span>Import {{gat()}} CSV</span>-->
+                            </div>
+                            </div>
+                            <div ng-if="viewFeeds();" >
+                            <div class='csvImport' ng-controller="CSVImportController"  ng-init="initialize()">
+                              <ng-csv-import 
+                                  class="import"
+                                  content="csv.fgcontent"
+                                  header="csv.header" 
+                                  header-visible="csv.headerVisible" 
+                                  separator="csv.separator"
+                                  separator-visible="csv.separatorVisible"
+                                  result="csv.result"
+                                  encoding="csv.encoding"
+                                  encoding-visible="csv.encodingVisible"></ng-csv-import>
+<!--                                        <span>Import {{gat()}} CSV</span>-->
+                            </div>
+                            </div>
+                      </li>
+                  </ul>
+                </li>
+            </ul>
+            <div class="widget" ng-controller="DSNController"  ng-init="loadGroups()">
+                <div class="widget-title">Groups : <label id='glist'>{{getGroupList()}}</label></div>
+                <div class="widget-body">
+                <div class="XiboGrid">
+                <div class="XiboFilter">
+                    <div class="FilterDiv" id="Filter">
+                    <form id="" class="form-inline" method="post" action="">
+                    <input type="hidden" name="p" value="dataset">
+                        <input type="hidden" name="q" value="DataSetGrid"><input type="hidden" name="token" >
+                        <div class="tab-content"></div>
+                    </form>
+                    </div>
+                </div>
+            <div class="XiboData">
+                <table class="table tablesorter tablesorter-bootstrap table-bordered" role="grid" ng-if="viewProducts();">
+                    <colgroup>
+                        <col style="width: 16.5%;">
+                        <col style="width: 29.1%;">
+                        <col style="width: 15.6%;">
+                        <col style="width: 23.1%;">
+                        <col style="width: 8.7%;">
+                        <col style="width: 7.0%;">
+                    </colgroup>
+                    <thead>
+                    <tr role="row" class="tablesorter-headerRow">
+                        <th class="group-false tablesorter-header tablesorter-headerAsc bootstrap-header" data-column="0" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="ascending" aria-label="Name : Ascending sort applied, activate to apply a descending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Name <i class="tablesorter-icon glyphicon glyphicon-chevron-up"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="1" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Description : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Category <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="2" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Description : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Description <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="3" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Description : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Details <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="4" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Description : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Product Count <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th data-sorter="false" data-column="5" class="tablesorter-header sorter-false tablesorter-headerUnSorted bootstrap-header" tabindex="0" scope="col" role="columnheader" aria-disabled="true" unselectable="on" aria-sort="none" style="-webkit-user-select: none;">
+                                    <span id="editHdrImg" class="fa fa-gear"></span>
+                        </th>
+                    </tr>
+                    </thead>
+        <tbody aria-live="polite" aria-relevant="all">
+            <tr dir-paginate="productgroup in $root.productGroups | itemsPerPage: 10" pagination-id="ppaginate" class="warning odd" role="row" ng-if="viewProducts()">
+                <td>{{productgroup.name}}</td>
+                <td>{{productgroup.category}}</td>
+                <td>{{productgroup.description}}</td>
+                <td>{{productgroup.details}}</td>
+                <td>{{productgroup.items.length}}</td>
+                <td>
+                    <div class="btn-group pull-right">
+                        <button class="btn dropdown-toggle" data-toggle="dropdown">
+                            <span class="fa fa-caret-down"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li class="XiboFormButton dataset_button_edit" >
+                                <a tabindex="-1" target="_self" ng-click="editProductGroup(productgroup)">Edit</a></li>
+                            <li class="XiboFormButton dataset_button_delete" >
+                                <a tabindex="-1" ng-click="assignProducts(productgroup)">Assign Products</a></li>
+                            <li class="XiboFormButton dataset_button_delete" >
+                                <a tabindex="-1" ng-click="removeProductGroup(productgroup.id)">Delete</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </tbody>        
+                    
+        <tfoot ng-if="viewProducts()">
+
+        </tfoot>
+        </table>
+        <table class="table tablesorter tablesorter-bootstrap table-bordered" role="grid" ng-if="viewAnnouncements()">
+                    <colgroup>
+                        <col style="width: 16.5%;">
+                        <col style="width: 29.1%;">
+                        <col style="width: 15.6%;">
+                        <col style="width: 23.1%;">
+                        <col style="width: 8.7%;">
+                    </colgroup>
+                    <thead>
+                    <tr role="row" class="tablesorter-headerRow">
+                        <th class="group-false tablesorter-header tablesorter-headerAsc bootstrap-header" data-column="0" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="ascending" aria-label="Name : Ascending sort applied, activate to apply a descending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Name <i class="tablesorter-icon glyphicon glyphicon-chevron-up"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="1" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Description : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Description <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="2" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Description : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Image <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="3" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Description : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Details <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="4" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Description : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Features<i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="5" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Description : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Product Count <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+<!--                        <th data-sorter="false" data-column="6" class="tablesorter-header sorter-false tablesorter-headerUnSorted bootstrap-header" tabindex="0" scope="col" role="columnheader" aria-disabled="true" unselectable="on" aria-sort="none" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner"> <i class="tablesorter-icon"></i></div></div></th>-->
+                        <th data-sorter="false" data-column="6" class="tablesorter-header sorter-false tablesorter-headerUnSorted bootstrap-header" tabindex="0" scope="col" role="columnheader" aria-disabled="true" unselectable="on" aria-sort="none" style="-webkit-user-select: none;">
+                                    <span id="editHdrImg" class="fa fa-gear"></span>
+                        </th>
+                    </tr>
+                    </thead>
+
+        <tbody aria-live="polite" aria-relevant="all">
+        <tr dir-paginate="announcementgroup in $root.announcementGroups | itemsPerPage: 10" pagination-id="apaginate" class="warning odd" role="row" ng-if="viewAnnouncements()">
+            <td>{{announcementgroup.name}}</td>
+            <td>{{announcementgroup.description}}</td>
+            <td><div class="taImage"><img src="{{announcementgroup.image.src}}"></div></td>
+            <td>{{announcementgroup.details}}</td>
+            <td>{{announcementgroup.features}}</td>
+            <td>{{announcementgroup.items.length}}</td>
+            <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="XiboFormButton dataset_button_edit" >
+                            <a tabindex="-1" target="_self" ng-click="editAnnouncementGroup(announcementgroup)">Edit</a></li>
+                        <li class="XiboFormButton dataset_button_delete" >
+                            <a tabindex="-1" ng-click="assignAnnouncements(announcementgroup)">Assign Announcements</a></li>
+                        <li class="XiboFormButton dataset_button_delete" >
+                            <a tabindex="-1" ng-click="removeAnnouncementGroup(announcementgroup._id)">Delete</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        </tfoot>
+        </table>
+        <table class="table tablesorter tablesorter-bootstrap table-bordered" role="grid" ng-if="viewFeeds()">
+                    <colgroup>
+                        <col style="width: 16.5%;">
+                        <col style="width: 29.1%;">
+                        <col style="width: 15.6%;">
+                        <col style="width: 23.1%;">
+                        <col style="width: 8.7%;">
+                    </colgroup>
+                    <thead>
+                    <tr role="row" class="tablesorter-headerRow">
+                        <th class="group-false tablesorter-header tablesorter-headerAsc bootstrap-header" data-column="0" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="ascending" aria-label="Name : Ascending sort applied, activate to apply a descending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Name <i class="tablesorter-icon glyphicon glyphicon-chevron-up"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="1" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Description : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Category <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="1" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Description : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Description <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+<!--                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="2" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Description : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Image <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>-->
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="3" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Description : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Details <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+<!--                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="4" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Description : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Features<i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>-->
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="5" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Description : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Feed Count <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+<!--                        <th data-sorter="false" data-column="6" class="tablesorter-header sorter-false tablesorter-headerUnSorted bootstrap-header" tabindex="0" scope="col" role="columnheader" aria-disabled="true" unselectable="on" aria-sort="none" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner"> <i class="tablesorter-icon"></i></div></div></th>-->
+                        <th data-sorter="false" data-column="6" class="tablesorter-header sorter-false tablesorter-headerUnSorted bootstrap-header" tabindex="0" scope="col" role="columnheader" aria-disabled="true" unselectable="on" aria-sort="none" style="-webkit-user-select: none;">
+                                    <span id="editHdrImg" class="fa fa-gear"></span>
+                        </th>
+                    </tr>
+                    </thead>
+
+        <tbody aria-live="polite" aria-relevant="all">
+
+        <tr dir-paginate="feedgroup in $root.feedGroups | itemsPerPage: 10" pagination-id="fpaginate" class="warning odd" role="row" ng-if="viewFeeds()">
+            <td>{{feedgroup.name}}</td>
+            <td>{{feedgroup.category}}</td>
+            <td>{{feedgroup.description}}</td>
+            <td>{{feedgroup.details}}</td>
+            <td>{{feedgroup.items.length}}</td>
+            <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="XiboFormButton dataset_button_edit" >
+                            <a tabindex="-1" target="_self" ng-click="editFeedGroup(feedgroup)">Edit</a></li>
+                        <li class="XiboFormButton dataset_button_delete" >
+                            <a tabindex="-1" ng-click="assignFeeds(feedgroup)">Assign Feeds</a></li>
+                        <li class="XiboFormButton dataset_button_delete" >
+                            <a tabindex="-1" ng-click="removeFeedGroup(feedgroup._id)">Delete</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+        <div id="ppagination" ng-if="viewProducts()">
+            <dir-pagination-controls pagination-id="ppaginate" ng-if="viewProducts()" boundary-links="true" on-page-change="productsPageChanged(page)" template-url="templates/dirPagination.tpl.html"></dir-pagination-controls>
+        </div>
+        <div id="apagination" ng-if="viewAnnouncements()">
+            <dir-pagination-controls pagination-id="apaginate" ng-if="viewAnnouncements()" boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="templates/dirPagination.tpl.html"></dir-pagination-controls>
+    </div>
+        <div id="apagination" ng-if="viewFeeds()">
+            <dir-pagination-controls pagination-id="fpaginate" ng-if="viewFeeds()" boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="templates/dirPagination.tpl.html"></dir-pagination-controls>
+        </div>
+</div>
+<!--</div>-->

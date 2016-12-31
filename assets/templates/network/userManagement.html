@@ -1,0 +1,176 @@
+
+    <style>
+        .row-fluid {
+            width: 100%;
+        }
+        .tablesorter {
+            width: 100%;
+        }
+        .tablesorter default {
+            width: 100%;
+        }
+    </style>
+      <div class="content">
+       <div class="wrapper-content">
+        <div class="container-fluid">
+            <div class="row-fluid">
+
+                <div class="block span12 block-head-btn new">
+                  <p class="block-heading">
+                    User List
+                  </p>
+                  <div class="block-body">
+                    <table id="userlist">
+                        <thead>
+                            <tr>
+                                <th>User Name</th>
+                                <th>User Id</th>
+                                <th>Email</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td>Gregory Mace</td>
+                                <td>gregm</td>
+                                <td>gregm@kombicorp.com</td>
+                                <td>
+                                    <a href="/user/gregm" class="btn btn-small" >edit</a>
+                                    <a href="#" onclick="validateDelete('/user/remove/gregm');" class="btn btn-small" id="delete"><i class="icon-trash"></i> Delete</a>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Brett Likkel</td>
+                                <td>brettl</td>
+                                <td>brettl@kombicorp.com</td>
+                                <td>
+                                    <a href="/user/brettl" class="btn btn-small" >edit</a>
+                                    <a href="#" onclick="validateDelete('/user/remove/brettl');" class="btn btn-small" id="delete"><i class="icon-trash"></i> Delete</a>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>John Eisenhauer</td>
+                                <td>realtimesw</td>
+                                <td>johne@kombicorp.com</td>
+                                <td>
+                                    <a href="/user/realtimesw" class="btn btn-small" >edit</a>
+                                    <a href="#" onclick="validateDelete('/user/remove/realtimesw');" class="btn btn-small" id="delete"><i class="icon-trash"></i> Delete</a>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Market User</td>
+                                <td>marketuser</td>
+                                <td>test@kombicorp.com</td>
+                                <td>
+                                    <a href="/user/marketuser" class="btn btn-small" >edit</a>
+                                    <a href="#" onclick="validateDelete('/user/remove/marketuser');" class="btn btn-small" id="delete"><i class="icon-trash"></i> Delete</a>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Ops User</td>
+                                <td>opsuser</td>
+                                <td>test@kombicorp.com</td>
+                                <td>
+                                    <a href="/user/opsuser" class="btn btn-small" >edit</a>
+                                    <a href="#" onclick="validateDelete('/user/remove/opsuser');" class="btn btn-small" id="delete"><i class="icon-trash"></i> Delete</a>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Gregory Mace</td>
+                                <td>grimace</td>
+                                <td>gregorymace@earthlink.net</td>
+                                <td>
+                                    <a href="/user/grimace" class="btn btn-small" >edit</a>
+                                    <a href="#" onclick="validateDelete('/user/remove/grimace');" class="btn btn-small" id="delete"><i class="icon-trash"></i> Delete</a>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Ian Forbes</td>
+                                <td>ianfor</td>
+                                <td>ianf@kombicorp.com</td>
+                                <td>
+                                    <a href="/user/ianfor" class="btn btn-small" >edit</a>
+                                    <a href="#" onclick="validateDelete('/user/remove/ianfor');" class="btn btn-small" id="delete"><i class="icon-trash"></i> Delete</a>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Brad Allan</td>
+                                <td>bradley</td>
+                                <td>brada@kombicorp.com</td>
+                                <td>
+                                    <a href="/user/bradley" class="btn btn-small" >edit</a>
+                                    <a href="#" onclick="validateDelete('/user/remove/bradley');" class="btn btn-small" id="delete"><i class="icon-trash"></i> Delete</a>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                 </div><!-- end block-body -->
+            </div><!-- end block span -->
+
+            <input id="createuser" type="button" class="btn btn-large btn-primary btn-block" value="Create New User" />
+
+            <div id="verticalspacer"> </div>
+
+    
+        <div id="message_modal" style="display:none">
+            <div class="modal-header modal-default">
+                <h3 id="myModalLabel1">Warning</h3>
+            </div>
+            <div class="modal-body">
+                <p id="message_content"></p>
+            </div>
+            <div class="block-body" id="nomargin">
+                <a href="#" class="simplemodal-close btn btn-primary btn-block" style="color: white;">Done</a>
+            </div>
+        </div>
+
+    
+        </div><!-- end row-fluid -->
+    </div><!-- end container-fluid -->
+</div><!-- end wrapper-content -->
+</div>
+
+<script>
+    $("#createuser").on('click', function(){
+        window.location = "/user/new";    
+    }); 
+    
+    function validateDelete(dataUrl) {
+        if (confirm("Are you sure you want to delete this User?")) {
+            var successUrl = "/user/view";
+            processDeleteRequest(successUrl, dataUrl, "User");
+        }
+    }
+
+    var userlistReady = function() {
+//    $(document).ready(function() { 
+            // $("#userlist").tablesorter( {sortList: [[0,0], [1,0]]} ); 
+                
+        $("#userlist").tablesorter({ 
+            // sortList: [[0,0]],
+            headers: { 
+                3: { 
+                    // disable it by setting the property sorter to false 
+                    sorter: false 
+                }
+            } 
+        });
+         
+    }; 
+    
+    var initComponents = function() {
+        console.log('calling userlistReady');
+        userlistReady();
+    };
+
+
+</script>

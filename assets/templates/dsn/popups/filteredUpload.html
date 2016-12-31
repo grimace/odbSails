@@ -1,0 +1,258 @@
+<style>
+    .ngdialog {
+        height: 700px;
+    }
+    .ngdialog-content {
+        height: 100%;
+    }
+    #asnDialog {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 6px;
+        margin-bottom: 6px;
+        width: 640px;
+        height: 640px;
+    }
+    #asnContent {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+/*
+        width: 640px;
+        height: 640px;
+*/
+    }
+
+    #asnGrid {
+        height: 380px;
+    }
+
+    #asnBody {
+        width: 580px;
+        height: 520px;
+    }
+    
+    #asnData {
+        height: 300x;
+    }
+
+    #asnFooter {
+        margin-bottom: 2px;
+        bottom: 20px;
+    }
+    .modal-footer {
+        bottom: 2%;
+    }
+    .modal-content {
+        height: 700px;
+    }
+    .pagination ul>.active>a, .pagination ul>.active>span {
+/*        color: #0088cc;*/
+        cursor: default;
+        text-decoration: bold;
+    }
+
+    .pagebtn:hover, .pagebtn:focus, .pagebtn:active, .pagebtn.active, .pagebtn.disabled, .pagebtn[disabled] {
+     background-color: #b2b0b0; 
+     color: #777; 
+    }
+    .pagebtn:hover, .pagebtn:focus, .pagebtn.focus {
+         color: #3f7b74; 
+         text-decoration: none; 
+    }
+    .pagebtn:hover, .pagebtn:focus {
+         color: #333; 
+         text-decoration: none; 
+    }
+    .pagebtn {
+        /* outline: none !important; */
+        /* color: #777; */
+        /* text-shadow: 0 0px 0 rgba(0, 0, 0, 0.25); */
+        background-color: #efefef;
+        background-image: none;
+        box-shadow: none;
+        background-repeat: repeat-x;
+        border-color: none;
+        border-width: 0px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        margin-bottom: 5px;
+    }
+    .pagebtn {
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: normal;
+        text-align: center;
+        vertical-align: middle;
+        touch-action: manipulation;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        border-radius: 4px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .pagebtn {
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+
+    .selected tr {
+      background-color: green !important;
+    }
+/*
+    .selected {
+      background-color: green !important;
+    }
+    
+    .tbody tr selected {
+      background-color: green !important;
+    }
+*/
+    .stupid {
+        background-color: green !important;
+        border:1px solid;
+    }
+    #logo-pop {
+        
+        width: 154px;
+        height: 32px;
+/*        object-fit: contain;*/
+    }
+    #cimage-pop {
+        
+        width: 154px;
+        height: 154px;
+/*        object-fit: contain;*/
+    }
+    #mimage-pop {
+        position: inherit;
+        width: 205px;
+        height: 154px;
+/*        object-fit: contain;*/
+        overflow: hidden;
+    }
+    #bgimage-pop {
+        position: inherit;
+        width: 205px;
+        height: 154px;
+/*        object-fit: contain;*/
+        overflow: hidden;
+    }
+    .nwell {
+        background-color: #F7F7F7;
+/*        height: 200px;*/
+        margin-top: 4px;
+        margin-bottom: 4px;
+/*
+        padding-left: 4px;
+        padding-top: 4px;
+        padding-bottom: 2px;
+        padding-top: 2px;
+*/
+        max-height: 200px !important;
+        border: 1px solid #EEEEEE;
+        -webkit-box-shadow: 1px 1px 0px #ffffff;
+        -moz-box-shadow: 1px 1px 0px #ffffff;
+        box-shadow: 1px 1px 0px #ffffff;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        border-radius: 0px;
+        -moz-background-clip: padding;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+    }
+    
+</style>
+
+<div>
+        <div>
+          <form name="myForm">
+            <fieldset class="ng-binding">
+              aaaa{{d}}
+              <legend>Upload on form submit</legend>
+              Username: <input type="text" name="userName" ng-model="username" size="39" required="">
+              <i ng-show="myForm.userName.$error.required">*required</i><br>
+              Profile Picture: <input type="file" ngf-select="" ng-model="picFile" name="file" ngf-accept="'image/*'" required="">
+              <i ng-show="myForm.file.$error.required">*required</i>
+              <br>
+
+              <button ng-disabled="!myForm.$valid" ng-click="uploadPic(picFile)">Submit</button>
+              <img ngf-src="picFile" class="thumb">
+              <span class="progress" ng-show="picFile.progress >= 0">
+                  <div style="width:{{picFile.progress}}%" ng-bind="picFile.progress + '%'" class="ng-binding"></div>
+              </span>
+              <span ng-show="picFile.result">Upload Successful</span>
+            </fieldset>
+            <br>
+          </form>
+        </div>
+        <fieldset>
+          <legend>Play with options</legend>
+          <div class="up-buttons">
+            <div ngf-select="" ngf-drop="" ng-model="files" ngf-model-invalid="invalidFiles" ng-model-options="modelOptionsObj" ngf-multiple="multiple" ngf-pattern="pattern" ngf-accept="acceptSelect" ng-disabled="disabled" ngf-ratio="ratio" ngf-capture="capture" ngf-drag-over-class="dragOverClassObj" ngf-validate="validateObj" ngf-resize="resizeObj" ngf-resize-if="resizeIfFn($file, $width, $height)" ngf-dimensions="dimensionsFn($file, $width, $height)" ngf-duration="durationFn($file, $duration)" ngf-keep="keepDistinct ? 'distinct' : keep" ngf-fix-orientation="orientation" ngf-allow-dir="allowDir" class="drop-box" ngf-drop-available="dropAvailable">Select File
+              <span ng-show="dropAvailable"> or Drop File</span>
+            </div>
+            <br>
+            <div ngf-drop="" ng-model="files" ngf-model-invalid="invalidFiles" ng-model-options="modelOptionsObj" ngf-multiple="multiple" ngf-pattern="'image/*'" ng-disabled="disabled" ngf-drag-over-class="dragOverClassObj" ngf-validate="validateObj" ngf-resize="resizeObj" ngf-resize-if="resizeIfFn($file, $width, $height)" ngf-dimensions="dimensionsFn($file, $width, $height)" ngf-duration="durationFn($file, $duration)" ngf-keep="keepDistinct ? 'distinct' : keep" ngf-enable-firefox-paste="true" ngf-fix-orientation="orientation" ngf-allow-dir="allowDir" class="drop-box" ng-show="dropAvailable">
+              <span>Paste or Drop Image from browser</span></div>
+          </div>
+<!--
+          <div class="custom">
+            <label>accept (for select browser dependent): <input type="text" ng-model="acceptSelect"></label><br>
+            <label>ngf-capture (for mobile): <input type="text" ng-model="capture"></label><br>
+            <label>ngf-ratio (Acceptable Aspect Ratio): <input type="text" ng-model="ratio"></label><br>
+            <label>ngf-pattern (validate file model): <input type="text" ng-model="pattern"></label><br>
+            <label>ngf-validate: <input type="text" ng-model="validate" size="49"></label><br>
+            <label>ngf-drag-over-class (chrome): <input size="31" type="text" ng-model="dragOverClass"></label><br>
+            <label>ng-model-options: <input type="text" size="43" ng-model="modelOptions"></label><br>
+            <label>ngf-resize: <input type="text" size="43" ng-model="resize"></label><br>
+            <label>ngf-resize-if: <input type="text" size="43" ng-model="resizeIf"></label><br>
+            <label>ngf-dimensions: <input type="text" size="43" ng-model="dimensions"></label><br>
+            <label>ngf-duration: <input type="text" size="43" ng-model="duration"></label><br>
+            <label><input type="checkbox" ng-model="multiple">ngf-multiple (allow multiple files)</label>
+            <label><input type="checkbox" ng-model="disabled">ng-disabled</label><br>
+            <label><input type="checkbox" ng-model="allowDir">ngf-allow-dir (allow directory drop Chrome
+              only)</label><br>
+            <label><input type="checkbox" ng-model="keep">ngf-keep (keep the previous model values in
+              ng-model)</label><br>
+            <label><input type="checkbox" ng-model="keepDistinct">ngf-keep="distinct" (do not allow
+              duplicates)</label><br>
+            <label><input type="checkbox" ng-model="orientation">ngf-fix-orientation (for exif jpeg files)</label><br>
+            <label>Upload resumable chunk size: <input type="text" ng-model="chunkSize"></label><br>
+          </div>
+-->
+
+          <div class="preview">
+            <div>Preview image/audio/video:</div>
+            <img ngf-src="!files[0].$error && files[0]">
+            <audio controls="" ngf-src="!files[0].$error && files[0]"></audio>
+            <video controls="" ngf-src="!files[0].$error && files[0]"></video>
+          </div>
+        </fieldset>
+        <br>
+      </div>
+    

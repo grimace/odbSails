@@ -1,0 +1,23 @@
+<div class="modal-content">
+    <div class="modal-header">
+    <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title">Crop Image</h4></div>
+    <div class="modal-body">
+        <div class="bootbox-body">
+         <div ng-controller="ImageCropperCtrl as ctrl">
+            <input type="file" img-cropper-fileread image="cropper.sourceImage" />
+            <div>
+              <canvas width="500" height="300" id="canvas" image-cropper image="cropper.sourceImage" cropped-image="cropper.croppedImage" crop-width="400" crop-height="200" min-width="100" min-height="50" keep-aspect="true" crop-area-bounds="bounds"></canvas>
+            </div>
+            <div>Cropped Image (Left: {{bounds.left}} Right: {{bounds.right}} Top: {{bounds.top}} Bottom: {{bounds.bottom}})</div>
+            <div ng-show="cropper.croppedImage!=null"><img ng-src="{{cropper.croppedImage}}" /></div>
+      </div>    
+            </div>
+    </div>
+    
+    <div class="modal-footer">
+        <button class="btn btn-default">Assign to Layout</button>
+        <button class="btn btn-default">View Library</button>
+        <button class="btn btn-default">Close</button>
+    </div>
+</div>

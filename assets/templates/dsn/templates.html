@@ -1,0 +1,471 @@
+<script>
+  var initComponents = function() {
+      console.log('you are here.');
+  }
+</script>
+<style>
+    .content {
+        overflow: hidden;
+        padding: 20px;
+    }
+    .widget-title {
+        margin-top: 6px;
+    }
+
+</style>
+<div class="content">
+<div class="row">
+<div class="col-sm-12">
+<ul class="nav nav-pills pull-right">
+
+                            <li class=""><a title="Open the filter form" href="#" class="" onclick="ToggleFilterView('Filter')">Filter</a></li><li class=""><a title="Import a Layout from a ZIP file." href="index.php?p=layout&amp;q=ImportForm&amp;template=true" class="XiboFormButton" onclick="">Import</a></li></ul><div class="widget">
+    <div class="widget-title">Templates </div>
+    <div class="widget-body">
+                <div class="XiboGrid" id="5665e68e52e9a">
+            <div class="XiboFilter">
+                <div class="FilterDiv" id="Filter" style="display: none;">
+                                        <form id="" class="form-inline" method="post" action="">
+                        <input type="hidden" name="p" value="template"><input type="hidden" name="q" value="TemplateView"><input type="hidden" name="token" value="ef3645ae4dfa7206335ad1cf59f390bb"><div class="tab-content">                                    <div class="form-group ">
+                                        <label class="control-label" for="filter_name" accesskey="n">Name</label>
+                                        <div>
+                                            <input class="form-control" name="filter_name" type="text" id="filter_name" value="">
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                                                    <div class="form-group ">
+                                        <label class="control-label" for="filter_tags" accesskey="t">Tags</label>
+                                        <div>
+                                            <input class="form-control" name="filter_tags" type="text" id="filter_tags" value="">
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                                                    <div class="form-group ">
+                                        <div>
+                                            <div class="checkbox">
+                                                <label for="showThumbnail" title="" accesskey="t">
+                                                    <input type="checkbox" id="showThumbnail" name="showThumbnail" checked="">
+                                                    Show Thumbnails                                                </label>
+                                            </div>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                                                    <div class="form-group ">
+                                        <div>
+                                            <div class="checkbox">
+                                                <label for="XiboFilterPinned" title="" accesskey="k">
+                                                    <input type="checkbox" id="XiboFilterPinned" name="XiboFilterPinned">
+                                                    Keep Open                                                </label>
+                                            </div>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                </div>                    </form>
+                </div>
+            </div>
+            <div class="XiboData"><table class="table tablesorter table-bordered tablesorter-bootstrap" role="grid"><colgroup><col style="width: 7.5%;"><col style="width: 8%;"><col style="width: 37%;"><col style="width: 11.2%;"><col style="width: 24.2%;"><col style="width: 4.5%;"></colgroup>
+    <thead>
+        <tr role="row" class="tablesorter-headerRow">
+                                    <th class="group-false tablesorter-header tablesorter-headerAsc bootstrap-header" data-column="0" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="ascending" aria-label="Name : Ascending sort applied, activate to apply a descending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Name <i class="tablesorter-icon glyphicon glyphicon-chevron-up"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="1" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Owner : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Owner <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="2" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Description : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Description <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="3" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Thumbnail : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Thumbnail <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="4" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Permissions : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Permissions <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                                    <th data-sorter="false" data-column="5" class="tablesorter-header sorter-false tablesorter-headerUnSorted bootstrap-header" tabindex="0" scope="col" role="columnheader" aria-disabled="true" unselectable="on" aria-sort="none" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner"> <i class="tablesorter-icon"></i></div></div></th>
+                    </tr>
+    </thead>
+    <tbody aria-live="polite" aria-relevant="all">
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            <tr role="row" class="odd">
+                                                <td>l1</td>
+                                                <td>xibo-admin</td>
+                                                <td><p>Landscape Template l1</p>
+<p>Full Screen VideoView</p>
+<p>1920w x 1080h</p></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="XiboFormButton template_button_edit" href="index.php?p=template&amp;q=EditForm&amp;modify=true&amp;layoutid=124"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=template&amp;q=DeleteTemplateForm&amp;layoutid=124"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=133"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=124">Export</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" class="even">
+                                                <td>l2</td>
+                                                <td>xibo-admin</td>
+                                                <td><p>Landscape Template l2</p>
+<p>Full Screen ImageView</p>
+<p>1920w x 1080h</p></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="XiboFormButton template_button_edit" href="index.php?p=template&amp;q=EditForm&amp;modify=true&amp;layoutid=126"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=template&amp;q=DeleteTemplateForm&amp;layoutid=126"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=135"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=126">Export</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" class="odd">
+                                                <td>l3</td>
+                                                <td>xibo-admin</td>
+                                                <td><p>Landscape Template l3</p>
+<p>Full Screen WebView</p>
+<p>1920w x 1080h</p></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="XiboFormButton template_button_edit" href="index.php?p=template&amp;q=EditForm&amp;modify=true&amp;layoutid=128"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=template&amp;q=DeleteTemplateForm&amp;layoutid=128"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=137"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=128">Export</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" class="even">
+                                                <td>l4</td>
+                                                <td>xibo-admin</td>
+                                                <td><p>Landscape Template p4</p>
+<p>Left ImageView, Central WebView, Right VideoView</p>
+<p>1920w x 1080h</p></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="XiboFormButton template_button_edit" href="index.php?p=template&amp;q=EditForm&amp;modify=true&amp;layoutid=130"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=template&amp;q=DeleteTemplateForm&amp;layoutid=130"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=139"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=130">Export</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" class="odd">
+                                                <td>l5</td>
+                                                <td>xibo-admin</td>
+                                                <td><p>Landscape Template l5</p>
+<p>Left ImageView, Right WebView</p>
+<p>1920w x 1080h</p></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="XiboFormButton template_button_edit" href="index.php?p=template&amp;q=EditForm&amp;modify=true&amp;layoutid=132"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=template&amp;q=DeleteTemplateForm&amp;layoutid=132"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=141"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=132">Export</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" class="even">
+                                                <td>l6</td>
+                                                <td>xibo-admin</td>
+                                                <td><p>Landscape Template l6</p>
+<p>Left WebView, Right ImageView</p>
+<p>1920w x 1080h</p></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="XiboFormButton template_button_edit" href="index.php?p=template&amp;q=EditForm&amp;modify=true&amp;layoutid=134"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=template&amp;q=DeleteTemplateForm&amp;layoutid=134"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=143"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=134">Export</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" class="odd">
+                                                <td>l7</td>
+                                                <td>xibo-admin</td>
+                                                <td><p>Landscape Template l7</p>
+<p>Left VideoView, Right ImageView</p>
+<p>1080w x 1920h</p></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="XiboFormButton template_button_edit" href="index.php?p=template&amp;q=EditForm&amp;modify=true&amp;layoutid=136"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=template&amp;q=DeleteTemplateForm&amp;layoutid=136"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=145"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=136">Export</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" class="even">
+                                                <td>l8</td>
+                                                <td>xibo-admin</td>
+                                                <td><p>Landscape Template l8</p>
+<p>Left ImageView, Right VideoView</p>
+<p>1080w x 1920h</p></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="XiboFormButton template_button_edit" href="index.php?p=template&amp;q=EditForm&amp;modify=true&amp;layoutid=138"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=template&amp;q=DeleteTemplateForm&amp;layoutid=138"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=147"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=138">Export</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" class="odd">
+                                                <td>p1</td>
+                                                <td>xibo-admin</td>
+                                                <td><p>Portrait Template p1</p>
+<p>Full Screen VideoView</p>
+<p>1080w x 1920h</p></td>
+                                                <td></td>
+                                                <td>Users, Everyone, xibo-admin, johne</td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="XiboFormButton template_button_edit" href="index.php?p=template&amp;q=EditForm&amp;modify=true&amp;layoutid=102"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=template&amp;q=DeleteTemplateForm&amp;layoutid=102"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=111"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=102">Export</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" class="even" style="">
+                                                <td>p2</td>
+                                                <td>xibo-admin</td>
+                                                <td><p>Portrait Template p2</p>
+<p>Full Screen ImageView</p>
+<p>1080w x 1920h</p></td>
+                                                <td></td>
+                                                <td>Users, Everyone, xibo-admin, johne</td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="XiboFormButton template_button_edit" href="index.php?p=template&amp;q=EditForm&amp;modify=true&amp;layoutid=104"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=template&amp;q=DeleteTemplateForm&amp;layoutid=104"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=113"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=104">Export</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" class="odd" style="display: none;">
+                                                <td>p3</td>
+                                                <td>xibo-admin</td>
+                                                <td><p>Portrait Template p3</p>
+<p>FullScreen WebView</p>
+<p>1080w x 1920h</p></td>
+                                                <td></td>
+                                                <td>Users, Everyone, xibo-admin, johne</td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="XiboFormButton template_button_edit" href="index.php?p=template&amp;q=EditForm&amp;modify=true&amp;layoutid=105"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=template&amp;q=DeleteTemplateForm&amp;layoutid=105"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=114"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=105">Export</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" class="even" style="display: none;">
+                                                <td>p4</td>
+                                                <td>xibo-admin</td>
+                                                <td><p>Portrait Template p4</p>
+<p>Upper ImageView, Central WebView, Lower VideoView</p>
+<p>1080w x 1920h</p></td>
+                                                <td></td>
+                                                <td>Users, Everyone, xibo-admin, johne</td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="XiboFormButton template_button_edit" href="index.php?p=template&amp;q=EditForm&amp;modify=true&amp;layoutid=108"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=template&amp;q=DeleteTemplateForm&amp;layoutid=108"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=117"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=108">Export</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" class="odd" style="display: none;">
+                                                <td>p5</td>
+                                                <td>xibo-admin</td>
+                                                <td><p>Portrait Template p5</p>
+<p>Upper ImageView, Lower WebView</p>
+<p>1080w x 1920h</p></td>
+                                                <td></td>
+                                                <td>Users, Everyone, xibo-admin, johne</td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="XiboFormButton template_button_edit" href="index.php?p=template&amp;q=EditForm&amp;modify=true&amp;layoutid=109"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=template&amp;q=DeleteTemplateForm&amp;layoutid=109"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=118"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=109">Export</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" class="even" style="display: none;">
+                                                <td>p6</td>
+                                                <td>xibo-admin</td>
+                                                <td><p>Portrait Template p6</p>
+<p>Upper WebView, Lower ImageView</p>
+<p>1080w x 1920h</p></td>
+                                                <td></td>
+                                                <td>Users, Everyone, xibo-admin, johne</td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="XiboFormButton template_button_edit" href="index.php?p=template&amp;q=EditForm&amp;modify=true&amp;layoutid=110"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=template&amp;q=DeleteTemplateForm&amp;layoutid=110"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=119"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=110">Export</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" class="odd" style="display: none;">
+                                                <td>p7</td>
+                                                <td>xibo-admin</td>
+                                                <td><p>Portrait Template p7</p>
+<p>Upper VideoView, Lower ImageView</p>
+<p>1080w x 1920h</p></td>
+                                                <td></td>
+                                                <td>Users, Everyone, xibo-admin, johne</td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="XiboFormButton template_button_edit" href="index.php?p=template&amp;q=EditForm&amp;modify=true&amp;layoutid=111"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=template&amp;q=DeleteTemplateForm&amp;layoutid=111"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=120"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=111">Export</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" class="even" style="display: none;">
+                                                <td>p8</td>
+                                                <td>xibo-admin</td>
+                                                <td><p>Portrait Template p8</p>
+<p>Upper ImageView, Lower VideoView</p>
+<p>1080w x 1920h</p></td>
+                                                <td></td>
+                                                <td>Users, Everyone, xibo-admin, johne</td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="XiboFormButton template_button_edit" href="index.php?p=template&amp;q=EditForm&amp;modify=true&amp;layoutid=112"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=template&amp;q=DeleteTemplateForm&amp;layoutid=112"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="XiboFormButton layout_button_delete" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=121"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=112">Export</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr></tbody>
+</table>
+</div>
+            <div class="pagination form-inline tablesorter-pager" id="XiboPager_5665e68e52e9a">
+    <button type="button" class="btn first disabled" aria-disabled="true" tabindex="0"><i class="icon-step-backward glyphicon glyphicon-step-backward"></i></button>
+    <button type="button" class="btn prev disabled" aria-disabled="true" tabindex="0"><i class="icon-arrow-left glyphicon glyphicon-backward"></i></button>
+    <span class="pagedisplay">1 - 10 / 16 (16)</span> <!-- this can be any element, including an input -->
+    <button type="button" class="btn next" aria-disabled="false" tabindex="0"><i class="icon-arrow-right glyphicon glyphicon-forward"></i></button>
+    <button type="button" class="btn last" aria-disabled="false" tabindex="0"><i class="icon-step-forward glyphicon glyphicon-step-forward"></i></button>
+    <select class="pagesize input-mini form-control" title="Select page size" aria-disabled="false">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+    </select>
+    <select class="pagenum input-mini form-control" title="Select page number" aria-disabled="false"><option>1</option><option>2</option></select>
+    <button type="button" class="btn remove"><i class="fa fa-ban"></i></button>
+</div>        
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

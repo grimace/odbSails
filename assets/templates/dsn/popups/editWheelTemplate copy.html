@@ -1,0 +1,182 @@
+<style>
+    .ngdialog-content {
+        width: 680px;
+        height: 680px;
+    }
+    .ngdialog {
+        top: 10%;
+        left: 20%;
+        width: 680px;
+        height: 680px;
+    }
+    #whlDialog {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 6px;
+        margin-bottom: 6px;
+        width: 680px;
+        height: 680px;
+    }
+    #whlContent {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 540px;
+        height: 560px;
+    }
+
+    #whlGrid {
+        height: 540px;
+    }
+
+    #whlBody {
+        width: 540px;
+        height: 560px;
+    }
+    
+    #whlData {
+        height: 560px;
+    }
+
+    #whlFooter {
+        margin-bottom: 2px;
+        bottom: 10px;
+    }
+    .modal-footer {
+        bottom: 2%;
+    }
+</style>
+<div class="modal-dialog" id="whlDialog" ng-controller="WheelDialogController"  ng-init="initialize()">
+    <div class="modal-content" id="whlContent">
+        <div class="modal-header">
+                <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Layouts on Media Wheel</h4>
+        </div>
+        <form id="LayoutForm" class="XiboForm form-horizontal" method="post" action="/dsn/saveLayout" novalidate="novalidate">
+            <div class="tab-content">
+                <div class="tab-pane active" id="general">
+                <div class="form-group ">
+                    <label class="col-sm-2 control-label" for="layout" accesskey="n">Name</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" name="layout" type="text" id="layout" value="" required="" aria-required="true" ng-model="$root.currentWheel.name" >
+                        <span class="help-block">The Name of the Media Wheel</span>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="col-sm-2 control-label" for="tags" accesskey="t">Tags</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" name="tags" type="text" id="tags" value="" maxlength="250" ng-model="$root.currentWheel.tags" >
+                        <span class="help-block">Tags for this Media Wheel - used when searching for it. Comma delimited. (1 - 250 characters)</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </form>
+        <div class="modal-body">
+            <div class="bootbox-body">
+                <div id="FileAssociationsAssign" class="well">
+                    <div>
+                        <ul id="FileAssociationsSortable" class="ui-sortable">
+                            <li id="layout.id" class="li-sortable" ng-repeat="layout in currentWheel.layouts track by $index">
+                                {{layout.name}}
+                                <span class="glyphicon glyphicon-minus-sign" ng-click="removeLayoutEntry($index)"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+<div class="XiboGrid" id="5673ac3cc3798">
+	<div class="XiboFilter">
+		<div class="FilterDiv" id="Filter">
+			<form>
+				<input type="hidden" name="p" value="displaygroup">
+                <input type="hidden" name="q" value="FileAssociationsView">
+                <input type="hidden" name="displaygroupid" value="10">
+                <input type="hidden" name="token" value="96265f2fbffcf707fa83dbe48ef09781">			
+<!--
+				<table class="filterform">
+					<tbody>
+                        <tr>
+						<td>Name</td>
+						<td><input class="form-control" type="text" name="filter_name" value=""></td>
+						<td>Type</td>
+						<td>
+                            <select class="form-control" name="filter_type" id="filter_type">
+                                <option value="" selected="">All</option>
+                                <option value="Flash">Flash</option>
+                                <option value="font">Font</option>
+                                <option value="genericfile">Generic File</option>
+                                <option value="Image">Image</option>
+                                <option value="PowerPoint">PowerPoint</option>
+                                <option value="Video">Video</option>
+                            </select>
+                        </td>
+					</tr>
+				    </tbody>
+                </table>
+-->
+			</form>
+		</div>
+	</div>
+	<div class="XiboData">
+        <table id="FileAssociationsTable" class="table table-bordered tablesorter tablesorter-bootstrap" role="grid" aria-describedby="FileAssociationsTable_pager_info">
+            <colgroup>
+                <col style="width: 82%;">
+                <col style="width: 9%;">
+                <col style="width: 3%;">
+            </colgroup>
+	<thead>
+		<tr role="row" class="tablesorter-headerRow">
+			<th data-column="0" class="tablesorter-header tablesorter-headerAsc bootstrap-header" tabindex="0" scope="col" role="columnheader" aria-disabled="false" aria-controls="FileAssociationsTable" unselectable="on" aria-sort="ascending" aria-label="Name : Ascending sort applied, activate to apply a descending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Name <i class="tablesorter-icon glyphicon glyphicon-chevron-up"></i></div></div></th>
+			<th data-column="1" class="tablesorter-header tablesorter-headerUnSorted bootstrap-header" tabindex="0" scope="col" role="columnheader" aria-disabled="false" aria-controls="FileAssociationsTable" unselectable="on" aria-sort="none" aria-label="Type : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Type <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+			<th data-column="2" class="tablesorter-header tablesorter-headerUnSorted bootstrap-header" tabindex="0" scope="col" role="columnheader" aria-disabled="false" aria-controls="FileAssociationsTable" unselectable="on" aria-sort="none" aria-label=" : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner"> <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+		</tr>
+	</thead>
+	<tbody aria-live="polite" aria-relevant="all">
+				
+<!--<ng-repeat here ...				-->
+        <tr rowid="MediaID_184" litext="Windowed video_810.mp4 2" role="row" style="display: none;">
+			<td>Windowed video_810.mp4 2</td>
+			<td>video</td>
+			<td><span class="library_assign_list_select glyphicon glyphicon-plus-sign"></span></td>
+        </tr>
+        
+        <tr rowid="{{layout.id}}" litext="{{layout.name}}" role="row" class="even" ng-repeat="layout in layouts track by $index">
+                <td>{{layout.name}}</td>
+                <td>
+                    <span class="library_assign_list_select glyphicon glyphicon-plus-sign" ng-click="addLayoutEntry(layout)"></span>
+                </td>
+        </tr>
+
+        
+    </tbody>
+</table>
+        
+    </div>
+÷	<div class="pagination form-inline tablesorter-pager" id="XiboPager_5673ac3cc3798">
+    <button type="button" class="btn first disabled" aria-disabled="true" tabindex="0">
+        <i class="icon-step-backward glyphicon glyphicon-step-backward"></i>
+    </button>
+    <button type="button" class="btn prev disabled" aria-disabled="true" tabindex="0">
+        <i class="icon-arrow-left glyphicon glyphicon-backward"></i></button>
+    <span class="pagedisplay" id="FileAssociationsTable_pager_info">1 - 5 / 158 (158)</span>
+    <!-- this can be any element, including an input -->
+    <button type="button" class="btn next" aria-disabled="false" tabindex="0">
+        <i class="icon-arrow-right glyphicon glyphicon-forward"></i></button>
+    <button type="button" class="btn last" aria-disabled="false" tabindex="0">
+        <i class="icon-step-forward glyphicon glyphicon-step-forward"></i></button>
+    <select class="pagesize input-mini form-control" title="Select page size" aria-disabled="false" ng-model="mediaPageSize">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+    </select>
+    <select class="pagenum input-mini form-control" title="Select page number" aria-disabled="false">
+        <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option><option>32</option></select>
+    <button type="button" class="btn remove"><i class="fa fa-ban"></i></button>
+</div></div>
+</div></div><div class="modal-footer"><button class="btn btn-default">Help</button><button class="btn btn-default">Cancel</button><button class="btn btn-default" ng-click="saveWheel()">Save</button></div></div></div>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layout width="1920" height="1080" resolutionid="9" bgcolor="#000000" schemaVersion="2"><region id="55a4357dad66d" userId="1" width="719.99999999999" height="1080" top="0" left="0" name="l4.1"><options><transOut/><transOutDuration>0</transOutDuration><transOutDirection>N</transOutDirection><loop>0</loop></options><media id="288" type="image" render="native" duration="12" lkid="393" userId="1" schemaVersion="1">
+                            <options><uri>288.png</uri></options>
+                            <raw/>
+                    </media></region><region id="180371230455a435a3a4a89" userId="1" width="480" height="1080" top="0" left="719.99999999999" name="l4.2"><options><transOut/><transOutDuration>0</transOutDuration><transOutDirection>N</transOutDirection><loop>0</loop></options><media id="a09a492d2e60e1676c681bdd8b9a4911" type="webpage" render="native" duration="12" lkid="" userId="1" schemaVersion="1">
+                            <options><xmds>1</xmds><uri>http%3A%2F%2Fwww.google.com%2F</uri><scaling>100</scaling><transparency>0</transparency><offsetLeft>0</offsetLeft><offsetTop>0</offsetTop><pageWidth>0</pageWidth><pageHeight>0</pageHeight><modeid>1</modeid><name/></options>
+                            <raw/>
+                    </media></region><region id="206736678655a4361d0fa29" userId="1" width="719.99999999999" height="1080" top="0" left="1200" name="l4.3"><options><transOut/><transOutDuration>0</transOutDuration><transOutDirection>N</transOutDirection><loop>0</loop></options><media id="289" type="video" render="native" duration="12" lkid="394" userId="1" schemaVersion="1">
+                            <options><uri>289.mp4</uri></options>
+                            <raw/>
+                    </media></region></layout>

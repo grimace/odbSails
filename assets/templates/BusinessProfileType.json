@@ -1,0 +1,49 @@
+[
+        
+        { "name" : "Dining" , "width":"1920", "height":"1080", 
+          "productTypes" : [
+            {"name":"Breakfast", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"video/*"},
+            {"name":"Appetizer", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"video/*"},
+            {"name":"Beverages", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"video/*"},
+            {"name":"Entree", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"video/*"},
+            {"name":"Lunch", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"video/*"},
+            {"name":"Special", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"video/*"},
+            {"name":"Feature", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"video/*"}
+        ]},
+    
+        { "name" : "Hospitality", "width":"1920", "height":"1080",
+         "productTypes" : [
+            {"name":"Food and Beverage", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"image/*"},
+            {"name":"Travel and Tourism", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"image/*"},
+            {"name":"Accomodation", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"image/*"}
+            
+        ]},
+
+        { "name" : "Retail (Hardgoods)", "width":"1920", "height":"1080", 
+         "productTypes" : [
+            {"name":"TBD"}
+            
+        ]},
+
+        { "name" : "Retail (Service)","width":"1920", "height":"1080", 
+         "productTypes" : [
+            {"name":"TBD"}
+        ]},
+
+    
+        { "name" : "Non Profit","width":"1920", "height":"1080", 
+         "productTypes" : [
+            {"name":"TBD"}
+        ]},
+
+        { "name" : "Chamber/EDC","width":"1920", "height":"1080", 
+         "productTypes" : [
+            {"name":"TBD"}
+        ]},
+
+        { "name" : "Travel","width":"1920", "height":"1080", 
+         "productTypes" : [
+            {"name":"TBD"}
+        ]}
+
+]

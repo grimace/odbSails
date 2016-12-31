@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<layout width="1920" height="1080" resolutionid="9" bgcolor="#000000" schemaVersion="2">
+  <region id="55a43af637663" userId="1" width="960" height="1080" top="0" left="0" name="l8.1">
+    <options>
+      <transOut/>
+      <transOutDuration>0</transOutDuration>
+      <transOutDirection>N</transOutDirection>
+      <loop>0</loop>
+    </options>
+    <media id="300" type="image" render="native" duration="12" lkid="407" userId="1" schemaVersion="1">
+                            <options><uri>300.png</uri></options>
+                            <raw/>
+                    </media>
+  </region>
+  <region id="36017752055a43b073d3c3" userId="1" width="960" height="1080" top="0" left="960" name="l8.2">
+    <options>
+      <transOut/>
+      <transOutDuration>0</transOutDuration>
+      <transOutDirection>N</transOutDirection>
+      <loop>0</loop>
+    </options>
+    <media id="301" type="video" render="native" duration="12" lkid="408" userId="1" schemaVersion="1">
+                            <options><uri>301.mp4</uri></options>
+                            <raw/>
+                    </media>
+  </region>
+  <tags>
+    <tag/>
+  </tags>
+</layout>

@@ -1,0 +1,246 @@
+<style>
+    .ngdialog {
+/*        height: auto;*/
+        min-height: 300px; 
+    }
+    .ngdialog-content {
+/*        height: auto;*/
+        min-height: 300px; 
+    }
+    .modal-content {
+/*        height: auto;*/
+        min-height: 300px; 
+    }
+    .dialog-container {
+        padding-right: 0px;
+    }
+     .modal-content {
+        min-height: 240px;       
+    }
+
+    #uFile {
+        background-color: #64965E;
+        text-decoration-color: black;
+    }
+    #uFolder {
+        background-color: #64965E;
+        text-decoration-color: black;
+    }
+    .drop {
+        min-height: 120px; 
+    /*    background-color: #d6e3e3;*/
+    /*    border-radius: 1px;*/
+    }
+
+    .dropArea {
+        min-height: 110px; 
+        background-color: #d6e3e3;
+        padding-left: 6px;
+        border-radius: 1px;
+    }
+    .pagination {
+        display: none;
+    }
+</style>
+
+<!--      <script type="text/ng-template" id="addImageDialog">-->
+      <div class="dialog-container">
+      <div class="sidebar-avatar">
+          <img src="/images/logo.png" alt="avatar" class="thumbnail-avatar">
+      </div>
+
+      <div class="modal-content"><div class="modal-header">
+<!--          <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>-->
+
+          <h4 class="modal-title">Add New Media</h4></div><div class="modal-body"><div class="bootbox-body">
+<!--
+          <div ng-app="fileUpload" ng-controller="DSNController">
+              <button type="button" class="btn btn-default" ngf-select ng-model="file">Upload using model $watch</button>
+          </div>
+-->
+<!--
+          <div ng-app="fileUpload" ng-controller="DSNController">
+            <span class="input-group-addon ndrftextwidth text-right" style="width:180px">Upload Image :</span>
+            <input type="file" class="filestyle form-control" data-size="lg" name="bannerimage" id="bannerimage" ngf-select ng-model="files" ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB" ngf-min-height="100" ngf-resize="{width: 100, height: 100}" multiple >
+              <input type="button" class="btn btn-success" ng-click="uploadFile();" id="addProfileData" ng-value="buttonName"/>
+          </div>
+
+          <div id='selectedFiles'>
+              <div ng-repeat='{{files}}'>
+                {{filename}}
+              </div>
+          </div>
+-->
+          
+<!--        <div id="uploadRegion" flow-init="getUploadTarget()" flow-files-added="processFiles($files)" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1,mp4:1,m4a:1,'3gp':1}[$file.getExtension()]" flow-files-submitted="$flow.upload()" class="ng-scope" ngf-dimensions="validateDimensions();" ng-controller="DSNController">-->
+
+          <div id="uploadRegion" flow-init="getUploadTarget()" flow-files-added="processFiles($files)" flow-file-added="validateFile($file)" flow-files-submitted="$flow.upload()" class="ng-scope" ngf-dimensions="validateDimensions();" ng-controller="DSNController">
+
+          
+          <div class="drop" flow-drop="" ng-class="dropClass">
+            <span id="uFile" class="btn btn-default" flow-btn flow-attrs="{accept:'image/*,video/*'}">Upload File<input type="file" multiple="multiple" style="visibility: hidden; position: absolute;"></span>
+            <span id="uFolder" class="btn btn-default" flow-files-added="processFiles($files)" flow-btn flow-attrs="{accept:'image/*,video/*'}" flow-directory="" ngf-dimensions="validateDimensions();" ng-show="$flow.supportDirectory">Upload Folder<input type="file" multiple="multiple" webkitdirectory="webkitdirectory" style="visibility: hidden; position: absolute;"></span>
+            <br/>OR <b>Drag And Drop your file here :</b>
+              <div class="dropArea">
+<!--                  <br/>OR <b>Drag And Drop your file here :</b>-->
+              
+              </div>
+          </div>
+
+          <br>
+
+<!--
+            <div class="well">
+                <a class="btn btn-small btn-success" ng-click="$flow.resume()">Resume all</a>
+                <a class="btn btn-small btn-danger" ng-click="$flow.pause()">Pause all</a>
+                <a class="btn btn-small btn-info" ng-click="$flow.cancel()">Cancel all</a>
+                <span class="label label-info ng-binding">Total Size: 0bytes</span>
+            </div>
+-->
+
+            <div ng-repeat="file in $flow.files" class="transfer-box">
+              {{file.relativePath}} ({{file.size}}bytes)
+              <div class="progress progress-striped" ng-class="{active: file.isUploading()}">
+                <div class="progress-bar" role="progressbar"
+                     aria-valuenow="{{file.progress() * 100}}"
+                     aria-valuemin="0"
+                     aria-valuemax="100"
+                     ng-style="{width: (file.progress() * 100) + '%'}">
+                  <span class="sr-only">{{file.progress()}}% Complete</span>
+                </div>
+              </div>
+              <div class="btn-group">
+                <a class="btn btn-xs btn-warning" ng-click="file.pause()" ng-show="!file.paused && file.isUploading()">
+                  Pause
+                </a>
+                <a class="btn btn-xs btn-warning" ng-click="file.resume()" ng-show="file.paused">
+                  Resume
+                </a>
+                <a class="btn btn-xs btn-danger" ng-click="file.cancel()">
+                  Cancel
+                </a>
+                <a class="btn btn-xs btn-info" ng-click="file.retry()" ng-show="file.error">
+                  Retry
+                </a>
+              </div>
+            </div>
+
+          </div>
+          
+          
+          
+<!--
+
+
+
+          <form id="fileupload" method="POST" enctype="multipart/form-data" data-max-file-size="134217728" data-accept-file-types="/(\.|\/)jpg|jpeg|png|bmp|gif$/i">
+            <div class="row fileupload-buttonbar">
+	           <div class="col-md-7">
+                <div class="well">
+                   This form accepts: jpg, jpeg, png, bmp, gif files up to a maximum size of 128M			
+                </div>
+                <div id="test">
+                <span class="btn btn-success fileinput-button">
+                     <input type="file" file-change="uploadMulti()" ng-model="files" multiple>
+                </span>
+                <input type="button" ng-click="uploadFile()" value="Upload" name="file"/>
+                <div ng-show="progressVisible">
+                    <div class="percent">{{progress}}%</div>
+                    <div class="progress-bar">
+                        <div class="uploaded" ng-style="{'width': progress+'%'}"></div>
+                    </div>
+                </div>
+                <button type="reset" class="btn btn-warning cancel">
+                    <i class="glyphicon glyphicon-ban-circle glyphicon glyphicon-white"></i>
+                    <span>Cancel upload</span>
+                </button>
+               </div>
+	        <span class="fileupload-loading"></span>
+	    </div>
+	    <div class="col-md-4 fileupload-progress fade">
+	         The global progress bar 
+            <div class="progress">
+    	        <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:0%;">
+    	            <div class="sr-only"></div>
+    	        </div>
+            </div>
+	        <div class="progress-extended">&nbsp;</div>
+	    </div>
+	</div>
+	<table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
+          </form>
+-->
+          
+<!-- The template to display files available for upload -->
+<!--
+<script id="template-upload" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-upload fade">
+        <td>
+            <span class="fileupload-preview"></span>
+        </td>
+        <td class="title">
+            <label for="name[]" title="The Name of this item - Leave blank to use the file name">Name: <input name="name[]" type="text" id="name" /></label>
+            {% if (file.error) { %}
+                <div><span class="label label-important">Error</span> {%=file.error%}</div>
+            {% } %}
+        </td>
+        <td class="title">
+			<label for="duration[]" title="The duration in seconds this image should be displayed (may be overridden on each layout)">Duration: <input name="duration[]" type="text" id="duration" value="10" required /></label>
+        </td>
+        <td>
+            <p class="size">{%=o.formatFileSize(file.size)%}</p>
+            {% if (!o.files.error) { %}
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:0%;">
+                        <div class="sr-only"></div>
+                    </div>
+                </div>
+            </div>
+            {% } %}
+        </td>
+        <td>
+            {% if (!o.files.error && !i && !o.options.autoUpload) { %}
+                <button class="btn btn-primary start">
+                    <i class="glyphicon glyphicon-upload glyphicon glyphicon-white"></i>
+                    <span>Start</span>
+                </button>
+            {% } %}
+            {% if (!i) { %}
+                <button class="btn btn-warning cancel">
+                    <i class="glyphicon glyphicon-ban-circle glyphicon glyphicon-white"></i>
+                    <span>Cancel</span>
+                </button>
+            {% } %}
+        </td>
+    </tr>
+{% } %}
+</script>
+-->
+<!-- The template to display files available for download -->
+<!--
+<script id="template-download" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-download fade">
+       <td>
+            <p class="name" id="{%=file.storedas%}" status="{% if (file.error) { %}error{% } %}">
+                {%=file.name%}
+            </p>
+            {% if (file.error) { %}
+                <div><span class="label label-important">Error</span> {%=file.error%}</div>
+            {% } %}
+        </td>
+        <td>
+            <span class="size">{%=o.formatFileSize(file.size)%}</span>
+        </td>
+        <td>
+			        </td>
+    </tr>
+{% } %}
+</script>
+-->
+</div>
+</div>
+<div class="modal-footer"><button type="close" ng-click="closeAndUpdateMedia()">Close</button></div></div>
+</div>
+<!--</script>-->

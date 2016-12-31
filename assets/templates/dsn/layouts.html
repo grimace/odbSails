@@ -1,0 +1,286 @@
+<script>
+  var initComponents = function() {
+      console.log('you are here.');
+  }
+</script>
+<style>
+    .widget {
+        height: 100%;
+        background-color: white;
+    }
+    .dialog-container {
+        padding-top: 2px;
+        padding-left: 2px;
+        padding-right: 2px;
+        color: #333; */
+        background-color: #fff; 
+    }
+   .ngdialog-content {
+        max-width: 720px;
+        height: 730px;
+    }
+    .ngdialog {
+        top: 10%;
+        left: 30%;
+        max-width: 720px;
+        height: 730px;
+    }
+    .btn {
+        outline: none !important;
+        color: #777;
+        text-shadow: 0 0px 0 rgba(0, 0, 0, 0.25);
+        background-color: #efefef;
+        background-image: none;
+        box-shadow: none;
+        background-repeat: repeat-x;
+        border-color: none;
+        border-width: 0px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        margin-bottom: 5px;
+    }
+</style>
+<div class="content">
+<div class="col-sm-12">
+    <ul class="nav nav-pills pull-right">
+    <li class="">
+<!--
+        <a title="Open the filter form" href="#" class="" onclick="ToggleFilterView('Filter')">Filter</a></li><li class="">
+        <a title="Add a new Layout and jump to the layout designer." class="XiboFormButton"  ng-click="openAddLayoutDialog()">Add Layout</a></li>
+-->
+        <!-- TODO : import layout from ZIP file
+        -->
+        <li class="">
+              <button class="btn" ng-click="openAddLayoutDialog();" id="buttonDrop">
+              <span>Add Layout</span></button>
+        </li>
+
+    </ul>
+    <div class="widget">
+    <div class="widget-title">Layouts </div>
+    <div class="widget-body">
+        <div class="XiboGrid" id="5672f9d61b19d">
+            <div class="XiboFilter">
+            <div class="FilterDiv" id="Filter" style="display: none;">
+                <form id="" class="form-inline" method="post" action="">
+            <input type="hidden" name="p" value="layout">
+                    <input type="hidden" name="q" value="LayoutGrid">
+                    <input type="hidden" name="token" value="2c0ee3ad856135e7522fefdc4e04a541">
+                    <div class="tab-content">
+                        <div class="form-group ">
+                            <label class="control-label" for="filter_layout" accesskey="l">Name</label>
+                                <div>
+                                    <input class="form-control" name="filter_layout" type="text" id="filter_layout" value="">
+                                    <span class="help-block"></span>
+                                </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="control-label" for="filter_tags" accesskey="t">Tags</label>
+                            <div>
+                                <input class="form-control" name="filter_tags" type="text" id="filter_tags" value="">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="control-label" for="filter_userid" title="" accesskey="r">Owner</label>
+                            <div>
+                            <select class="form-control" name="filter_userid" id="filter_userid">
+
+                                <option value="" selected="">All</option>
+                                    <option value="2">johne</option>
+                                    <option value="1">xibo-admin</option>
+                            </select>
+                            <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="control-label" for="filter_retired" title="" accesskey="r">Retired</label>
+                            <div>
+                                <select class="form-control" name="filter_retired" id="filter_retired">
+                                    <option value="1">Yes</option>
+                                        <option value="0" selected="">No</option>
+                                    </select>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="control-label" for="filterLayoutStatusId" title="" accesskey="s">Show</label>
+                            <div>
+                                <select class="form-control" name="filterLayoutStatusId" id="filterLayoutStatusId">
+
+                                <option value="1" selected="">All</option>
+                                        <option value="2">Only Used</option>
+                                        <option value="3">Only Unused</option>
+                                </select>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="control-label" for="showDescriptionId" title="" accesskey="d">Description</label>
+                            <div>
+                                <select class="form-control" name="showDescriptionId" id="showDescriptionId">
+                                    <option value="1">All</option>
+                                    <option value="2" selected="">1st line</option>
+                                    <option value="3">None</option>
+                                </select>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div>
+                                <div class="checkbox">
+                                    <label for="showTags" title="" accesskey="t">
+                                        <input type="checkbox" id="showTags" name="showTags">
+                                        Show Tags                                                </label>
+                                </div>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div>
+                                <div class="checkbox">
+                                    <label for="showThumbnail" title="" accesskey="i">
+                                        <input type="checkbox" id="showThumbnail" name="showThumbnail" checked="">
+                                        Show Thumbnails                                                </label>
+                                </div>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div>
+                                <div class="checkbox">
+                                    <label for="XiboFilterPinned" title="" accesskey="k">
+                                        <input type="checkbox" id="XiboFilterPinned" name="XiboFilterPinned">
+                                        Keep Open                                                </label>
+                                </div>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                    </div>                    
+                </form>
+                </div>
+            </div>
+    <div class="XiboData">
+    <table class="table tablesorter tablesorter-bootstrap table-bordered" role="grid" ng-init="getLayouts()">
+        <colgroup>
+            <col style="width: 3.3%;">
+            <col style="width: 3.5%;">
+            <col style="width: 18.8%;">
+            <col style="width: 23.7%;">
+            <col style="width: 9.2%;">
+            <col style="width: 6.5%;">
+            <col style="width: 10.5%;">
+            <col style="width: 6.4%;">
+            <col style="width: 3.3%;">
+        </colgroup>
+        <thead>
+        <tr role="row" class="tablesorter-headerRow">
+            <th data-sorter="false" class="group-false tablesorter-header sorter-false tablesorter-headerUnSorted bootstrap-header" data-column="0" tabindex="0" scope="col" role="columnheader" aria-disabled="true" unselectable="on" aria-sort="none" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner"><input class="selectAllCheckbox" type="checkbox"> <i class="tablesorter-icon"></i></div></div></th>                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="1" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="ID : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">ID <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerAsc bootstrap-header" data-column="2" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="ascending" aria-label="Name : Ascending sort applied, activate to apply a descending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Name <i class="tablesorter-icon glyphicon glyphicon-chevron-up"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="3" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Tags : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Tags <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="4" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Template : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Template <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="5" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Description : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Description <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="6" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Width : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Width <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="7" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Height : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Height <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-sorter="tickcross" data-column="8" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="NumRegions : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Number of Regions <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th data-sorter="false" data-column="9" class="tablesorter-header sorter-false tablesorter-headerUnSorted bootstrap-header" tabindex="0" scope="col" role="columnheader" aria-disabled="true" unselectable="on" aria-sort="none" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner"> <i class="tablesorter-icon"></i></div></div></th>
+                    </tr>
+    </thead>
+    <tbody aria-live="polite" aria-relevant="all">
+<!--        <tr ng-repeat="layout in layouts" role="row" class="odd">-->
+        <tr dir-paginate="layout in layouts | itemsPerPage: 10" pagination-id="lpaginate" class="warning odd" role="row" >
+            
+            
+            <td><input type="checkbox"></td>
+            <td>{{layout.id}}</td>
+            <td>{{layout.name}}</td>
+            <td>{{layout.tags}}</td>
+            <td>{{layout.template}}</td>
+            <td>{{layout.description}}</td>
+            <td>{{layout.width}}</td>
+            <td>{{layout.height}}</td>
+            <td>{{layout.regions.length}}</td>
+<!--            <td><span class="glyphicon glyphicon-ok"></span></td>-->
+            <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                    <li class="layout_button_design"><a tabindex="-1" target="_self" ng-click="openAssignContentDialog(layout)">Assign Content</a></li>
+                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" ng-click="openPreviewLayout(layout)">Preview Layout</a></li>
+<!--
+                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=99">
+                        <a tabindex="-1" href="#">Schedule Now</a></li>
+-->
+                    <li class="divider"></li>
+                    <li class="XiboFormButton layout_button_edit">
+                        <a tabindex="-1" ng-click="openEditLayoutDialog(layout)">Edit</a>
+                    </li>
+                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=92&amp;oldlayout=altriademo">
+                        <a tabindex="-1" href="#">Copy</a>
+                    </li>
+<!--
+                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="altriademo" data-layoutid="92" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=92">
+                        <a tabindex="-1" href="#">Retire</a></li>
+-->
+                    <li class="divider"></li>
+                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="altriademo" data-layoutid="92" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=92">
+                        <a tabindex="-1" ng-click="removeLayout()">Delete</a></li>
+<!--
+                    <li class="layout_button_export">
+                        <a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=92">Export</a></li>
+-->
+<!--
+                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=99">
+                        <a tabindex="-1" href="#">Permissions</a></li>
+-->
+                    </ul>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+</table>
+    <div class="btn-group">
+        <button class="btn dropdown-toggle" data-toggle="dropdown">
+            <span class="fa fa-long-arrow-up"></span> 
+            With Selected
+        </button>
+        <ul class="dropdown-menu">
+            <li class="XiboMultiSelectFormButton" data-button-id="layout_button_retire" data-grid-id="5672f9d61b19d" data-grid-token="1b5a6e35067c4ebc762950df6576473a">
+                <a tabindex="-1" href="#">Retire</a></li>
+            <li class="XiboMultiSelectFormButton" data-button-id="layout_button_delete" data-grid-id="5672f9d61b19d" data-grid-token="1b5a6e35067c4ebc762950df6576473a">
+                <a tabindex="-1" href="#">Delete</a></li>
+        </ul>
+    </div>
+    </div>
+        <div id="apagination">
+            <dir-pagination-controls pagination-id="lpaginate" boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="templates/dirPagination.tpl.html"></dir-pagination-controls>
+        </div>
+            
+<!--
+    <div class="pagination form-inline tablesorter-pager" id="XiboPager_5672f9d61b19d">
+    <button type="button" class="btn first disabled" aria-disabled="true" tabindex="0"><i class="icon-step-backward glyphicon glyphicon-step-backward"></i></button>
+    <button type="button" class="btn prev disabled" aria-disabled="true" tabindex="0"><i class="icon-arrow-left glyphicon glyphicon-backward"></i></button>
+    <span class="pagedisplay">1 - 10 / 43 (43)</span>  this can be any element, including an input 
+    <button type="button" class="btn next" aria-disabled="false" tabindex="0"><i class="icon-arrow-right glyphicon glyphicon-forward"></i></button>
+    <button type="button" class="btn last" aria-disabled="false" tabindex="0"><i class="icon-step-forward glyphicon glyphicon-step-forward"></i></button>
+    <select class="pagesize input-mini form-control" title="Select page size" aria-disabled="false">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+    </select>
+    <select class="pagenum input-mini form-control" title="Select page number" aria-disabled="false"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+    <button type="button" class="btn remove"><i class="fa fa-ban"></i></button>
+    </div>
+-->
+</div>
+</div>
+</div>
+</div>
+</div>

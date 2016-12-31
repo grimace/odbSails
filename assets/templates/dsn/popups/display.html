@@ -1,0 +1,430 @@
+<style>
+
+    .ngdialog.ngdialog-theme-default {
+         padding-bottom: 0px !important; 
+         padding-top: 0px !important; 
+    }
+    
+    .ngdialog.ngdialog-theme-default .ngdialog-content {
+        -webkit-animation: ngdialog-flyin .5s;
+        animation: ngdialog-flyin .5s;
+        background: #f0f0f0;
+        border-radius: 5px;
+        color: #444;
+        font-family: 'Helvetica',sans-serif;
+        font-size: 1.1em;
+        line-height: 1.5em;
+        margin: 0 auto;
+        max-width: 100%;
+        padding: 16px;
+        padding-bottom: 20px;
+        position: relative;
+        width: 680px;
+        height: 680px;
+    }
+    
+    
+    
+    
+    .ngdialog.ngdialog-theme-default {
+        padding-bottom: 0px !imporant;
+        padding-top:  0px !imporant;
+    }
+    #ngdialog1 {
+        width: 710px;
+        height: 680px;
+        overflow: visible;
+    }
+    .ngdialog.ngdialog-theme-default .ngdialog-content {
+        -webkit-animation: ngdialog-flyin .5s;
+        animation: ngdialog-flyin .5s;
+        background: #f0f0f0;
+        border-radius: 5px;
+        color: #444;
+        font-family: 'Helvetica',sans-serif;
+        font-size: 1.1em;
+        line-height: 1.5em;
+        margin: 0 auto;
+        max-width: 100%;
+/*
+        padding-left: 50%; 
+        padding-right: 50%; 
+*/
+        padding-top: 26px; 
+        position: relative;
+        width: 100%; 
+        height: 780px;
+    }
+    .ngdialog-content {
+        width: 100%; 
+        height: 680px; 
+/*
+        width: 680px;
+        height: 680px;
+*/
+    }
+/*
+    .ngdialog {
+        top: 10%;
+        left: 20%;
+        width: 680px;
+        height: 680px;
+    }
+*/
+/*
+    #dspDialog {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 6px;
+        margin-bottom: 6px;
+        width: 680px;
+        height: 680px;
+    }
+    #dspContent {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 620px;
+        height: 680px;
+    }
+*/
+
+    #dspGrid {
+        height: 540px;
+    }
+
+    #dspBody {
+        width: 540px;
+        height: 560px;
+    }
+    
+    #dspData {
+        height: 560px;
+    }
+
+    #dspFooter {
+        margin-bottom: 2px;
+        bottom: 10px;
+    }
+    .modal-footer {
+        bottom: 2%;
+    }
+    .bootbox-body {
+        height: 620;
+    }
+    .modal-dialog {
+/*        width: 620px;*/
+        height: 620px;
+        margin: 10px !important;
+    }
+    .modal-content {
+        width: 620px;
+        height: 620px;
+    }
+    #dpagination {
+        display: none;
+    }
+    .btn {
+        padding: 0 !important;
+    }
+    .tab-content {
+        padding-top: 10px;
+    }
+</style>
+<div class="modal-dialog" id="dspDialog" ng-controller="DisplayDialogController"  ng-init="initialize()">
+<div class="modal-content" id="dspContent">
+    <div class="modal-header">
+<!--        <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>-->
+    <h4 class="modal-title">Edit a Display</h4></div><div class="modal-body"><div class="bootbox-body"><div class="row">
+    <div class="col-md-12">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="active"><a href="#general" role="tab" data-toggle="tab">General</a></li>
+<!--            <li><a href="#location" role="tab" data-toggle="tab">Location</a></li>-->
+<!--            <li><a href="#maintenance" role="tab" data-toggle="tab">Maintenance</a></li>-->
+<!--            <li><a href="#wol" role="tab" data-toggle="tab">Wake on LAN</a></li>-->
+            <li><a href="#advanced" role="tab" data-toggle="tab">Advanced</a></li>
+        </ul>
+    <form id="DisplayEditForm" class="XiboForm form-horizontal" method="post" action="index.php?p=display&amp;q=modify" novalidate="novalidate">
+        <input type="hidden" name="displayid" value="1">
+        <input type="hidden" name="token" value="d325f488ffb06e8548020e893268a588">
+        <div class="tab-content">
+        
+        <div class="tab-pane active" id="general">                        
+        <div class="form-group has-success">
+            <label class="col-sm-2 control-label" for="display" accesskey="d">Display Name</label>
+            <div class="col-sm-10">
+                <input class="form-control valid" name="display" type="text" id="display" ng-model="$root.currentDisplay.name" required="" aria-required="true" aria-invalid="false" aria-describedby="display-error">
+                <span id="display-error" class="error"></span>
+<!--                <span class="help-block">The Name of the Display - (1 - 50 characters).</span>-->
+            </div>
+        </div>
+        <div class="form-group ">
+            <label class="col-sm-2 control-label" for="hardwareKey" accesskey="h">Display ID</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" placeholder="hardwary key" ng-model="$root.currentDisplay.displayId" readonly="">
+<!--                <span class="help-block">A unique identifier for this display, obtained when player is registered.</span>-->
+            </div>
+        </div>
+        <div class="form-group ">
+            <label class="col-sm-2 control-label" for="description" accesskey="p">License</label>
+            <div class="col-sm-10">
+                <input class="form-control" name="description" type="text" id="description" ng-model="$root.currentDisplay.license" maxlength="50">
+                <span class="help-block">Display's License Key.</span>
+            </div>
+        </div>
+        <div class="form-group ">
+            <div class="col-sm-10">
+                <label>Licence Display?
+<!--                <input title="Use one of the available licenses for this display?" type="checkbox" ng-selected="$root.currentDisplay.licensed" ng-click="generateLicense()" aria-label="Slave input">-->
+                <input title="Use one of the available licenses for this display?" type="checkbox" ng-selected="$root.currentDisplay.licensed" ng-click="generateLicense()">
+                </label><br/>
+            </div>
+        </div>
+
+       
+       
+        <label class="col-sm-2 control-label" for="defaultTemplateId" title="Please select a Layout or Media Wheel for a Default Layout" accesskey="l">Default Layout</label>
+            <div class="col-sm-10">
+<!--
+                <select class="form-control" ng-model="defaultSelectedLayout" name="defaultLayoutId" ng-change="selectDefaultLayoutChange();" id="defaultLayoutId">
+                <optgroup label="Wheels">
+                    <option ng-repeat='wheel in wheels' data-ng-click="selectWheelElement(wheel)" >{{wheel.name}}</option>
+                </optgroup>
+                <optgroup label="Layouts">
+                    <option ng-repeat='layout in layouts' data-ng-click="selectLayoutElement(layout)" >{{layout.name}}</option>
+                </optgroup>
+                {{selectedDefaultLayout.name}}
+                </select>
+-->
+<!--                    <button type="button" ng-model="defaultSelectedLayout" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" title="{{selectedDefaultLayout.name}}" data-id="defaultLayoutId">-->
+
+                                
+                <div class="btn-group bootstrap-select form-control">
+                   <button type="button" ng-model="selectedDefaultLayout" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" data-id="CampaignID" title="{{getDefaultLayoutName()}}">
+                        <span class="filter-option pull-left">{{getSelectedDefaultLayoutName()}}</span>&nbsp;
+                        <span class="caret"></span>
+                    </button>
+                    <div class="dropdown-menu open">
+                    <ul class="dropdown-menu inner selectpicker" role="menu">
+                    <dt><span class="text">Media Wheels</span></dt>
+                    <li ng-repeat="wheel in wheels">
+                        <a tabindex="0" class="opt " style="" data-optgroup="1">
+                            <span class="text" ng-click="selectWheelElement(wheel)">{{wheel.name}}</span>
+                        </a>
+                    </li>
+                    <dt><span class="text">Layouts</span></dt>
+                    <li ng-repeat="layout in layouts">
+                        <a tabindex="0" class="opt " style="" data-optgroup="1">
+                            <span class="text" ng-click="selectLayoutElement(layout)">{{layout.name}}</span>
+                        </a>
+                    </li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+            
+<!--
+            <label for="singleSelect"> Default Layout: </label><br>
+            <select name="singleSelect" ng-model="data.singleSelect">
+              <option value="option-1">Option 1</option>
+              <option value="option-2">Option 2</option>
+            </select><br>
+-->
+                
+                    
+                            
+<!--
+          <div class="form-group ">
+            <div class="col-sm-10">
+                <select class="form-control" name="CampaignID" id="CampaignID" style="display: none;">
+
+                <optgroup label="Wheels">
+                    <option ng-repeat='wheel in wheels'>{{wheel.name}}</option>
+                </optgroup>
+                <optgroup label="Layouts">
+                    <option ng-repeat='layout in layouts'>{{layout.name}}</option>
+                </optgroup>
+                </select>
+
+            
+            <label class="col-sm-2 control-label" for="defaultlayoutid" title="The Default Layout for the Display." accesskey="t">Default Layout:</label>
+                <select ng-model="$root.currentDisplay.defaultLayout" ng-options="layout.id as layout.name for layout in $root.layouts"></select>
+                <select ng-model="$root.currentDisplay.defaultLayout" ng-options="wheel.id as wheel.name for wheel in $root.wheels"></select>
+                <span class="help-block">The Default Layout to Display where there is no other content.</span>
+            </div>
+          </div>
+-->
+          
+        </div>
+<!--
+        <div class="tab-pane" id="location">
+            <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="latitude" accesskey="g">Latitude</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" name="latitude" type="number" id="latitude" value="47.627534">
+                                <span class="help-block">The Latitude of this display</span>
+                            </div>
+                        </div>
+                                            <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="longitude" accesskey="g">Longitude</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" name="longitude" type="number" id="longitude" value="-122.521648">
+                                <span class="help-block">The Longitude of this Display</span>
+                            </div>
+                        </div>
+        </div>
+-->
+<!--
+        <div class="tab-pane" id="maintenance">                        <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="email_alert" title="Do you want to be notified by email if there is a problem with this display?" accesskey="a">Email Alerts</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="email_alert" id="email_alert">
+                                    <option value="1" selected="">Yes</option>
+                                        <option value="0">No</option>
+                                </select>
+                                <span class="help-block">Do you want to be notified by email if there is a problem with this display?</span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label for="alert_timeout" title="Should this display be tested against the global time out or the client collection interval?" accesskey="o">
+                                        <input type="checkbox" id="alert_timeout" name="alert_timeout">
+                                        Use the Global Timeout?                                    </label>
+                                </div>
+                                <span class="help-block">Should this display be tested against the global time out or the client collection interval?</span>
+                            </div>
+                        </div>
+        </div>
+-->
+<!--
+        <div class="tab-pane" id="wol">                        <div class="form-group ">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label for="wakeOnLanEnabled" title="Wake on Lan requires the correct network configuration to route the magic packet to the display PC" accesskey="w">
+                                        <input type="checkbox" id="wakeOnLanEnabled" name="wakeOnLanEnabled">
+                                        Enable Wake on LAN                                    </label>
+                                </div>
+                                <span class="help-block">Wake on Lan requires the correct network configuration to route the magic packet to the display PC</span>
+                            </div>
+                        </div>
+                                            <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="broadCastAddress" accesskey="b">BroadCast Address</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" name="broadCastAddress" type="text" id="broadCastAddress" value="50.20.186.181">
+                                <span class="help-block">The IP address of the remote host's broadcast address (or gateway)</span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="secureOn" accesskey="s">Wake on LAN SecureOn</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" name="secureOn" type="text" id="secureOn" value="">
+                                <span class="help-block">Enter a hexadecimal password of a SecureOn enabled Network Interface Card (NIC) of the remote host. Enter a value in this pattern: 'xx-xx-xx-xx-xx-xx'. Leave the following field empty, if SecureOn is not used (for example, because the NIC of the remote host does not support SecureOn).</span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="wakeOnLanTime" accesskey="t">Wake on LAN Time</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" name="wakeOnLanTime" type="text" id="wakeOnLanTime" value="">
+                                <span class="help-block">The time this display should receive the WOL command, using the 24hr clock - e.g. 19:00. Maintenance must be enabled.</span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="cidr" accesskey="c">Wake on LAN CIDR</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" name="cidr" type="text" id="cidr" value="">
+                                <span class="help-block">Enter a number within the range of 0 to 32 in the following field. Leave the following field empty, if no subnet mask should be used (CIDR = 0). If the remote host's broadcast address is unknown: Enter the host name or IP address of the remote host in Broad Cast Address and enter the CIDR subnet mask of the remote host in this field.</span>
+                            </div>
+                        </div>
+        </div>
+-->
+        <div class="tab-pane" id="advanced">                       
+<!--
+            `           <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="displayprofileid" title="What display profile should this display use?" accesskey="p">Settings Profile?</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="displayprofileid" id="displayprofileid">
+                                        <option value="0" selected=""></option>
+                                        <option value="2">Minix Jelly Bean</option>
+                                        <option value="3">AndroidTest</option>
+                                        <option value="4">Lollipop</option>
+                                </select>
+                                <span class="help-block">What display profile should this display use?</span>
+                            </div>
+                        </div>
+-->
+                        <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="inc_schedule" title="Play the default layout as well as scheduled content." accesskey="i">Interleave Default</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="inc_schedule" id="inc_schedule">
+                                    <option value="1">Yes</option>
+                                    <option value="0" selected="">No</option>
+                                </select>
+                                <span class="help-block">Whether to always put the default layout into the cycle.</span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="auditing" title="Collect auditing from this client. Should only be used if there is a problem with the display." accesskey="a">Auditing</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="auditing" id="auditing">
+                                    <option value="1" selected="">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                                <span class="help-block">Collect auditing from this client.</span>
+                            </div>
+                        </div>
+<!--
+                        <div class="row">
+                            <div class="col-sm-12 ">
+                                <p>The settings for this display are shown below. They are taken from the active Display Profile for this Display, which can be changed in Display Settings. If you have altered the Settings Profile above, you will need to save and re-show the form.</p>
+                            </div>
+                        </div>
+-->
+<!--
+    <div class="col-sm-12 ">
+    <table class="table">
+    <thead>
+        <tr>
+            <th class="group-false">Setting</th>
+            <th class="group-false">Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>E-mail Address</td><td></td></tr>
+        <tr><td>Password Protect Settings</td><td></td></tr>
+        <tr><td>Collect interval</td><td>1 minute</td></tr>
+        <tr><td>Orientation</td><td>Portrait</td></tr>
+        <tr><td>Start during device start up?</td><td>1</td></tr>
+        <tr><td>Action Bar Mode</td><td>Timed</td></tr>
+        <tr><td>Action Bar Display Duration</td><td>30</td></tr>
+        <tr><td>Screen Dimensions</td><td></td></tr>
+        <tr><td>Automatic Restart</td><td>1</td></tr>
+        <tr><td>Start delay for device start up</td><td>60</td></tr>
+        <tr><td>Blacklist Videos?</td><td>0</td></tr>
+        <tr><td>Store HTML resources on the Internal Storage?</td><td>0</td></tr>
+        <tr><td>Notify current layout</td><td>0</td></tr>
+        <tr><td>Screen shot interval</td><td>0</td></tr>
+        <tr><td>Expire Modified Layouts?</td><td>0</td></tr>
+        <tr><td>Update Window Start Time</td><td>17:59</td></tr>
+        <tr><td>Update Window End Time</td><td>17:59</td></tr>
+        <tr><td>Download Window Start Time</td><td>17:59</td></tr>
+        <tr><td>Download Window End Time</td><td>17:59</td></tr>
+    </tbody>
+    </table>
+    </div>
+-->
+            
+    </div>                        
+    </div>
+    </form>
+        </div>
+</div>
+</div>
+</div>
+    <div class="modal-footer">
+        <button class="btn btn-default">Help</button>
+        <button class="btn btn-default" ng-click="cancelEditDisplay()">Cancel</button>
+        <button class="btn btn-primary save-button" ng-click="saveDisplay()">Save</button>
+    </div>
+</div>

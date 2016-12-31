@@ -1,0 +1,222 @@
+
+
+<style>
+    #ltDialog {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 6px;
+        margin-bottom: 6px;
+        width: 700px;
+        height: 700px;
+    }
+    #ltContent {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 680px;
+        height: 680px;
+    }
+
+    #ltBody {
+        width: 620px;
+        height: 620px;
+    }
+
+    .form-horizontal {
+        width:500px;
+    }
+
+/*
+    .datetime-picker-dropdown {
+
+    }
+
+    .datetime-picker-dropdown > li.date-picker-menu div > table .btn-default {
+        border: 0;
+    }
+
+    .datetime-picker-dropdown > li.time-picker-menu div > table {
+
+    }
+
+    .picker {
+        height: 102px;
+        width: 158px;
+    }
+*/
+    
+</style>
+
+<div class="modal-dialog container-fluid" id="ltDialog" ng-controller="RuleEditDialogController" ng-init="initialize()">
+    <div class="modal-content" id="ltContent">
+    <div class="modal-header">
+            <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">Add Rule</h4>
+    </div>
+    <div class="modal-body" id="ltBody">
+        <div class="bootbox-body">
+            <div class="row">
+                <div class="col-md-12">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"> <a href="#general" role="tab" data-toggle="tab">General</a></li>
+                    <li class=""> <a href="#description" role="tab" data-toggle="tab">Description</a></li>
+                </ul>
+                <form id="LayoutForm" class="XiboForm form-horizontal" method="post" novalidate="novalidate">
+                    <input type="hidden" name="token" value="f936889b3849acc1afbbab55cd1298f4">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="general">
+                                <div class="form-group ">
+                                    <label class="col-sm-2 control-label" for="layout" accesskey="n">Name</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" name="layout" type="text" id="layout" value="" required="" aria-required="true" ng-model="$root.currentLayout.name" >
+                                        <span class="help-block">The Name of the Rule - (1 - 50 characters)</span>
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <label class="col-sm-2 control-label" for="tags" accesskey="t">Tags</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" name="tags" type="text" id="tags" value="" maxlength="250" ng-model="$root.currentLayout.tags" >
+                                        <span class="help-block">Tags for this Rule - used when searching for it. Comma delimited. (1 - 250 characters)</span>
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                <label class="col-sm-2 control-label" for="templateid" title="Choose the Rule Class." accesskey="t">Rule Class</label>
+                                <div class="col-sm-10">
+                                <select ng-model="ruleTemplate" ng-options="rule as rule.name for rule in ruleTemplates" ng-change="ruleTemplateChange()"></select>
+                                <div class="form-group repeat-control-group" ng-show='ruleTemplate != ""'>
+                                    <select ng-model="ruleClass" ng-options="class as class.type for class in ruleTemplate.classes"></select>
+                                    <div class="form-group repeat-control-group" ng-show='ruleClass != ""'>
+                                         <div ng-switch on="ruleTemplate.name">
+                                             <div ng-switch-when="Time">
+<!--                                                 ng-change="resetConditions()"-->
+                                                 <div ng-switch on="ruleClass.type">
+                                                    <div class="row" ng-switch-when="Daypart">
+                                                        <div class="col-sm-10 form-control">
+                                                        Daypart: <select ng-model="dayPart" ng-options="dpart for dpart in ruleClass.range"></select><br/>
+                                                        </div>
+                                                        <div class="col-sm-10 form-control">
+                                                        Action: <select ng-model="action" ng-options="act for act in ruleClass.actions"></select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" ng-switch-when="Before">
+                                                        <div class="col-sm-10">
+                                                            Before: 
+                                                        </div>
+                                                        <div class="col-sm-10">
+                                                            <wy-time-picker
+                                                                data-dropdown-toggle-state="settingsBefore.dropdownToggleState"
+                                                                data-time-settings="settingsBefore.time"
+                                                                data-theme="settingsBefore.theme"
+                                                                data-no-range="settingsBefore.noRange"
+                                                                data-format="settingsBefore.format"
+                                                                data-no-validation="settingsBefore.noValidation"
+                                                                data-apply-callback="onTimePickerBefore()"
+                                                                data-clear-callback="onClearTimePicker()">
+                                                            </wy-time-picker>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" ng-switch-when="After">
+<!--
+                                                                                            
+                            <form class="form-horizontal">
+                                <div class="form-group">
+-->
+
+                                                        <div class="col-sm-10">
+                                                            After:
+                                                        </div>
+                                                        <div class="col-sm-10">
+                                                        <wy-time-picker
+                                                            data-dropdown-toggle-state="settingsAfter.dropdownToggleState"
+                                                            data-time-settings="settingsAfter.time"
+                                                            data-theme="settingsAfter.theme"
+                                                            data-no-range="settingsAfter.noRange"
+                                                            data-format="settingsAfter.format"
+                                                            data-no-validation="settingsAfter.noValidation"
+                                                            data-apply-callback="onTimePickerAfter()"
+                                                            data-clear-callback="onClearTimePicker()">
+                                                        </wy-time-picker>
+                                                        </div>
+                                                     </div>
+
+                                                    <div class="row" ng-switch-when="Between">
+                                                     <table class="table-bordered" >
+                                                        <tr>
+                                                        <td>
+                                                        <div class="col-sm-10" >
+                                                            Start:
+                                                            <wy-time-picker
+                                                                data-dropdown-toggle-state="settingsBefore.dropdownToggleState"
+                                                                data-time-settings="settingsBefore.time"
+                                                                data-theme="settingsBefore.theme"
+                                                                data-no-range="settingsBefore.noRange"
+                                                                data-format="settingsBefore.format"
+                                                                data-no-validation="settingsBefore.noValidation"
+                                                                data-apply-callback="onTimePickerBefore()"
+                                                                data-clear-callback="onClearTimePicker()">
+                                                            </wy-time-picker>
+                                                        </div>
+                                                        </td>
+                                                        <td>
+
+                                                        <div class="col-sm-10 pull-right">
+                                                            End:
+                                                            <wy-time-picker
+                                                                data-dropdown-toggle-state="settingsAfter.dropdownToggleState"
+                                                                data-time-settings="settingsAfter.time"
+                                                                data-theme="settingsAfter.theme"
+                                                                data-no-range="settingsAfter.noRange"
+                                                                data-format="settingsAfter.format"
+                                                                data-no-validation="settingsAfter.noValidation"
+                                                                data-apply-callback="onTimePickerAfter()"
+                                                                data-clear-callback="onClearTimePicker()">
+                                                            </wy-time-picker>
+                                                        </div>
+                                                         </tr>
+                                                        </td>
+
+                                                        </table>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                             <div ng-switch-when="Trigger">Trigger</div>
+                                             <div ng-switch-when="Location">Location</div>
+                                             <div ng-switch-when="Display">Display</div>
+                                        </div>        
+                                    </div>
+
+<!--
+                                    <label class="col-sm-2 control-label" for="ruleClass" accesskey="o">Repeat every</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" name="recDetail" type="number" id="recDetail" ng-model="recDetail">
+                                        <span class="help-block">How often does this event repeat?</span>
+                                    </div>
+-->
+                                </div>
+                                    
+
+                            </div>
+                            </div>
+                            </div>
+                            <div class="tab-pane" id="description">                        
+                                <div class="form-group ">
+                                    <div class="col-sm-12">
+                                        <span class="help-block">An optional description of the Rule. (1 - 250 characters)</span>
+                                        <textarea class="form-control" name="description" id="description" rows="5" maxlength="250" ng-model="$root.currentLayout.description"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default">Help</button>
+        <button class="btn btn-default">Cancel</button>
+        <button class="btn btn-primary save-button" ng-click="saveRule()">Save</button>
+    </div>
+    </div>
+</div>

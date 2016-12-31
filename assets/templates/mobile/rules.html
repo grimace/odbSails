@@ -1,0 +1,912 @@
+<script>
+  var initComponents = function() {
+      console.log('you are here.');
+  }
+</script>
+<style>
+    .content {
+        overflow: hidden;
+        padding: 20px;
+    }
+    .widget-title {
+        margin-top: 6px;
+    }
+</style>
+
+<div class="content">
+    <div class="col-sm-12">
+    <ul class="nav nav-pills pull-right">
+    <li class=""><a title="Add a new DataSet" href="index.php?p=dataset&amp;q=AddDataSetForm" class="XiboFormButton" onclick="">Add Rule</a></li></ul>
+    <div class="widget">
+        <div class="widget-title">Rules </div>
+        <div class="widget-body">
+        <div class="XiboGrid" id="56534b14ef19e">
+        <div class="XiboFilter">
+            <div class="FilterDiv" id="Filter">
+            <form id="" class="form-inline" method="post" action="">
+            <input type="hidden" name="p" value="dataset">
+                <input type="hidden" name="q" value="DataSetGrid"><input type="hidden" name="token" value="3d529e04ff6b058744f19ff9e2b01318">
+                <div class="tab-content"></div>
+            </form>
+            </div>
+        </div>
+
+        <div class="XiboGrid" id="5655d66355bce">
+            <div class="XiboFilter">
+                <div class="FilterDiv" id="Filter" style="display: none;">
+                <form id="" class="form-inline" method="post" action="">
+                <input type="hidden" name="p" value="layout"><input type="hidden" name="q" value="LayoutGrid">
+                <input type="hidden" name="token" value="1ec541f3e6319be319fc657db7683c46">
+                <div class="tab-content">
+                <div class="form-group ">
+                                        <label class="control-label" for="filter_layout" accesskey="l">Name</label>
+                                        <div>
+                                            <input class="form-control" name="filter_layout" type="text" id="filter_layout" value="">
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                                                    <div class="form-group ">
+                                        <label class="control-label" for="filter_tags" accesskey="t">Tags</label>
+                                        <div>
+                                            <input class="form-control" name="filter_tags" type="text" id="filter_tags" value="">
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                                                    <div class="form-group ">
+                                        <label class="control-label" for="filter_userid" title="" accesskey="r">Owner</label>
+                                        <div>
+                                            <select class="form-control" name="filter_userid" id="filter_userid">
+
+                                                                                                <option value="" selected="">All</option>
+                                                                                                    <option value="1">kombi-admin</option>
+                                                                                            </select>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                                                    <div class="form-group ">
+                                        <label class="control-label" for="filter_retired" title="" accesskey="r">Retired</label>
+                                        <div>
+                                            <select class="form-control" name="filter_retired" id="filter_retired">
+
+                                                                                                <option value="1">Yes</option>
+                                                                                                    <option value="0" selected="">No</option>
+                                                                                            </select>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                                                    <div class="form-group ">
+                                        <label class="control-label" for="filterLayoutStatusId" title="" accesskey="s">Show</label>
+                                        <div>
+                                            <select class="form-control" name="filterLayoutStatusId" id="filterLayoutStatusId">
+
+                                                                                                <option value="1" selected="">All</option>
+                                                                                                    <option value="2">Only Used</option>
+                                                                                                    <option value="3">Only Unused</option>
+                                                                                            </select>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                                                    <div class="form-group ">
+                                        <label class="control-label" for="showDescriptionId" title="" accesskey="d">Description</label>
+                                        <div>
+                                            <select class="form-control" name="showDescriptionId" id="showDescriptionId">
+
+                                                                                                <option value="1">All</option>
+                                                                                                    <option value="2" selected="">1st line</option>
+                                                                                                    <option value="3">None</option>
+                                                                                            </select>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                                                    <div class="form-group ">
+                                        <div>
+                                            <div class="checkbox">
+                                                <label for="showTags" title="" accesskey="t">
+                                                    <input type="checkbox" id="showTags" name="showTags">
+                                                    Show Tags                                                </label>
+                                            </div>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                                                    <div class="form-group ">
+                                        <div>
+                                            <div class="checkbox">
+                                                <label for="showThumbnail" title="" accesskey="i">
+                                                    <input type="checkbox" id="showThumbnail" name="showThumbnail" checked="">
+                                                    Show Thumbnails                                                </label>
+                                            </div>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                                                    <div class="form-group ">
+                                        <div>
+                                            <div class="checkbox">
+                                                <label for="XiboFilterPinned" title="" accesskey="k">
+                                                    <input type="checkbox" id="XiboFilterPinned" name="XiboFilterPinned">
+                                                    Keep Open                                                </label>
+                                            </div>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                </div>                    </form>
+                </div>
+            </div>
+            <div class="XiboData"><table class="table tablesorter tablesorter-bootstrap table-bordered" role="grid"><colgroup><col style="width: 2.7%;"><col style="width: 2.8%;"><col style="width: 10%;"><col style="width: 46.7%;"><col style="width: 7.1%;"><col style="width: 5.4%;"><col style="width: 8.1%;"><col style="width: 5%;"><col style="width: 2.9%;"></colgroup>
+    <thead>
+        <tr role="row" class="tablesorter-headerRow">
+            <th data-sorter="false" class="group-false tablesorter-header sorter-false tablesorter-headerUnSorted bootstrap-header" data-column="0" tabindex="0" scope="col" role="columnheader" aria-disabled="true" unselectable="on" aria-sort="none" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner"><input class="selectAllCheckbox" type="checkbox"> <i class="tablesorter-icon"></i></div></div></th>                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="1" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="ID : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">ID <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerAsc bootstrap-header" data-column="2" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="ascending" aria-label="Name : Ascending sort applied, activate to apply a descending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Name <i class="tablesorter-icon glyphicon glyphicon-chevron-up"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="3" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Description : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Description <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="4" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Thumbnail : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Thumbnail <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="5" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Owner : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Owner <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="6" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Permissions : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Permissions <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-sorter="tickcross" data-column="7" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Status : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Status <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                                    <th data-sorter="false" data-column="8" class="tablesorter-header sorter-false tablesorter-headerUnSorted bootstrap-header" tabindex="0" scope="col" role="columnheader" aria-disabled="true" unselectable="on" aria-sort="none" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner"> <i class="tablesorter-icon"></i></div></div></th>
+                    </tr>
+    </thead>
+    <tbody aria-live="polite" aria-relevant="all">
+            <tr role="row" class="odd">
+            <td><input type="checkbox"></td>    <td>11</td>
+                                                <td>MorningContent</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-exclamation-sign"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=11">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=11">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=10"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=11"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=11&amp;oldlayout=MorningContent"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="MorningContent" data-layoutid="11" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=11"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="MorningContent" data-layoutid="11" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=11"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=11">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=10"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" class="even">
+            <td><input type="checkbox"></td>                                    <td>14</td>
+                                                <td>FerryInbound</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-exclamation-sign"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=14">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=14">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=13"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=14"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=14&amp;oldlayout=ferrysample"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="ferrysample" data-layoutid="14" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=14"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="ferrysample" data-layoutid="14" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=14"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=14">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=13"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" class="odd">
+            <td><input type="checkbox"></td>                                    <td>15</td>
+                                                <td>FerryOutbound</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-ok"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=15">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=15">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=14"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=15"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=15&amp;oldlayout=fsvideo"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="fsvideo" data-layoutid="15" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=15"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="fsvideo" data-layoutid="15" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=15"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=15">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=14"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" class="even">
+            <td><input type="checkbox"></td>                                    <td>17</td>
+                                                <td>FSVideoTest</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-exclamation-sign"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=17">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=17">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=16"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=17"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=17&amp;oldlayout=FSVideoTest"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="FSVideoTest" data-layoutid="17" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=17"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="FSVideoTest" data-layoutid="17" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=17"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=17">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=16"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" class="odd">
+            <td><input type="checkbox"></td>                                    <td>21</td>
+                                                <td>AfternoonContent</td>
+                                                <td>playOnce=true</td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-ok"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=21">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=21">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=21"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=21"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=21&amp;oldlayout=FullscreenLayoutOne"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="FullscreenLayoutOne" data-layoutid="21" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=21"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="FullscreenLayoutOne" data-layoutid="21" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=21"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=21">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=21"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" class="even">
+            <td><input type="checkbox"></td>                                    <td>23</td>
+                                                <td>FemaleGenderTrigger</td>
+                                                <td>playOnce=true</td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-ok"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=23">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=23">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=23"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=23"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=23&amp;oldlayout=FullScreenLayoutTwo"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="FullScreenLayoutTwo" data-layoutid="23" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=23"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="FullScreenLayoutTwo" data-layoutid="23" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=23"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=23">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=23"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" class="odd">
+            <td><input type="checkbox"></td>                                    <td>18</td>
+                                                <td>MaleGenderTrigger</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-exclamation-sign"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=18">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=18">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=17"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=18"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=18&amp;oldlayout=fullscreenYoutube"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="fullscreenYoutube" data-layoutid="18" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=18"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="fullscreenYoutube" data-layoutid="18" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=18"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=18">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=17"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" class="even">
+            <td><input type="checkbox"></td>                                    <td>16</td>
+                                                <td>Under21Trigger</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-exclamation-sign"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=16">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=16">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=15"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=16"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=16&amp;oldlayout=html5videotest"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="html5videotest" data-layoutid="16" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=16"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="html5videotest" data-layoutid="16" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=16"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=16">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=15"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" class="odd">
+            <td><input type="checkbox"></td>                                    <td>19</td>
+                                                <td>AfternoonContent</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-exclamation-sign"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=19">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=19">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=18"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=19"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=19&amp;oldlayout=HTMLEmbeddedTest"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="HTMLEmbeddedTest" data-layoutid="19" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=19"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="HTMLEmbeddedTest" data-layoutid="19" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=19"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=19">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=18"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" class="even" style="">
+            <td><input type="checkbox"></td>                                    <td>25</td>
+                                                <td>NighttimeMotionTrigger</td>
+                                                <td>Notify Owner when movement detected.</td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-exclamation-sign"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=25">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=25">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=25"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=25"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=25&amp;oldlayout=KitchenSinkOne"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="KitchenSinkOne" data-layoutid="25" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=25"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="KitchenSinkOne" data-layoutid="25" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=25"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=25">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=25"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" style="display: none;">
+            <td><input type="checkbox"></td>                                    <td>27</td>
+                                                <td>CouponActivationTrigger</td>
+                                                <td>Assigned to Kiosks with Incentive Offers.</td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-exclamation-sign"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=27">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=27">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=27"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=27"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=27&amp;oldlayout=KitchenSinkThree"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="KitchenSinkThree" data-layoutid="27" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=27"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="KitchenSinkThree" data-layoutid="27" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=27"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=27">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=27"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" style="display: none;">
+            <td><input type="checkbox"></td>                                    <td>26</td>
+                                                <td>InStoreOfferTrigger</td>
+                                                <td>Content driven by subscriber present.</td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-exclamation-sign"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=26">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=26">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=26"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=26"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=26&amp;oldlayout=KitchenSinkTwo"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="KitchenSinkTwo" data-layoutid="26" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=26"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="KitchenSinkTwo" data-layoutid="26" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=26"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=26">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=26"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" style="display: none;">
+            <td><input type="checkbox"></td>                                    <td>13</td>
+                                                <td>DoorOpenTrigger</td>
+                                                <td>Indicate service panel is open, notify Owner</td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-ok"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=13">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=13">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=12"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=13"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=13&amp;oldlayout=LayoutWVideo"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="LayoutWVideo" data-layoutid="13" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=13"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="LayoutWVideo" data-layoutid="13" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=13"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=13">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=12"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" style="display: none;">
+            <td><input type="checkbox"></td>                                    <td>30</td>
+                                                <td>ScreenOffAfterHours</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-ok"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=30">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=30">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=33"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=30"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=30&amp;oldlayout=tradeshow-fs01"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="tradeshow-fs01" data-layoutid="30" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=30"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="tradeshow-fs01" data-layoutid="30" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=30"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=30">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=33"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" style="display: none;">
+            <td><input type="checkbox"></td>                                    <td>31</td>
+                                                <td>ScanReceiptTrigger</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-ok"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=31">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=31">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=34"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=31"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=31&amp;oldlayout=tradeshow-fs02"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="tradeshow-fs02" data-layoutid="31" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=31"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="tradeshow-fs02" data-layoutid="31" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=31"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=31">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=34"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" style="display: none;">
+            <td><input type="checkbox"></td>                                    <td>32</td>
+                                                <td>DoorClosedTrigger</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-ok"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=32">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=32">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=35"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=32"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=32&amp;oldlayout=tradeshow-fs03"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="tradeshow-fs03" data-layoutid="32" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=32"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="tradeshow-fs03" data-layoutid="32" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=32"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=32">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=35"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" style="display: none;">
+            <td><input type="checkbox"></td>                                    <td>33</td>
+                                                <td>tradeshow-win01</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-exclamation-sign"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=33">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=33">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=36"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=33"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=33&amp;oldlayout=tradeshow-win01"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="tradeshow-win01" data-layoutid="33" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=33"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="tradeshow-win01" data-layoutid="33" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=33"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=33">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=36"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" style="display: none;">
+            <td><input type="checkbox"></td>                                    <td>34</td>
+                                                <td>tradeshow-win02</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-exclamation-sign"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=34">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=34">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=37"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=34"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=34&amp;oldlayout=tradeshow-win02"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="tradeshow-win02" data-layoutid="34" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=34"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="tradeshow-win02" data-layoutid="34" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=34"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=34">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=37"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" style="display: none;">
+            <td><input type="checkbox"></td>                                    <td>35</td>
+                                                <td>tradeshow-win03</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-exclamation-sign"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=35">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=35">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=38"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=35"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=35&amp;oldlayout=tradeshow-win03"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="tradeshow-win03" data-layoutid="35" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=35"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="tradeshow-win03" data-layoutid="35" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=35"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=35">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=38"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" style="display: none;">
+            <td><input type="checkbox"></td>                                    <td>36</td>
+                                                <td>tradeshow-win04</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-exclamation-sign"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=36">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=36">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=39"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=36"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=36&amp;oldlayout=tradeshow-win04"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="tradeshow-win04" data-layoutid="36" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=36"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="tradeshow-win04" data-layoutid="36" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=36"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=36">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=39"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" style="display: none;">
+            <td><input type="checkbox"></td>                                    <td>37</td>
+                                                <td>tradeshow-win05</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-exclamation-sign"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=37">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=37">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=40"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=37"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=37&amp;oldlayout=tradeshow-win05"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="tradeshow-win05" data-layoutid="37" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=37"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="tradeshow-win05" data-layoutid="37" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=37"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=37">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=40"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" style="display: none;">
+            <td><input type="checkbox"></td>                                    <td>29</td>
+                                                <td>tradeshow-windowed</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-exclamation-sign"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=29">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=29">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=31"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=29"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=29&amp;oldlayout=tradeshow-windowed"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="tradeshow-windowed" data-layoutid="29" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=29"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="tradeshow-windowed" data-layoutid="29" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=29"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=29">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=31"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" style="display: none;">
+            <td><input type="checkbox"></td>                                    <td>28</td>
+                                                <td>tradeshowfs</td>
+                                                <td>This layout is for fullscreen portrait display. Adding as one of the two layouts for the tradeshow demos.</td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-ok"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=28">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=28">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=30"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=28"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=28&amp;oldlayout=tradeshowfs"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="tradeshowfs" data-layoutid="28" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=28"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="tradeshowfs" data-layoutid="28" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=28"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=28">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=30"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" style="display: none;">
+            <td><input type="checkbox"></td>                                    <td>22</td>
+                                                <td>WindowedOne</td>
+                                                <td>greg=maceghost</td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-ok"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=22">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=22">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=22"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=22"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=22&amp;oldlayout=WindowedOne"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="WindowedOne" data-layoutid="22" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=22"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="WindowedOne" data-layoutid="22" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=22"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=22">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=22"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" style="display: none;">
+            <td><input type="checkbox"></td>                                    <td>24</td>
+                                                <td>WindowedTwo</td>
+                                                <td>greg=grimace
+</td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-ok"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=24">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=24">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=24"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=24"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=24&amp;oldlayout=WindowedTwo"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="WindowedTwo" data-layoutid="24" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=24"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="WindowedTwo" data-layoutid="24" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=24"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=24">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=24"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr><tr role="row" style="display: none;">
+            <td><input type="checkbox"></td>                                    <td>20</td>
+                                                <td>LunchTimeTrigger</td>
+                                                <td>Offer lunch time special between 11pm and 1pm</td>
+                                                <td></td>
+                                                <td>kombi-admin</td>
+                                                <td></td>
+                                                <td><span class="glyphicon glyphicon-exclamation-sign"></span></td>
+                                                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="layout_button_design"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;modify=true&amp;layoutid=20">Design</a></li>
+                                                                                    <li class="layout_button_preview"><a tabindex="-1" target="_blank" href="index.php?p=preview&amp;q=render&amp;ajax=true&amp;layoutid=20">Assign to Content</a></li>
+                                                                                    <li class="XiboFormButton layout_button_schedulenow" href="index.php?p=schedule&amp;q=ScheduleNowForm&amp;CampaignID=19"><a tabindex="-1" href="#">Find Uses</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="XiboFormButton layout_button_edit" href="index.php?p=layout&amp;q=displayForm&amp;modify=true&amp;layoutid=20"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton layout_button_copy" href="index.php?p=layout&amp;q=CopyForm&amp;layoutid=20&amp;oldlayout=windowsplayer"><a tabindex="-1" href="#">Copy</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=Retire" data-rowtitle="windowsplayer" data-layoutid="20" class="XiboFormButton layout_button_retire" href="index.php?p=layout&amp;q=RetireForm&amp;layoutid=20"><a tabindex="-1" href="#">Retire</a></li>
+                                                                                    <li data-multiselectlink="index.php?p=layout&amp;q=delete" data-rowtitle="windowsplayer" data-layoutid="20" class="XiboFormButton layout_button_delete" href="index.php?p=layout&amp;q=DeleteLayoutForm&amp;layoutid=20"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="divider"></li>
+                                                                                    <li class="layout_button_export"><a tabindex="-1" target="_self" href="index.php?p=layout&amp;q=Export&amp;layoutid=20">Export</a></li>
+                                                                                    <li class="XiboFormButton layout_button_permissions" href="index.php?p=campaign&amp;q=PermissionsForm&amp;CampaignID=19"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+                    </tr></tbody>
+</table>
+    <div class="btn-group">
+        <button class="btn dropdown-toggle" data-toggle="dropdown">
+            <span class="fa fa-long-arrow-up"></span> 
+            With Selected        </button>
+        <ul class="dropdown-menu">
+                <li class="XiboMultiSelectFormButton" data-button-id="layout_button_retire" data-grid-id="5655d66355bce" data-grid-token="5f48ebd86d756d38df80646840f4c723"><a tabindex="-1" href="#">Retire</a></li>
+                    <li class="XiboMultiSelectFormButton" data-button-id="layout_button_delete" data-grid-id="5655d66355bce" data-grid-token="5f48ebd86d756d38df80646840f4c723"><a tabindex="-1" href="#">Delete</a></li>
+                </ul>
+    </div>
+    </div>
+            <div class="pagination form-inline tablesorter-pager" id="XiboPager_5655d66355bce">
+    <button type="button" class="btn first disabled" aria-disabled="true" tabindex="0"><i class="icon-step-backward glyphicon glyphicon-step-backward"></i></button>
+    <button type="button" class="btn prev disabled" aria-disabled="true" tabindex="0"><i class="icon-arrow-left glyphicon glyphicon-backward"></i></button>
+    <span class="pagedisplay">1 - 10 / 26 (26)</span> <!-- this can be any element, including an input -->
+    <button type="button" class="btn next" aria-disabled="false" tabindex="0"><i class="icon-arrow-right glyphicon glyphicon-forward"></i></button>
+    <button type="button" class="btn last" aria-disabled="false" tabindex="0"><i class="icon-step-forward glyphicon glyphicon-step-forward"></i></button>
+    <select class="pagesize input-mini form-control" title="Select page size" aria-disabled="false">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+    </select>
+    <select class="pagenum input-mini form-control" title="Select page number" aria-disabled="false"><option>1</option><option>2</option><option>3</option></select>
+    <button type="button" class="btn remove"><i class="fa fa-ban"></i></button>
+</div>        
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

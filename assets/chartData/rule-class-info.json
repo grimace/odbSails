@@ -1,0 +1,9 @@
+[
+  {"HostClasses" :    ["Digital Sign","Mobile Phone","Point of Interest","Device"] },
+  {"ActionClasses" :  ["Delivery","Notification", "Command"] },
+  {"TargetClasses" :  ["Mobile User","Digital Sign","Authenticated User"] },
+  {"OutcomeClasses" : ["Digital Sign","Mobile Phone","Device"] },
+  {"EventClasses" :   ["Sensor","Location","Identification", "Recognition", "Prediction"] },
+
+]
+

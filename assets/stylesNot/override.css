@@ -1,0 +1,220 @@
+/*
+ * Xibo - Digital Signage - http://www.xibo.org.uk
+ * Copyright (C) 2006-2013 Daniel Garner
+ *
+ * This file is part of Xibo.
+ *
+ * Xibo is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version. 
+ *
+ * Xibo is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Xibo.  If not, see <http://www.gnu.org/licenses/>.
+ */ 
+
+/*
+ * Match layout to other Kombi consoles.
+ */
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	text-decoration: none;
+}
+
+@media only screen and (min-width:561px){
+  #page-wrapper.active {
+/*    padding-left: 242px; */
+  }
+}
+#page-wrapper.active #sidebar-wrapper {
+	left: 0px;
+}
+#sidebar-wrapper {
+  margin-left: 0px;
+  width: 242px;
+}
+.sidebar-avatar {
+	text-align: center;
+	padding: 10px 40px 15px;
+	position: relative;
+	border-bottom: 1px solid #111111;
+/*	background-color: #000;*/
+	text-indent: -8px;
+}
+.sidebar-avatar img {
+	border-radius: 50%;
+	width: 95px;
+/*	border: 6px solid #2E2E2E;*/
+	box-shadow: 0 0 5px 2px rgba(0,0,0,.35);
+	-webkit-box-shadow: 0 0 5px 2px rgba(0,0,0,.35);
+}
+ul.sidebar li a {
+	width: 242px;
+}
+.sidebar-main {
+	text-align: center;
+	text-indent: -20px;
+	text-align: center;
+	position: relative;
+	border-bottom: 1px solid #111111;
+}
+#signage-main-link {
+	border-color: rgba(142,198,63, 0.7) rgba(255, 255, 255, 0.15) #8ec63f;
+	background: rgb(142,198,63);
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top, rgba(142,198,63,1) 0%, rgba(142,198,63,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(242,24,24,1)), color-stop(100%,rgba(142,198,63,1)));
+	background: -webkit-linear-gradient(top, rgba(142,198,63,1) 0%,rgba(142,198,63,1) 100%);
+	background: -o-linear-gradient(top, rgba(142,198,63,1) 0%,rgba(142,198,63,1) 100%);
+	background: -ms-linear-gradient(top, rgba(142,198,63,1) 0%,rgba(142,198,63,1) 100%);
+	background: linear-gradient(to bottom, rgba(142,198,63,1) 0%,rgba(142,198,63,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8ec63f', endColorstr='#8ec63f',GradientType=0 );
+	-webkit-box-shadow: 0px 0px 3px #000000;
+	-moz-box-shadow: 0px 0px 3px #000000;
+	box-shadow: 0px 0px 3px #000000;
+	font-size: 20px;
+	font-weight: 700;
+	color: #FFF;
+	text-shadow: 0 -1px 0 #666;
+}
+#signage-main-link:hover {
+	background: rgb(113,168,36); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VhMTcxNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNkZDA0MDQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(113,168,36,1) 0%, rgba(142,198,63,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(242,24,24,1)), color-stop(100%,rgba(142,198,63,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(113,168,36,1) 0%,rgba(142,198,63,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(113,168,36,1) 0%,rgba(142,198,63,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(113,168,36,1) 0%,rgba(142,198,63,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(113,168,36,1) 0%,rgba(142,198,63,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8ec63f', endColorstr='#8ec63f',GradientType=0 ); /* IE6-8 */
+}
+.row.header {
+/*	background: rgb(56,56,56);*/
+	background: rgb(56,56,56);
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top, rgba(177, 216, 213,1) 0%,rgb(63, 123, 116) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(177, 216, 213,1)), color-stop(100%,rgba(63, 123, 116,1)));
+	background: -webkit-linear-gradient(top, rgba(177, 216, 213,1) 0%,rgba(63, 123, 116,1) 100%);
+	background: -o-linear-gradient(top, rgba(177, 216, 213,1) 0%,rgba(63, 123, 116,1) 100%);
+	background: -ms-linear-gradient(top, rgba(177, 216, 213,1) 0%,rgba(63, 123, 116,1) 100%);
+	background: linear-gradient(to bottom, rgba(177, 216, 213,1) 0%,rgba(63, 123, 116,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8ec63f', endColorstr='#8ec63f',GradientType=0 );
+	-webkit-box-shadow: 0px 0px 3px #000000;
+	-moz-box-shadow: 0px 0px 3px #000000;
+	box-shadow: 0px 0px 3px #000000;
+}
+ul.sidebar {
+	bottom: 40px;
+	/*text-indent: 15px;*/
+}
+ul.sidebar .sidebar-list, ul.sidebar .sidebar-title {
+	height: 43px;
+}
+ul.sidebar .sidebar-list a {
+	text-indent: 44px;
+	color: #ddd;
+}
+ul.sidebar .sidebar-list a:hover {
+	border-left: 3px solid #8ec63f;
+	color: #fff;
+	text-indent: 41px;
+    
+	background: #36a9ad; /* Old browsers */
+	background: -moz-linear-gradient(top,  #b1d8d5 0%, #3f7b74 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b1d8d5), color-stop(100%,#3f7b74)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #b1d8d5 0%,#3f7b74 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #b1d8d5 0%,#3f7b74 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #b1d8d5 0%,#3f7b74 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #b1d8d5 0%,#3f7b74 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b1d8d5', endColorstr='#3f7b74',GradientType=0 ); /* IE6-9 */
+}
+ul.sidebar .sidebar-list a, ul.sidebar .sidebar-title {
+	line-height: 42px;
+}
+li.sidebar-list {
+	border-bottom: 1px solid #111111;
+	border-top: 1px solid #333333;
+	color: #ddd;
+	display: block;
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 43px;
+	margin-bottom: 0px;
+	text-shadow: none;
+	text-transform: none;
+	background: #222222;
+}
+li.sidebar-title {
+	border-bottom: 1px solid #111111;
+	border-top: 1px solid #333333;
+	color: #ddd;
+	display: block;
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 43px;
+	margin-bottom: 0px;
+	text-shadow: none;
+	text-transform: none;
+	background: #000;
+	text-indent: 30px;
+}
+i {
+	margin-right: .75em;
+	color: #00aa6f;
+	/*text-shadow: -1px -1px 1px #111111, 1px 1px 1px #363636;*/
+}
+div.user.pull-right, #logout a, i.fa.fa-sign-out {
+	color: red;
+}
+div.user.pull-right, #settings a, i.fa.fa-cog.fa-fw {
+	color: green;
+}
+i.fa.fa-sign-out {
+	margin-right: .3em;
+}
+div.user.pull-right {
+	padding: 18px;
+}
+li.active {
+     color: forestgreen;
+}
+#logout a {
+	text-shadow: none;
+	text-decoration: none;
+}
+/*
+#logout a:hover {
+	color: coral;
+}
+*/
+div.user.pull-right:hover, #logout a:hover, i.fa.fa-sign-out:hover {
+	color: #c666f8;
+}
+/*
+#settings-link:hover {
+	color: deepskyblue;
+}
+*/
+#settings a:hover, i.fa.fa-cog.fa-fw:hover {
+	color: dodgerblue;
+}
+/*
+div.user.pull-right:hover, #settings a:hover, i.fa.fa-cog.fa-fw:hover {
+	color: #999;
+}
+*/
+.sidebar-footer div a {
+	color: #fff;
+	font-size: 12px;
+	line-height: 43px;
+}
+#mapWidget {
+	height: inherit;
+}

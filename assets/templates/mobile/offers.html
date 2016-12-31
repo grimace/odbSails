@@ -1,0 +1,329 @@
+<script>
+  var initComponents = function() {
+      console.log('you are here.');
+  }
+</script>
+<style>
+    .content {
+        overflow: hidden;
+        padding-left: 20px;
+        padding-right: 20px;
+        width: 80%;
+    }
+    .widget-title {
+        margin-top: 6px;
+    }
+    .modal-content {
+        padding: 20px;
+        max-width: 280px;   
+        height: 440px;   
+    }
+    .ngdialog-content {
+        max-width: 280px;
+        height: 460px;
+    }
+    .ngdialog {
+        top: 20%;
+        left: 40%;
+        max-width: 280px;
+        height: 460px;
+    }
+/*
+    .alertBox {
+        text-align: center;
+        padding: 40px;
+        margin: 20px;
+    }
+    .alertTitle {
+        text-align: center;
+        padding: 40px;
+        margin: 20px;
+    }
+*/
+    #ocancel {
+        color: red;
+    }
+    #save {
+        color: blue;
+    }
+
+</style>
+
+<div>
+<div class="content">
+    <div class="col-sm-12">
+    <ul class="nav nav-pills pull-right">
+    <li class=""><a title="Add a new DataSet" ng-click="openOfferDialog()" class="XiboFormButton" onclick="">Add Offer/Voucher</a></li></ul>
+    <script type="text/ng-template" id="offerDialog">
+       <div class="modal-content">
+       <div id="alertBox">
+          <div style="">
+                <input id="alertName" type="text" ng-model='offer.name' />
+                <input id="alertTitle" type="text" ng-model='offer.title' />
+                <input id="alertDiscount" type="text" ng-model='offer.discount' fcsa-number="{ prepend: '$' }"/>
+                <textarea id="alertText" ng-model="offer.description"></textarea>
+                <br/>
+                <img ng-src="{{offer.pcode}}" class="productCode" ng-model='offer.pcode'/>
+                <img ng-src="{{offer.cimg}}" class="couponImage" ng-model='offer.cimg'/>
+<!--
+                <img src="/images/data/Product_1.png" class="productCode" ng-model='offer.pcode'/>
+                <img src="/images/data/couponImages/101161487_KTG.png" class="couponImage" ng-model='offer.cimg'/>
+-->
+            </div>
+       </div>
+        <br/>
+       <ul class="nav nav-pills pull-left">
+        <li class=""><a id="ocancel" title="Cancel" ng-click="saveOffer()" class="XiboFormButton" onclick="">Cancel</a></li>
+       </ul>
+       <ul class="nav nav-pills pull-right">
+        <li class=""><a id="osave" title="Save Offer" ng-click="saveOffer()" class="XiboFormButton" onclick="">Save</a></li>
+       </ul>
+       </div>
+    </script>
+    <div class="widget">
+    <div class="widget-title">Offers and Vouchers </div>
+    <div class="widget-body">
+        <div class="XiboGrid" id="564f9d8fa84ea">
+            <div class="XiboFilter">
+                <div class="FilterDiv" id="Filter" style="display: none;">
+                <form id="" class="form-inline" method="post" action="">
+                <input type="hidden" name="p" value="content">
+                    <input type="hidden" name="q" value="LibraryGrid">
+                        <input type="hidden" name="token" value="9dcd914b4022da3d3f580a5cb22a6f55">
+                            <div class="tab-content">                                    
+                                    <div class="form-group ">
+                                        <label class="control-label" for="filter_name" accesskey="n">Title</label>
+                                        <div>
+                                            <input class="form-control" name="filter_name" type="text" id="filter_name" value="">
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label class="control-label" for="filterId" accesskey="i">Publish Date</label>
+                                        <div>
+                                            <input class="form-control" name="filterId" type="text" id="filterId" value="">
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label class="control-label" for="filter_owner" title="" accesskey="o">Expires</label>
+                                        <div>
+                                            <select class="form-control" name="filter_owner" id="filter_owner">
+
+                                                <option value="" selected="">All</option>
+                                                    <option value="2">johne</option>
+                                                    <option value="1">xibo-admin</option>
+                                            </select>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label class="control-label" for="filter_type" title="" accesskey="y">Product Image</label>
+                                        <div>
+                                            <select class="form-control" name="filter_type" id="filter_type">
+
+                                                <option value="" selected="">All</option>
+                                                    <option value="Flash">Flash</option>
+                                                    <option value="font">Font</option>
+                                                    <option value="genericfile">Generic File</option>
+                                                    <option value="Image">Image</option>
+                                                    <option value="PowerPoint">PowerPoint</option>
+                                                    <option value="Video">Video</option>
+                                            </select>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                    <label class="control-label" for="filter_retired" title="" accesskey="r">Code Image</label>
+                                    <div>
+                                        <select class="form-control" name="filter_retired" id="filter_retired">
+
+                                            <option value="1">Yes</option>
+                                                            <option value="0" selected="">No</option>
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <div>
+                                            <div class="checkbox">
+                                                <label for="filter_duration_in_seconds" title="" accesskey="s">
+                                                    <input type="checkbox" id="filter_duration_in_seconds" name="filter_duration_in_seconds">
+                                                    Duration in Seconds                                                
+                                                </label>
+                                            </div>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <div>
+                                            <div class="checkbox">
+                                                <label for="showTags" title="" accesskey="t">
+                                                    <input type="checkbox" id="showTags" name="showTags">
+                                                    Show Tags                                                </label>
+                                            </div>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                                                    <div class="form-group ">
+                                        <div>
+                                            <div class="checkbox">
+                                                <label for="filter_showThumbnail" title="" accesskey="t">
+                                                    <input type="checkbox" id="filter_showThumbnail" name="filter_showThumbnail">
+                                                    Show Thumbnails                                                
+                                                </label>
+                                            </div>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <div>
+                                            <div class="checkbox">
+                                                <label for="XiboFilterPinned" title="" accesskey="k">
+                                                    <input type="checkbox" id="XiboFilterPinned" name="XiboFilterPinned">
+                                                    Keep Open                                                
+                                                </label>
+                                            </div>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                </div>                    
+                    </form>
+                </div>
+            </div>
+            <div class="XiboData">
+                <table class="table tablesorter tablesorter-bootstrap table-bordered" role="grid">
+                    <colgroup>
+                        <col style="width: 3.4%;">
+                        <col style="width: 15%;">
+                        <col style="width: 6.1%;">
+                        <col style="width: 7.6%;">
+                        <col style="width: 4.9%;">
+                        <col style="width: 6.3%;">
+                        <col style="width: 10.1%;">
+                        <col style="width: 8.1%;">
+                        <col style="width: 19.4%;">
+                        <col style="width: 3.2%;">
+                    </colgroup>
+                    <thead>
+                    <tr role="row" class="tablesorter-headerRow">
+                    <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="0" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="ID : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;">
+                        <div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%">
+                        <div class="tablesorter-header-inner">ID <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerAsc bootstrap-header" data-column="1" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="ascending" aria-label="Title : Ascending sort applied, activate to apply a descending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Title <i class="tablesorter-icon glyphicon glyphicon-chevron-up"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerAsc bootstrap-header" data-column="1" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="ascending" aria-label="Title : Ascending sort applied, activate to apply a descending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Type <i class="tablesorter-icon glyphicon glyphicon-chevron-up"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="2" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Type : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Publish Date <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="3" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Duration : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Code Image <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="3" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Duration : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Product Image <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="5" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Owner : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Discount <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="6" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Permissions : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Description <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-sorter="tickcross" data-column="7" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Revised? : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Valid From <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                        <th class="group-false tablesorter-header tablesorter-headerUnSorted bootstrap-header" data-column="8" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="File Name : No sort applied, activate to apply an ascending sort" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Valid To <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+                                    <th data-sorter="false" data-column="9" class="tablesorter-header sorter-false tablesorter-headerUnSorted bootstrap-header" tabindex="0" scope="col" role="columnheader" aria-disabled="true" unselectable="on" aria-sort="none" style="-webkit-user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner"> <i class="tablesorter-icon"></i></div></div></th>
+    </thead>
+    <tbody aria-live="polite" aria-relevant="all">
+            <tr role="row" class="odd">
+                <td>8a3e151d439718070143ae0f745e04c0</td>
+                <td>The Title</td>
+                <td>type:Active Coupon</td>
+                <td>published</td>
+                <td>ci_402881bd4321c40e014321c40ee9000a</td>
+                <td>pi_402881bd4321c40e014321c40edc0001</td>
+                <td>$5.47</td>
+                <td>The Description</td>
+                <td>Valid From</td>
+                <td>Valid To</td>
+                <td><span class="glyphicon glyphicon-remove"></span></td>
+                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="XiboFormButton content_button_edit" href="index.php?p=module&amp;mod=video&amp;q=Exec&amp;method=EditForm&amp;mediaid=184"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton content_button_delete" href="index.php?p=module&amp;mod=video&amp;q=Exec&amp;method=DeleteForm&amp;mediaid=184"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="XiboFormButton content_button_permissions" href="index.php?p=module&amp;mod=video&amp;q=Exec&amp;method=PermissionsForm&amp;mediaid=184"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                                    <li class="content_button_download"><a tabindex="-1" target="_self" href="index.php?p=module&amp;mod=video&amp;q=Exec&amp;method=GetResource&amp;download=1&amp;downloadFromLibrary=1&amp;mediaid=184">Download</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+        </tr>
+            <tr role="row" class="even">
+                <td>8a3e151d439718070143ae0f745e04c0</td>
+                <td>The Title</td>
+                <td>type:Active Coupon</td>
+                <td>published</td>
+                <td>ci_402881bd4321c40e014321c40ee9000a</td>
+                <td>pi_402881bd4321c40e014321c40edc0001</td>
+                <td>$5.47</td>
+                <td>The Description</td>
+                <td>Valid From</td>
+                <td>Valid To</td>
+                <td><span class="glyphicon glyphicon-remove"></span></td>
+                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="XiboFormButton content_button_edit" href="index.php?p=module&amp;mod=video&amp;q=Exec&amp;method=EditForm&amp;mediaid=184"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton content_button_delete" href="index.php?p=module&amp;mod=video&amp;q=Exec&amp;method=DeleteForm&amp;mediaid=184"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="XiboFormButton content_button_permissions" href="index.php?p=module&amp;mod=video&amp;q=Exec&amp;method=PermissionsForm&amp;mediaid=184"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                                    <li class="content_button_download"><a tabindex="-1" target="_self" href="index.php?p=module&amp;mod=video&amp;q=Exec&amp;method=GetResource&amp;download=1&amp;downloadFromLibrary=1&amp;mediaid=184">Download</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+        </tr>
+            <tr role="row" class="odd">
+                <td>8a3e151d439718070143ae0f745e04c0</td>
+                <td>The Title</td>
+                <td>type:Active Coupon</td>
+                <td>published</td>
+                <td>ci_402881bd4321c40e014321c40ee9000a</td>
+                <td>pi_402881bd4321c40e014321c40edc0001</td>
+                <td>$5.47</td>
+                <td>The Description</td>
+                <td>Valid From</td>
+                <td>Valid To</td>
+                <td><span class="glyphicon glyphicon-remove"></span></td>
+                <td>
+                <div class="btn-group pull-right">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-caret-down"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                                                        <li class="XiboFormButton content_button_edit" href="index.php?p=module&amp;mod=video&amp;q=Exec&amp;method=EditForm&amp;mediaid=184"><a tabindex="-1" href="#">Edit</a></li>
+                                                                                    <li class="XiboFormButton content_button_delete" href="index.php?p=module&amp;mod=video&amp;q=Exec&amp;method=DeleteForm&amp;mediaid=184"><a tabindex="-1" href="#">Delete</a></li>
+                                                                                    <li class="XiboFormButton content_button_permissions" href="index.php?p=module&amp;mod=video&amp;q=Exec&amp;method=PermissionsForm&amp;mediaid=184"><a tabindex="-1" href="#">Permissions</a></li>
+                                                                                    <li class="content_button_download"><a tabindex="-1" target="_self" href="index.php?p=module&amp;mod=video&amp;q=Exec&amp;method=GetResource&amp;download=1&amp;downloadFromLibrary=1&amp;mediaid=184">Download</a></li>
+                                                                        </ul>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+            <div class="pagination form-inline tablesorter-pager" id="XiboPager_564f9d8fa84ea">
+    <button type="button" class="btn first disabled" aria-disabled="true" tabindex="0"><i class="icon-step-backward glyphicon glyphicon-step-backward"></i></button>
+    <button type="button" class="btn prev disabled" aria-disabled="true" tabindex="0"><i class="icon-arrow-left glyphicon glyphicon-backward"></i></button>
+    <span class="pagedisplay">1 - 20 / 158 (158)</span> <!-- this can be any element, including an input -->
+    <button type="button" class="btn next" aria-disabled="false" tabindex="0"><i class="icon-arrow-right glyphicon glyphicon-forward"></i></button>
+    <button type="button" class="btn last" aria-disabled="false" tabindex="0"><i class="icon-step-forward glyphicon glyphicon-step-forward"></i></button>
+    <select class="pagesize input-mini form-control" title="Select page size" aria-disabled="false">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+    </select>
+    <select class="pagenum input-mini form-control" title="Select page number" aria-disabled="false"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select>
+    <button type="button" class="btn remove"><i class="fa fa-ban"></i></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

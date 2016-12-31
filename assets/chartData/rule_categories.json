@@ -1,0 +1,15 @@
+[
+  { "categories" :
+    [
+    {"Map":["Here","Near","Far","Within","Outside"]},
+    {"Clock":["EarlyMorning","Morning","MidMorning","Noon","MidDay","Evening","Night", "LateNight", "MidNight"]},
+    {"Calendar":["Spring","Summer","Fall","Winter","Date","DateRange","Holiday","Weekday","DayOfWeek","WeekEnd","SelectDays"]}] },
+    {"Operation":[ "Error", "Normal","Safe", "Unsafe"]},
+    {"Temperature":["Cold","Warm","Hot","Above","Below", "At","ChangeUp","ChangeDown","Change"]},
+    {"Condition":["Old","New","Fresh","Warn","Ready","InActive","NotReady", "Active","Safe", "Unsafe"]},
+    {"Rate":["Fast","Medium","Slow"]},
+    {"Cost":["Low","Medium","Hight","Below","Above"]},
+    {"Profile":["Gender","Age","HouseHoldIncome","Sports","Music","Height","Weight","HairColor","EyeColor","Automobile","HomeLocation","WorkLocation"]},
+    {"Populace":[]}
+
+]

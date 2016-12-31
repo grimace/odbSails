@@ -1,0 +1,692 @@
+<style>
+    #ngdialog1 {
+        width: 800px;
+        height: 700px;
+    }
+    .ngdialog-overlay {
+        width: 800px;
+        height: 700px;
+    }
+    .div.ngdialog-overlay {
+        height: 700px;
+    }
+    .ngdialog {
+        top: 10%;
+        left: 20%;
+        width: 800px;
+        height: 700px;
+        font-size: 12px;
+    }
+    .ngdialog-content {
+        width: 800px !important;
+        height: 700px;
+        z-index: 10001;
+    }   
+    .modal-dialog {
+        width: 700px !important;
+        height: 600px;
+    }
+ 
+    .modal-body {
+/*        position: relative;*/
+/*        height: 480px;*/
+/*        max-height: 480px;*/
+/*
+        max-height: 700px;
+        width: 700px !important;
+*/
+    }
+    div.bootbox-body {
+        height: 500px;
+    }
+    .div.row {
+        height: 480px;
+    }
+    .tab-pane {
+        position: relative;
+        height: 560px;
+    }
+    div.tab-content {
+        height: 700px;
+    }
+    #schDialog {
+        margin-left: 2px;
+        margin-right: 2px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        width: 800 !important;
+        height: 700px !important;
+    }
+    #schContent {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 800px;
+        height: 700px;
+    }
+
+    #schGrid {
+        width: 800px;
+        height: 700px;
+    }
+
+    #schBody {
+/*        position: relative;*/
+        width: 800px;
+        height: 700px;
+    }
+    div#schContent.modal-content {
+        width: 700px;
+        height: 680px;
+    }
+/*
+    div#schBody.modal-header {
+        width: 680px;
+        height: 280px;
+    }
+*/
+    div#schBody.modal-body {
+/*        width: 680px;*/
+/*        height: 280px;*/
+    }
+    #schData {
+        overflow: hidden;
+        height: 700px;
+    }
+
+    #schFooter {
+        margin-bottom: 2px;
+        bottom: 10px;
+    }
+    #displaysIn {
+        background-color: #F3F3F3;
+    }
+    #displaysOut {
+        background-color: #F3F3F3;
+    }
+    input#DisplayOrder.form-control {
+        height: 34px;
+    }
+    #recDetail {
+        height: 34px;
+    }
+    #recRange {
+        height: 34px;
+    }
+
+    .modal-footer {
+        height: 80px;
+        width: 640px;
+    }
+    .div.dropdown-menu.open {
+        max-height: 550px;
+        overflow: hidden;
+        min-height: 92px;
+    }
+    
+    .has-success .help-block, .has-success .control-label, .has-success .radio, .has-success .checkbox, .has-success .radio-inline, .has-success .checkbox-inline {
+        color: #3c763d;
+    }
+    #dOrder {
+        height: 34px;
+    }
+    .form-group {
+        padding-left: 10px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    i.glyphicon.glyphicon-chevron-up {
+        display:none;
+/*        background-color: #329cf7;*/
+        z-index: -100;
+    }
+
+    a.pull-left.event.ng-scope.event- {
+        display:none;
+        z-index: -100;
+    }
+
+    div.btn-group.pull-right.xibo-calendar-controls {
+        display:none;
+    }
+    
+    .cal-day-tick {
+            display:none;
+    }
+ 
+    .nav>li>a .nav>li>a:hover .nav>li>a:focus {
+        /* text-decoration: none; */
+        background-color: #eee;
+    }
+    
+/*
+    #repeatsTab {
+        color: #555555;
+        background-color: #ffffff;
+        border: 1px solid #dddddd;
+        border-bottom-color: transparent;
+        cursor: default;
+    }
+*/
+    .nav-tab {
+/*        color: #555555;*/
+        background-color: #ffffff;
+        border: 1px solid #dddddd;
+/*        border-bottom-color: transparent;*/
+        cursor: default;
+        padding-bottom: 1px;
+    }
+
+/*
+    .nav-tab .active {
+        color: #3c763d;
+    }
+*/
+    
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+        color: #3c763d;
+        background-color: #ffffff;
+        border: 1px solid #dddddd;
+/*        border-bottom-color: transparent;*/
+        cursor: default;
+        
+    }
+    
+    .tab-link {
+       color: #337ab7; 
+    }
+    #titleForm {
+        padding-top: 4px;
+    }
+    .datetimepicker {
+        border-left: 0px;
+        margin-left: 0px;
+        width: 250px;
+        height: 250px;
+        font-size: .8em;
+    }
+    #starts-form {
+        padding-left: 20px;
+    }
+    #ends-form {
+        padding-left: 20px;
+    }
+    #timePeriod {
+        width: 560px;
+        padding-bottom: 10px;
+    }
+    #leftCal {
+        float: left;
+        width: 50%;
+        padding: 4px;
+/*        margin-right: 20px;*/
+    }
+    #rightCal {
+        width: 50%;
+        overflow: hidden;
+        padding: 4px;
+    }
+    #startCal {
+        width: 96% !important;
+    }
+    #endCal {
+        width: 96% !important;
+    }
+    .form-control {
+        font-size: 12px;
+        color: blue;
+    }
+    .col-sm-10 {
+        width: 83.33333333%;
+        margin-top: 0;
+    }
+    .dhx_form_repeat {
+        height: 126px;
+    }
+    .dhx_wrap_section {
+        height: 126px;
+        width: 808px;
+    }
+    
+    .dhx_repeat_center, .dhx_repeat_left, .dhx_repeat_right {
+        font-size: 10px;
+        width: 80px;
+        margin-top: 2px;
+        height: 135px;
+    }
+    .dhx_repeat_center, .dhx_repeat_left {
+        height: 115px;
+        padding: 10px 0 10px 10px;
+        float: left;
+    }
+    .dhx_repeat_center {
+        margin-top: 2px;
+        float: left;
+    }
+    .dhx_repeat_left {
+        height: 115px;
+        padding-top: 10px;
+        padding-bottom:  0px;
+        padding-left: 10px
+        padding-right: 10px;
+        float: left;
+    }
+    .dhx_repeat_right {
+        float: right;
+        height: 115px;
+/*        width: 160px;*/
+/*        padding: 10px 3px 10px 10px;*/
+        padding: 0px;
+        margin-top: 2px;
+    }
+    .repeat_divider {
+        width: 2px;
+        height: 115px;
+        border-left: 1px solid #CECECE;
+    }
+    .modal-body {
+        height: 600px;
+    }
+    .dhx_cal_lsection {
+        height: 46px;
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
+    .flex-container {
+        display: -webkit-flex;
+        display: flex;
+        align-content: flex-start;
+        width: 640px;
+        height: 140px;
+        background-color: lightcyan;
+    }
+
+    .flex-container2 {
+        display: -webkit-flex;
+        display: flex;
+        align-content: flex-start;
+        width: 640px;
+        height: 140px;
+        background-color: lightcyan;
+        margin: 4px;
+    }
+
+    .flex-item1 {
+        background-color: cornflowerblue;
+        width: 130px;
+        height: 140px;
+        margin: 2px;
+    }
+    .flex-item2 {
+        background-color: cornflowerblue;
+        width: 290px;
+        height: 140px;
+        margin: 2px;
+    }
+    .flex-item3 {
+        padding-top: 10px;
+        background-color: cornflowerblue;
+        width: auto;
+        height: 140px;
+        margin: 2px;
+    }
+    
+</style>
+<link href="/signage/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+<link href="/signage/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="/signage/bootstrap-select/css/bootstrap-select.css" rel="stylesheet">
+<link href="/signage/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+<link href="/signage/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+<link href="/signage/bootstrap-ekko-lightbox/ekko-lightbox.min.css" rel="stylesheet">
+<link href="/signage/calendar/css/calendar.css" rel="stylesheet">
+<link href="/signage/morrisjs/morris.css" rel="stylesheet">
+<link href="/signage/jquery-tablesorter/css/theme.bootstrap.css" rel="stylesheet">
+<link href="/signage/jquery/jquery-ui/css/ui-lightness/jquery-ui-1.10.2.custom.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/calendar.css" />
+
+<div class="modal-dialog" id="schDialog" ng-controller="ScheduleDialogController"  ng-init="initialize()">
+    <div class="modal-content" id="schContent">
+        <div class="modal-header">
+        <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">Schedule Content</h4>
+        </div>
+    <div class="modal-body" id="schBody">
+    <div class="bootbox-body">
+    <div class="row">
+    <!-- div class="col-md-12" -->
+    <form id="ScheduleNowForm" class="XiboForm form-horizontal" method="post" novalidate="novalidate">
+<!--
+        <div class="tab-content">
+            <div class="tab-pane active" id="general" >
+-->
+            <div id="titleForm" class="form-group">
+                <label class="col-sm-2 control-label" for="layout" accesskey="n">Title</label>
+                <div class="col-sm-10">
+                    <input class="form-control" name="schedule" type="text" id="schedule" value="" required aria-required="true" ng-model="title" >
+<!--                    <span class="help-block">The Title of the Schedule Event</span>-->
+                </div>
+            </div>
+
+            <div class="form-group">
+<!--
+                <table>
+                <tr>
+                <td>
+-->
+                    <div class="row">
+                    <div id="timeHeader" class="col-sm-10">
+                        <h3>Time period</h3>
+                    </div>
+                    <div id="timePeriod" class="col-sm-10">
+                       <div class="form-horizontal">
+                         <div id="leftCal" class="dropdown">
+                            <a class="dropdown-toggle" id="ddstartsat" role="button" data-toggle="dropdown" data-target="#">
+<!--
+                                <div>
+                                    <h3>To:&nbsp;</h3>
+                                </div>
+-->
+                                <div class="input-group">
+                                    <input id="startCal" type="text" class="form-control" data-ng-model="startsAt">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                </div>
+                            </a>
+                            <ul  class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                <datetimepicker data-ng-model="startsAt" data-datetimepicker-config="{ dropdownSelector: 'ddstartsat', minView: 'minute' }"/>
+                            </ul>
+                          </div>
+                          <div id="rightCal" class="dropdown">
+                              <a class="dropdown-toggle" id="ddendsat" role="button" data-toggle="dropdown" data-target="#">
+<!--
+                                <div>
+                                    <h3>From:&nbsp;</h3>
+                                </div>
+-->
+                                <div class="input-group">
+                                    <input  id="endCal" type="text" class="form-control" data-ng-model="endsAt">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                </div>
+                              </a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                    <datetimepicker data-ng-model="endsAt" data-datetimepicker-config="{ dropdownSelector: 'ddendsat', minView: 'minute' }"/>
+                                </ul>
+                          </div>
+                        </div>
+                    </div>
+<!--
+                    <div class="col-sm-10">
+                       <form class="form-horizontal">
+                             <div id="rightCal" class="dropdown">
+                                <a class="dropdown-toggle" id="ddendsat" role="button" data-toggle="dropdown" data-target="#">
+                                    <div>
+                                        <h3>From:&nbsp;</h3>
+                                    </div>
+                                    <div class="input-group">
+                                        <input  id="endCal" type="text" class="form-control" data-ng-model="endsAt">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                    <datetimepicker data-ng-model="endsAt" data-datetimepicker-config="{ dropdownSelector: 'ddendsat', minView: 'minute' }"/>
+                                </ul>
+                              </div>
+                        </form>
+                    </div>
+-->
+                    </div>
+<!--
+                </td>
+                </tr>
+-->
+
+<!--                <tr>-->
+<!--
+                    <td>
+                    <div class="col-md-12">
+                        <h6>Select an End Time</h6>
+                            <div class="col-sm-10">
+                               <form class="form-horizontal">
+                                 <div class="dropdown">
+                                    <a class="dropdown-toggle" id="ddendsat" role="button" data-toggle="dropdown" data-target="#">
+                                        <div class="input-group"><input type="text" class="form-control" data-ng-model="endsAt">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                        </div>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                        <datetimepicker data-ng-model="endsAt" data-datetimepicker-config="{ dropdownSelector: 'ddendsat', minView: 'minute' }"/>
+                                    </ul>
+                                  </div>
+                                </form>
+                            </div>
+                    </div>
+                </td>
+-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<div class="dhx_wrap_section">
+    <div id="area_1470838769865" class="dhx_cal_lsection">
+        <div class="dhx_custom_button" index="1">
+        <div class="dhx_custom_button_recurring" style="background-position: -5px 0px;"></div>
+        <div>Enabled</div>
+        </div>Repeat event
+        </div>
+        <div class="dhx_form_repeat flex-container" > 
+
+        <div class="dhx_repeat_left flex-item1"> 
+            <label><input class="dhx_repeat_radio" type="radio" name="repeat" value="day">Daily</label>
+            <br> <label><input class="dhx_repeat_radio" type="radio" name="repeat" value="week">Weekly</label><br> <label><input class="dhx_repeat_radio" type="radio" name="repeat" value="month" checked="">Monthly</label><br> <label><input class="dhx_repeat_radio" type="radio" name="repeat" value="year">Yearly</label> 
+        </div>
+<!--        <div class="repeat_divider"></div>-->
+        <div class="dhx_repeat_center flex-item2"> 
+            <div style="display:none;" id="dhx_repeat_day"> 
+                <label><input class="dhx_repeat_radio" type="radio" name="day_type" value="d">Every</label>
+                <input class="dhx_repeat_text" type="text" name="day_count" value="1">day<br> 
+                <label><input class="dhx_repeat_radio" type="radio" name="day_type" checked="" value="w">Every workday</label> 
+            </div> 
+            <div style="display: block;" id="dhx_repeat_week"> Repeat every
+                <input class="dhx_repeat_text" type="text" name="week_count" value="1">week next days:<br> 
+                <table class="dhx_repeat_days"> <tbody><tr> 
+                    <td> 
+                        <label><input class="dhx_repeat_checkbox" type="checkbox" name="week_day" value="1">Monday</label><br> <label><input class="dhx_repeat_checkbox" type="checkbox" name="week_day" value="4">Thursday</label> </td> <td> <label><input class="dhx_repeat_checkbox" type="checkbox" name="week_day" value="2">Tuesday</label><br> <label><input class="dhx_repeat_checkbox" type="checkbox" name="week_day" value="5">Friday</label> </td> <td> <label><input class="dhx_repeat_checkbox" type="checkbox" name="week_day" value="3">Wednesday</label><br> <label><input class="dhx_repeat_checkbox" type="checkbox" name="week_day" value="6">Saturday</label> </td> <td> <label><input class="dhx_repeat_checkbox" type="checkbox" name="week_day" value="0">Sunday</label><br><br> </td> </tr> </tbody></table> 
+            </div>
+            <div id="dhx_repeat_month" style="display: none;"> 
+                <label><input class="dhx_repeat_radio" type="radio" name="month_type" value="d">Repeat</label>
+                <input class="dhx_repeat_text" type="text" name="month_day" value="1">day every<input class="dhx_repeat_text" type="text" name="month_count" value="1">month<br> <label><input class="dhx_repeat_radio" type="radio" name="month_type" checked="" value="w">On</label><input class="dhx_repeat_text" type="text" name="month_week2" value="1"><select name="month_day2"><option value="1" selected="">Monday</option><option value="2">Tuesday</option><option value="3">Wednesday</option><option value="4">Thursday</option><option value="5">Friday</option><option value="6">Saturday</option><option value="0">Sunday</option></select>every<input class="dhx_repeat_text" type="text" name="month_count2" value="1">month<br> 
+            </div> 
+            <div style="display:none;" id="dhx_repeat_year"> 
+                <label><input class="dhx_repeat_radio" type="radio" name="year_type" value="d">Every</label><input class="dhx_repeat_text" type="text" name="year_day" value="1">day<select name="year_month"><option value="0" selected="">January</option><option value="1">February</option><option value="2">March</option><option value="3">April</option><option value="4">May</option><option value="5">June</option><option value="6">July</option><option value="7">August</option><option value="8">September</option><option value="9">October</option><option value="10">November</option><option value="11">December</option></select>month<br> <label><input class="dhx_repeat_radio" type="radio" name="year_type" checked="" value="w">On</label><input class="dhx_repeat_text" type="text" name="year_week2" value="1"><select name="year_day2"><option value="1" selected="">Monday</option><option value="2">Tuesday</option><option value="3">Wednesday</option><option value="4">Thursday</option><option value="5">Friday</option><option value="6">Saturday</option><option value="7">Sunday</option></select>of<select name="year_month2"><option value="0" selected="">January</option><option value="1">February</option><option value="2">March</option><option value="3">April</option><option value="4">May</option><option value="5">June</option><option value="6">July</option><option value="7">August</option><option value="8">September</option><option value="9">October</option><option value="10">November</option><option value="11">December</option></select><br> 
+            </div> 
+        </div> 
+<!--        <div class="repeat_divider"></div> -->
+        <div class="dhx_repeat_right flex-item2"> 
+            <label><input class="dhx_repeat_radio" type="radio" name="end" checked="">No end date</label><br> <label><input class="dhx_repeat_radio" type="radio" name="end">After</label><input class="dhx_repeat_text" type="text" name="occurences_count" value="1">occurrences<br> <label><input class="dhx_repeat_radio" type="radio" name="end">End by</label><input class="dhx_repeat_date" type="text" name="date_of_end" value="undefined"><br> 
+        </div> 
+
+            
+        </div> 
+        <div class="dhx_form_repeat flex-container2" > 
+            <div class="form-group flex-item3"> 
+<!--        <div class="form-group ">-->
+            <label class="col-sm-2 control-label" for="CampaignID" title="Please select a Layout or Media Wheel for scheduling" accesskey="l">Layout</label>
+            <div class="col-sm-10">
+                <select class="form-control" name="CampaignID" id="CampaignID" style="display: none;">
+
+                <optgroup label="Wheels">
+                    <option ng-repeat='wheel in wheels'>{{wheel.name}}</option>
+                </optgroup>
+                <optgroup label="Layouts">
+                    <option ng-repeat='layout in layouts'>{{layout.name}}</option>
+                </optgroup>
+                </select>
+                <div class="btn-group bootstrap-select form-control">
+                    <button type="button" ng-model="$root.layoutElement" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" data-id="CampaignID" title="{{$root.layoutElement.name}}">
+                        <span class="filter-option pull-left">{{$root.layoutElement.name}}</span>&nbsp;
+                        <span class="caret"></span>
+                    </button>
+                    <div class="dropdown-menu open">
+                    <ul class="dropdown-menu inner selectpicker" role="menu">
+                    <dt><span class="text">Media Wheels</span></dt>
+                    <li ng-repeat="wheel in wheels">
+    <!--                                        <dt><span class="text">Campaigns</span></dt>-->
+                        <a tabindex="0" class="opt " style="" data-optgroup="1" ng-click="selectWheelElement(wheel)">
+                        <span class="text">{{wheel.name}}</span><i class="glyphicon glyphicon-ok icon-ok"></i></a>
+                    </li>
+                    <dt><span class="text">Layouts</span></dt>
+                    <li ng-repeat="layout in layouts">
+    <!--                                        <dt><span class="text">Campaigns</span></dt>-->
+                        <a tabindex="0" class="opt " style="" data-optgroup="1" ng-click="selectLayoutElement(layout)">
+                        <span class="text">{{layout.name}}</span><i class="glyphicon glyphicon-ok icon-ok"></i></a>
+                    </li>
+                    </ul>
+            </div>
+            </div>
+            <span class="help-block">Please select a Layout or Media Wheel for this Schedule</span>
+            </div>
+<!--        </div>-->
+            </div>
+            <div class="form-group flex-item3">
+            <label class="col-sm-2 control-label" for="DisplayGroupIDs[]" title="Please select one or more displays / groups for this event to be shown on." accesskey="d">Display</label>
+            <div class="col-sm-10">
+                <select class="form-control" multiple="" name="DisplayGroupIDs[]" id="DisplayGroupIDs[]" data-live-search="true" data-selected-text-format="count > 4" style="display: none;">
+
+                <optgroup label="Groups">
+                    <option ng-repeat='group in displaygroups'>{{group.name}}</option>
+                </optgroup>
+                <optgroup label="Displays">
+                    <option ng-repeat='display in displays'>{{display.name}}</option>
+                </optgroup>                                
+                </select>
+                <div class="btn-group bootstrap-select show-tick form-control">
+                    <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" data-id="DisplayGroupIDs[]" title="Nothing selected">
+                        <span class="filter-option pull-left">{{selectedDisplayElements()}}</span>&nbsp;
+                        <span class="caret"></span>
+                    </button>
+                    <div class="dropdown-menu open">
+                        <div class="bootstrap-select-searchbox">
+                            <input type="text" class="input-block-level form-control" autocomplete="off" required>
+                        </div>
+                        <ul class="dropdown-menu inner selectpicker" role="menu">
+                            <dt><span class="text">Display Groups</span></dt>
+                            <li ng-repeat="group in displaygroups">
+                                <a tabindex="0" class="opt " style="" data-optgroup="1" ng-click="toggleDisplayElement(group)">
+                                <span class="text">{{group.name}}</span>
+<!--                                                TODO : if-show for checkmark-->
+                                <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
+                            </li>
+                            <dt><span class="text">Displays</span></dt>
+                            <li ng-repeat="display in displays">
+                                <a tabindex="0" class="opt " style="" data-optgroup="1" ng-click="toggleDisplayElement(display)">
+                                <span class="text">{{display.name}}</span>
+<!--                                                TODO : if-show for checkmark-->
+                                <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <span class="help-block">Please select one or more displays / groups for this event to be shown on.</span>
+            </div>
+        </div>
+
+<!--            <div style="clear:both"> </div>-->
+        </div>                    
+<!--
+                    </tr>
+                </table>
+-->
+
+            </div>
+                
+    
+<!--
+            <div class="form-group ">
+                <label class="col-sm-2 control-label" for="dOrder" accesskey="o">Set Display Order</label>
+                <div class="col-sm-10">
+                    <input class="form-control" name="dOrder" type="number" id="dOrder" value="0" ng-model="displayOrder">
+                </div>
+            </div>
+-->
+<!--
+            <div class="form-group ">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label for="is_priority" title="Sets whether or not this event has priority over other events." accesskey="p">
+                            <input type="checkbox" id="is_priority" name="is_priority">
+                            Set Schedule Priority?
+                        </label>
+                    </div>
+                </div>
+            </div>
+-->
+<!--
+        </div>  general tab 
+        <div class="tab-pane" id="repeats">
+-->
+<!--        <div id="repeats" ng-if="showRepeatsTab">-->
+<!--
+            <div class="form-group ">
+                <label class="col-sm-2 control-label" for="rec_type" title="What type of repeat is required?" accesskey="r">Repeats</label>
+                <div class="col-sm-10">
+                    <select class="form-control" name="rec_type" id="rec_type" ng-model="recursOn" ng-change="showRepeats()">
+                        <option value="" selected="">None</option>
+                        <option value="minute">Per Minute</option>
+                        <option value="hour">Hourly</option>
+                        <option value="day">Daily</option>
+                        <option value="week">Weekly</option>
+                        <option value="month">Monthly</option>
+                        <option value="year">Yearly</option>
+                    </select>
+                    <span class="help-block">What type of repeat is required?</span>
+                </div>
+            </div>
+-->
+<!--
+            <div class="form-group repeat-control-group" ng-show='recursOn != ""'>
+                <label class="col-sm-2 control-label" for="recDetail" accesskey="o">Repeat every</label>
+                <div class="col-sm-10">
+                    <input class="form-control" name="recDetail" type="number" id="recDetail" ng-model="recDetail">
+                    <span class="help-block">How often does this event repeat?</span>
+                </div>
+            </div>
+-->
+            
+<!--
+            <div class="col-md-12">
+                <h6>Repeats Until Time</h6>
+                <div class="col-sm-10">
+                   <form class="form-horizontal">
+                     <div class="dropdown">
+                        <a class="dropdown-toggle" id="rrdate" role="button" data-toggle="dropdown" data-target="#">
+                            <div class="input-group"><input type="text" class="form-control" data-ng-model="recRange">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <datetimepicker data-ng-model="recRange" data-datetimepicker-config="{ dropdownSelector: 'rrdate', minView: 'hour' }"/>
+                        </ul>
+                      </div>
+                    </form>
+                </div>
+            </div>
+-->
+
+<!--        </div> -->
+            <!-- repeat tab -->
+
+<!--        </div> -->
+        <!-- tab control -->
+        
+    </form>
+    <!-- /div -->
+    </div>
+</div>
+</div>
+        <div class="modal-footer">
+                <button class="btn btn-default">Help</button>
+                <button class="btn btn-default" ng-click="closeThisDialog()">Cancel</button>
+                <button class="btn btn-primary save-button" ng-click="saveSchedule()">Save</button>
+        </div>
+</div>
+</div>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout width="1920" height="1080" resolutionid="9" bgcolor="#000000" schemaVersion="2"><region id="55a43800e6966" userId="1" width="1440" height="1080" top="0" left="0" name="l5.1"><options><transOut/><transOutDuration>0</transOutDuration><transOutDirection>N</transOutDirection><loop>0</loop></options><media id="291" type="image" render="native" duration="12" lkid="396" userId="1" schemaVersion="1">
+                            <options><uri>291.png</uri></options>
+                            <raw/>
+                    </media></region><region id="101989758955a4382c073ce" userId="1" width="480" height="1080" top="0" left="1440" name="l5.2"><options><transOut/><transOutDuration>0</transOutDuration><transOutDirection>N</transOutDirection><loop>0</loop></options><media id="8ebc4a4c32108a8e05b48a14aab12bc5" type="webpage" render="native" duration="12" lkid="" userId="1" schemaVersion="1">
+                            <options><xmds>1</xmds><uri>http%3A%2F%2Fwww.google.com%2F</uri><scaling>100</scaling><transparency>0</transparency><offsetLeft>0</offsetLeft><offsetTop>0</offsetTop><pageWidth>0</pageWidth><pageHeight>0</pageHeight><modeid>1</modeid><name/></options>
+                            <raw/>
+                    </media></region></layout>

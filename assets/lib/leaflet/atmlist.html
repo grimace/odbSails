@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet debug page</title>
+
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.ie.css" /><![endif]-->
+    <script src="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet-src.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="screen.css" />
+
+    <link rel="stylesheet" href="dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="dist/MarkerCluster.Default.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="dist/MarkerCluster.Default.ie.css" /><![endif]-->
+    <script src="dist/leaflet.markercluster.js"></script>
+    <!--<script src="realworld.388.js"></script>-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+
+</head>
+<body>
+
+<div id="progress">Loading data...<div id="progress-bar"></div></div>
+<div id="map" width="1000px" height="600px"></div>
+<script type="text/javascript">
+
+    var me = this;
+
+    // var check = function(){
+    //     if(condition){
+    //         // run when condition is met
+    //         alert("condition met");
+    //     }
+    //     else {
+    //         setTimeout(check, 1000); // check again in a second
+    //     }
+    // }
+
+    var map, updateProgressBar, progressBar, progress, markers, hashList;
+
+    progress = document.getElementById('progress');
+    progressBar = document.getElementById('progress-bar');
+
+    updateProgressBar = function(processed, total, elapsed, layersArray) {
+      console.log('updateProgressBar processed '+processed+' , total : '+total+' , time : '+(new Date()) );
+
+      if (elapsed > 1000) {
+        // if it takes more than a second to load, display the progress bar:
+        progress.style.display = 'block';
+        progressBar.style.width = Math.round(processed/total*100) + '%';
+      }
+
+      if (processed === total) {
+        // all markers processed - hide the progress bar:
+        progress.style.display = 'none';
+      }
+    }
+
+    var atmIcon = L.icon({
+        iconUrl: 'Icon.png',
+        // shadowUrl: 'IconShadow.png',
+
+        iconSize:     [19, 19], // size of the icon
+        // shadowSize:   [19, 19], // size of the shadow
+        // iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+        // shadowAnchor: [8, 8],  // the same for the shadow
+        popupAnchor:  [0, -10] // point from which the popup should open relative to the iconAnchor
+    });
+
+    function loadHashList() {
+        var atmAPI = "/alltm/hashList";
+        hashList = [];
+        $.getJSON(atmAPI, function(json){
+            //alert(json.length);
+            for (var i=0; i <  json.length; i++)  {
+                var gh = json[i];
+                hashList.push(gh);
+            }
+            loadAtmList();
+        });
+    }
+
+    function loadAtmList() {
+        var atmlistByHash = "/alltm/listByHash?hash=";
+        for (var i=0; i < hashList.length; i++) {
+            var hash = hashList[i];
+            console.log('loadAtmList lib : '+hash);
+
+          //$.delay(1);
+            $.getJSON(atmlistByHash+hash, function(j2){
+                //alert("adding "+j2.features.length);
+                for (var i=0; i <  j2.features.length; i++)  {
+                    var f = j2.features[i];
+                    var crd = f.geometry.coordinates;
+                    var lon = crd[0];
+                    var lat = crd[1];
+                    var terminalId = f.properties.terminalId;
+                    var place = f.properties.place;
+                    var title = terminalId;
+                    var marker = L.marker(new L.LatLng(lat, lon), { 'title' : title, icon : atmIcon  });
+                    marker.bindPopup(place);
+                    markers.addLayer(marker);
+                }
+                // check();
+            });
+        }
+    }
+
+    var map = new L.Map("map", {center: [37.8, -96.9], zoom: 4})
+        // .addLayer(new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"));
+        .addLayer(new L.TileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png"));
+
+    // var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    //     osmAttrib='Map data © OpenStreetMap contributors',
+    //     osm = new L.TileLayer(osmUrl, {minZoom: 2, maxZoom: 22, attribution: osmAttrib}),
+    //     latlng = L.latLng(39.8282,-98.9782);
+
+    // map = L.map('map', {center: latlng, zoom: 5, layers: [osm]});
+
+    markers = L.markerClusterGroup();
+
+    map.addLayer(markers);
+
+    var pop_layer =  L.tileLayer.wms("http://sedac.ciesin.columbia.edu/geoserver/ows",
+            {   layers: 'gpw-v3:gpw-v3-population-density_2000',
+                transparent: true,
+                format: "image/png",
+                attribution: "Population Density in 2000"
+            });
+    map.addLayer(pop_layer);
+
+    loadHashList();
+</script>
+</body>
+</html>

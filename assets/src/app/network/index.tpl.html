@@ -1,0 +1,109 @@
+<style>
+    
+    .sidebar-nav {
+        margin-top:0px;
+        
+    }
+    .container-fluid {
+    }
+    .content {
+        min-height: 750px;
+    }
+
+   .body {
+/*        background-color: #222222;*/
+    }
+
+    #sidebarNav {
+        margin-right: 2px;
+        max-width: 238px;
+        background-image: linear-gradient(to bottom,  #3f7b74 0%,  #b1d8d5 100%); 
+        background-image: -webkit-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+        background-image: -moz-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+        background-image: -ms-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+        background-image: -o-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+/*            background-image: linear-gradient(top, #b1d8d5 0%, #3f7b74 100%);*/
+    }
+    div#sidbarNav-sidebar.nav.affix {
+        background-image: linear-gradient(to bottom,  #3f7b74 0%,#b1d8d5 100%); 
+        background-image: -webkit-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+        background-image: -moz-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+        background-image: -ms-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+        background-image: -o-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+        background-color: #b1d8d5;
+        background: #b1d8d5;
+    }
+    .navbar-inverse {
+        background-image: linear-gradient(to bottom,  #3f7b74 0%,#b1d8d5 100%); 
+        background-image: -webkit-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+        background-image: -moz-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+        background-image: -ms-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+        background-image: -o-linear-gradient(top, #3f7b74 0%, #b1d8d5 100%);
+    }
+</style>
+
+<div id="network" ng-cloak data-ng-view class="page-stub" ng-controller="NetworkController" ng-init="init()">
+
+    <!-- START SIDEBAR -->
+    <div id="sidebarNav" data-offset-top="0" data-spy="affix" class="sidebar-nav affix">
+
+      <div class="sidebar-avatar">
+          <img src="/images/logo.png" alt="avatar" class="thumbnail-avatar">
+      </div>
+         <div>
+
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle nav-header active" ng-click="view.getView(0)"><i class="fa fa-map"></i>Dashboard</a>
+            </div>
+          </div>
+
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle nav-header active" ng-click="view.getView(1)"><i class="fa fa-info"></i>Company Profile</a>
+            </div>
+          </div>
+
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle nav-header active" ng-click="view.getView(2)"><i class="fa fa-bar-chart-o"></i>Analytics</a>
+            </div>
+          </div>
+
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle nav-header active" ng-click="view.getView(3)"><i class="fa fa-calendar-plus-o"></i>Operations</a>
+            </div>
+          </div>
+
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle nav-header active" ng-init="collapseOperations = true;" ng-class="{collapsed:!collapseOperations}" ng-click="collapseLibrary=!collapseOperations">
+                <i class="fa fa-book"></i>Operations<span class="label sidebar-label label-info"><i class="fa fa-chevron-down"></i></span>
+              </a>
+            </div>
+          </div>
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle nav-header active" ng-init="collapseDisplays = true;" ng-class="{collapsed:!collapseDisplays}" ng-click="collapseDisplays=!collapseDisplays">
+              <i class="fa fa-desktop"></i>Displays<span class="label sidebar-label label-info"><i class="fa fa-chevron-down"></i></span>
+              </a>
+            </div>
+            <div class="accordion-body" ng-class="{collapse:collapseDisplays}">
+              <div class="accordion-inner">
+                  <ul id="displays" class="nav nav-list">
+                    <li ><a ng-click="view.getView(4)" class="nav-header"><i class="fa fa-desktop"></i>    Displays</a></li>
+                    <li ><a ng-click="view.getView(5)" class="nav-header"><i class="fa fa-object-group"></i>    Display Groups</a></li>
+                    <li ><a ng-click="view.getView(6)" class="nav-header"><i class="fa fa-bar-chart"></i>    Statistics</a></li>
+                    <li ><a ng-click="view.getView(7)" class="nav-header"><i class="fa fa-cogs"></i>    Display Settings</a></li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- END SIDEBAR -->
+    <script type="text/javascript" src="/js/async.js"></script>
+    <div class="info" id="networkRoot" ng-include src="view.setView()" onload="childOnLoad()"></div>
+
+</div>

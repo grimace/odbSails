@@ -1,0 +1,190 @@
+<div class="content" ng-init="dashLoaded();">
+	<div class="wrapper-content">
+		<div class="container-fluid">
+
+			<div class="row-fluid">
+			    <div class="block span12 block-head-btn">
+			        <p class="block-heading">{{$root.selectedNetwork.name}} Network</p>
+			        <div class="block-body block-maps">
+
+			            <div id="map">
+		                    <div style="height:100%; text-align:center;">
+		                      <span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
+<!--		                      <img style="vertical-align: middle;" src="/images/ajax-loader.gif" />-->
+		                    </div>
+			            </div>
+
+			            <br>
+			            <ul class="toggle">
+	                        <li class="btn-disable">Network Locations : </li>
+	                        <li style="valign: middle;">
+	                        	<label>
+								  <input type="radio" name="all" class="all" value="alltms" checked>
+								  View in Service
+								</label></li>
+	                        <li>
+	                        	<label>
+								  <input type="radio" name="all" class="all" value="all">
+								  View All
+								</label></li>
+						</ul>
+				    	<br>
+
+					</div>
+			    </div>
+		    	<div class="clearfix"></div>
+			</div>
+
+<!-- 		</div>
+
+		<div class="container-fluid"> -->
+
+			<div class="row-fluid">
+
+				<div class="block span6 block-head-btn new">
+					<p class="block-heading">
+	                    <span>Kiosk Average Duration  <span class="nobr">( <span id="avgDurationCount"></span> )</span></span>
+					</p>
+					<div class="block-body">
+						<div id="duration" >
+							<div id="chartAvgDuration" style="height:100%; text-align:center;">
+								<span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
+<!--								<img style="vertical-align: middle;" src="/images/ajax-loader.gif" />-->
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="block span6 block-head-btn new">
+					<p class="block-heading">Total Devices by Platform <span class="nobr">( <span id="deviceTypeCount"></span> )</span></p>
+					<div class="block-body">
+						<div id="platforms">
+							<div id="platformChart" style="height:100%; text-align:center;">
+								<span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
+<!--								<img style="vertical-align: middle;" src="/images/ajax-loader.gif" />-->
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class='row-fluid'>
+
+				<div class="block span6 block-head-btn new">
+					<p class="block-heading">Kiosk Visits by Gender <span class="nobr">( <span id="visitGenderCount"></span> )</span></p>
+					<div class="block-body">
+						<div id="gender" >
+							<div id="genderChart" style="height:100%; text-align:center;">
+								<span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
+<!--								<img style="vertical-align: middle;" src="/images/ajax-loader.gif" />-->
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="block span6 block-head-btn new">
+					<p class="block-heading">Kiosk Visits by Age <span class="nobr">( <span id="visitAgeCount"></span> )</span></p>
+					<div class="block-body">
+						<div id="age">
+							<div id="ageChart" style="height:100%; text-align:center;">
+								<span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
+<!--								<img style="vertical-align: middle;" src="/images/ajax-loader.gif" />-->
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class='row-fluid'>
+				<div class="block span12 block-head-btn new">
+					<p class="block-heading">Kombi Network Visits  <span class="nobr">( <span id="visitCount"></span> )</span></p>
+					<div class="block-body">
+						<div id="visits">
+							<div id="chartVisitPerDay" style="height:100%; text-align:center;">
+								<span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
+<!--								<img style="vertical-align: middle;" src="/images/ajax-loader.gif" />-->
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!-- wrapper-content -->
+</div><!-- content -->
+<script type="text/javascript" src="/lib/d3.js"></script>
+
+<!-- Leaflet style. REQUIRED! -->
+<link rel="stylesheet" href="/styles/ol.css" />
+<link rel="stylesheet" href="/styles/olstyle.css" />
+<link rel="stylesheet" href="/lib/leaflet/dist/leaflet.css" />
+<style>
+	html { height: 100% }
+	body { height: 100%; margin: 0; padding: 0;}
+	.map { height: 100% }
+</style>
+
+<script src="/lib/c3/c3.js"></script>
+<script src="/lib/leaflet/dist/leaflet.js"></script>
+<link rel="stylesheet" href="/lib/leaflet/dist/MarkerCluster.Default.css" />
+
+<script src="/lib/leaflet/dist/leaflet.markercluster-src.js"></script>
+<script src="/lib/leaflet-providers.js"></script>
+<script src="/chartData/kombiLeaf.js"></script>
+<script src="/chartData/visitmetrics.js"></script>
+
+
+<script src="/lib/leaflet.draw/dist/leaflet.draw.js"></script>
+<script src="/lib/leaflet-plugins/layer/tile/Bing.js"></script>
+
+<script src="/lib/angular-leaflet-directive.js"></script>
+<link rel="stylesheet" href="/lib/leaflet/dist/leaflet.css">
+<link rel="stylesheet" href="/lib/leaflet.draw/dist/leaflet.draw.css" />
+
+
+<script type="text/javascript">
+    
+    var networkReady = function() {
+
+		// load the device platform types
+		deviceTypeChart();
+        console.log('here1');
+	    // register the check boxes for onclick event
+	    $( "input[name='all']" ).click(function() {
+	        if (this.value == 'all') {
+	            refresh(true);
+	        } else {
+	            refresh(false);
+	        }
+	        return true;
+	    });
+        console.log('here2');
+
+		// Build Charts
+//		visitAvgDuration();
+//		visitByGender();
+//		visitByAge();
+//		visitPerDay(dates);
+
+	   //variables to confirm window height and width
+	    var lastWindowHeight = $(window).height();
+	    var lastWindowWidth = $(window).width();
+
+	    $(window).resize(function() {
+	        if($(window).height()!=lastWindowHeight || $(window).width()!=lastWindowWidth){
+	            lastWindowHeight = $(window).height();
+	            lastWindowWidth = $(window).width();
+	        }
+	    });
+    };
+
+    var initComponents = function() {
+        var m = document.getElementById('map');
+        if (m) {
+            networkReady();
+            console.log('calling leafReady');
+            leafReady();
+        }
+    };
+
+</script>

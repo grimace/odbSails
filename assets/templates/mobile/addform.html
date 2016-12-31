@@ -1,0 +1,167 @@
+<div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title">Schedule Event</h4></div><div class="modal-body"><div class="bootbox-body"><div class="row">
+    <div class="col-md-12">
+                        <ul class="nav nav-tabs" role="tablist">
+            <li class="active">            <a href="#general" role="tab" data-toggle="tab">General</a></li>
+            <li>            <a href="#repeats" role="tab" data-toggle="tab">Repeats</a></li>
+                    </ul>
+                <form id="AddEventForm" class="XiboForm form-horizontal" method="post" action="index.php?p=schedule&amp;q=AddEvent" novalidate="novalidate">
+            <input type="hidden" name="token_id" value="565f28b7c84be"><input type="hidden" name="565f28b7c84be" value="6e54fd2b21e6b53b42c0c794a294dd06"><input type="hidden" name="token" value="3ba11c47ce91a1673a47e6410cae4339"><div class="tab-content"><div class="tab-pane active" id="general">                        <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="DisplayGroupIDs[]" title="Please select one or more displays / groups for this event to be shown on." accesskey="d">Display</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" multiple="" name="DisplayGroupIDs[]" id="DisplayGroupIDs[]" data-live-search="true" data-selected-text-format="count > 4" style="display: none;">
+
+                                <optgroup label="Groups">                                        <option value="53">Tradeshow_Group</option>
+                                    </optgroup><optgroup label="Displays">                                        <option value="11">Android</option>
+                                                                            <option value="15" selected="">AndroidPlayer25</option>
+                                                                            <option value="16">AndroidPlayer93</option>
+                                                                            <option value="34">AndroidPlayer93</option>
+                                                                            <option value="56">Bretts Desk Minix</option>
+                                                                            <option value="14">GregsMacPython</option>
+                                                                            <option value="50">Kombi Kiosk Minix</option>
+                                                                            <option value="12">KOMBI-IT</option>
+                                                                            <option value="55">NEO_X7_mini</option>
+                                                                            <option value="54">NEO_X7_mini</option>
+                                                                            <option value="58">NEO_X7_mini</option>
+                                                                            <option value="60">NEO_X7_mini</option>
+                                                                            <option value="52">NEO_X7_mini</option>
+                                                                            <option value="59">NEO_X7_mini</option>
+                                                                            <option value="57">NEO_X7_mini</option>
+                                                                            <option value="39">NEO_X7_mini-Gregm</option>
+                                                                            <option value="13">PyTest</option>
+                                                                            <option value="35">SM-T330NU</option>
+                                                                            <option value="40">SM_T330NU</option>
+                                                                            <option value="10">Xibo-Minix</option>
+                                    </optgroup>                                </select><div class="btn-group bootstrap-select show-tick form-control"><button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" data-id="DisplayGroupIDs[]" title="AndroidPlayer25"><span class="filter-option pull-left">AndroidPlayer25</span>&nbsp;<span class="caret"></span></button><div class="dropdown-menu open"><div class="bootstrap-select-searchbox"><input type="text" class="input-block-level form-control" autocomplete="off"></div><ul class="dropdown-menu inner selectpicker" role="menu"><li rel="0"><dt><span class="text">Groups</span></dt><a tabindex="0" class="opt " style="" data-optgroup="1"><span class="text">Tradeshow_Group</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="1"><div class="div-contain"><div class="divider"></div></div><dt><span class="text">Displays</span></dt><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">Android</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="2" class="selected"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">AndroidPlayer25</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="3"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">AndroidPlayer93</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="4"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">AndroidPlayer93</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="5"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">Bretts Desk Minix</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="6"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">GregsMacPython</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="7"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">Kombi Kiosk Minix</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="8"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">KOMBI-IT</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="9"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">NEO_X7_mini</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="10"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">NEO_X7_mini</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="11"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">NEO_X7_mini</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="12"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">NEO_X7_mini</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="13"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">NEO_X7_mini</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="14"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">NEO_X7_mini</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="15"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">NEO_X7_mini</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="16"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">NEO_X7_mini-Gregm</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="17"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">PyTest</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="18"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">SM-T330NU</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="19"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">SM_T330NU</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="20"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">Xibo-Minix</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li></ul></div></div>
+                                <span class="help-block">Please select one or more displays / groups for this event to be shown on.</span>
+                            </div>
+                        </div>
+                                            <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="starttimeControl" accesskey="s">Start Time</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" name="starttimeControl" type="text" id="starttimeControl" value="" required="" aria-required="true">
+                                <span class="help-block">Select the start time for this event</span>
+                            </div>
+                        </div>
+                                            <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="endtimeControl" accesskey="e">End Time</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" name="endtimeControl" type="text" id="endtimeControl" value="" required="" aria-required="true">
+                                <span class="help-block">Select the end time for this event</span>
+                            </div>
+                        </div>
+                                            <input name="starttime" type="hidden" id="starttime" value="">
+                                            <input name="endtime" type="hidden" id="endtime" value="">
+                                            <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="CampaignID" title="Please select a Layout or Campaign for this Event to show" accesskey="l">Layout / Campaign</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="CampaignID" id="CampaignID" style="display: none;">
+
+                                <optgroup label="Campaigns">                                        <option value="100">altria</option>
+                                                                            <option value="82">Default</option>
+                                                                            <option value="9">DevPit</option>
+                                                                            <option value="53">FerryCombined</option>
+                                                                            <option value="46">FerryInbound</option>
+                                                                            <option value="47">FerryOutbound</option>
+                                                                            <option value="29">tradeshow-interleave</option>
+                                                                            <option value="32">tradeshow-sequenced</option>
+                                    </optgroup><optgroup label="Layouts">                                        <option value="99">altriademo</option>
+                                                                            <option value="10">DevPit</option>
+                                                                            <option value="41">ferry-win01</option>
+                                                                            <option value="42">ferry-win02</option>
+                                                                            <option value="43">ferry-win03</option>
+                                                                            <option value="44">ferry-win04</option>
+                                                                            <option value="45">ferry-win05</option>
+                                                                            <option value="48">ferry-win06</option>
+                                                                            <option value="49">ferry-win07</option>
+                                                                            <option value="50">ferry-win08</option>
+                                                                            <option value="51">ferry-win09</option>
+                                                                            <option value="52">ferry-win10</option>
+                                                                            <option value="13">ferrysample</option>
+                                                                            <option value="97">KombiSignageDefault</option>
+                                                                            <option value="98">KombiSignageDefaultLandscape</option>
+                                                                            <option value="132">l1 sample</option>
+                                                                            <option value="134">l2 sample</option>
+                                                                            <option value="136">l3 sample</option>
+                                                                            <option value="138">l4 sample</option>
+                                                                            <option value="140">l5 sample</option>
+                                                                            <option value="142">l6 sample</option>
+                                                                            <option value="144">l7 sample</option>
+                                                                            <option value="146">l8 sample</option>
+                                                                            <option value="86">p1 sample</option>
+                                                                            <option value="87">p2 sample</option>
+                                                                            <option value="88">p3 sample</option>
+                                                                            <option value="83">p4 sample</option>
+                                                                            <option value="91">p5 sample</option>
+                                                                            <option value="90">p6 sample</option>
+                                                                            <option value="85">p7 sample</option>
+                                                                            <option value="84">p8 sample</option>
+                                                                            <option value="33">tradeshow-fs01</option>
+                                                                            <option value="34">tradeshow-fs02</option>
+                                                                            <option value="35">tradeshow-fs03</option>
+                                                                            <option value="36">tradeshow-win01</option>
+                                                                            <option value="37">tradeshow-win02</option>
+                                                                            <option value="38">tradeshow-win03</option>
+                                                                            <option value="39">tradeshow-win04</option>
+                                                                            <option value="40">tradeshow-win05</option>
+                                                                            <option value="31">tradeshow-windowed</option>
+                                                                            <option value="22">WindowedOne</option>
+                                                                            <option value="24">WindowedTwo</option>
+                                                                            <option value="19">windowsplayer</option>
+                                    </optgroup>                                </select><div class="btn-group bootstrap-select form-control"><button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" data-id="CampaignID" title="altria"><span class="filter-option pull-left">altria</span>&nbsp;<span class="caret"></span></button><div class="dropdown-menu open"><div class="bootstrap-select-searchbox"><input type="text" class="input-block-level form-control" autocomplete="off"></div><ul class="dropdown-menu inner selectpicker" role="menu"><li rel="0" class="selected"><dt><span class="text">Campaigns</span></dt><a tabindex="0" class="opt " style="" data-optgroup="1"><span class="text">altria</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="1"><a tabindex="0" class="opt " style="" data-optgroup="1"><span class="text">Default</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="2"><a tabindex="0" class="opt " style="" data-optgroup="1"><span class="text">DevPit</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="3"><a tabindex="0" class="opt " style="" data-optgroup="1"><span class="text">FerryCombined</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="4"><a tabindex="0" class="opt " style="" data-optgroup="1"><span class="text">FerryInbound</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="5"><a tabindex="0" class="opt " style="" data-optgroup="1"><span class="text">FerryOutbound</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="6"><a tabindex="0" class="opt " style="" data-optgroup="1"><span class="text">tradeshow-interleave</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="7"><a tabindex="0" class="opt " style="" data-optgroup="1"><span class="text">tradeshow-sequenced</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="8"><div class="div-contain"><div class="divider"></div></div><dt><span class="text">Layouts</span></dt><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">altriademo</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="9"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">DevPit</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="10"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">ferry-win01</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="11"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">ferry-win02</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="12"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">ferry-win03</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="13"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">ferry-win04</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="14"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">ferry-win05</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="15"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">ferry-win06</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="16"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">ferry-win07</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="17"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">ferry-win08</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="18"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">ferry-win09</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="19"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">ferry-win10</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="20"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">ferrysample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="21"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">KombiSignageDefault</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="22"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">KombiSignageDefaultLandscape</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="23"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">l1 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="24"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">l2 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="25"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">l3 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="26"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">l4 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="27"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">l5 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="28"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">l6 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="29"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">l7 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="30"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">l8 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="31"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">p1 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="32"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">p2 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="33"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">p3 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="34"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">p4 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="35"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">p5 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="36"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">p6 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="37"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">p7 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="38"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">p8 sample</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="39"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">tradeshow-fs01</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="40"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">tradeshow-fs02</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="41"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">tradeshow-fs03</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="42"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">tradeshow-win01</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="43"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">tradeshow-win02</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="44"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">tradeshow-win03</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="45"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">tradeshow-win04</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="46"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">tradeshow-win05</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="47"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">tradeshow-windowed</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="48"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">WindowedOne</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="49"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">WindowedTwo</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="50"><a tabindex="0" class="opt " style="" data-optgroup="2"><span class="text">windowsplayer</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li></ul></div></div>
+                                <span class="help-block">Please select a Layout or Campaign for this Event to show</span>
+                            </div>
+                        </div>
+                                            <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="DisplayOrder" accesskey="o">Display Order</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" name="DisplayOrder" type="number" id="DisplayOrder" value="">
+                                <span class="help-block">Please select the order this event should appear in relation to others when there is more than one event scheduled</span>
+                            </div>
+                        </div>
+                                            <div class="form-group ">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label for="is_priority" title="Sets whether or not this event has priority. If set the event will be show in preference to other events." accesskey="p">
+                                        <input type="checkbox" id="is_priority" name="is_priority">
+                                        Priority                                    </label>
+                                </div>
+                                <span class="help-block">Sets whether or not this event has priority. If set the event will be show in preference to other events.</span>
+                            </div>
+                        </div>
+                    </div><div class="tab-pane" id="repeats">                        <div class="form-group ">
+                            <label class="col-sm-2 control-label" for="rec_type" title="What type of repeat is required?" accesskey="r">Repeats</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="rec_type" id="rec_type">
+
+                                                                        <option value="" selected="">None</option>
+                                                                            <option value="minute">Per Minute</option>
+                                                                            <option value="hour">Hourly</option>
+                                                                            <option value="day">Daily</option>
+                                                                            <option value="week">Weekly</option>
+                                                                            <option value="month">Monthly</option>
+                                                                            <option value="year">Yearly</option>
+                                                                    </select>
+                                <span class="help-block">What type of repeat is required?</span>
+                            </div>
+                        </div>
+                        <div class="form-group repeat-control-group" style="display: none;">
+                            <label class="col-sm-2 control-label" for="rec_detail" accesskey="o">Repeat every</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" name="recDetail" type="number" id="recDetail" ng-model="recDetail">
+                                <span class="help-block">How often does this event repeat?</span>
+                            </div>
+                        </div>
+                        <div class="form-group repeat-control-group" style="display: none;">
+                            <label class="col-sm-2 control-label" for="recRange" accesskey="u">Until</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" name="recRange" type="text" id="recRange" ng-model="recRange">
+                                <span class="help-block">When should this event stop repeating?</span>
+                            </div>
+                        </div>
+<!--                        <input name="rec_range" type="hidden" id="rec_range" value="">-->
+                    </div>
+                    </div>
+        </form>
+            </div>
+</div>
+</div></div><div class="modal-footer"><button class="btn btn-default">Help</button><button class="btn btn-default">Cancel</button><button class="btn btn-primary save-button">Next</button><button class="btn btn-primary save-button">Save</button></div></div></div>

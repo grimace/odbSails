@@ -1,0 +1,100 @@
+[
+        
+        { "name" : "FullVideoLandscape" , "width":"1920", "height":"1080", 
+          "regions" : [
+            {"name":"video", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"video/*"}
+        ]},
+    
+        { "name" : "FullImageLandscape", "width":"1920", "height":"1080","regions" : [
+            {"name":"image", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"image/*"}
+            
+        ]},
+
+        { "name" : "FullWebLandscape", "width":"1920", "height":"1080", "regions" : [
+            {"name":"web", "width":"1920", "height":"1080", "top":"0", "left":"0", "accept":"text/*"}
+            
+        ]},
+
+        { "name" : "ImageWebVideoLandscape","width":"1920", "height":"1080", "regions" : [
+            {"name":"image", "width":"720", "height":"1080", "top":"0", "left":"0", "accept":"image/*"},
+            {"name":"web", "width":"480", "height":"1080", "top":"0", "left":"720", "accept":"text/*"},
+            {"name":"video", "width":"720", "height":"1080", "top":"0", "left":"1200", "accept":"video/*"}
+        ]},
+
+    
+        { "name" : "ImageWebLandscape","width":"1920", "height":"1080", "regions" : [
+            {"name":"image", "width":"1440", "height":"1080", "top":"0", "left":"0", "accept":"image/*"},
+            {"name":"web", "width":"480", "height":"1080", "top":"0", "left":"1440", "accept":"text/*"}
+            
+        ]},
+
+        { "name" : "WebImageLandscape","width":"1920", "height":"1080", "regions" : [
+            {"name":"web", "width":"480", "height":"1080", "top":"0", "left":"0", "accept":"text/*"},
+            {"name":"image", "width":"1440", "height":"1080", "top":"0", "left":"480", "accept":"image/*"}
+        ]},
+
+        { "name" : "VideoImageLandscape","width":"1920", "height":"1080", "regions" : [
+            {"name":"video", "width":"960", "height":"1080", "top":"0", "left":"0", "accept":"video/*"},
+            {"name":"image", "width":"960", "height":"1080", "top":"0", "left":"960", "accept":"image/*"}
+        ]},
+
+        { "name" : "ImageVideoLandscape", "width":"1920", "height":"1080", "regions" : [
+            {"name":"image", "width":"960", "height":"1080", "top":"0", "left":"0", "accept":"image/*"},
+            {"name":"video", "width":"960", "height":"1080", "top":"0", "left":"960", "accept":"video/*"}
+            
+        ]},
+        { "name" : "ImageImageLandscape", "width":"1920", "height":"1080", "regions" : [
+            {"name":"image", "width":"640", "height":"1080", "top":"0", "left":"0", "accept":"image/*"},
+            {"name":"image", "width":"1280", "height":"1080", "top":"0", "left":"640", "accept":"image/*"}
+            
+        ]},
+
+        { "name" : "PortraitFullImage","width":"1080", "height":"1920", "regions" : [  
+            {"name":"image", "width":"1080", "height":"1920", "top":"0", "left":"0", "accept":"image/*"}
+        ]},
+
+        { "name" : "PortraitFullVideo","width":"1080", "height":"1920", "regions" : [
+            {"name":"video", "width":"1080", "height":"1920", "top":"0", "left":"0", "accept":"video/*"}
+        ]},
+
+        { "name" : "PortraitFullWeb","width":"1080", "height":"1920", "regions" : [
+            {"name":"web", "width":"1080", "height":"1920", "top":"0", "left":"0", "accept":"text/*"}
+        ]},
+
+        { "name" : "PortraitImageVideo","width":"1080", "height":"1920", "regions" : [
+            {"name":"image", "width":"1080", "height":"1110", "top":"0", "left":"0", "accept":"image/*"},
+            {"name":"video", "width":"1080", "height":"810", "top":"1110", "left":"0", "accept":"video/*"}
+            
+        ]},
+
+        { "name" : "PortraitImageWeb","width":"1080", "height":"1920", "regions" : [
+            {"name":"image", "width":"1080", "height":"1620", "top":"0", "left":"0", "accept":"image/*"},
+            {"name":"web", "width":"1080", "height":"300", "top":"1620", "left":"0", "accept":"text/*"}
+            
+        ]},
+
+        { "name" : "PortraitImageWebVideo","width":"1080", "height":"1920", "regions" : [
+            {"name":"image", "width":"1080", "height":"810", "top":"0", "left":"0", "accept":"image/*"},
+            {"name":"web", "width":"1080", "height":"300", "top":"810", "left":"0", "accept":"text/*"},
+            {"name":"video", "width":"1080", "height":"810", "top":"1110", "left":"0", "accept":"video/*"}
+            
+        ]},
+
+        { "name" : "PortraitVideoImage","width":"1080", "height":"1920", "regions" : [
+            {"name":"video", "width":"1080", "height":"1110", "top":"0", "left":"0", "accept":"video/*"},
+            {"name":"image", "width":"1080", "height":"810", "top":"1110", "left":"0", "accept":"image/*"}
+            
+        ]},
+
+        { "name" : "PortraitImageImage","width":"1080", "height":"1920", "regions" : [
+            {"name":"image", "width":"1080", "height":"810", "top":"0", "left":"0", "accept":"image/*"},
+            {"name":"image", "width":"1080", "height":"1110", "top":"810", "left":"0", "accept":"image/*"}
+            
+        ]},
+        { "name" : "PortraitWebImage","width":"1080", "height":"1920", "regions" : [
+            {"name":"web", "width":"1080", "height":"300", "top":"0", "left":"0", "accept":"text/*"},
+            {"name":"image", "width":"1080", "height":"1620", "top":"300", "left":"0", "accept":"image/*"}
+            
+        ]}
+
+]

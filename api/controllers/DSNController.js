@@ -75,7 +75,7 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
     var limit = req.param('limit');
     var skip = req.param('skip');
     var filter = { network : nid };
-    // console.log('DSNController.media - min : '+min);
+    console.log('DSNController.media - nid : '+nid);
     if (w) {
         var width = parseInt(w);
         var height = parseInt(h);
@@ -252,6 +252,7 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
 //                dbclient.db().ks.collection('asset').find(filter).toArray(function(err, contents) {
 //        //        Asset.find(filter).exec(function(err, contents) {
 //                  if (err) { sails.log.warn(err); }
+//                    var query = dbclient.mbox.select();
                     var query = dbclient.mbox.select().from('Asset').where(filter);
                     return query.all()
                       .then(function (contents) {
@@ -264,7 +265,9 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
         console.log("DSNController , filter : "+JSON.stringify(filter));
 //        dbclient.db().ks.collection('asset').find(filter).toArray(function(err, contents) {
 //          if (err) { sails.log.warn(err); }
-        var query = dbclient.mbox.select().from('Asset').where(filter);
+        var networkQuery = "expand(out('NET_ASSET')) from Network where @rid="+nid;
+//        var query = dbclient.mbox.select().from('Asset').where(filter);
+        var query = dbclient.mbox.select(networkQuery);
         return query.all()
           .then(function (contents) {
           sails.log.debug("Found Media : " + contents.length);

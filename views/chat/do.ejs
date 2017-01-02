@@ -1,0 +1,72 @@
+<div class="ui very padded basic segment">
+    <div class="ui feed" data-bind="foreach: { data: messages, as: 'message' }">
+        <div class="event">
+            <div class="content">
+                <div class="summary">
+                    Message ID <span data-bind="text: message.id"></span>
+                    <div class="date" data-bind="text: message.createdAt"></div>
+                </div>
+                <div class="extra text" data-bind="text: message.text"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ui very padded basic segment">
+    <form class="ui form" method="post" data-bind="submit: sendMessage">
+        <label>Your message</label>
+        <div class="ui field">
+            <input type="text" name="message" value="" data-bind="value: newMessage"/>
+        </div>
+        <button class="ui primary button">Send</button>
+    </form>
+</div>
+<script type="text/javascript">
+var chatModel = function(){
+    var self = this;
+    this.messages = ko.observableArray();
+    this.newMessage = ko.observable('');
+    this.errors = ko.observableArray();
+
+    /**
+     * Send message to chat
+     *
+     * In fact, save to server and get show saved message in list
+     */
+    this.sendMessage = function(form){
+        var self = this;
+        if (self.newMessage().length > 0){
+            io.socket.post('/chat', {text: self.newMessage()}, function(data, jwr){
+                // If the message was created successfully, add it to messages array
+                if (jwr.statusCode == 201){
+                    self.messages.push(data);
+                    self.newMessage('');
+                } else {
+                    self.errors.push('ERROR: ' + jwr.statusCode);
+                }
+            });
+        }
+    }.bind(this);
+
+    /**
+     * Get last 100 messages and connect to Chat websockets
+     */
+    io.socket.get('/chat', {sort: 'createdAt', limit: 100}, function(data, jwr){
+        if (jwr.statusCode == 200){
+            self.messages(data);
+        } else {
+            self.errors.push('ERROR: ' + jwr.statusCode);
+        }
+    });
+
+    /*
+        When a new message created by other user, add it to messages array
+     */
+    io.socket.on('chat', function(msg){
+        if (msg.verb == 'created'){
+            self.messages.push(msg.data);
+        }
+    });
+};
+
+ko.applyBindings(new chatModel());
+</script>

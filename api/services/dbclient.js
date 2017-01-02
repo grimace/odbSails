@@ -20,7 +20,7 @@ var OrientDB = require("orientjs");
 //};
 
 var dbConfig = {
-  host: "localhost",
+  host: "192.168.1.133",
   port: 2424,
   httpPort: 2480,
   username: "root",

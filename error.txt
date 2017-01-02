@@ -1,0 +1,100 @@
+error: A hook (`orm`) failed to load!
+error: TypeError: Converting circular structure to JSON
+    at Object.stringify (native)
+    at Document [as $super] (/Users/gregorymace/projects/odbSails/node_modules/sails-orientdb/lib/collection/document.js:17:61)
+    at .<anonymous> (/Users/gregorymace/projects/odbSails/node_modules/sails-orientdb/lib/collection/vertex.js:16:12)
+    at new child (/Users/gregorymace/projects/odbSails/node_modules/sails-orientdb/lib/utils.js:346:41)
+    at new Collection (/Users/gregorymace/projects/odbSails/node_modules/sails-orientdb/lib/collection/index.js:15:10)
+    at /Users/gregorymace/projects/odbSails/node_modules/sails-orientdb/lib/connection.js:633:29
+    at Array.forEach (native)
+    at Connection._initializeCollections (/Users/gregorymace/projects/odbSails/node_modules/sails-orientdb/lib/connection.js:632:28)
+    at initializeCollections (/Users/gregorymace/projects/odbSails/node_modules/sails-orientdb/lib/connection.js:508:11)
+    at /Users/gregorymace/projects/odbSails/node_modules/async/lib/async.js:718:13
+    at async.forEachOf.async.eachOf (/Users/gregorymace/projects/odbSails/node_modules/async/lib/async.js:233:13)
+    at _parallel (/Users/gregorymace/projects/odbSails/node_modules/async/lib/async.js:717:9)
+    at Object.async.parallel (/Users/gregorymace/projects/odbSails/node_modules/async/lib/async.js:731:9)
+    at Connection._init (/Users/gregorymace/projects/odbSails/node_modules/sails-orientdb/lib/connection.js:513:9)
+    at new Connection (/Users/gregorymace/projects/odbSails/node_modules/sails-orientdb/lib/connection.js:66:8)
+    at Object.module.exports.adapter.registerConnection (/Users/gregorymace/projects/odbSails/node_modules/sails-orientdb/lib/adapter.js:174:42)
+    at /Users/gregorymace/projects/odbSails/node_modules/waterline/lib/waterline.js:198:29
+    at /Users/gregorymace/projects/odbSails/node_modules/async/lib/async.js:181:20
+    at Object.async.forEachOf.async.eachOf (/Users/gregorymace/projects/odbSails/node_modules/async/lib/async.js:233:13)
+    at Object.async.forEach.async.each (/Users/gregorymace/projects/odbSails/node_modules/async/lib/async.js:209:22)
+    at Array.async.auto.registerConnections (/Users/gregorymace/projects/odbSails/node_modules/waterline/lib/waterline.js:171:13)
+    at /Users/gregorymace/projects/odbSails/node_modules/async/lib/async.js:596:38
+    at _arrayEach (/Users/gregorymace/projects/odbSails/node_modules/async/lib/async.js:85:13)
+    at Object.async.auto (/Users/gregorymace/projects/odbSails/node_modules/async/lib/async.js:554:9)
+    at Waterline.initialize (/Users/gregorymace/projects/odbSails/node_modules/waterline/lib/waterline.js:118:9)
+    at buildWaterlineOntology (/Users/gregorymace/projects/odbSails/node_modules/sails-hook-orm/lib/build-waterline-ontology.js:45:19)
+    at Array.async.auto._buildOntology (/Users/gregorymace/projects/odbSails/node_modules/sails-hook-orm/lib/initialize.js:388:7)
+    at listener (/Users/gregorymace/projects/odbSails/node_modules/async/lib/async.js:605:42) TypeError: Converting circular structure to JSON
+    at Object.stringify (native)
+    at Document [as $super] (/Users/gregorymace/projects/odbSails/node_modules/sails-orientdb/lib/collection/document.js:17:61)
+    at .<anonymous> (/Users/gregorymace/projects/odbSails/node_modules/sails-orientdb/lib/collection/vertex.js:16:12)
+    at new child (/Users/gregorymace/projects/odbSails/node_modules/sails-orientdb/lib/utils.js:346:41)
+    at new Collection (/Users/gregorymace/projects/odbSails/node_modules/sails-orientdb/lib/collection/index.js:15:10)
+    at /Users/gregorymace/projects/odbSails/node_modules/sails-orientdb/lib/connection.js:633:29
+    at Array.forEach (native)
+    at Connection._initializeCollections (/Users/gregorymace/projects/odbSails/node_modules/sails-orientdb/lib/connection.js:632:28)
+    at initializeCollections (/Users/gregorymace/projects/odbSails/node_modules/sails-orientdb/lib/connection.js:508:11)
+    at /Users/gregorymace/projects/odbSails/node_modules/async/lib/async.js:718:13
+    at async.forEachOf.async.eachOf (/Users/gregorymace/projects/odbSails/node_modules/async/lib/async.js:233:13)
+    at _parallel (/Users/gregorymace/projects/odbSails/node_modules/async/lib/async.js:717:9)
+    at Object.async.parallel (/Users/gregorymace/projects/odbSails/node_modules/async/lib/async.js:731:9)
+    at Connection._init (/Users/gregorymace/projects/odbSails/node_modules/sails-orientdb/lib/connection.js:513:9)
+    at new Connection (/Users/gregorymace/projects/odbSails/node_modules/sails-orientdb/lib/connection.js:66:8)
+    at Object.module.exports.adapter.registerConnection (/Users/gregorymace/projects/odbSails/node_modules/sails-orientdb/lib/adapter.js:174:42)
+    at /Users/gregorymace/projects/odbSails/node_modules/waterline/lib/waterline.js:198:29
+    at /Users/gregorymace/projects/odbSails/node_modules/async/lib/async.js:181:20
+    at Object.async.forEachOf.async.eachOf (/Users/gregorymace/projects/odbSails/node_modules/async/lib/async.js:233:13)
+    at Object.async.forEach.async.each (/Users/gregorymace/projects/odbSails/node_modules/async/lib/async.js:209:22)
+    at Array.async.auto.registerConnections (/Users/gregorymace/projects/odbSails/node_modules/waterline/lib/waterline.js:171:13)
+    at /Users/gregorymace/projects/odbSails/node_modules/async/lib/async.js:596:38
+    at _arrayEach (/Users/gregorymace/projects/odbSails/node_modules/async/lib/async.js:85:13)
+    at Object.async.auto (/Users/gregorymace/projects/odbSails/node_modules/async/lib/async.js:554:9)
+    at Waterline.initialize (/Users/gregorymace/projects/odbSails/node_modules/waterline/lib/waterline.js:118:9)
+    at buildWaterlineOntology (/Users/gregorymace/projects/odbSails/node_modules/sails-hook-orm/lib/build-waterline-ontology.js:45:19)
+    at Array.async.auto._buildOntology (/Users/gregorymace/projects/odbSails/node_modules/sails-hook-orm/lib/initialize.js:388:7)
+    at listener (/Users/gregorymace/projects/odbSails/node_modules/async/lib/async.js:605:42)
+    
+    
+    
+    /Users/gregorymace/projects/odbSails/node_modules/passport/lib/http/request.js:44
+    if (!this._passport) { throw new Error('passport.initialize() middleware not in use'); }
+                           ^
+
+Error: passport.initialize() middleware not in use
+    at IncomingMessage.req.login.req.logIn (/Users/gregorymace/projects/odbSails/node_modules/passport/lib/http/request.js:44:34)
+    at /Users/gregorymace/projects/odbSails/api/controllers/AuthController.js:23:21
+    at allFailed (/Users/gregorymace/projects/odbSails/node_modules/passport/lib/middleware/authenticate.js:87:18)
+    at attempt (/Users/gregorymace/projects/odbSails/node_modules/passport/lib/middleware/authenticate.js:160:28)
+    at Strategy.strategy.fail (/Users/gregorymace/projects/odbSails/node_modules/passport/lib/middleware/authenticate.js:277:9)
+    at verified (/Users/gregorymace/projects/odbSails/node_modules/passport-local/lib/strategy.js:82:30)
+    at /Users/gregorymace/projects/odbSails/api/services/passportKombi.js:89:36
+    at /Users/gregorymace/projects/odbSails/node_modules/bcryptjs/dist/bcrypt.js:230:13
+    at /Users/gregorymace/projects/odbSails/node_modules/bcryptjs/dist/bcrypt.js:1167:21
+    at Immediate.next (/Users/gregorymace/projects/odbSails/node_modules/bcryptjs/dist/bcrypt.js:1047:21)
+    at runCallback (timers.js:566:20)
+    at tryOnImmediate (timers.js:546:5)
+    at processImmediate [as _immediateCallback] (timers.js:525:5)
+    
+    
+    /Users/gregorymace/projects/odbSails/node_modules/passport/lib/http/request.js:44
+    if (!this._passport) { throw new Error('passport.initialize() middleware not in use'); }
+                           ^
+
+Error: passport.initialize() middleware not in use
+    at IncomingMessage.req.login.req.logIn (/Users/gregorymace/projects/odbSails/node_modules/passport/lib/http/request.js:44:34)
+    at /Users/gregorymace/projects/odbSails/api/controllers/AuthController.js:23:21
+    at Strategy.strategy.success (/Users/gregorymace/projects/odbSails/node_modules/passport/lib/middleware/authenticate.js:194:18)
+    at verified (/Users/gregorymace/projects/odbSails/node_modules/passport-local/lib/strategy.js:83:10)
+    at /Users/gregorymace/projects/odbSails/api/services/passportKombi.js:100:32
+    at /Users/gregorymace/projects/odbSails/node_modules/bcryptjs/dist/bcrypt.js:230:13
+    at /Users/gregorymace/projects/odbSails/node_modules/bcryptjs/dist/bcrypt.js:1167:21
+    at Immediate.next (/Users/gregorymace/projects/odbSails/node_modules/bcryptjs/dist/bcrypt.js:1047:21)
+    at runCallback (timers.js:566:20)
+    at tryOnImmediate (timers.js:546:5)
+    at processImmediate [as _immediateCallback] (timers.js:525:5)
+
+    
+

@@ -135,7 +135,7 @@ angular.module( 'kombi.marketability', [
             var url = '/dsn/saveProductGroup';
             console.log("saveProductGroup : "+JSON.stringify($rootScope.currentProductGroup));
             if ($rootScope.currentProductGroup.id) {
-                url+='?pgid='+$rootScope.currentProductGroup.id;
+                url+='?pgid='+encodeURIComponent($rootScope.selectedNetwork.id);
             }
             $http({
                 url: url,
@@ -293,7 +293,7 @@ angular.module( 'kombi.marketability', [
 
     $scope.getProductGroups = function() {
            $rootScope.productGroups = {};                
-           var url = '/dsn/productGroups?nid='+$rootScope.selectedNetwork.id; 
+           var url = '/dsn/productGroups?nid='+encodeURIComponent($rootScope.selectedNetwork.id); 
            $http.get(url)
            .then(function(res){
               $rootScope.productGroups = res.data;
@@ -302,7 +302,7 @@ angular.module( 'kombi.marketability', [
     }
     $scope.getFeedGroups = function() {
            $rootScope.feedGroups = {};                
-           var url = '/dsn/feedGroups?nid='+$rootScope.selectedNetwork.id; 
+           var url = '/dsn/feedGroups?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
            $http.get(url)
            .then(function(res){
               $rootScope.feedGroups = res.data;                
@@ -310,7 +310,7 @@ angular.module( 'kombi.marketability', [
     }
     $scope.getAnnouncementGroups = function() {
            $rootScope.announcementGroups = {};                
-           var url = '/dsn/announcementGroups?nid='+$rootScope.selectedNetwork.id; 
+           var url = '/dsn/announcementGroups?nid='+encodeURIComponent($rootScope.selectedNetwork.id); 
            $http.get(url)
            .then(function(res){
               $rootScope.announcementGroups = res.data;                
@@ -538,7 +538,7 @@ angular.module( 'kombi.marketability', [
                 
                 
 //                console.log('LayoutAssignController getMedia : '+JSON.stringify($rootScope.selectedNetwork));
-                var url = '/dsn/media?nid='+$rootScope.selectedNetwork.id+'&width='+width+'&height='+height+'&min='+min;
+                var url = '/dsn/media?nid='+encodeURIComponent($rootScope.selectedNetwork.id)+'&width='+width+'&height='+height+'&min='+min;
                 if ($scope.selectedRegion && $scope.selectedRegion.name) {
                         
                     console.log('getMedia search with type : '+$scope.selectedRegion);
@@ -656,7 +656,7 @@ angular.module( 'kombi.marketability', [
     }
     
     $scope.getUploadTarget = function() {
-        var url = '/dsn/upload?nid='+$rootScope.selectedNetwork.id;
+        var url = '/dsn/upload?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
         var  target = {target: url};
         return target;
     }
@@ -664,7 +664,7 @@ angular.module( 'kombi.marketability', [
     $scope.getMedia = function() {
        var url = '/dsn/media';
        if ($rootScope.selectedNetwork) {
-           url+='?nid='+$rootScope.selectedNetwork.id;
+           url+='?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
        }
        console.log('getting media, url : '+url);
        $http.get(url)
@@ -1136,7 +1136,7 @@ angular.module( 'kombi.marketability', [
     $scope.getSchedules = function() {
 
        console.log('getting schedules...');
-       var url = '/dsn/schedules?nid='+$rootScope.selectedNetwork.id;
+       var url = '/dsn/schedules?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
         
        $http.get(url)
 //       $http.get('/dsn/schedules')
@@ -1343,7 +1343,7 @@ angular.module( 'kombi.marketability', [
                     console.log('Finished reading Image , width :  '+img.width+' , height : '+img.height);
                      Upload.upload({
                           url: '/dsn/upload',
-                          network: $rootScope.selectedNetwork.id,
+                          network: encodeURIComponent($rootScope.selectedNetwork.id),
                           file: file
                     }).progress(function(evt) {
                           var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
@@ -1596,7 +1596,7 @@ angular.module( 'kombi.marketability', [
 //        newObj.name = newObj.name.split('()')[0]+'(2)';
         newObj.name = newObj.name +'(2)';
         newObj.currentWheel.assetType = 'Wheel';
-        newObj.network = $rootScope.selectedNetwork.id;
+        newObj.network = encodeURIComponent($rootScope.selectedNetwork.id);
         console.log('duplicating wheel : '+le);
         var url = '/dsn/saveWheel'; 
         $http({
@@ -2282,7 +2282,7 @@ angular.module( 'kombi.marketability', [
     };
 
     $scope.getDisplayGroups = function() {
-       var url = '/dsn/displayGroups?nid='+$rootScope.selectedNetwork.id;
+       var url = '/dsn/displayGroups?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
        $http.get(url)
        .then(function(res){
           $scope.displaygroups = res.data;                
@@ -2307,7 +2307,7 @@ angular.module( 'kombi.marketability', [
     }
     
     $scope.getLayouts = function() {
-       var url = '/dsn/layouts?nid='+$rootScope.selectedNetwork.id;
+       var url = '/dsn/layouts?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
        $http.get(url)
        .then(function(res){
           $rootScope.layouts = res.data;                
@@ -2316,7 +2316,7 @@ angular.module( 'kombi.marketability', [
     }
     
     $scope.getDisplays = function() {
-       var url = '/dsn/displays?nid='+$rootScope.selectedNetwork.id;
+       var url = '/dsn/displays?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
        $http.get(url)
        .then(function(res){
           $scope.displays = res.data;                
@@ -2333,7 +2333,7 @@ angular.module( 'kombi.marketability', [
     }
 
     $scope.getWheels = function() {
-       var url = '/dsn/wheels?nid='+$rootScope.selectedNetwork.id;
+       var url = '/dsn/wheels?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
        $http.get(url)
        .then(function(res){
           $rootScope.wheels = res.data;                
@@ -2509,7 +2509,7 @@ angular.module( 'kombi.marketability', [
         
     }
     $scope.getProducts = function() {
-           var url = '/dsn/products?nid='+$rootScope.selectedNetwork.id; 
+           var url = '/dsn/products?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
            $http.get(url)
            .then(function(res){
               $rootScope.products = res.data;
@@ -2522,7 +2522,7 @@ angular.module( 'kombi.marketability', [
         $rootScope.currentLayout.height = $scope.layoutTemplate.height;
         $rootScope.currentLayout.template = $scope.layoutTemplate.name;
         $rootScope.currentLayout.assetType = 'Layout';
-        $rootScope.currentLayout.network = $rootScope.selectedNetwork.id;
+        $rootScope.currentLayout.network = encodeURIComponent($rootScope.selectedNetwork.id);
         console.log('saving layout : '+JSON.stringify($rootScope.currentLayout));
         var url = '/dsn/saveLayout'; 
         if ($rootScope.currentLayout.id) {
@@ -2616,7 +2616,7 @@ angular.module( 'kombi.marketability', [
         });
     };
     $scope.sendFile = function(file) {
-            var uri = '/dsn/upload?nid='+$rootScope.selectedNetwork.id;
+            var uri = '/dsn/upload?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
             var xhr = new XMLHttpRequest();
             var fd = new FormData();
             
@@ -2669,7 +2669,7 @@ angular.module( 'kombi.marketability', [
         }
         Upload.upload({
           url: '/dsn/upload',
-          network: $rootScope.selectedNetwork.id,
+          network: encodeURIComponent($rootScope.selectedNetwork.id),
           name: file.name,
           file: file
         }).progress(function(evt) {
@@ -2851,7 +2851,7 @@ angular.module( 'kombi.marketability', [
             files.push(file);
             Upload.upload({
                 url: '/dsn/upload',
-                network: $rootScope.selectedNetwork.id,
+                network: encodeURIComponent($rootScope.selectedNetwork.id),
                 files: $scope.files
             }).progress(function(evt) {
               var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
@@ -2874,7 +2874,7 @@ angular.module( 'kombi.marketability', [
         }
 
         $scope.getLayouts = function() {
-            var url = '/dsn/layouts?nid='+$rootScope.selectedNetwork.id;
+            var url = '/dsn/layouts?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
             $http.get(url)
             .then(function(res){
               $rootScope.layouts = res.data;                
@@ -2908,7 +2908,7 @@ angular.module( 'kombi.marketability', [
             console.log('saving media : '+$rootScope.currentMedia);
             var url = '/dsn/saveMedia'; 
             if ($rootScope.currentMedia.id) {
-                url+='?mid='+$rootScope.currentMedia.id;
+                url+='?mid='+encodeURIComponent($rootScope.currentMedia.id);
             }
             $http({
                 url: url,
@@ -2964,7 +2964,7 @@ angular.module( 'kombi.marketability', [
 
         $scope.getWheels = function() {
             
-           var url = '/dsn/wheels?nid='+$rootScope.selectedNetwork.id;
+           var url = '/dsn/wheels?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
            $http.get(url)
                .then(function(res){
                   $rootScope.wheels = res.data;                
@@ -2972,7 +2972,7 @@ angular.module( 'kombi.marketability', [
         }
         
         $scope.getDisplays = function() {
-           var url = '/dsn/displays?nid='+$rootScope.selectedNetwork.id;
+           var url = '/dsn/displays?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
            $http.get(url)
                .then(function(res){
                   $scope.displays = res.data;                
@@ -2980,7 +2980,7 @@ angular.module( 'kombi.marketability', [
         }
 
         $scope.getDisplayGroups = function() {
-           var url = '/dsn/displaygroups?nid='+$rootScope.selectedNetwork.id;
+           var url = '/dsn/displaygroups?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
            $http.get(url)
                .then(function(res){
                   $scope.displaygroups = res.data;                
@@ -3596,7 +3596,7 @@ angular.module( 'kombi.marketability', [
     }
 
     $scope.getRules = function() {
-            var url = '/dsn/rules?nid='+$rootScope.selectedNetwork.id; 
+            var url = '/dsn/rules?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
            $http.get(url)
            .then(function(res){
               $scope.rules = res.data;                
@@ -3604,7 +3604,7 @@ angular.module( 'kombi.marketability', [
     }
 
     $scope.getMedia = function() {
-            var url = '/dsn/media?nid='+$rootScope.selectedNetwork.id; 
+            var url = '/dsn/media?nid='+encodeURIComponent($rootScope.selectedNetwork.id); 
             if ($scope.selectedRegion && $scope.selectedRegion.name) {
                 var searchName = $scope.selectedRegion.name.getText();
 //                    console.log('searching media with type : '+searchName.toString());
@@ -3621,7 +3621,7 @@ angular.module( 'kombi.marketability', [
     }
         
     $scope.updateMediaList = function() {
-            var url = '/dsn/media?nid='+$rootScope.selectedNetwork.id; 
+            var url = '/dsn/media?nid='+encodeURIComponent($rootScope.selectedNetwork.id); 
 //                var url = '/dsn/media';
             if ($scope.selectedRegion && $scope.selectedRegion.name) {
                 console.log('updateMediaList searching media with type : '+$scope.selectedRegion);
@@ -3865,7 +3865,7 @@ angular.module( 'kombi.marketability', [
                 $scope.media = [];
 //                var minimum  = (min) ?  1 : 0;
                 console.log('LayoutAssignController getMediaD : '+width+' , '+height+' , '+min);
-                var url = '/dsn/media?nid='+$rootScope.selectedNetwork.id+'&width='+width+'&height='+height+'&min='+min;
+                var url = '/dsn/media?nid='+encodeURIComponent($rootScope.selectedNetwork.id)+'&width='+width+'&height='+height+'&min='+min;
                 if ($scope.selectedRegion && $scope.selectedRegion.name) {
                     console.log('getMedia search with type : '+$scope.selectedRegion);
                     url += '?type='+$scope.selectedRegion.name;
@@ -3886,7 +3886,7 @@ angular.module( 'kombi.marketability', [
                 $scope.media = [];
                 
                 console.log('LayoutAssignController getMedia : '+JSON.stringify($rootScope.selectedNetwork));
-                var url = '/dsn/media?nid='+$rootScope.selectedNetwork.id;
+                var url = '/dsn/media?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
                 if ($scope.selectedRegion && $scope.selectedRegion.name) {
                     console.log('getMedia search with type : '+JSON.stringify($scope.selectedRegion));
                     if (!$scope.selectedRegion.name != 'content') {
@@ -4218,7 +4218,7 @@ angular.module( 'kombi.marketability', [
                 $scope.media = [];
 //                var minimum  = (min) ?  1 : 0;
                 console.log('LayoutAssignController getMediaD : '+width+' , '+height+' , '+min);
-                var url = '/dsn/media?nid='+$rootScope.selectedNetwork.id+'&width='+width+'&height='+height+'&min='+min;
+                var url = '/dsn/media?nid='+encodeURIComponent($rootScope.selectedNetwork.id)+'&width='+width+'&height='+height+'&min='+min;
                 if ($scope.selectedRegion && $scope.selectedRegion.name) {
                     console.log('getMedia search with type : '+$scope.selectedRegion);
                     url += '?type='+$scope.selectedRegion.name;
@@ -4239,7 +4239,7 @@ angular.module( 'kombi.marketability', [
                 $scope.media = [];
                 
                 console.log('LayoutAssignController getMedia : '+JSON.stringify($rootScope.selectedNetwork));
-                var url = '/dsn/media?nid='+$rootScope.selectedNetwork.id;
+                var url = '/dsn/media?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
                 if ($scope.selectedRegion && $scope.selectedRegion.name) {
                     console.log('getMedia search with type : '+JSON.stringify($scope.selectedRegion));
                     if (!$scope.selectedRegion.name != 'content') {
@@ -4387,7 +4387,7 @@ angular.module( 'kombi.marketability', [
         $scope.numRegions = 0;
         $scope.getAnnouncements = function() {
                $rootScope.announcements = {};                
-               var url = '/dsn/announcements?nid='+$rootScope.selectedNetwork.id; 
+               var url = '/dsn/announcements?nid='+encodeURIComponent($rootScope.selectedNetwork.id); 
                $http.get(url)
                .then(function(res){
                   $rootScope.announcements = res.data;                
@@ -4396,7 +4396,7 @@ angular.module( 'kombi.marketability', [
 
         $scope.getProducts = function() {
                $rootScope.products = {};                
-               var url = '/dsn/products?nid='+$rootScope.selectedNetwork.id; 
+               var url = '/dsn/products?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
                $http.get(url)
                .then(function(res){
                   $rootScope.products = res.data;                
@@ -4405,7 +4405,7 @@ angular.module( 'kombi.marketability', [
 
         $scope.getProductGroups = function() {
                $rootScope.productGroups = {};                
-               var url = '/dsn/productGroups?nid='+$rootScope.selectedNetwork.id; 
+               var url = '/dsn/productGroups?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
                $http.get(url)
                .then(function(res){
                   $rootScope.productGroups = res.data;                
@@ -4414,7 +4414,7 @@ angular.module( 'kombi.marketability', [
 
         $scope.getAnnouncementGroups = function() {
                $rootScope.announcementGroups = {};                
-               var url = '/dsn/announcementGroups?nid='+$rootScope.selectedNetwork.id; 
+               var url = '/dsn/announcementGroups?nid='+encodeURIComponent($rootScope.selectedNetwork.id); 
                $http.get(url)
                .then(function(res){
                   $rootScope.announcementGroups = res.data;                
@@ -4423,7 +4423,7 @@ angular.module( 'kombi.marketability', [
 
     
         $scope.getLayouts = function() {
-               var url = '/dsn/layouts?nid='+$rootScope.selectedNetwork.id; 
+               var url = '/dsn/layouts?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
                $http.get(url)
                .then(function(res){
                   $rootScope.layouts = res.data;                
@@ -5797,7 +5797,7 @@ angular.module( 'kombi.marketability', [
 
     $scope.getProducts = function() {
            $rootScope.products = {};                
-           var url = '/dsn/products?nid='+$rootScope.selectedNetwork.id; 
+           var url = '/dsn/products?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
            $http.get(url)
            .then(function(res){
               $rootScope.products = res.data;                
@@ -5806,7 +5806,7 @@ angular.module( 'kombi.marketability', [
 
     $scope.getProductGroups = function() {
            $rootScope.productGroups = {};                
-           var url = '/dsn/productGroups?nid='+$rootScope.selectedNetwork.id; 
+           var url = '/dsn/productGroups?nid='+encodeURIComponent($rootScope.selectedNetwork.id); 
            $http.get(url)
            .then(function(res){
               $rootScope.productGroups = res.data;                
@@ -6018,7 +6018,7 @@ angular.module( 'kombi.marketability', [
 
     $scope.getAnnouncements = function() {
            $rootScope.announcements = {};                
-           var url = '/dsn/announcements?nid='+$rootScope.selectedNetwork.id; 
+           var url = '/dsn/announcements?nid='+encodeURIComponent($rootScope.selectedNetwork.id); 
            $http.get(url)
            .then(function(res){
               $rootScope.announcements = res.data;                
@@ -6027,7 +6027,7 @@ angular.module( 'kombi.marketability', [
 
     $scope.getAnnouncementGroups = function() {
            $rootScope.announcementGroups = {};                
-           var url = '/dsn/announcementGroups?nid='+$rootScope.selectedNetwork.id; 
+           var url = '/dsn/announcementGroups?nid='+encodeURIComponent($rootScope.selectedNetwork.id); 
            $http.get(url)
            .then(function(res){
               $rootScope.announcementGroups = res.data;                
@@ -6203,7 +6203,7 @@ angular.module( 'kombi.marketability', [
 
     $scope.getFeeds = function() {
            $rootScope.products = {};                
-           var url = '/dsn/feeds?nid='+$rootScope.selectedNetwork.id; 
+           var url = '/dsn/feeds?nid='+encodeURIComponent($rootScope.selectedNetwork.id); 
            $http.get(url)
            .then(function(res){
               $rootScope.feeds = res.data;                
@@ -6212,7 +6212,7 @@ angular.module( 'kombi.marketability', [
 
     $scope.getFeedGroups = function() {
            $rootScope.productGroups = {};                
-           var url = '/dsn/feedGroups?nid='+$rootScope.selectedNetwork.id; 
+           var url = '/dsn/feedGroups?nid='+encodeURIComponent($rootScope.selectedNetwork.id); 
            $http.get(url)
            .then(function(res){
               $rootScope.feedGroups = res.data;                

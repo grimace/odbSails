@@ -64,8 +64,86 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
           }
         });
   },
+  company: function(req, res) {
+    var tid = req.param('type');
+    var nid = req.param('nid');
+    var w = req.param('width');
+    var h = req.param('height');
+    var min = req.param('min', false);
+    var limit = req.param('limit');
+    var skip = req.param('skip');
+    var filter = { in(NET_ASSET).@rid : nid };
+    var whereClause = 'WHERE in(NET_ASSET).@rid='+nid;
+    var queryClause;
       
+  },
+  product: function(req, res) {
+    var tid = req.param('type');
+    var nid = req.param('nid');
+    var w = req.param('width');
+    var h = req.param('height');
+    var min = req.param('min', false);
+    var limit = req.param('limit');
+    var skip = req.param('skip');
+    var filter = { in(NET_ASSET).@rid : nid };
+    var whereClause = 'WHERE in(NET_ASSET).@rid='+nid;
+    var queryClause;
+      
+  },
+  productgroup: function(req, res) {
+    var tid = req.param('type');
+    var nid = req.param('nid');
+    var w = req.param('width');
+    var h = req.param('height');
+    var min = req.param('min', false);
+    var limit = req.param('limit');
+    var skip = req.param('skip');
+    var filter = { in(NET_ASSET).@rid : nid };
+    var whereClause = 'WHERE in(NET_ASSET).@rid='+nid;
+    var queryClause;
+      
+  },
+  announcement: function(req, res) {
+    var tid = req.param('type');
+    var nid = req.param('nid');
+    var w = req.param('width');
+    var h = req.param('height');
+    var min = req.param('min', false);
+    var limit = req.param('limit');
+    var skip = req.param('skip');
+    var filter = { in(NET_ASSET).@rid : nid };
+    var whereClause = 'WHERE in(NET_ASSET).@rid='+nid;
+    var queryClause;
+      
+  },
+  announcementgroup: function(req, res) {
+    var tid = req.param('type');
+    var nid = req.param('nid');
+    var w = req.param('width');
+    var h = req.param('height');
+    var min = req.param('min', false);
+    var limit = req.param('limit');
+    var skip = req.param('skip');
+    var filter = { in(NET_ASSET).@rid : nid };
+    var whereClause = 'WHERE in(NET_ASSET).@rid='+nid;
+    var queryClause;
+      
+  },
+
   media: function(req, res) {
+    var tid = req.param('type');
+    var nid = req.param('nid');
+    var w = req.param('width');
+    var h = req.param('height');
+    var min = req.param('min', false);
+    var limit = req.param('limit');
+    var skip = req.param('skip');
+    var filter = { in(NET_ASSET).@rid : nid };
+    var whereClause = 'WHERE in(NET_ASSET).@rid='+nid;
+    var queryClause;
+      
+  },
+  mediaStuck: function(req, res) {
 
     var tid = req.param('type');
     var nid = req.param('nid');
@@ -74,7 +152,10 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
     var min = req.param('min', false);
     var limit = req.param('limit');
     var skip = req.param('skip');
-    var filter = { network : nid };
+    var filter = { in(NET_ASSET).@rid : nid };
+    var whereClause = 'WHERE in(NET_ASSET).@rid='+nid;
+    var queryClause;
+      
     console.log('DSNController.media - nid : '+nid);
     if (w) {
         var width = parseInt(w);
@@ -96,16 +177,11 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
     if (tid) {
         console.log('DSNController media: searching for : '+tid);
         if (tid == 'product') {
-//            dbclient.db().ks.collection('productgroup').find(filter).skip(sk).limit(l).toArray(function(err, contents) {
-//                if (err) { sails.log.warn(err); }
-//                      sails.log.debug("Found ProductGroups : " + contents.length);
-//                      res.json( contents );
-//            });
+            queryClause = 'from Product '+whereClause;
             if (limit) {
                 var l = parseInt(limit);
                 if (skip) {
                     var sk = parseInt(skip);
-//                    dbclient.mbox.command("SELECT FROM ProductGroup Where network='"+nid"' AND terminalId='"+terminalId+"'", function(err, contents) {
                     var query = dbclient.mbox.select().from('ProductGroup').where(filter).skip(sk).limit(l);
                     return query.all()
                       .then(function (contents) {
@@ -132,11 +208,11 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
                 }
             } else {
 //                dbclient.db().ks.collection('productgroup').find(filter).toArray(function(err, contents) {
-        //        Asset.find(filter).exec(function(err, contents) {
+                Asset.find(filter).exec(function(err, contents) {
 //                  if (err) { sails.log.warn(err); }
-                var query = dbclient.mbox.select().from('ProductGroup').where(filter);
-                return query.all()
-                      .then(function (contents) {
+//                var query = dbclient.mbox.select().from('ProductGroup').where(filter);
+//                return query.all()
+//                      .then(function (contents) {
                   sails.log.debug("Found ProductGroups : " + contents.length);
                   res.json( contents );
                 });
@@ -265,11 +341,13 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
         console.log("DSNController , filter : "+JSON.stringify(filter));
 //        dbclient.db().ks.collection('asset').find(filter).toArray(function(err, contents) {
 //          if (err) { sails.log.warn(err); }
-        var networkQuery = "expand(out('NET_ASSET')) from Network where @rid="+nid;
-//        var query = dbclient.mbox.select().from('Asset').where(filter);
-        var query = dbclient.mbox.select(networkQuery);
-        return query.all()
-          .then(function (contents) {
+        // select from Asset where in(NET_ASSET).@rid = #3961:0 and width >= 1920
+//        var networkQuery = "expand(out('NET_ASSET')) from Network where @rid="+nid;
+////        var query = dbclient.mbox.select().from('Asset').where(filter);
+//        var query = dbclient.mbox.select(networkQuery);
+//        return query.all()
+//          .then(function (contents) {
+        Asset.find(filter).exec(function(err, contents) {
           sails.log.debug("Found Media : " + contents.length);
           res.json( contents );
         });
@@ -424,28 +502,48 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
   },
   displays: function(req, res) {
     // do we filter by product???
-    var did = req.param('');
+//    var did = req.param('');
     var nid = req.param('nid');
-    var filter ={ 'network' : nid };
-
-    Display.find(filter).exec(function(err, contents) {
-      if (err) { sails.log.warn(err); }
-      sails.log.debug("Found displays : " + contents.length);
+//    var filter ={ '@rid' : nid };
+    var networkQuery = "expand(out('NET_DISPLAY')) from Network where @rid="+nid;
+    console.log('displays : '+networkQuery);
+//    var query = dbclient.mbox.select().from('Display').where(filter);
+    var query = dbclient.mbox.select(networkQuery);
+    return query.all()
+      .then(function (contents) {
+      sails.log.debug("Found Displays : " + contents.length);
       res.json( contents );
     });
+//
+//      
+//    Display.find(filter).exec(function(err, contents) {
+//      if (err) { sails.log.warn(err); }
+//      sails.log.debug("Found displays : " + contents.length);
+//      res.json( contents );
+//    });
 
   },
   displayGroups: function(req, res) {
     // do we filter by product???
-    var did = req.param('');
+//    var did = req.param('');
     var nid = req.param('nid');
-    var filter ={ 'network' : nid };
-
-    DisplayGroup.find(filter).exec(function(err, contents) {
-      if (err) { sails.log.warn(err); }
-      sails.log.debug("Found DisplayGroups : " + contents.length);
-      res.json( contents );
+//    var filter ={ 'network' : nid };
+    var networkQuery = "expand(out('NET_DISPLAYGROUP')) from Network where @rid="+nid;
+//        var query = dbclient.mbox.select().from('Asset').where(filter);
+    console.log('displayGroups : '+networkQuery);
+    var query = dbclient.mbox.select(networkQuery);
+    return query.all()
+          .then(function (contents) {
+          sails.log.debug("Found DisplayGroups : " + contents.length);
+          res.json( contents );
     });
+
+      //
+//    DisplayGroup.find(filter).exec(function(err, contents) {
+//      if (err) { sails.log.warn(err); }
+//      sails.log.debug("Found DisplayGroups : " + contents.length);
+//      res.json( contents );
+//    });
 
   },
   wheels: function(req, res) {

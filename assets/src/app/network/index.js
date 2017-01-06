@@ -42,7 +42,7 @@ angular.module( 'kombi.network', [
     $scope.getMedia = function() {
        var url = '/dsn/media';
        if ($rootScope.selectedNetwork) {
-           url+='?nid='+$rootScope.selectedNetwork.id;
+           url+='?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
        }
        console.log('getting media, url : '+url);
        $http.get(url)
@@ -56,7 +56,7 @@ angular.module( 'kombi.network', [
     $scope.getMediaMC = function() {
        var url = '/dsn/media';
        if ($rootScope.selectedNetwork) {
-           url+='?nid='+$rootScope.selectedNetwork.id;
+           url+='?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
        }
        console.log('MediaController -> getting media, url : '+url);
        $http.get(url)
@@ -174,7 +174,7 @@ angular.module( 'kombi.network', [
     $scope.getMedia = function() {
        var url = '/dsn/media';
        if ($rootScope.selectedNetwork) {
-           url+='?nid='+$rootScope.selectedNetwork.id;
+           url+='?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
        }
        console.log('getting media, url : '+url);
        $http.get(url)
@@ -189,7 +189,7 @@ angular.module( 'kombi.network', [
             console.log('getMediaD - width : '+width+' , height : '+height+' , min : '+min);
 //            $scope.media = [];
 
-            var url = '/dsn/media?nid='+$rootScope.selectedNetwork.id+'&width='+width+'&height='+height+'&min='+min;
+            var url = '/dsn/media?nid='+encodeURIComponent($rootScope.selectedNetwork.id)+'&width='+width+'&height='+height+'&min='+min;
 //            if ($scope.selectedRegion && $scope.selectedRegion.name) {
 //                console.log('getMedia search with type : '+$scope.selectedRegion);
 //                url += '?type='+$scope.selectedRegion.name;
@@ -526,7 +526,7 @@ angular.module( 'kombi.network', [
     $scope.getMedia = function() {
        var url = '/dsn/media';
        if ($rootScope.selectedNetwork) {
-           url+='?nid='+$rootScope.selectedNetwork.id;
+           url+='?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
        }
        console.log('getting media, url : '+url);
        $http.get(url)

@@ -589,7 +589,7 @@
 
     <tbody aria-live="polite" aria-relevant="all" ng-model="media" ng-init="getMedia()">
 <!--         <tr ng-repeat="asset in pages track by $index | orderBy:sortingOrder:reverse" class="{{selected}}">-->
-         <tr dir-paginate="asset in pages | itemsPerPage: 8" pagination-id="apaginate" class="warning odd" role="row" >
+         <tr dir-paginate="asset in media | itemsPerPage: 8" pagination-id="apaginate" class="warning odd" role="row" >
         
 <!--            <td>{{asset.id}}</td>-->
             <td>{{asset.name}}</td>
@@ -622,7 +622,8 @@
 </table>
 </div>
        
-<div id="paginationRegion">
+<!--<div id="paginationRegion">-->
+<!--
    <div id="tpc">Total Pages: {{getMediaPageCount()}}</div>
    <pagination pagination-id="apaginate" boundary-links="true" 
         max-size="3" 
@@ -632,8 +633,14 @@
         ng-change="pageChanged(page)"
         on-select-page="pageChanged(page)">
    </pagination>
-            
-</div>
+-->
+   
+   <div id="dpagination">
+        <dir-pagination-controls pagination-id="apaginate" boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="templates/dirPagination.tpl.html"></dir-pagination-controls>
+   </div>
+
+    
+<!--</div>-->
                 
 <!--
     <div class="pagination pull-left form-inline tablesorter-pager">

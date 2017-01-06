@@ -363,6 +363,7 @@ passport.serializeUser(function (user, next) {
 });
 
 passport.deserializeUser(function (id, next) {
+  //console.log('finding a Member : '+id);
   Member.findOne(id, next);
 });
 

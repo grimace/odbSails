@@ -222,7 +222,7 @@ angular.module( 'kombi', [
     var rs = {};
     var getLayouts = function() {
           
-            var url = '/dsn/layouts?nid='+$rootScope.selectedNetwork.id;
+            var url = '/dsn/layouts?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
            console.log('AssetSvc.getLayouts : '+url);
            $http.get(url)
            .then(function(res){
@@ -232,7 +232,7 @@ angular.module( 'kombi', [
     };
     
     var getDisplays = function() {
-           var url = '/dsn/displays?nid='+$rootScope.selectedNetwork.id;
+           var url = '/dsn/displays?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
            $http.get(url)
            .then(function(res){
               $rootScope.displays = res.data;                
@@ -241,7 +241,7 @@ angular.module( 'kombi', [
     };
 
     var getDisplayGroups = function() {
-           var url = '/dsn/displayGroups?nid='+$rootScope.selectedNetwork.id;
+           var url = '/dsn/displayGroups?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
            $http.get(url)
            .then(function(res){
               $rootScope.displaygroups = res.data;                
@@ -266,7 +266,7 @@ angular.module( 'kombi', [
     };
     
     var getWheels = function() {
-           var url = '/dsn/wheels?nid='+$rootScope.selectedNetwork.id;
+           var url = '/dsn/wheels?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
            $http.get(url)
            .then(function(res){
               $rootScope.wheels = res.data;                
@@ -539,7 +539,7 @@ angular.module( 'kombi', [
             });
     };
     var loadCompanyInfo = function() {
-           var url = '/network/companyInfo?nid='+$rootScope.selectedNetwork.id;
+           var url = '/network/companyInfo?nid='+encodeURIComponent($rootScope.selectedNetwork.id);
            console.log('loadCompanyInfo, url : '+url);
            $http.get(url)
            .then(function(res){

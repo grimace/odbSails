@@ -95,8 +95,8 @@ module.exports.connections = {
   ***************************************************************************/
   orientDbServer1: {
    adapter: 'sails-orientdb',
-   host: '192.168.1.82',
-   port: 2424, 
+   host: '192.168.1.133',
+   port: 2424,
    database: 'MusicBox',
    options: {
      databaseType: 'graph',

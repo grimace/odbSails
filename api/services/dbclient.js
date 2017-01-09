@@ -20,7 +20,7 @@ var OrientDB = require("orientjs");
 //};
 
 var dbConfig = {
-  host: "192.168.1.82",
+  host: "192.168.1.133",
   port: 2424,
   httpPort: 2480,
   username: "root",
@@ -37,15 +37,15 @@ var orientdb = OrientDB(dbConfig);
 var db = orientdb.use('MusicBox');
 console.log('dbclient db:'+db);
 //db.open(function(err) {
-// 
+//
 //    if (err) {
 //        console.log(err);
 //        return;
 //    }
-// 
+//
 //    console.log("Database '" + db.databaseName + "' has " + db.clusters.length + " clusters");
-// 
-//    // use db.command(...) function to run OrientDB SQL queries 
+//
+//    // use db.command(...) function to run OrientDB SQL queries
 //});
 
 //// connect and assign db's
@@ -82,8 +82,3 @@ module.exports = dbclient;
 ////    dbclient.neocard = neocard;
 //    return dbclient;
 //}
-
-
-
-
-

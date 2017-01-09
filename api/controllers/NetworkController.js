@@ -43,14 +43,14 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
   dirname: base_directory});
 
 module.exports = {
-    
-  
+
+
   index: function (req, res) {
     res.view(null, {
         title: 'Network'
     });
   },
-    
+
   savecompanyinfo: function(req, res) {
      var cid = req.param('cid');
      var data = buildCompanyInfoModel(req);
@@ -92,27 +92,49 @@ module.exports = {
 //  },
   companyinfo: function(req, res) {
     var nid = req.param('nid');
-    var filter ={ 'network' : nid };
-//    dbclient.db().ks.collection('company').findOne(filter).exec(function(err, content) {
-//      if (err) { sails.log.warn(err); }
-//      sails.log.debug("Found " + content.name);
-//      res.json( content );
-//    });
-//    dbclient.db().ks.collection('company').findOne(filter,
-//        function(err, content) {  
-//            if (err) { sails.log.warn(err); }
-        console.log('dbclient : '+dbclient);
-        console.log('dbclient.mbox : '+dbclient.mbox);
-      
-        var query = dbclient.mbox.select().from('Company').where(filter);
-        return query.all()
-          .then(function (contents) {
-            sails.log.debug("Found " + JSON.stringify(contents))
-            res.json( contents );
-    });
+    //var filter = { "in(NET_ASSET).@rid" : nid };
+    var queryClause;
+    if (nid) {
+      var whereClause = 'from Company WHERE in(NET_ASSET).@rid='+nid;
+      var query = dbclient.mbox.select(whereClause);
+      return query.all()
+        .then(function (contents) {
+        sails.log.debug("Found Company : " + contents.length);
+        res.json( contents[0] );
+      });
+    } else {
+      var query = dbclient.mbox.select().from('Company');
+      return query.all()
+        .then(function (contents) {
+        sails.log.debug("Found ProductGroups : " + contents.length);
+        res.json( contents );
+      });
+    }
+//
+//
+//
+//     var nid = req.param('nid');
+//     var filter ={ 'network' : nid };
+// //    dbclient.db().ks.collection('company').findOne(filter).exec(function(err, content) {
+// //      if (err) { sails.log.warn(err); }
+// //      sails.log.debug("Found " + content.name);
+// //      res.json( content );
+// //    });
+// //    dbclient.db().ks.collection('company').findOne(filter,
+// //        function(err, content) {
+// //            if (err) { sails.log.warn(err); }
+//         console.log('dbclient : '+dbclient);
+//         console.log('dbclient.mbox : '+dbclient.mbox);
+//
+//         var query = dbclient.mbox.select().from('Company').where(filter);
+//         return query.all()
+//           .then(function (contents) {
+//             sails.log.debug("Found " + JSON.stringify(contents))
+//             res.json( contents );
+//     });
   },
   uploadFlow: function(req, res) {
-      
+
     if(req.method === 'GET') {
         flow.get(req, function(status, filename, original_filename, identifier){
             console.log('GET', status);
@@ -120,7 +142,7 @@ module.exports = {
                 'Access-Control-Allow-Origin': '*'
                 (status == 'found' ? 200 : 404)
             });
-        });    
+        });
     } else {
         var data = buildModel(req);
         flow.post(req, function(status, filename, original_filename, identifier) {
@@ -129,11 +151,11 @@ module.exports = {
             res.status(status).send();
         });
     }
- },      
-// TODO : how the heck do you do this?      
+ },
+// TODO : how the heck do you do this?
 //'/download/:identifier', function(req, res) {
 //  flow.write(req.params.identifier, res);
-//});      
+//});
   upload: function(req, res) {
     var data = buildModel(req);
     console.log("DSN upload local : "+JSON.stringify(data));
@@ -160,60 +182,60 @@ module.exports = {
           console.log("file info : "+JSON.stringify(file));
           console.log('onUploadComplete called, flowIdentifier : '+data.flowIdentifier+' , flowChunkNumber : '+data.flowChunkNumber+' , flowTotalChunks : '+data.flowTotalChunks);
           var path = dirname + file.filename;
-          data.filepath = path;    
+          data.filepath = path;
           testComplete(data);
           callback(null, path);
         });
       }
     }, function (err, results) {
-     
+
       console.log('do nothing here!');
       data.path = results.one;
       res.send(200);
     });
   },
-    
+
   /**
    * Overrides for the settings in `config/controllers.js`
    * (specific to HomeController)
    */
   _config: {}
 
-  
+
 };
 
 function buildCompanyInfoModel(req) {
-  
+
   var data = modelhelper.parse(req);
   console.log('buildCompanyInfoModel data : '+JSON.stringify(data));
   var model = {};
   model.assetType = data.assetType;
   model.name = data.name;
   model.description = data.description;
-  model.tags = data.tags; 
-    
-//  model.companyTitle = data.companyTitle; 
-//  model.companyAddr = data.companyAddr; 
-//  model.companyPhone = data.companyPhone; 
-//  model.companyWeb = data.companyWeb; 
+  model.tags = data.tags;
 
-  model.logo = data.logo; 
+//  model.companyTitle = data.companyTitle;
+//  model.companyAddr = data.companyAddr;
+//  model.companyPhone = data.companyPhone;
+//  model.companyWeb = data.companyWeb;
 
-  model.companyTitle = data.companyTitle; 
-  model.companyInfo = data.companyInfo; 
-  model.companyImage = data.companyImage; 
-    
-    
+  model.logo = data.logo;
+
+  model.companyTitle = data.companyTitle;
+  model.companyInfo = data.companyInfo;
+  model.companyImage = data.companyImage;
+
+
   model.mainTitle = data.mainTitle;
   model.mainInfo = data.mainInfo;
-  model.mainImage = data.mainImage; 
-  model.backgroundImage = data.backgroundImage; 
-  model.phone = data.phone; 
-  model.web = data.web; 
-  model.email = data.email; 
-  model.hours = data.hours; 
-  model.address = data.address; 
-  model.network = data.network; 
+  model.mainImage = data.mainImage;
+  model.backgroundImage = data.backgroundImage;
+  model.phone = data.phone;
+  model.web = data.web;
+  model.email = data.email;
+  model.hours = data.hours;
+  model.address = data.address;
+  model.network = data.network;
   return model;
-    
+
 }

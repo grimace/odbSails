@@ -33,7 +33,7 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
   bucket: locals.s3DefaultBucket,
   dirname: base_directory});
 //var Skipper = require('skipper')({
-//    
+//
 //});
   module.exports = {
    index: function (req, res) {
@@ -65,19 +65,28 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
         });
   },
   company: function(req, res) {
-    var tid = req.param('type');
     var nid = req.param('nid');
-    var w = req.param('width');
-    var h = req.param('height');
-    var min = req.param('min', false);
-    var limit = req.param('limit');
-    var skip = req.param('skip');
-    var filter = { in(NET_ASSET).@rid : nid };
-    var whereClause = 'WHERE in(NET_ASSET).@rid='+nid;
+    var filter = { "in(NET_ASSET).@rid" : nid };
     var queryClause;
-      
+    if (nid) {
+      var whereClause = 'from Company WHERE in(NET_ASSET).@rid='+nid;
+      var query = dbclient.mbox.select(whereClause);
+      return query.all()
+        .then(function (contents) {
+        sails.log.debug("Found ProductGroups : " + contents.length);
+        res.json( contents );
+      });
+    } else {
+      var query = dbclient.mbox.select().from('Company');
+      return query.all()
+        .then(function (contents) {
+        sails.log.debug("Found ProductGroups : " + contents.length);
+        res.json( contents );
+      });
+    }
   },
-  product: function(req, res) {
+  products: function(req, res) {
+    console.log('/dsn/product ');
     var tid = req.param('type');
     var nid = req.param('nid');
     var w = req.param('width');
@@ -85,12 +94,26 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
     var min = req.param('min', false);
     var limit = req.param('limit');
     var skip = req.param('skip');
-    var filter = { in(NET_ASSET).@rid : nid };
-    var whereClause = 'WHERE in(NET_ASSET).@rid='+nid;
-    var queryClause;
-      
+    var filter = { "in(NET_ASSET).@rid" : nid };
+    if (nid) {
+      var whereClause = 'from Product WHERE in(NET_ASSET).@rid='+nid;
+      var query = dbclient.mbox.select(whereClause);
+      return query.all()
+        .then(function (contents) {
+        sails.log.debug("Found Products : " + contents.length);
+        res.json( contents );
+      });
+    } else {
+      var query = dbclient.mbox.select().from('Product');
+      return query.all()
+        .then(function (contents) {
+        sails.log.debug("Found Products : " + contents.length);
+        res.json( contents );
+      });
+    }
+
   },
-  productgroup: function(req, res) {
+  productGroups: function(req, res) {
     var tid = req.param('type');
     var nid = req.param('nid');
     var w = req.param('width');
@@ -98,12 +121,27 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
     var min = req.param('min', false);
     var limit = req.param('limit');
     var skip = req.param('skip');
-    var filter = { in(NET_ASSET).@rid : nid };
-    var whereClause = 'WHERE in(NET_ASSET).@rid='+nid;
-    var queryClause;
-      
+    var filter = { "in(NET_ASSET).@rid" : nid };
+    if (nid) {
+      var whereClause = 'from ProductGroup WHERE in(NET_ASSET).@rid='+nid;
+      var query = dbclient.mbox.select(whereClause);
+      return query.all()
+        .then(function (contents) {
+        sails.log.debug("Found ProductGroups : " + contents.length);
+        res.json( contents );
+      });
+    } else {
+      var query = dbclient.mbox.select().from('ProductGroup');
+      return query.all()
+        .then(function (contents) {
+        sails.log.debug("Found ProductGroups : " + contents.length);
+        res.json( contents );
+      });
+    }
+
   },
-  announcement: function(req, res) {
+  announcements: function(req, res) {
+    sails.log.debug('/dsn/announcements');
     var tid = req.param('type');
     var nid = req.param('nid');
     var w = req.param('width');
@@ -111,12 +149,27 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
     var min = req.param('min', false);
     var limit = req.param('limit');
     var skip = req.param('skip');
-    var filter = { in(NET_ASSET).@rid : nid };
-    var whereClause = 'WHERE in(NET_ASSET).@rid='+nid;
-    var queryClause;
-      
+    var filter = { "in(NET_ASSET).@rid" : nid };
+    if (nid) {
+      var whereClause = 'from Announcement WHERE in(NET_ASSET).@rid='+nid;
+      var query = dbclient.mbox.select(whereClause);
+      return query.all()
+        .then(function (contents) {
+        sails.log.debug("Found Announcements : " + contents.length);
+        res.json( contents );
+      });
+    } else {
+      Announcement.find(filter).exec(function(err, contents) {
+         if (err) {
+           sails.log.warn(err);
+         } else {
+           sails.log.debug("Found Announcements : " + contents.length);
+           res.json( contents );
+        }
+      });
+    }
   },
-  announcementgroup: function(req, res) {
+  announcementGroups: function(req, res) {
     var tid = req.param('type');
     var nid = req.param('nid');
     var w = req.param('width');
@@ -124,242 +177,312 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
     var min = req.param('min', false);
     var limit = req.param('limit');
     var skip = req.param('skip');
-    var filter = { in(NET_ASSET).@rid : nid };
-    var whereClause = 'WHERE in(NET_ASSET).@rid='+nid;
-    var queryClause;
-      
+    var filter = { "in(NET_ASSET).@rid" : nid };
+    if (nid) {
+      var whereClause = 'from AnnouncementGroup WHERE in(NET_ASSET).@rid='+nid;
+      var query = dbclient.mbox.select(whereClause);
+      return query.all()
+        .then(function (contents) {
+        sails.log.debug("Found AnnouncementGroups : " + contents.length);
+        res.json( contents );
+      });
+    } else {
+      var query = dbclient.mbox.select().from('AnnouncementGroups');
+      return query.all()
+        .then(function (contents) {
+        sails.log.debug("Found AnnouncementGroups : " + contents.length);
+        res.json( contents );
+      });
+    }
+
   },
 
   media: function(req, res) {
+//    var collection = Asset;
     var tid = req.param('type');
-    var nid = req.param('nid');
-    var w = req.param('width');
-    var h = req.param('height');
-    var min = req.param('min', false);
-    var limit = req.param('limit');
-    var skip = req.param('skip');
-    var filter = { in(NET_ASSET).@rid : nid };
-    var whereClause = 'WHERE in(NET_ASSET).@rid='+nid;
-    var queryClause;
-      
-  },
-  mediaStuck: function(req, res) {
-
-    var tid = req.param('type');
-    var nid = req.param('nid');
-    var w = req.param('width');
-    var h = req.param('height');
-    var min = req.param('min', false);
-    var limit = req.param('limit');
-    var skip = req.param('skip');
-    var filter = { in(NET_ASSET).@rid : nid };
-    var whereClause = 'WHERE in(NET_ASSET).@rid='+nid;
-    var queryClause;
-      
-    console.log('DSNController.media - nid : '+nid);
-    if (w) {
-        var width = parseInt(w);
-        var height = parseInt(h);
-        var minimum = (min == 'true') ? true : false;
-        console.log("DSNController , min : "+min.toString());
-        console.log("DSNController , minimum : "+minimum.toString());
-
-        if (minimum) {
-            console.log("DSNController , minimum/true : "+minimum.toString());
-            filter.width = { $gte : width };
-            filter.height = { $gte : height } ;
-        } else {
-            console.log("DSNController , minimum/false : "+minimum.toString());
-            filter.width = width;
-            filter.height = height;
-        }
-    }
     if (tid) {
-        console.log('DSNController media: searching for : '+tid);
-        if (tid == 'product') {
-            queryClause = 'from Product '+whereClause;
-            if (limit) {
-                var l = parseInt(limit);
-                if (skip) {
-                    var sk = parseInt(skip);
-                    var query = dbclient.mbox.select().from('ProductGroup').where(filter).skip(sk).limit(l);
-                    return query.all()
-                      .then(function (contents) {
-                          sails.log.debug("Found ProductGroups : " + contents.length);
-                          res.json( contents );
-                      });
-
-//                    dbclient.db().ks.collection('productgroup').find(filter).skip(sk).limit(l).toArray(function(err, contents) {
-//                      if (err) { sails.log.warn(err); }
-//                      sails.log.debug("Found ProductGroups : " + contents.length);
-//                      res.json( contents );
-//                    });
-
-                } else {
-                    
-//                    dbclient.db().ks.collection('productgroup').find(filter).limit(l).toArray(function(err, contents) {
-                    var query = dbclient.mbox.select().from('ProductGroup').where(filter).limit(l);
-                    return query.all()
-                      .then(function (contents) {
-//                      if (err) { sails.log.warn(err); }
-                      sails.log.debug("Found ProductGroups : " + contents.length);
-                      res.json( contents );
-                    });
-                }
-            } else {
-//                dbclient.db().ks.collection('productgroup').find(filter).toArray(function(err, contents) {
-                Asset.find(filter).exec(function(err, contents) {
-//                  if (err) { sails.log.warn(err); }
-//                var query = dbclient.mbox.select().from('ProductGroup').where(filter);
-//                return query.all()
-//                      .then(function (contents) {
-                  sails.log.debug("Found ProductGroups : " + contents.length);
-                  res.json( contents );
-                });
-            }
-        }  else  if (tid == 'announcement') {
-            if (limit) {
-                var l = parseInt(limit);
-                if (skip) {
-                    var sk = parseInt(skip);
-//                    dbclient.db().ks.collection('announcementgroup').find(filter).skip(sk).limit(l).toArray(function(err, contents) {
-                    var query = dbclient.mbox.select().from('AnnouncementGroup').where(filter).skip(sk).limit(l);
-                    return query.all()
-                      .then(function (contents) {
-
-//                        if (err) { sails.log.warn(err); }
-                      sails.log.debug("Found AnnouncementGroups : " + contents.length);
-                      res.json( contents );
-                    });
-
-                } else {
-                    //dbclient.db().ks.collection('announcementgroup').find(filter).limit(l).toArray(function(err, contents) {
-                    var query = dbclient.mbox.select().from('AnnouncementGroup').where(filter).limit(l);
-                    return query.all()
-                      .then(function (contents) {
-//                      if (err) { sails.log.warn(err); }
-                      sails.log.debug("Found AnnouncementGroups : " + contents.length);
-                      res.json( contents );
-                    });
-                }
-            } else {
-                var query = dbclient.mbox.select().from('AnnouncementGroup').where(filter);
-                return query.all()
-                  .then(function (contents) {
-//                dbclient.db().ks.collection('announcementgroup').find(filter).toArray(function(err, contents) {
-        //        Asset.find(filter).exec(function(err, contents) {
-//                  if (err) { sails.log.warn(err); }
-                  sails.log.debug("Found AnnouncementGroups : " + contents.length);
-                  res.json( contents );
-                });
-            }
-        }  else  if (tid == 'company') {
-            if (limit) {
-                var l = parseInt(limit);
-                if (skip) {
-                    var sk = parseInt(skip);
-                    var query = dbclient.mbox.select().from('Company').where(filter).skip(sk).limit(l);
-                    return query.all()
-                      .then(function (contents) {
-//                    dbclient.db().ks.collection('company').find(filter).skip(sk).limit(l).toArray(function(err, contents) {
-//                      if (err) { sails.log.warn(err); }
-                      sails.log.debug("Found Companies : " + contents.length);
-                      res.json( contents );
-                    });
-
-                } else {
-//                    dbclient.db().ks.collection('company').find(filter).limit(l).toArray(function(err, contents) {
-//                      if (err) { sails.log.warn(err); }
-                    var query = dbclient.mbox.select().from('Company').where(filter).limit(l);
-                    return query.all()
-                      .then(function (contents) {
-                      sails.log.debug("Found Companies : " + contents.length);
-                      res.json( contents );
-                    });
-                }
-            } else {
-//                dbclient.db().ks.collection('company').find(filter).toArray(function(err, contents) {
-//                  if (err) { sails.log.warn(err); }
-                    var query = dbclient.mbox.select().from('Company').where(filter);
-                    return query.all()
-                      .then(function (contents) {
-                  sails.log.debug("Found Companies : " + contents.length);
-                  res.json( contents );
-                });
-            }
-        }  else  if (tid == 'feed') {
-            
-            
-        }  else  {
-            if (tid == 'web') {
-                tid = 'text';
-            }
-            filter.mimetype = { $regex: '^'+tid, $options: 'i' };
-            //filter = { network : nid, mimetype : { $regex: '^'+tid, $options: 'i' } };
-            var search = JSON.stringify(tid); 
-            console.log('DSNController.media searching for : '+tid);
-    //        var re = new RegExp('.*'+search+'.', 'i');
-    //        {"mimetype": {$regex: ".*"+search+".", $options:"i"}}
-            //{"name":{"$regex":/haag/i}}
-            if (limit) {
-                var l = parseInt(limit);
-                if (skip) {
-                    var sk = parseInt(skip);
-//                    dbclient.db().ks.collection('asset').find(filter).skip(sk).limit(l).toArray(function(err, contents) {
-//                      if (err) { sails.log.warn(err); }
-                    var query = dbclient.mbox.select().from('Asset').where(filter).skip(sk).limit(l);
-                    return query.all()
-                      .then(function (contents) {
-                      sails.log.debug("Found Media : " + contents.length);
-                      res.json( contents );
-                    });
-
-                } else {
-//                    dbclient.db().ks.collection('asset').find(filter).limit(l).toArray(function(err, contents) {
-//                      if (err) { sails.log.warn(err); }
-                    var query = dbclient.mbox.select().from('Asset').where(filter).limit(l);
-                    return query.all()
-                      .then(function (contents) {
-                      sails.log.debug("Found Media : " + contents.length);
-                      res.json( contents );
-                    });
-                }
-            } else {
-//                dbclient.db().ks.collection('asset').find(filter).toArray(function(err, contents) {
-//        //        Asset.find(filter).exec(function(err, contents) {
-//                  if (err) { sails.log.warn(err); }
-//                    var query = dbclient.mbox.select();
-                    var query = dbclient.mbox.select().from('Asset').where(filter);
-                    return query.all()
-                      .then(function (contents) {
-                  sails.log.debug("Found Media : " + contents.length);
-                  res.json( contents );
-                });
-            }
-       }
-    } else {
-        console.log("DSNController , filter : "+JSON.stringify(filter));
-//        dbclient.db().ks.collection('asset').find(filter).toArray(function(err, contents) {
-//          if (err) { sails.log.warn(err); }
-        // select from Asset where in(NET_ASSET).@rid = #3961:0 and width >= 1920
-//        var networkQuery = "expand(out('NET_ASSET')) from Network where @rid="+nid;
-////        var query = dbclient.mbox.select().from('Asset').where(filter);
-//        var query = dbclient.mbox.select(networkQuery);
-//        return query.all()
-//          .then(function (contents) {
-        Asset.find(filter).exec(function(err, contents) {
-          sails.log.debug("Found Media : " + contents.length);
-          res.json( contents );
-        });
-//
-//        Asset.find().exec(function(err, contents) {
-//          if (err) { sails.log.warn(err); }
-//          sails.log.debug("Found Media : " + contents.length);
-//          res.json( contents );
-//        });
+      switch (tid) {
+        case 'company':
+          company(req,res);
+          return;
+        case 'product':
+          products(req,res);
+          return;
+        case 'productgroup':
+          productGroups(req,res);
+          return;
+        case 'announcement':
+          announcements(req,res);
+          return;
+        case 'announcementgroup':
+          announcementGroups(req,res);
+          return;
+      }
     }
-
+    var nid = req.param('nid');
+    var w = req.param('width');
+    var h = req.param('height');
+    var min = req.param('min', false);
+    if (nid) {
+      var whereClause = 'from Asset WHERE in(NET_ASSET).@rid='+nid;
+      if (w) {
+        whereClause += " AND width ";
+        if (min) {
+           whereClause += " >= "+w;
+        } else {
+          whereClause += " = "+w;
+        }
+      }
+      if (h) {
+        whereClause += " AND height ";
+        if (min) {
+           whereClause += " >= "+h;
+        } else {
+          whereClause += " = "+h;
+        }
+      }
+      var query = dbclient.mbox.select(whereClause);
+      return query.all()
+        .then(function (contents) {
+        sails.log.debug("Found Assets : " + contents.length);
+        res.json( contents );
+      });
+    } else {
+        Asset.find(filter).exec(function(err, contents) {
+           if (err) {
+             sails.log.warn(err);
+           } else {
+             sails.log.debug("Found ProductGroups : " + contents.length);
+             res.json( contents );
+          }
+        });
+    }
+    //  else {
+    //   var query = dbclient.mbox.select().from('Asset');
+    //   return query.all()
+    //     .then(function (contents) {
+    //     sails.log.debug("Found Assets : " + contents.length);
+    //     res.json( contents );
+    //   });
+    // }
   },
+//   mediaStuck: function(req, res) {
+//
+//     var tid = req.param('type');
+//     var nid = req.param('nid');
+//     var w = req.param('width');
+//     var h = req.param('height');
+//     var min = req.param('min', false);
+//     var limit = req.param('limit');
+//     var skip = req.param('skip');
+//     var filter = { in(NET_ASSET).@rid : nid };
+//     var whereClause = 'WHERE in(NET_ASSET).@rid='+nid;
+//     var queryClause;
+//
+//     console.log('DSNController.media - nid : '+nid);
+//     if (w) {
+//         var width = parseInt(w);
+//         var height = parseInt(h);
+//         var minimum = (min == 'true') ? true : false;
+//         console.log("DSNController , min : "+min.toString());
+//         console.log("DSNController , minimum : "+minimum.toString());
+//
+//         if (minimum) {
+//             console.log("DSNController , minimum/true : "+minimum.toString());
+//             filter.width = { $gte : width };
+//             filter.height = { $gte : height } ;
+//         } else {
+//             console.log("DSNController , minimum/false : "+minimum.toString());
+//             filter.width = width;
+//             filter.height = height;
+//         }
+//     }
+//     if (tid) {
+//         console.log('DSNController media: searching for : '+tid);
+//         if (tid == 'product') {
+//             queryClause = 'from Product '+whereClause;
+//             if (limit) {
+//                 var l = parseInt(limit);
+//                 if (skip) {
+//                     var sk = parseInt(skip);
+//                     var query = dbclient.mbox.select().from('ProductGroup').where(filter).skip(sk).limit(l);
+//                     return query.all()
+//                       .then(function (contents) {
+//                           sails.log.debug("Found ProductGroups : " + contents.length);
+//                           res.json( contents );
+//                       });
+//
+// //                    dbclient.db().ks.collection('productgroup').find(filter).skip(sk).limit(l).toArray(function(err, contents) {
+// //                      if (err) { sails.log.warn(err); }
+// //                      sails.log.debug("Found ProductGroups : " + contents.length);
+// //                      res.json( contents );
+// //                    });
+//
+//                 } else {
+//
+// //                    dbclient.db().ks.collection('productgroup').find(filter).limit(l).toArray(function(err, contents) {
+//                     var query = dbclient.mbox.select().from('ProductGroup').where(filter).limit(l);
+//                     return query.all()
+//                       .then(function (contents) {
+// //                      if (err) { sails.log.warn(err); }
+//                       sails.log.debug("Found ProductGroups : " + contents.length);
+//                       res.json( contents );
+//                     });
+//                 }
+//             } else {
+// //                dbclient.db().ks.collection('productgroup').find(filter).toArray(function(err, contents) {
+//                 Asset.find(filter).exec(function(err, contents) {
+// //                  if (err) { sails.log.warn(err); }
+// //                var query = dbclient.mbox.select().from('ProductGroup').where(filter);
+// //                return query.all()
+// //                      .then(function (contents) {
+//                   sails.log.debug("Found ProductGroups : " + contents.length);
+//                   res.json( contents );
+//                 });
+//             }
+//         }  else  if (tid == 'announcement') {
+//             if (limit) {
+//                 var l = parseInt(limit);
+//                 if (skip) {
+//                     var sk = parseInt(skip);
+// //                    dbclient.db().ks.collection('announcementgroup').find(filter).skip(sk).limit(l).toArray(function(err, contents) {
+//                     var query = dbclient.mbox.select().from('AnnouncementGroup').where(filter).skip(sk).limit(l);
+//                     return query.all()
+//                       .then(function (contents) {
+//
+// //                        if (err) { sails.log.warn(err); }
+//                       sails.log.debug("Found AnnouncementGroups : " + contents.length);
+//                       res.json( contents );
+//                     });
+//
+//                 } else {
+//                     //dbclient.db().ks.collection('announcementgroup').find(filter).limit(l).toArray(function(err, contents) {
+//                     var query = dbclient.mbox.select().from('AnnouncementGroup').where(filter).limit(l);
+//                     return query.all()
+//                       .then(function (contents) {
+// //                      if (err) { sails.log.warn(err); }
+//                       sails.log.debug("Found AnnouncementGroups : " + contents.length);
+//                       res.json( contents );
+//                     });
+//                 }
+//             } else {
+//                 var query = dbclient.mbox.select().from('AnnouncementGroup').where(filter);
+//                 return query.all()
+//                   .then(function (contents) {
+// //                dbclient.db().ks.collection('announcementgroup').find(filter).toArray(function(err, contents) {
+//         //        Asset.find(filter).exec(function(err, contents) {
+// //                  if (err) { sails.log.warn(err); }
+//                   sails.log.debug("Found AnnouncementGroups : " + contents.length);
+//                   res.json( contents );
+//                 });
+//             }
+//         }  else  if (tid == 'company') {
+//             if (limit) {
+//                 var l = parseInt(limit);
+//                 if (skip) {
+//                     var sk = parseInt(skip);
+//                     var query = dbclient.mbox.select().from('Company').where(filter).skip(sk).limit(l);
+//                     return query.all()
+//                       .then(function (contents) {
+// //                    dbclient.db().ks.collection('company').find(filter).skip(sk).limit(l).toArray(function(err, contents) {
+// //                      if (err) { sails.log.warn(err); }
+//                       sails.log.debug("Found Companies : " + contents.length);
+//                       res.json( contents );
+//                     });
+//
+//                 } else {
+// //                    dbclient.db().ks.collection('company').find(filter).limit(l).toArray(function(err, contents) {
+// //                      if (err) { sails.log.warn(err); }
+//                     var query = dbclient.mbox.select().from('Company').where(filter).limit(l);
+//                     return query.all()
+//                       .then(function (contents) {
+//                       sails.log.debug("Found Companies : " + contents.length);
+//                       res.json( contents );
+//                     });
+//                 }
+//             } else {
+// //                dbclient.db().ks.collection('company').find(filter).toArray(function(err, contents) {
+// //                  if (err) { sails.log.warn(err); }
+//                     var query = dbclient.mbox.select().from('Company').where(filter);
+//                     return query.all()
+//                       .then(function (contents) {
+//                   sails.log.debug("Found Companies : " + contents.length);
+//                   res.json( contents );
+//                 });
+//             }
+//         }  else  if (tid == 'feed') {
+//
+//
+//         }  else  {
+//             if (tid == 'web') {
+//                 tid = 'text';
+//             }
+//             filter.mimetype = { $regex: '^'+tid, $options: 'i' };
+//             //filter = { network : nid, mimetype : { $regex: '^'+tid, $options: 'i' } };
+//             var search = JSON.stringify(tid);
+//             console.log('DSNController.media searching for : '+tid);
+//     //        var re = new RegExp('.*'+search+'.', 'i');
+//     //        {"mimetype": {$regex: ".*"+search+".", $options:"i"}}
+//             //{"name":{"$regex":/haag/i}}
+//             if (limit) {
+//                 var l = parseInt(limit);
+//                 if (skip) {
+//                     var sk = parseInt(skip);
+// //                    dbclient.db().ks.collection('asset').find(filter).skip(sk).limit(l).toArray(function(err, contents) {
+// //                      if (err) { sails.log.warn(err); }
+//                     var query = dbclient.mbox.select().from('Asset').where(filter).skip(sk).limit(l);
+//                     return query.all()
+//                       .then(function (contents) {
+//                       sails.log.debug("Found Media : " + contents.length);
+//                       res.json( contents );
+//                     });
+//
+//                 } else {
+// //                    dbclient.db().ks.collection('asset').find(filter).limit(l).toArray(function(err, contents) {
+// //                      if (err) { sails.log.warn(err); }
+//                     var query = dbclient.mbox.select().from('Asset').where(filter).limit(l);
+//                     return query.all()
+//                       .then(function (contents) {
+//                       sails.log.debug("Found Media : " + contents.length);
+//                       res.json( contents );
+//                     });
+//                 }
+//             } else {
+// //                dbclient.db().ks.collection('asset').find(filter).toArray(function(err, contents) {
+// //        //        Asset.find(filter).exec(function(err, contents) {
+// //                  if (err) { sails.log.warn(err); }
+// //                    var query = dbclient.mbox.select();
+//                     var query = dbclient.mbox.select().from('Asset').where(filter);
+//                     return query.all()
+//                       .then(function (contents) {
+//                   sails.log.debug("Found Media : " + contents.length);
+//                   res.json( contents );
+//                 });
+//             }
+//        }
+//     } else {
+//         console.log("DSNController , filter : "+JSON.stringify(filter));
+// //        dbclient.db().ks.collection('asset').find(filter).toArray(function(err, contents) {
+// //          if (err) { sails.log.warn(err); }
+//         // select from Asset where in(NET_ASSET).@rid = #3961:0 and width >= 1920
+// //        var networkQuery = "expand(out('NET_ASSET')) from Network where @rid="+nid;
+// ////        var query = dbclient.mbox.select().from('Asset').where(filter);
+// //        var query = dbclient.mbox.select(networkQuery);
+// //        return query.all()
+// //          .then(function (contents) {
+//         Asset.find(filter).exec(function(err, contents) {
+//           sails.log.debug("Found Media : " + contents.length);
+//           res.json( contents );
+//         });
+// //
+// //        Asset.find().exec(function(err, contents) {
+// //          if (err) { sails.log.warn(err); }
+// //          sails.log.debug("Found Media : " + contents.length);
+// //          res.json( contents );
+// //        });
+//     }
+//
+//   },
   layouts: function(req, res) {
     // do we filter by product???
     var pid = req.param('');
@@ -376,7 +499,7 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
     });
 
   },
-  products: function(req, res) {
+  productsOld: function(req, res) {
     // do we filter by product???
     var pid = req.param('');
     var nid = req.param('nid');
@@ -392,7 +515,7 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
     });
 
   },
-  productGroups: function(req, res) {
+  productGroupsOld: function(req, res) {
     // do we filter by product???
     var pid = req.param('');
     var nid = req.param('nid');
@@ -439,37 +562,37 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
     });
 
   },
-  announcements: function(req, res) {
-    // do we filter by product???
-    var nid = req.param('nid');
-    var filter ={ 'network' : nid };
-
-//    Announcement.find(filter).exec(function(err, contents) {
-//      if (err) { sails.log.warn(err); }
-    var query = dbclient.mbox.select().from('Announcement').where(filter);
-    return query.all()
-      .then(function (contents) {
-      sails.log.debug("Found Announcements : " + contents.length);
-      res.json( contents );
-    });
-
-  },
-  announcementGroups: function(req, res) {
-    // do we filter by product???
-    var pid = req.param('');
-    var nid = req.param('nid');
-    var filter ={ 'network' : nid };
-
-//    AnnouncementGroup.find(filter).exec(function(err, contents) {
-//      if (err) { sails.log.warn(err); }
-    var query = dbclient.mbox.select().from('AnnouncementGroup').where(filter);
-    return query.all()
-      .then(function (contents) {
-      sails.log.debug("Found AnnouncementGroups : " + contents.length);
-      res.json( contents );
-    });
-
-  },
+//   announcements: function(req, res) {
+//     // do we filter by product???
+//     var nid = req.param('nid');
+//     var filter ={ 'network' : nid };
+//
+// //    Announcement.find(filter).exec(function(err, contents) {
+// //      if (err) { sails.log.warn(err); }
+//     var query = dbclient.mbox.select().from('Announcement').where(filter);
+//     return query.all()
+//       .then(function (contents) {
+//       sails.log.debug("Found Announcements : " + contents.length);
+//       res.json( contents );
+//     });
+//
+//   },
+//   announcementGroups: function(req, res) {
+//     // do we filter by product???
+//     var pid = req.param('');
+//     var nid = req.param('nid');
+//     var filter ={ 'network' : nid };
+//
+// //    AnnouncementGroup.find(filter).exec(function(err, contents) {
+// //      if (err) { sails.log.warn(err); }
+//     var query = dbclient.mbox.select().from('AnnouncementGroup').where(filter);
+//     return query.all()
+//       .then(function (contents) {
+//       sails.log.debug("Found AnnouncementGroups : " + contents.length);
+//       res.json( contents );
+//     });
+//
+//   },
   rules: function(req, res) {
     // do we filter by product???
     var pid = req.param('');
@@ -515,7 +638,7 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
       res.json( contents );
     });
 //
-//      
+//
 //    Display.find(filter).exec(function(err, contents) {
 //      if (err) { sails.log.warn(err); }
 //      sails.log.debug("Found displays : " + contents.length);
@@ -591,7 +714,7 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
 //      console.log('upload : '+req);
       console.log("logging keys for req :");
       console.log(Object.keys(req));
-      
+
       console.log("logging keys for packet :");
       console.log(Object.keys(packet));
 
@@ -658,7 +781,7 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
         });
       }
     }, function (err, results) {
-     
+
       console.log('do nothing here!');
       data.path = results.one;
       data.productPath = results.two;
@@ -674,7 +797,7 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
     });
   },
   uploadFlow: function(req, res) {
-      
+
     if(req.method === 'GET') {
         flow.get(req, function(status, filename, original_filename, identifier){
             console.log('GET', status);
@@ -682,10 +805,10 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
                 'Access-Control-Allow-Origin': '*'
                 (status == 'found' ? 200 : 404)
             });
-        });    
+        });
     } else {
         var data = buildModel(req);
-//        multipartMiddleware, 
+//        multipartMiddleware,
         flow.post(req, function(status, filename, original_filename, identifier) {
             console.log('POST', status, original_filename, identifier);
 //            if (ACCESS_CONTROLL_ALLOW_ORIGIN) {
@@ -693,7 +816,7 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
 //            }
             res.status(status).send();
         });
-        
+
 //        flow.post(req, function(status, filename, original_filename, identifier){
 //            console.log('POST', status, original_filename, identifier);
 //            res.send(200, {
@@ -702,11 +825,11 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
 //            });
 //        });
     }
-  },      
-// TODO : how the heck do you do this?      
+  },
+// TODO : how the heck do you do this?
 //'/download/:identifier', function(req, res) {
 //  flow.write(req.params.identifier, res);
-//});      
+//});
   upload: function(req, res) {
     var nid = req.param('nid');
     var data = buildModel(req);
@@ -754,13 +877,13 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
         });
       }
     }, function (err, results) {
-     
+
       console.log('do nothing here!');
       data.path = results.one;
 //      data.productPath = results.two;
       // Get File data from both calls and save new file
       res.send(200);
-//      if (data.flowChunkNumber == 1) {    
+//      if (data.flowChunkNumber == 1) {
 //          Asset.create( data ).exec(function(err, asset) {
 //            // Error handling
 //            if (err) {
@@ -790,7 +913,7 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
             } else {
                 console.log(wheel);
                 res.send(200);
-                
+
                 wheel.id = lid;
                 var layoutIdList = [];
                 layoutIdList.push(lid);
@@ -812,7 +935,7 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
         } );
      }
   },
-      
+
   saveDisplay: function(req, res) {
      var data = buildDisplayModel(req);
      var did = req.param('did');
@@ -935,7 +1058,7 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
             } else {
                 console.log(layout);
                 res.send(layout);
-                
+
                 layout.id = lid;
                 var layoutIdList = [];
                 propagateWheelChanges(layout, function(err1, layoutIdList) {
@@ -1181,7 +1304,7 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
         // { 'voters.$.user': req.id }
         var filter ={ 'entries.$._id' : mid };
         console.log('DSNController searching for layouts containing media with : '+mid);
-        Layout.find(filter).exec(function(err, contents) { 
+        Layout.find(filter).exec(function(err, contents) {
 //        dbclient.db().ks.collection('layout').find(filter).toArray(function(err, contents) {
           if (err) { sails.log.warn(err); }
           sails.log.debug("Found Media : " + contents.length);
@@ -1283,7 +1406,7 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
       Asset.update( { id: cid }, data ).exec( function ( err, ad ) {
         // Error handling
         if ( err ) {
-            
+
             console.log("found and error : "+err);
             return res.send( err, 500 );
         }
@@ -1440,7 +1563,7 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
       });
   },
   newcontent: function(req, res) {
-    // TODO : here pull json from request for form data  
+    // TODO : here pull json from request for form data
     res.view('dsn/content/new');
   },
   mapImage: function(req, res) {
@@ -1453,7 +1576,7 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
         var centerPoint = lat+","+lon;
         var url ="http://dev.virtualearth.net/REST/v1/Imagery/Map/"+imagerySet+"/"+centerPoint+"/"+zoom+"?mapSize=400,400&key="+BingMapKey;
         res.redirect(url);
-      
+
         var http = require('http');
         var fs = require('fs');
 
@@ -1472,16 +1595,16 @@ var SkipperS3 = require('skipper-s3')({ key: locals.s3AccessKey,
         });
 //    };
 
-      
-      
-      
-      
+
+
+
+
   }
 };
 
 function buildModel(req) {
   // buildModel data keys : flowChunkNumber,flowChunkSize,flowCurrentChunkSize,flowTotalSize,flowIdentifier,flowFilename,flowRelativePath,flowTotalChunks
-  
+
   var data = modelhelper.parse(req);
   console.log("request files : "+req.files);
   console.log("request file : "+req.file);
@@ -1518,7 +1641,7 @@ function buildModel(req) {
 
 function buildMediaModel(req) {
   // buildModel data keys : flowChunkNumber,flowChunkSize,flowCurrentChunkSize,flowTotalSize,flowIdentifier,flowFilename,flowRelativePath,flowTotalChunks
-  
+
   var data = modelhelper.parse(req);
   console.log('buildMediaModel data : ');
   for (var key in Object.keys(data)) {
@@ -1528,12 +1651,12 @@ function buildMediaModel(req) {
   var model = {};
   model.title = data.title;
   model.name = data.name;
-    
+
   model.path = data.path;
   model.network = data.network;
-  
+
 //  model.filename = data.path;
-    
+
   model.description = data.description;
   model.duration = data.duration;
   model.width = data.width;
@@ -1558,8 +1681,8 @@ function buildWheelModel(req) {
   var model = {};
   model.name = data.name;
   model.description = data.description;
-  model.layouts = data.layouts; 
-  model.tags = data.tags; 
+  model.layouts = data.layouts;
+  model.tags = data.tags;
   model.network = data.network;
   return model;
 }
@@ -1570,11 +1693,11 @@ function buildLayoutModel(req) {
   model.name = data.name;
   model.description = data.description;
   // TODO : create regions
-  model.regions = data.regions; 
-  model.tags = data.tags; 
-  model.width = data.width; 
-  model.height = data.height; 
-  model.template = data.template;   
+  model.regions = data.regions;
+  model.tags = data.tags;
+  model.width = data.width;
+  model.height = data.height;
+  model.template = data.template;
   model.network = data.network;
   model.backgroundLandscapeImage = data.backgroundLandscapeImage;
   model.backgroundPortraitImage = data.backgroundPortraitImage;
@@ -1589,13 +1712,13 @@ function buildScheduleModel(req) {
   model.title = data.title;
   model.info = data.info;
   model.description = data.description;
-  model.tags = data.tags; 
+  model.tags = data.tags;
   // TODO : create regions
   model.startDate = new Date(data.startDate);
-  model.startsAt = new Date(data.startsAt); 
+  model.startsAt = new Date(data.startsAt);
   model.endsAt = new Date(data.endsAt);
   model.recurrence = data.recurrence;
-    
+
 //  model.recursOn = data.recursOn;
 //  model.recDetail = data.recDetail;
   model.leType = data.leType;
@@ -1605,8 +1728,8 @@ function buildScheduleModel(req) {
 //    model.recRange = new Date(data.recRange);
 //    console.log('setting recRange : '+model.recRange);
 //  }
-  model.layoutElement = data.layoutElement; 
-  model.displayElements = data.displayElements; 
+  model.layoutElement = data.layoutElement;
+  model.displayElements = data.displayElements;
   return model;
 }
 
@@ -1616,10 +1739,10 @@ function buildDisplayGroupModel(req) {
   var model = {};
   model.name = data.name;
   model.description = data.description;
-  model.defaultLayout = data.defaultLayout; 
-  model.defaultLayoutType = data.defaultLayoutType; 
-  model.displays = data.displays;    
-  model.tags = data.tags;    
+  model.defaultLayout = data.defaultLayout;
+  model.defaultLayoutType = data.defaultLayoutType;
+  model.displays = data.displays;
+  model.tags = data.tags;
   model.network = data.network;
   return model;
 }
@@ -1630,16 +1753,16 @@ function buildDisplayModel(req) {
   var model = {};
   model.name = data.name;
   model.description = data.description;
-  model.tags = data.tags; 
-  model.orientation = data.orientation; 
-  model.geometry = data.geometry; 
-  model.defaultLayout = data.defaultLayout; 
-  model.defaultLayoutType = data.defaultLayoutType; 
-  model.displayId = data.displayId; 
-  model.ipaddress = data.ipaddress; 
-  model.macaddress = data.macaddress; 
-  model.license = data.license; 
-  model.licensed = data.licensed; 
+  model.tags = data.tags;
+  model.orientation = data.orientation;
+  model.geometry = data.geometry;
+  model.defaultLayout = data.defaultLayout;
+  model.defaultLayoutType = data.defaultLayoutType;
+  model.displayId = data.displayId;
+  model.ipaddress = data.ipaddress;
+  model.macaddress = data.macaddress;
+  model.license = data.license;
+  model.licensed = data.licensed;
   model.network = data.network;
   return model;
 }
@@ -1673,15 +1796,15 @@ function buildProductModel(req) {
   model.type = data.type;
   model.description = data.description;
   if (data.lat && data.lon) {
-      model.location = data.lat+','+data.lon; 
+      model.location = data.lat+','+data.lon;
   }
   model.productDetail = data.productDetail;
   model.name = data.name;
   model.image = data.image;
-  model.mapImage = data.mapImage; 
+  model.mapImage = data.mapImage;
   model.location = data.location;
-  model.featured = data.featured; 
-  model.tags = data.tags; 
+  model.featured = data.featured;
+  model.tags = data.tags;
   model.network = data.network;
   return model;
 }
@@ -1695,18 +1818,18 @@ function buildProductGroupModel(req) {
   model.description = data.description;
   model.details = data.details;
   if (data.lat && data.lon) {
-      model.location = data.lat+','+data.lon; 
+      model.location = data.lat+','+data.lon;
   }
   model.class = data.class;
   model.category = data.category;
   model.name = data.name;
   model.location = data.location;
-  model.mapImage = data.mapImage; 
-  model.items = data.items; 
-  model.tags = data.tags; 
+  model.mapImage = data.mapImage;
+  model.items = data.items;
+  model.tags = data.tags;
   model.network = data.network;
-  model.major = data.major; 
-  model.minor = data.minor; 
+  model.major = data.major;
+  model.minor = data.minor;
   return model;
 
 }
@@ -1719,33 +1842,33 @@ function buildFeedGroupModel(req) {
   model.description = data.description;
   model.details = data.details;
   if (data.lat && data.lon) {
-      model.location = data.lat+','+data.lon; 
+      model.location = data.lat+','+data.lon;
   }
   model.class = data.class;
   model.category = data.category;
   model.name = data.name;
-  model.mapImage = data.mapImage; 
-  model.items = data.items; 
-  model.tags = data.tags; 
+  model.mapImage = data.mapImage;
+  model.items = data.items;
+  model.tags = data.tags;
   model.network = data.network;
   return model;
 
 }
 function buildAnnouncementGroupModel(req) {
 
-  // Name	image	Location	Description	Tag	Details	Features	
+  // Name	image	Location	Description	Tag	Details	Features
   var data = modelhelper.parse(req);
   console.log('buildAnnouncementGroupModel data : '+JSON.stringify(data));
   var model = {};
   model.name= data.name;
   model.path = data.path;
-  model.image = data.image; 
-  model.location = data.location; 
+  model.image = data.image;
+  model.location = data.location;
   model.description = data.description;
   model.details = data.details;
   model.features = data.features;
-  model.items = data.items; 
-  model.tags = data.tags; 
+  model.items = data.items;
+  model.tags = data.tags;
   model.network = data.network;
   return model;
 
@@ -1753,15 +1876,15 @@ function buildAnnouncementGroupModel(req) {
 
 function buildAnnouncementModel(req) {
 
-  // Name	image	Location	Description	Tag	Details	Features	
+  // Name	image	Location	Description	Tag	Details	Features
   var data = modelhelper.parse(req);
   console.log('buildAnnouncementModel data : '+JSON.stringify(data));
   var model = {};
   model.name= data.name;
   model.category= data.category;
   model.path = data.path;
-  model.image = data.image; 
-  model.location = data.location; 
+  model.image = data.image;
+  model.location = data.location;
   model.description = data.description;
   model.details = data.details;
   model.featured = data.featured;
@@ -1769,7 +1892,7 @@ function buildAnnouncementModel(req) {
   model.icon = data.icon;
   model.scanCode = data.scanCode;
   model.features = data.features;
-  model.tags = data.tags; 
+  model.tags = data.tags;
   model.network = data.network;
   return model;
 
@@ -1793,21 +1916,21 @@ function fileExtension(fileName) {
 }
 
 function testComplete(data) {
-    
+
         var currentChunkNumber = parseInt(data.flowChunkNumber);
         var totalChunks = parseInt(data.flowTotalChunks);
         var identifier = data.flowIdentifier;
-        
+
         if (currentChunkNumber < totalChunks) {
             return;
         }
         console.log('testComplete currentChunkNumber : '+currentChunkNumber+' , totalChunks : '+totalChunks);
         var fileName = data.flowFilename;
-        
+
         var filepath = data.filepath;
         var currentTestChunk = 1;
         var chunkFilename = flow.gcf(currentTestChunk, identifier);
-        
+
         var cleanComplete = function(id) {
             console.log('clean complete for : '+id);
         }
@@ -1825,7 +1948,7 @@ function testComplete(data) {
             flow.clean(identifier, { 'onDone' : cleanComplete })
             console.log('assembleComplete : '+JSON.stringify(data));
             if (stringStartsWith(data.mimetype, 'image')) {
-                
+
                 // TODO : this is an issue ( serialization )
 //                ppHash(data);
 //                ppThumb(data);
@@ -1848,7 +1971,7 @@ function testComplete(data) {
 //                            });
 //                        }
                     }, function (err, results) {
-                       console.log("postprocessing ... : "+JSON.stringify(results)); 
+                       console.log("postprocessing ... : "+JSON.stringify(results));
                        data.md5 = results.hash;
 //                       data.thumb = results.thumb;
                        var width = 0, height = 0;
@@ -1860,7 +1983,7 @@ function testComplete(data) {
                        data.width =   parseInt(width);
                        data.height =  parseInt(height);
                        if (!data.duration) {
-                          data.duration = 12; 
+                          data.duration = 12;
                        }
                        if (!data.id)  {
                           Asset.create( data ).exec(function(e, asset) {
@@ -1919,7 +2042,7 @@ function testComplete(data) {
                                 console.log("post processing for media, found an error : "+err);
                                 return;
                             }
-                            console.log("postprocessing ... : "+JSON.stringify(results)); 
+                            console.log("postprocessing ... : "+JSON.stringify(results));
                             data.md5 = results.hash;
                             data.duration = results.duration;
                             var width = results.dim.width;
@@ -2057,7 +2180,7 @@ function ppSize(media, cb) {
             }
             //json = JSON.parse(JSON.stringify(r).split('"_id":').join('"id":'));
 
-            
+
     		cb( null, json );
     	}
       // console.log('finished processing duration for : ' + media.id);
@@ -2124,7 +2247,7 @@ function pwd() {
     var sys = require('sys')
     var exec = require('child_process').exec;
     function puts(error, stdout, stderr) { sys.puts(stdout) }
-    exec("ls -la", puts);    
+    exec("ls -la", puts);
 }
 
 function convert(media) {
@@ -2132,7 +2255,7 @@ function convert(media) {
     var sys = require('sys')
     var exec = require('child_process').exec;
     function puts(error, stdout, stderr) { sys.puts(stdout) }
-    exec("/usr/local/bin/convert ", puts);    
+    exec("/usr/local/bin/convert ", puts);
     // convert -thumbnail 200x220^^ -gravity center -extent 200x200 -quality 80 $FN $filename-thumb.png
 }
 
@@ -2142,7 +2265,7 @@ function propagateMediaChange(media) {
     sails.log.debug('looking for layoutsWithMedia : '+mid);
     layoutWithMedia(mid,function(layouts) {
         if (layouts) {
-            
+
             for (var lidx = 0; lidx < layouts.length; lidx++) {
                 var needToSave = false;
                 var layout = layouts[lidx];
@@ -2183,7 +2306,7 @@ function propagateMediaChange(media) {
                                 layoutIdList.push(layoutId);
                                 propagateScheduleChanges(layoutIdList);
                                 console.log('back from propagateScheduleChanges');
-                                
+
                             }
                         });
                     }
@@ -2224,7 +2347,7 @@ function propagateLayoutChange(layout) {
                 if (needToSaveWheel) {
                     Wheel.update( { id: wheelId }, wheel ).exec( function ( err, data ) {
                         // Error handling
-                        
+
                         if ( err ) {
                             console.log("saveLayout: update found an error : "+err);
                         } else {
@@ -2248,7 +2371,7 @@ function propagateLayoutChange(layout) {
 //                                if (leid == layoutElement.id.toString()) {
                                     var leType = schedule.leType;
                                     console.log("updating schedule with type : "+leType);
-                                
+
                                     switch (leType) {
                                         case 'wheel':
                                             console.log('looking for wheel with id : '+leid);
@@ -2450,16 +2573,16 @@ function propagateScheduleChanges(layoutElementIdlist) {
                 });
             } else {
                 // if no schedules found for this layoutElement, then complete for this lid
-                cb2(null);                  
+                cb2(null);
             }
         });
     }, function(err2) {
         // outside loop is done here, let the caller know
         console.log('propagateScheduleChanges is complete.');
     });
-    
+
 }
-    
+
 
 //scheduleWithLayoutElement(lid, function(schedules) {
 //        if (schedules) {
@@ -2487,7 +2610,7 @@ function propagateScheduleChanges(layoutElementIdlist) {
  function layoutWithMedia(mid, cb) {
         var filter ={ 'regions.entries.id' : mid };
 //        console.log('DSNController searching for layouts containing media with : '+mid);
-        Layout.find(filter).exec(function(err, contents) { 
+        Layout.find(filter).exec(function(err, contents) {
           if (err) { sails.log.warn(err); }
           sails.log.debug("Found layouts with media : " + contents.length);
           cb(contents);
@@ -2519,5 +2642,3 @@ function propagateScheduleChanges(layoutElementIdlist) {
           cb( contents );
         });
   }
-
-  
